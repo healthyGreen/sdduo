@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="notice">
+
+				<!-- F_NOTICE - 테이블 이름 -->	
+
+	<resultMap type="noticeModel" id="noticeModelRes">
+		<result property="n_number" column="n_number" />		<!-- (시퀀스) 게시판 번호 -->
+		<result property="n_title" column="n_title" />			<!-- 글제목 -->
+		<result property="n_name" column="n_name" />			<!-- 작성자 -->
+		<result property="n_date" column="n_date" />			<!-- 작성일 -->
+		<result property="n_hit" column="n_hit" />				<!-- 조회수 -->
+		<result property="n_content" column="n_content" />		<!-- 내용 -->
+		<result property="n_org_image" column="n_org_image" />	<!-- 오리지날 이미지 네임 -->
+		<result property="n_sav_image" column="n_sav_image" />	<!-- 세이브 이미지 네임 -->
+	</resultMap>
+		
+	<!-- 글목록  -->
+	<select id="noticeList" resultMap="noticeModelRes">
+			SELECT * FROM F_NOTICE 
+			ORDER BY n_number DESC
+	</select>
+	
+	<!-- 글쓰기 -->
+	<insert id="noticeWrite" parameterType="Integer">
+			INSERT INTO F_NOTICE
+			(
+			n_number,
+			n_title,
+			n_name,
+			n_date,
+			n_hit,
+			n_content,
+			n_org_image,
+			n_sav_image
+			)
+			VALUES
+			(
+			SEQ_F_N_NUMBER.NEXTVAL,
+			 #{n_title},
+			 #{n_name},
+			 SYSDATE,
+			 '0',
+			 #{n_content},
+			 #{n_org_image},
+			 #{n_sav_image}
+			)
+	</insert>
+
+	<!-- 조회수 1증가 -->
+	<update id="noticeUpdateReadcount" parameterType="Integer">
+			UPDATE F_NOTICE 
+			SET
+				n_hit = n_hit + 1
+			WHERE
+				n_number = #{n_number}	
+	</update>
+	
+	<!-- 글 상세보기 -->
+	<select id="noticeView" resultMap="noticeModelRes" parameterType="Integer">
+			SELECT * FROM F_NOTICE 
+			WHERE n_number = #{n_number}
+	</select>
+
+	<!-- 글 하나 불러오기 -->
+	<select id="noticeSelect" resultMap="noticeModelRes" parameterType="Integer">
+			SELECT * FROM F_NOTICE 
+			WHERE n_number = #{n_number}
+	</select>
+	
+	<!-- 글수정 -->
+
+	<update id="noticeModify" parameterType="noticeModel">
+			UPDATE F_NOTICE
+			SET
+			n_title = #n_title#,
+			n_name = #n_name#,
+			n_date = SYSDATE,
+			n_content = #n_content#,
+			n_org_image = #n_org_image#,
+			n_sav_image = #n_sav_image#
+			WHERE
+				n_number = #{n_number}	
+	</update>
+
+	<!-- 글삭제 -->
+	<delete id="noticeDelete" parameterType="Integer">
+			DELETE FROM F_NOTICE WHERE n_number=#{n_number}
+	</delete>
+
+	<!-- 제목검색 -->
+	<select id="noticeSearch0" resultMap="noticeModelRes" parameterType="String">
+		SELECT * FROM F_NOTICE
+		 WHERE n_title like #{search}
+		 ORDER BY n_number DESC
+	</select>
+	
+	<!-- 내용검색 -->
+	<select id="noticeSearch1" resultMap="noticeModelRes" parameterType="String">
+		SELECT * FROM F_NOTICE
+		WHERE n_content like #{search}
+		ORDER BY n_number DESC
+	</select>
+
+</mapper>

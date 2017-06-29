@@ -14,7 +14,16 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
         <setting name="defaultStatementTimeout"   value="25000"/>  
 	</settings>
 	
+	<!-- ModelMapping -->
 	<typeAliases>
 		<typeAlias type="consultingModel" alias="sd.duo.consulting.consultingModel"/>
+		<!--  Notice board  -->
+		<typeAlias type="sd.duo.notice.AdminNoticeModel" alias="noticeModel" />
 	</typeAliases>	
+	
+	<!-- SQL 정의한 xml문서 Mapping -->
+	<mappers>
+		<mapper resource="mybatis/config/noticeSQL.xml" />
+	</mappers>
+	
 </configuration>
