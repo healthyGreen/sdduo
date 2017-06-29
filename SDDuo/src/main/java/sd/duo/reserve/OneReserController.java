@@ -1,5 +1,7 @@
 package sd.duo.reserve;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,6 +12,10 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping(value="/OneReserve")
 public class OneReserController {
+	
+	@Resource
+	public OneReserService oneReserService;
+	ModelAndView mv = new ModelAndView();
 	
 	// 개인예약 폼
 	@RequestMapping(value="/OneReserveForm.do")
@@ -22,17 +28,18 @@ public class OneReserController {
 		return mav;
 	}
 	
-	/*@RequestMapping(value="/OneReservePro.do")
+	// 개인예약 처리
+	@RequestMapping(value="/OneReservePro.do")
 	public ModelAndView reserPro(@ModelAttribute("oneReserModel") OneReserModel oneReserModel, BindingResult result){
 		
-		new consultingValidator().validate(consultingmodel, result);
+		new OneReserValidator().validate(oneReserModel, result);
 		if(result.hasErrors()){
 			mv.setViewName("consultingForm");
 			return mv;
 		}
-		service.insertConsulting(consultingmodel);
-		mv.setViewName("redirect:consultingList.do");
+		oneReserService.insertOneReser(oneReserModel);
+		mv.setViewName("OneReserForm");
 		return mv;
 	}
-*/
+
 }
