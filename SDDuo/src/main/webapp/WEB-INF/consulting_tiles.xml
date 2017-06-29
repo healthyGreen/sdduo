@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+       
+<tiles-definitions>
+	<definition name="main" template="/WEB-INF/view/common/main.jsp">
+		<put-attribute name="header" value="/WEB-INF/view/common/header.jsp"/>
+		<put-attribute name="container" value="/WEB-INF/view/common/container.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/view/common/footer.jsp"/>
+	</definition>
+
+	<definition name="consultingForm" extends="main">
+		<put-attribute name="container" value="/WEB-INF/view/consulting/consultingForm.jsp"/>
+	</definition>
+	<definition name="consultingList" extends="main">
+		<put-attribute name="container" value="/WEB-INF/view/consulting/consultingList.jsp"/>
+	</definition>
+	<definition name="consultingModForm" extends="main">
+		<put-attribute name="container" value="/WEB-INF/view/consulting/consultingModifyForm.jsp"/>
+	</definition>
+	<definition name="consultingView" extends="main">
+		<put-attribute name="container" value="/WEB-INF/view/consulting/consultingModifyView.jsp"></put-attribute>
+	</definition>
+</tiles-definitions>

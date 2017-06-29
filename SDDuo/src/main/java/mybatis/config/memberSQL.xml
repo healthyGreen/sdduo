@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="member">
+	<resultMap type="memberModel" id="memberRes">
+		<result property="m_admin" column="m_admin" />
+		<result property="m_id" column="m_id" />
+		<result property="m_pass" column="m_pass" />
+		<result property="m_name" column="m_name" />
+		<result property="m_sex" column="m_sex" />
+		<result property="m_year" column="m_year" />
+		<result property="m_month" column="m_month" />
+		<result property="m_date" column="m_date" />
+		<result property="m_tongsinsa" column="m_tongsinsa" />
+		<result property="m_phone1" column="m_phone1" />
+		<result property="m_phone2" column="m_phone2" />
+		<result property="m_phone3" column="m_phone3" />
+		<result property="m_zipcode" column="m_zipcode" />
+		<result property="m_add1" column="m_add1" />
+		<result property="m_add2" column="m_add2" />
+		<result property="m_email" column="m_email" />
+		<result property="m_number" column="m_number" />
+		<result property="m_r_coupon" column="m_r_coupon" />
+	</resultMap>
+	
+	<!-- 공통 select -->
+	<sql id="select_all">
+		select * from F_MEMBER
+	</sql>
+	
+	<select id="selectAll" parameterType="int" resultMap="memberRes" >
+		<include refid="select_all" />
+	</select>
+	
+	<!-- 회원 정보 입력 -->
+	<insert id="insertMember" parameterType="memberModel">
+		insert into F_MEMBER
+		(m_number, m_id, m_pass, m_name, m_sex, m_year, m_month, m_date, m_tongsinsa, m_phone1, m_phone2, m_phone3, m_zipcode, m_add1, m_add2, m_email, m_admin, m_r_coupon)
+		values(
+		SEQ_M_NUMBER.nextval, 
+		)
+	</insert>
+	
+</mapper>
