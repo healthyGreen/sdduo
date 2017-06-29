@@ -11,8 +11,8 @@ public class MemberService implements MemberDao {
    private SqlSessionTemplate sqlSessionTemplate;
    
    @Override
-    public MemberModel memberLogin(MemberModel mem) {
-       return sqlSessionTemplate.selectOne("member.login", mem);
+    public MemberModel memberLogin(MemberModel member) {
+       return sqlSessionTemplate.selectOne("member.memberLogin", member);
     }
 
    @Override
@@ -21,14 +21,18 @@ public class MemberService implements MemberDao {
    }
 
    @Override
-   public Object insertMember(MemberModel mem) {
-      return sqlSessionTemplate.insert("member.insertMember", mem);
+   public Object insertMember(MemberModel member) {
+      return sqlSessionTemplate.insert("member.insertMember", member);
    }
    
    @Override
-   public MemberModel idFindByName(MemberModel member) {
-      return sqlSessionTemplate.selectOne("member.idfind", member);
+   public MemberModel idFind(MemberModel member) {
+      return sqlSessionTemplate.selectOne("member.idFind", member);
     }
+   @Override
+	public MemberModel pwFind(MemberModel member) {
+		 return sqlSessionTemplate.selectOne("member.pwFind", member);
+	}
     
    @Override
    public Object memberModify(MemberModel member) {
@@ -39,4 +43,11 @@ public class MemberService implements MemberDao {
    public Object memberDelete(String id) {
       return sqlSessionTemplate.delete("member.deleteMember", id);
     }
+   
+   @Override
+   public MemberModel memberList(MemberModel member){
+	  return sqlSessionTemplate.selectOne("member.memberList", member);
+   }
+
+	
 }
