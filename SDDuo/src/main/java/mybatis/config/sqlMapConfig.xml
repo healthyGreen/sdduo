@@ -16,14 +16,24 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 	
 	<!-- ModelMapping -->
 	<typeAliases>
-		<typeAlias type="consultingModel" alias="sd.duo.consulting.consultingModel"/>
-		<!--  Notice board  -->
+	<!-- Member -->
+		<typeAlias type="sd.duo.member.MemberModel" alias="memberModel" />
+	<!-- consulting -->
+		<typeAlias type="sd.duo.consulting.consultingModel" alias="consultingModel" />
+		
+	<!--  Notice -->
 		<typeAlias type="sd.duo.notice.AdminNoticeModel" alias="noticeModel" />
-	</typeAliases>	
+	
+	<!-- Reserve -->
+		<typeAlias type="sd.duo.reserve.OneReserModel" alias="OnewReserModel" />
+		
+	</typeAliases>
 	
 	<!-- SQL 정의한 xml문서 Mapping -->
 	<mappers>
 		<mapper resource="mybatis/config/noticeSQL.xml" />
+		<mapper resource="mybatis/config/reserveSQL.xml" />
+		<mapper resource="mybatis/config/memberSQL.xml" />
 	</mappers>
 	
 </configuration>
