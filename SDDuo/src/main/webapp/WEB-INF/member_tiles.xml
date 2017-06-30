@@ -53,5 +53,21 @@
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/member/findPwResult.jsp" />
 	</definition>
+	<definition name="myInfoView" extends="main">
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/member/myInfoView.jsp" />
+	</definition>
+	<definition name="myInfoModifyForm" extends="main">
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/member/myInfoModifyForm.jsp" />
+	</definition>
+	<definition name="checkPassForm" extends="main">
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/member/checkPassForm.jsp" />
+	</definition>
+	<definition name="existPassForm" extends="main">
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/member/existPassForm.jsp" />
+	</definition>
 	
 </tiles-definitions>       

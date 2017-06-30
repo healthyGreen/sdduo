@@ -1,12 +1,28 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-</body>
-</html>
+
+		<div class="footer">
+				<div class="footer-top">
+					<div class="footer-top-inbox">
+						<ul>
+							<li>회사소개</li>
+							<li>사이트이용약관</li>
+							<li>개인정보처리방침</li>
+							<li>임직원서비스</li>
+						</ul>
+					</div>
+				</div>
+				<div class="footer-bottom">
+					<div class="footer-bottom-inbox">
+						<h2><img src="images/common/b_logo.gif"></h2>
+						<p>
+							고객서비스센터 080-3243-2312<br>
+							(주)마이스토리 서울특별시 강남구 테헤란로길 52길 17 역삼동 이에스타워 10층 사업자등록번호:505-88-00158 홈페이지 관리책임자:안영미<br>
+							<br/>
+							Copyright ⓒ MYSTORY All Rights Reserved
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
