@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+       
+<tiles-definitions>
+	<definition name="main" template="/WEB-INF/views/common/main.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/views/common/container.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
+	</definition>
+
+	<!-- OneReser -->
+	<definition name="oneReserForm" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/reservation/oneReserForm.jsp"/>
+	</definition>
+	
+	<definition name="oneReserList" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/reservation/oneReserList.jsp"/>
+	</definition>
+	
+</tiles-definitions>
+
