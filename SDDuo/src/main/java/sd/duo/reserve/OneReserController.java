@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -18,27 +19,23 @@ public class OneReserController {
 	ModelAndView mv = new ModelAndView();
 	
 	// 개인예약 폼
-	@RequestMapping(value="/OneReserveForm.do")
-	public ModelAndView reserForm() {
+	@RequestMapping(value="/OneReserveForm.do", method = RequestMethod.GET)
+	public String reserForm() {
 		
-		ModelAndView mav = new ModelAndView();
-		
-		mav.setViewName("oneReserForm");
-		
-		return mav;
+		return "/reservation/oneReserForm";
 	}
 	
 	// 개인예약 처리
-	@RequestMapping(value="/OneReservePro.do")
+	@RequestMapping(value="/OneReserveForm.do", method = RequestMethod.POST)
 	public ModelAndView reserPro(@ModelAttribute("oneReserModel") OneReserModel oneReserModel, BindingResult result){
 		
 		new OneReserValidator().validate(oneReserModel, result);
 		if(result.hasErrors()){
-			mv.setViewName("consultingForm");
+			mv.setViewName("/reservation/oneReserForm");
 			return mv;
 		}
 		oneReserService.insertOneReser(oneReserModel);
-		mv.setViewName("OneReserForm");
+		mv.setViewName("/reservation/oneReserList");
 		return mv;
 	}
 

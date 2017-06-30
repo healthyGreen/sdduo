@@ -14,7 +14,7 @@ public class OneReserService implements OneReserDAO{
 	@Override
 	public void insertOneReser(OneReserModel oneReserModel) {
 		// TODO Auto-generated method stub
-		sqlSessionTemplate.selectOne("", oneReserModel);
+		sqlSessionTemplate.selectOne("reserve.OneReserve", oneReserModel);
 	}
 	
 
