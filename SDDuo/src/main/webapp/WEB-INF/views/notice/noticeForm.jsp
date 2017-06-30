@@ -64,8 +64,10 @@ function reviewList() {
 									${session_member_name}
 								</strong>
 							</td>
-							<input type="textarea" name="n_name" value="${noticeModel.n_name}"/>
+							<td colspan=3>
+							<input type="textarea" name="n_name" value="${noticeModel.n_name}">
 							<font color="red"><form:errors path="n_name" /></font>
+							</td>
 						</tr>
 						
 						<tr><!-- 글내용 -->

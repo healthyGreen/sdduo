@@ -8,10 +8,12 @@ public class AdminNoticeModel {
 	private String n_title;
 	private String n_name;
 	private Date n_date;
-	private int n_hit;
+	private int n_hit=0;
 	private String n_content;
-	private String n_org_image;
-	private String n_sav_image;
+	private String n_org_image="";
+	private String n_sav_image="";
+	
+	
 	
 	
 	public int getN_number() {

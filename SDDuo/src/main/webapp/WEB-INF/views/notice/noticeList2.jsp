@@ -19,19 +19,19 @@
     <title>상담해듀오 admin</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="/rainbow/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="/rainbow/resources/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="/rainbow/resources/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/dist/css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="/rainbow/resources/vendor/morrisjs/morris.css" rel="stylesheet">
+    <link href="/vendor/morrisjs/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="/rainbow/resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -139,35 +139,68 @@
 						<th>조회수</th>
 					</tr>
 
+				</tbody>
+				<tbody>
+					<c:forEach var="list" items="${noticeList}">
+						<c:url var="viewURL" value="noticeView.do" >
+							<c:param name="n_number" value="${list.n_number }" />
+						    <c:param name="currentPage" value="${currentPage }" />
+						</c:url>
 					<tr>
-						<td>1</td>
-						<td class="subject"><img src="/images/sub/notice_icon.gif">&nbsp;<a href="./sub0203_view.html?idx=10">마이스토리 심리상담센터 홈페이지 GRAND OPEN</a></td>
-						<td>마이스토리</td>
-						<td>2016-04-20</td>
-						<td>245</td>
+						<td>${list.n_number}</td>
+						<td style="text-align:left;">
+							<a href="${viewURL}">${list.n_title}</a>
+						</td>
+						<td>${list.n_name}</td> 
+						<td><fmt:formatDate value="${list.n_date}" pattern="yyyy.MM.dd"/></td>
+						<td>
+							${list.n_hit}
+						</td>
 					</tr>
-
-					<tr>
-						<td>2</td>
-						<td class="subject"><a href="./sub0203_view.html?idx=3">마이스토리 상담사 윤리규정</a></td>
-						<td>마이스토리</td>
-						<td>2016-03-08</td>
-						<td>445</td>
-					</tr>
-
-					<tr>
-						<td>3</td>
-						<td class="subject"><a href="./sub0203_view.html?idx=1">초기상담  예약금 및 환불규정</a></td>
-						<td>마이스토리</td>
-						<td>2016-03-02</td>
-						<td>647</td>
-					</tr>
+					</c:forEach>
 
 				</tbody>
 			</table>
-			<div style="margin-top:40px; float: right;"><button type="button" class="btn btn-outline btn-primary">글쓰기</button></div>
+			<div style="margin-top:40px; float: right;">
+			
+			<c:if test="${session_member_name == 'admin' }">
+			<button type="button" onclick="onWrite()" class="btn btn-primary">글쓰기</button>
+			</c:if>
+			<button type="button" onclick="onList()" class="btn btn-primary">목록</button>
+			
+			</div>
             </div>
             <!-- /.row -->
+            
+            <c:if test="${fn:length(noticeList) le 0}">
+				<br />
+				<center>등록된 게시물이 없습니다</center>
+				<br />
+			</c:if>
+
+		<div class="row">
+			<div style="text-align: center;">
+				<div id="dataTables-example_filter" class="dataTables_filter">
+
+					<form action="">
+						<select class="slcte" name="searchNum" id="searchNum">
+							<option value="0">제목</option>
+							<option value="1">내용</option>
+						</select> <input class="txte" type="text" name="isSearch" id="isSearch" />
+						<span class="btn btnC_03 btnP_04 mr10"> <input
+							type="submit" value="검색"
+							style="font-size: 11px; padding-bottom: 20; vertical-align: middle;" />
+						</span>
+					</form>
+					
+				</div>
+			</div>
+		</div>
+		
+		<div class="paging">
+			${pagingHtml}
+		</div>
+            
         </div>
         <!-- /#page-wrapper -->
 
@@ -192,5 +225,13 @@
     <script src="/rainbow/resources/dist/js/sb-admin-2.js"></script>
 
 </body>
+
+<script type="text/javascript">
+
+$('.searchOption').val($('.searchOptionVal').val());
+var onWrite = function(){
+	location.href = 'noticeWrite.do'; 
+};
+</script>
 
 </html>

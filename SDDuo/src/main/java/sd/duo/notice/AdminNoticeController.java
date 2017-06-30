@@ -53,18 +53,18 @@ public class AdminNoticeController {
 			
 			ModelAndView mav = new ModelAndView();
 			
-			/*if(request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty() || request.getParameter("currentPage").equals("0")) {
+			if(request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty() || request.getParameter("currentPage").equals("0")) {
 	            currentPage = 1;
 	        } else {
 	            currentPage = Integer.parseInt(request.getParameter("currentPage"));
 	        }
-*/
+
 			List<AdminNoticeModel> noticeList = noticeService.noticeList();
 			
 			System.out.println("size"+noticeList.size());
 			
 			
-		/*	String isSearch = request.getParameter("isSearch");
+			String isSearch = request.getParameter("isSearch");
 			if(isSearch != null) isSearch = new String(isSearch.getBytes("8859_1"), "UTF-8");
 			
 			
@@ -96,11 +96,11 @@ public class AdminNoticeController {
 				mav.addObject("noticeList", noticeList);
 				mav.setViewName("noticeList");
 				return mav;
-			}*/
+			}
 			
-			/*noticeList = noticeService.noticeList();*/
+			noticeList = noticeService.noticeList();
 			
-			/*totalCount = noticeList.size();
+			totalCount = noticeList.size();
 			
 			page = new Paging(currentPage, totalCount, blockCount, blockPage, "noticeList");
 			pagingHtml=page.getPagingHtml().toString();  
@@ -114,7 +114,7 @@ public class AdminNoticeController {
 			
 			mav.addObject("totalCount", totalCount);
 			mav.addObject("pagingHtml", pagingHtml);
-			mav.addObject("currentPage", currentPage);*/
+			mav.addObject("currentPage", currentPage);
 			mav.addObject("noticeList", noticeList);
 			mav.setViewName("noticeList");
 			return mav;
@@ -180,6 +180,8 @@ public class AdminNoticeController {
 		      noticeModel.setN_sav_image("NULL");		
 		      }
 				
+		
+		System.out.println("image:"+noticeModel.getN_org_image());
 		noticeService.noticeWrite(noticeModel);
 			
 		mav.setViewName("redirect:noticeList.do");
