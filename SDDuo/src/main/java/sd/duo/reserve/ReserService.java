@@ -6,16 +6,20 @@ import org.springframework.stereotype.Service;
 import org.mybatis.spring.SqlSessionTemplate;
 
 @Service(value="oneReserService")
-public class OneReserService implements OneReserDAO{
+public class ReserService implements ReserDAO{
 	
 	@Resource(name="sqlSessionTemplate")
 	   private SqlSessionTemplate sqlSessionTemplate;
 
 	@Override
-	public void insertOneReser(OneReserModel oneReserModel) {
+	public int insertOneReser(OneReserModel oneReserModel) {
 		// TODO Auto-generated method stub
-		sqlSessionTemplate.selectOne("reserve.OneReserve", oneReserModel);
+		return sqlSessionTemplate.insert("reserve.OneReserve", oneReserModel);
 	}
 	
+	@Override
+	public int insertGroupReser(GroupReserModel groupReserModel){
+		return sqlSessionTemplate.insert("reserve.GroupReserve", groupReserModel);
+	}
 
 }

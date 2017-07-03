@@ -7,17 +7,17 @@ public class OneReserModel {
 	int pr_number;
 	int pr_hour;
 	int pr_minute;
-	int pr_year;
-	int pr_month;
-	int pr_day;
+	int pr_year=2017;
+	int pr_month=07;
+	int pr_day=03;
 	String pr_center;
-	String m_id;
+	String m_id="test";
 	String pr_name;
 	int pr_phone1;
 	int pr_phone2;
 	int pr_phone3;
 	String pr_reason;
-	String pr_status;
+	int pr_status=0;
 	Date pr_date;
 	
 	public int getPr_number() {
@@ -98,10 +98,10 @@ public class OneReserModel {
 	public void setPr_reason(String pr_reason) {
 		this.pr_reason = pr_reason;
 	}
-	public String getPr_status() {
+	public int getPr_status() {
 		return pr_status;
 	}
-	public void setPr_status(String pr_status) {
+	public void setPr_status(int pr_status) {
 		this.pr_status = pr_status;
 	}
 	public Date getPr_date() {
