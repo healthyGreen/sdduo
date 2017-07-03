@@ -26,7 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="m_number" column="m_number" />
 		<result property="m_r_coupon" column="m_r_coupon" />
 	</resultMap>
-	
+
 	<!-- 공통 select -->
 	<sql id="select_all">
 		select * from F_MEMBER

@@ -5,22 +5,24 @@
        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
        
 <tiles-definitions>
-	<definition name="main" template="/WEB-INF/view/common/main.jsp">
-		<put-attribute name="header" value="/WEB-INF/view/common/header.jsp"/>
-		<put-attribute name="container" value="/WEB-INF/view/common/container.jsp"/>
-		<put-attribute name="footer" value="/WEB-INF/view/common/footer.jsp"/>
-	</definition>
+<!--   	<definition name="main" template="/WEB-INF/views/common/main.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
+		<put-attribute name="container" value="/WEB-INF/views/common/container.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
+	</definition> -->
 
-	<definition name="consultingForm" extends="main">
-		<put-attribute name="container" value="/WEB-INF/view/consulting/consultingForm.jsp"/>
+	<definition name="consultingForm" template="/WEB-INF/views/consulting/consultingForm.jsp">
 	</definition>
-	<definition name="consultingList" extends="main">
-		<put-attribute name="container" value="/WEB-INF/view/consulting/consultingList.jsp"/>
+	
+	<definition name="consultingList" template="/WEB-INF/views/consulting/consultingList.jsp">
+	</definition>
+<!-- 	<definition name="consultingList" extends="main">
+		<put-attribute name="container" value="/WEB-INF/views/consulting/consultingList.jsp"/>
 	</definition>
 	<definition name="consultingModForm" extends="main">
-		<put-attribute name="container" value="/WEB-INF/view/consulting/consultingModifyForm.jsp"/>
+		<put-attribute name="container" value="/WEB-INF/views/consulting/consultingModifyForm.jsp"/>
 	</definition>
-	<definition name="consultingView" extends="main">
-		<put-attribute name="container" value="/WEB-INF/view/consulting/consultingModifyView.jsp"></put-attribute>
-	</definition>
+	<definition name="consultingView" extends="main"> 
+		<put-attribute name="container" value="/WEB-INF/views/consulting/consultingModifyView.jsp"/>
+	</definition>  -->
 </tiles-definitions>

@@ -17,7 +17,7 @@ import sd.duo.common.Paging;
 
 @Controller
 @RequestMapping(value="/consulting")
-public class consultingController {/*
+public class consultingController {
 	@Resource
 	public consultingService service;
 	ModelAndView mv = new ModelAndView();
@@ -29,14 +29,15 @@ public class consultingController {/*
 	
 	@RequestMapping(value="/consultingPro.do")
 	public ModelAndView consultingPro(@ModelAttribute("consulting") consultingModel consultingmodel, BindingResult result){
-		
+	/*	
 		new consultingValidator().validate(consultingmodel, result);
 		if(result.hasErrors()){
 			mv.setViewName("consultingForm");
 			return mv;
-		}
+		}*/
+		consultingmodel.setC_re_status(1);
 		service.insertConsulting(consultingmodel);
-		mv.setViewName("redirect:consultingList.do");
+		mv.setViewName("redirect:/consulting/consultingList.do");
 		return mv;
 	}
 	
@@ -80,13 +81,21 @@ public class consultingController {/*
 		int consultingNum = consultingmodel.getC_number();
 		if(result.hasErrors()){
 			//mv.addObject("consultingNum", consultingmodel.getC_number());
-			mv.setViewName("redirect:consultingModifyForm.do?consultingNum="+consultingNum);
+			mv.setViewName("redirect:/consulting/consultingModifyForm.do?consultingNum="+consultingNum);
 			return mv;
 		}
 		else{
 			service.modConsulting(consultingmodel);
-			mv.setViewName("redirect:consultingView.do?consultingNum="+consultingNum); // ?ã§?ù¥?†â?ä∏?ïòÍ∏? ÏΩòÏÑ§?åÖ?úºÎ°?(Î≤àÌò∏ ?ÑòÍ≤®Ï£ºÎ©¥ÏÑú )
+			mv.setViewName("redirect:/consulting/consultingView.do?consultingNum="+consultingNum); // ?ã§?ù¥?†â?ä∏?ïòÍ∏? ÏΩòÏÑ§?åÖ?úºÎ°?(Î≤àÌò∏ ?ÑòÍ≤®Ï£ºÎ©¥ÏÑú )
 			return mv;
 		}
-	}*/
+	}
+	
+	@RequestMapping(value="/consultingDeletePro.do")
+	public ModelAndView consultingDeletePro(HttpServletRequest request, consultingModel consultingmodel){
+		int c_number = Integer.parseInt(request.getParameter("consultingNum"));
+		service.deleteConsulting(c_number);
+		mv.setViewName("redirect:/consulting/consultingList.do");
+		return mv;
+	}
 }

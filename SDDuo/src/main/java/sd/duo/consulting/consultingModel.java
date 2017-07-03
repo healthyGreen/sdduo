@@ -10,7 +10,7 @@ public class consultingModel {
 	private String c_pass;
 	private String c_m_id;
 	private Date c_date;
-	private String c_re_status;
+	private int c_re_status;
 	private int c_ref;
 	
 	public int getC_number() {
@@ -49,10 +49,11 @@ public class consultingModel {
 	public void setC_date(Date c_date) {
 		this.c_date = c_date;
 	}
-	public String getC_re_status() {
+	
+	public int getC_re_status() {
 		return c_re_status;
 	}
-	public void setC_re_status(String c_re_status) {
+	public void setC_re_status(int c_re_status) {
 		this.c_re_status = c_re_status;
 	}
 	public int getC_ref() {

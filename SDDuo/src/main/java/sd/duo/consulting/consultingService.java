@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class consultingService implements consultingDao {
-	/*@Resource(name="sqlSessionTemplate")
+	@Resource(name="sqlSessionTemplate")
 	public SqlSessionTemplate sqlSessionTemplate;
 	
 	@Override
@@ -26,8 +26,7 @@ public class consultingService implements consultingDao {
 
 	@Override
 	public int insertConsulting(consultingModel consultingmodel) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSessionTemplate.insert("consulting.insertConsulting", consultingmodel);
 	}
 
 	@Override
@@ -46,6 +45,6 @@ public class consultingService implements consultingDao {
 	public int totalConsultingNum() {
 		// TODO Auto-generated method stub
 		return 0;
-	}*/
+	}
 	
 }

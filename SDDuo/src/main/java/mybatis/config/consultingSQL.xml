@@ -1,1 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="consulting">
+
+	<resultMap type="consultingModel" id="consultingRes">
+		<result property="c_number" column="c_number"/>
+		<result property="c_title" column="c_title"/>
+		<result property="c_content" column="c_content"/>
+		<result property="c_pass" column="c_pass"/>
+		<result property="c_m_id" column="c_m_id"/>
+		<result property="c_date" column="c_date"/>
+		<result property="c_re_status" column="c_re_status"/>
+		<result property="c_ref" column="c_ref"/>
+	</resultMap>
+		
+	<!-- 글목록  -->
+	
+	<insert id="insertConsulting" parameterType="consultingModel">
+		insert into f_consulting(c_number, c_title, c_content, c_pass, c_m_id, c_date, c_re_status, c_ref) 
+		values(seq_f_c_number.nextval, #{c_title}, #{c_content}, #{c_pass}, #{c_m_id}, sysdate, #{c_re_status}, seq_f_c_number.CURRVAL);
+	</insert>
+
+</mapper>
+
