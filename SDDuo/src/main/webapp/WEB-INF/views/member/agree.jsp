@@ -20,6 +20,7 @@
    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.js"></script>
    <script type="text/javascript" src="../../js/tab.js"></script>
    <script type="text/javascript" src="../../js/gallery.js"></script> -->
+ 
    <script type="text/javascript">
        // <![CDATA[
        $(document).ready(function () {
@@ -30,19 +31,19 @@
       function check_agreement(){
          var frm = document.getElementById("frm");
       
-         if(frm.elements["agreement[]"][0].checked == false){
+         if(joinCheck.elements["agreement[]"][0].checked == false){
             alert("이용약관의 동의하셔야 합니다.");
             frm.elements["agreement[]"][0].focus();
             return;
-         }else if(frm.elements["agreement[]"][1].checked == false){
+         }else if(joinCheck.elements["agreement[]"][1].checked == false){
             alert("개인정보취급방침에 동의하셔야 합니다.");
-            frm.elements["agreement[]"][1].focus();
+            joinCheck.elements["agreement[]"][1].focus();
             return;
          }
       
-         frm.method = "post";
-         frm.action = "joinForm.do";
-         frm.submit();
+         joinCheck.method = "post";
+         joinCheck.action = "joinForm.do";
+         joinCheck.submit();
       }
       
       function all_check(_this, chk_name){
@@ -74,7 +75,7 @@
 
 
  <body>
-
+<form name='joinCheck' action="joinForm.do">
       <?include "../../inc/quick.html"?>
 
 
@@ -208,11 +209,11 @@
          </div>
          <div class="join-check-inbox">
             <div class="join-check">
-               <input type="checkbox" id="allChk" name="allChk" class="join-chk"> <label for="allChk">이용약관, 개인정보처리방침에 모두 동의합니다.</label>
+               <input type="checkbox" id="allChk"onclick="all_check(this, 'agreement[]')" value="Y "> <label for="allChk">이용약관, 개인정보처리방침에 모두 동의합니다.</label>
             </div>
             <div class="clause-box">
-               <!-- <p class="clause-title1">이용약관</p>
-               <p class="clause-sub-title">이용약관을 반드시 읽어보신 후 동의해주시면 회원가입을 학실 수 있습니다.</p>
+               <p class="clause-title1">이용약관</p>
+               <p class="clause-sub-title">이용약관을 반드시 읽어보신 후 동의해주시면 회원가입을 하실 수 있습니다.</p>
                <div class="clause-txt-box">
                   <span>[제1조 (목적)] </span><br>
 
@@ -551,8 +552,8 @@
 (시행일) 이 약관은 2015년 11월 12일부터 시행합니다.<br>
                </div>
                <ul class="clause-radio">
-                  <li><input type="radio" class="radioCheck" title="" value="Y" id="agree1_ok" name="agree1"><label for="agree1_ok">동의함</label></li>
-                  <li><input type="radio" class="radioCheck" title="" value="N" id="agree1_no" name="agree1"><label for="agree1_no">동의하지 않음</label></li>
+                  <li><input type="radio" class="radioCheck" title="" value="Y" id="agree1_ok" name="agreement[]"><label for="agree1_ok">동의함</label></li>
+                  <li><input type="radio" class="radioCheck" title="" value="N" id="agree1_no" name="agreement[]"><label for="agree1_no">동의하지 않음</label></li>
                </ul>
             </div>
             <div class="clause-box">
@@ -573,8 +574,8 @@
                            </div>
 
                <ul class="clause-radio">
-                  <li><input type="radio" class="radioCheck" title="" value="Y" id="agree2_ok" name="agree2"><label for="agree2_ok">동의함</label></li>
-                  <li><input type="radio" class="radioCheck" title="" value="N" id="agree2_no" name="agree2"><label for="agree2_no">동의하지 않음</label></li>
+                  <li><input type="radio" class="radioCheck" title="" name="agreement[]" value="1" /><label for="agree2_yes">동의함</label></li>
+                  <li><input type="radio" class="radioCheck" title="" value="N" id="agree2_no" name="agreement[]"><label for="agree2_no">동의하지 않음</label></li>
                </ul>
             </div>
             <div class="clause-box">
@@ -589,8 +590,8 @@
 접속 빈도 파악 또는 회원의 서비스 이용에 대한 통계
                            </div>
                <ul class="clause-radio">
-                  <li><input type="radio" class="radioCheck" title="" value="Y" id="agree3_ok" name="agree3"><label for="agree3_ok">동의함</label></li>
-                  <li><input type="radio" class="radioCheck" title="" value="N" id="agree3_no" name="agree3"><label for="agree3_no">동의하지 않음</label></li>
+                  <li><input type="radio" class="radioCheck" title="" value="Y" id="agree3_ok" name="agreement[]"><label for="agree3_ok">동의함</label></li>
+                  <li><input type="radio" class="radioCheck" title="" value="N" id="agree3_no" name="agreement[]"><label for="agree3_no">동의하지 않음</label></li>
                </ul>
             </div>
             <div class="clause-box">
@@ -605,18 +606,19 @@
 - 본인확인에 관한 기록 : 6개월 (정보통신망 이용촉진 및 정보보호 등에 관한 법률) <br>
 - 웹사이트 방문 기록 : 3개월 (통신비밀보호법)
                            </div>
- -->
+ 
                <ul class="clause-radio">
-                  <li><input type="radio" class="radioCheck" title="" value="Y" id="agree4_ok" name="agree4"><label for="agree4_ok">동의함</label></li>
-                  <li><input type="radio" class="radioCheck" title="" value="N" id="agree4_no" name="agree4"><label for="agree4_no">동의하지 않음</label></li>
+                  <li><input type="radio" class="radioCheck" title="" value="Y" id="agree4_ok" name="agreement[]"><label for="agree4_ok">동의함</label></li>
+                  <li><input type="radio" class="radioCheck" title="" value="N" id="agree4_no" name="agreement[]"><label for="agree4_no">동의하지 않음</label></li>
                </ul>
             </div>
             <div class="join-check-center">
-               <input type="checkbox" id="allChk1" name="allChk1" class="join-chk"> <label for="allChk1">이용약관, 개인정보처리방침에 모두 동의합니다.</label>
+            <span class="chk_grp">
+               <input type="checkbox" id="allChk1" onclick="all_check(this, 'agreement[]')" value="Y "> <label for="allChk1">이용약관, 개인정보처리방침에 모두 동의합니다.</label>
             </div>
             <div class="join-conf-btn">
                <ul>
-                  <li><input type="button" class="submit" title="" value="확인" name="" onclick="check_agreement"></li>
+                  <li><input type="button" class="submit" title="" value="확인" name="" onclick="joinCheck"></li>
                   <li><input type="button" class="cancel" title="" value="취소" name="" onclick="jQuery.cancel();"></li>
                </ul>
             </div>
@@ -627,6 +629,7 @@
                
             </div>
          </div>
+         </form>
          <div class="footer">
             <div class="footer-top">
                <div class="footer-top-inbox">
@@ -653,4 +656,5 @@
       </div>
 
  </body>
+
 </html>
