@@ -106,10 +106,12 @@
 						
 					</div>
 						<div class="menu-wrap">
-								<c:if test="${session_member_name == 'admin' }">
+								<%-- <c:if test="${session_member_name == 'admin' }">
 									<button type="button" onclick="onWrite()"
 										class="btn btn-primary">쓰기</button>
-								</c:if>
+								</c:if> --%>
+								<button type="button" onclick="onWrite()"
+										class="btn btn-primary">쓰기</button>
 
 								<button type="button" onclick="onList()" class="btn btn-primary">목록</button>
 							</div>

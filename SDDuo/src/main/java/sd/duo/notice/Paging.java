@@ -11,17 +11,19 @@ public class Paging {
 	private int endCount;	 // 한 페이지에서 보여줄 게시글의 끝 번호
 	private int startPage;	 // 시작 페이지
 	private int endPage;	 // 마지막 페이지
+	private String name;
 
 	private StringBuffer pagingHtml;
 
 	// 페이징 생성자
 	public Paging(int currentPage, int totalCount, int blockCount,
-			int blockPage, String dogName) {
+			int blockPage, String name) {
 
 		this.blockCount = blockCount;
 		this.blockPage = blockPage;
 		this.currentPage = currentPage;
 		this.totalCount = totalCount;
+		this.name = name;
 
 		// 전체 페이지 수
 		totalPage = (int) Math.ceil((double) totalCount / blockCount);
@@ -50,7 +52,7 @@ public class Paging {
 		// 이전 block 페이지
 		pagingHtml = new StringBuffer();
 		if (currentPage > blockPage) {
-			pagingHtml.append("<a class='page prv' href=" + dogName + ".dog?currentPage=" + (startPage - 1) + ">");
+			pagingHtml.append("<a class='page prv' href=" + name + ".do?currentPage=" + (startPage - 1) + ">");
 			pagingHtml.append("&lt;");
 			pagingHtml.append("</a>");
 		}
@@ -65,7 +67,7 @@ public class Paging {
 				pagingHtml.append(i);
 				pagingHtml.append("</strong>");
 			} else {
-				pagingHtml.append("<a class='page' href=" + dogName + ".dog?currentPage=");
+				pagingHtml.append("<a class='page' href=" + name + ".do?currentPage=");
 				pagingHtml.append(i);
 				pagingHtml.append(">");
 				pagingHtml.append(i);
@@ -75,14 +77,14 @@ public class Paging {
 
 		// 다음 block 페이지
 		if (totalPage - startPage >= blockPage) {
-			pagingHtml.append("<a class='page next' href=" + dogName + ".dog?currentPage=" + (endPage + 1) + ">");
+			pagingHtml.append("<a class='page next' href=" + name + ".do?currentPage=" + (endPage + 1) + ">");
 			pagingHtml.append("&gt;");
 			pagingHtml.append("</a>");
 		}
 	}
 
 	// Search있는 생성자
-	public Paging(int currentPage, int totalCount, int blockCount, int blockPage,String dogName, int searchNum, String isSearch){
+	public Paging(int currentPage, int totalCount, int blockCount, int blockPage,String name, int searchNum, String isSearch){
 		
 		this.blockCount = blockCount;
 		this.blockPage = blockPage;
@@ -112,9 +114,9 @@ public class Paging {
 		pagingHtml = new StringBuffer();
 		if(currentPage > blockPage){
 			if(isSearch != "")
-				pagingHtml.append("<a class='page prv' href=" + dogName + ".dog?currentPage=" + (startPage - 1) + "&searchNum="+searchNum+ "&isSearch="+isSearch+">");
+				pagingHtml.append("<a class='page prv' href=" + name + ".do?currentPage=" + (startPage - 1) + "&searchNum="+searchNum+ "&isSearch="+isSearch+">");
 			else                    
-				pagingHtml.append("<a class='page prv' href=" + dogName + ".dog?currentPage=" + (startPage - 1) + ">");
+				pagingHtml.append("<a class='page prv' href=" + name + ".do?currentPage=" + (startPage - 1) + ">");
 			pagingHtml.append("&lt;");
 			pagingHtml.append("</a>");
 			}
@@ -130,7 +132,7 @@ public class Paging {
 				pagingHtml.append("</strong>");
 			}
 			else{
-				pagingHtml.append("<a class='page' href=" + dogName + ".dog?currentPage=" + i);
+				pagingHtml.append("<a class='page' href=" + name + ".do?currentPage=" + i);
 				if(isSearch != "")
 					pagingHtml.append("&isSearch=" + isSearch+"&searchNum="+searchNum);
 				pagingHtml.append(">");
@@ -140,7 +142,7 @@ public class Paging {
 		}
 		// 다음 block 페이지
 		if(totalPage - startPage >= blockPage){
-			pagingHtml.append("<a class='page next' href=" + dogName + ".dog?currentPage=" + (endPage + 1));
+			pagingHtml.append("<a class='page next' href=" + name + ".do?currentPage=" + (endPage + 1));
 			if(isSearch != "")
 				pagingHtml.append("&isSearch=" + isSearch+"&searchNum="+searchNum);
 			pagingHtml.append(">");
@@ -229,5 +231,15 @@ public class Paging {
 	public void setPagingHtml(StringBuffer pagingHtml) {
 		this.pagingHtml = pagingHtml;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
 
 }

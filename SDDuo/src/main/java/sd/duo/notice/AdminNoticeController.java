@@ -223,17 +223,46 @@ public class AdminNoticeController {
 	
 	//공지사항 수정
 	@RequestMapping("/notice/noticeModifySuccess.do")
-	public ModelAndView noticeModify(@ModelAttribute("noticeModel") AdminNoticeModel noticeModel, HttpServletRequest request){
+	public ModelAndView reviewModify(@ModelAttribute("noticeModel") AdminNoticeModel noticeModel, MultipartHttpServletRequest multipartHttpServletRequest){
 		
-		ModelAndView mav = new ModelAndView("redirect:noticeView.do");
-		
+		ModelAndView mav = new ModelAndView();
+        
+        /*줄바꿈*/
 		String content = noticeModel.getN_content().replaceAll("\r\n", "<br />");
 		noticeModel.setN_content(content);
-		
-		noticeService.noticeModify(noticeModel);
+	    
+        if (multipartHttpServletRequest.getFile("file") != null){
+ 		//메인 상품이미지
+        	MultipartFile multipartFile = multipartHttpServletRequest.getFile("file");
+        	String filename = multipartFile.getOriginalFilename();
+	        	if (filename != ""){ 
+	        		noticeModel.setN_sav_image(System.currentTimeMillis()+"_"+multipartFile.getOriginalFilename());					    
+				    String savimagename = System.currentTimeMillis()+"_"+multipartFile.getOriginalFilename();				    
+			        try {
+						FileCopyUtils.copy(multipartFile.getInputStream(), new FileOutputStream(uploadPath+"/"+savimagename));
+					} catch (FileNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}			            	        
+	        	}/*else{
+	        		reviewModel.setImagefile_savname("NULL");
+	        	}*/
+        }
+        else{
+        	noticeModel.setN_sav_image(multipartHttpServletRequest.getParameter("n_sav_image"));
+        }
+        
+        noticeService.noticeModify(noticeModel);
 		
 		mav.addObject("n_number", noticeModel.getN_number());
-		
+		mav.setViewName("redirect:/notice/noticeView.do");
 		return mav;	
 	}
+	
+	
+	
+	
 }

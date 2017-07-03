@@ -1,12 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
-
-<!DOCTYPE html>
-<html lang="en">
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
 
 <head>
 
@@ -108,101 +105,42 @@
                 <!-- /.col-lg-12 -->
             </div>
             <div class="row">
-                <div class="resev-box">
-					<p class="listnum">총 <span>3</span>건 1/1</p>
-					<form name="frmCommonList" method="post">
-					<p class="search-area">
-						<select name="search_gubun">
-							<option value="" selected="">전체</option>
-							<option value="title">제목</option>
-							<option value="content">내용</option>
-						</select>
-						<input type="text" name="search" maxlength="20" value="" class="noticebox">
-						<input type="button" value="검색" onclick="searchList(document.frmCommonList);" class="noticebtn">
-					</p>
-					</form>
-				</div>
-				<table class="list-board01">
-				<colgroup>
-					<col width="110px">
-					<col width="">
-					<col width="137px">
-					<col width="137px">
-					<col width="150px">
-				</colgroup>
-				<tbody>
+				<table width="100%" class="view-board01">
+					<colgroup>
+						<col width="">
+					</colgroup>
+					<thead>
 					<tr>
-						<th>번호</th>
-						<th>제목</th>
-						<th>작성자</th>
-						<th>작성일</th>
-						<th>조회수</th>
+						<th scope="col">
+							<div class="tit"><img src="../resources/images/sub/notice_icon.gif" alt="공지" class="notice-icon"><span>마이스토리 심리상담센터 홈페이지 GRAND OPEN</span></div>
+						</th>
 					</tr>
-
-				</tbody>
-				<tbody>
-					<c:forEach var="list" items="${noticeList}">
-						<c:url var="viewURL" value="noticeView.do" >
-							<c:param name="n_number" value="${list.n_number }" />
-						    <c:param name="currentPage" value="${currentPage }" />
-						</c:url>
+					</thead>
+					<tbody>
 					<tr>
-						<td>${list.n_number}</td>
-						<td style="text-align:left;">
-							<a href="${viewURL}">${list.n_title}</a>
-						</td>
-						<td>${list.n_name}</td> 
-						<td><fmt:formatDate value="${list.n_date}" pattern="yyyy.MM.dd"/></td>
 						<td>
-							${list.n_hit}
+							<div class="board-infor">
+								<strong>작성자</strong>
+								<span>마이스토리</span>
+								<span class="line"><img src="../resources/images/sub/line.jpg" class="vertical-m" alt=""></span>
+								<strong>작성일</strong>
+								<span>2016-04-20 23:16:39</span>
+							</div>
 						</td>
 					</tr>
-					</c:forEach>
-
-				</tbody>
-			</table>
-			<div style="margin-top:40px; float: right;">
-			
-			<%-- <c:if test="${session_member_name == 'admin' }">
-			<button type="button" onclick="onWrite()" class="btn btn-primary">글쓰기</button>
-			</c:if> --%>
-			<button type="button" onclick="onWrite()" class="btn btn-primary">글쓰기</button>
-			
-			<button type="button" onclick="onList()" class="btn btn-primary">목록</button>
-			
-			</div>
-            </div>
-            <!-- /.row -->
-            
-            <c:if test="${fn:length(noticeList) le 0}">
-				<br />
-				<center>등록된 게시물이 없습니다</center>
-				<br />
-			</c:if>
-
-		<div class="row">
-			<div style="text-align: center;">
-				<div id="dataTables-example_filter" class="dataTables_filter">
-
-					<form action="">
-						<select class="slcte" name="searchNum" id="searchNum">
-							<option value="0">제목</option>
-							<option value="1">내용</option>
-						</select> <input class="txte" type="text" name="isSearch" id="isSearch" />
-						<span class="btn btnC_03 btnP_04 mr10"> <input
-							type="submit" value="검색"
-							style="font-size: 11px; padding-bottom: 20; vertical-align: middle;" />
-						</span>
-					</form>
-					
+					<tr>
+						<td class="dmc_content content">
+							
+						</td>
+					</tr>
+					</tbody>
+				</table>
+				<div style="width: 140px; margin: 40px auto; ">
+					<button type="button" class="btn btn-outline btn-primary" style="margin-right: 10px; ">글수정</button>
+					<button type="button" class="btn btn-outline btn-default">삭제</button>
 				</div>
-			</div>
-		</div>
-		
-		<div class="paging">
-			${pagingHtml}
-		</div>
-            
+            </div>    
+            <!-- /.row -->
         </div>
         <!-- /#page-wrapper -->
 
@@ -227,13 +165,5 @@
     <script src="../resources/dist/js/sb-admin-2.js"></script>
 
 </body>
-
-<script type="text/javascript">
-
-$('.searchOption').val($('.searchOptionVal').val());
-var onWrite = function(){
-	location.href = 'noticeWrite.do'; 
-};
-</script>
 
 </html>

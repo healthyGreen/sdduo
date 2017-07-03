@@ -7,12 +7,12 @@
 				<div class="header-inbox">
 					<div class="header-top">
 						<ul class="left-area">
-							<li><a href=""><img src="images/common/site01.gif" alt="카페"></a></li>
-							<li><a href=""><img src="images/common/site02.gif" alt="블로그"></a></li>
-							<li><a href=""><img src="images/common/site03.gif" alt="페이스북"></a></li>
-							<li><a href=""><img src="images/common/site04.gif" alt="카카오톡"></a></li>
+							<li><a href=""><img src="../resources/images/common/site01.gif" alt="카페"></a></li>
+							<li><a href=""><img src="../resources/images/common/site02.gif" alt="블로그"></a></li>
+							<li><a href=""><img src="../resources/images/common/site03.gif" alt="페이스북"></a></li>
+							<li><a href=""><img src="../resources/images/common/site04.gif" alt="카카오톡"></a></li>
 						</ul>
-						<h1><a href="index.html"><img src="images/common/logo.gif" alt="로고"></a></h1>
+						<h1><a href="index.html"><img src="../resources/images/common/logo.gif" alt="로고"></a></h1>
 						<ul class="right-area">
 							<li><a href="">사이트맵</a></li>
 							<li class="last"><a href="">주변센터찾기</a></li>
@@ -23,7 +23,7 @@
 					    <div id="gnbarea">
 
 						   <ul class="gnb clear">
-							  <li class="li01"><a href="sub/sub01/sub0101.html"><img src="images/common/gnb01.gif">소개</a>
+							  <li class="li01"><a href="sub/sub01/sub0101.html"><img src="../resources/images/common/gnb01.gif">소개</a>
 								 <div class="subWrap sub01">
 									<ul>
 									    <li><a href="sub/sub01/sub0101.html">My story is</a></li>

@@ -15,7 +15,7 @@
 				</div>
 				<div class="footer-bottom">
 					<div class="footer-bottom-inbox">
-						<h2><img src="images/common/b_logo.gif"></h2>
+						<h2><img src="../resources/images/common/b_logo.gif"></h2>
 						<p>
 							고객서비스센터 080-3243-2312<br>
 							(주)마이스토리 서울특별시 강남구 테헤란로길 52길 17 역삼동 이에스타워 10층 사업자등록번호:505-88-00158 홈페이지 관리책임자:안영미<br>

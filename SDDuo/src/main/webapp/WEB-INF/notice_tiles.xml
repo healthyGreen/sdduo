@@ -6,15 +6,15 @@
 
 <tiles-definitions>
 
-	<!-- Main Page 
-	<definition name="default" template="/WEB-INF/views/layout/layout.jsp">
-		<put-attribute name="header" value="/WEB-INF/views/layout/header.jsp" />
-		<put-attribute name="body" value="/WEB-INF/views/layout/container.jsp" />
-		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
-	</definition>-->
+	<!-- Main Page -->
+	<definition name="notice" template="/WEB-INF/views/common/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/common/container.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
+	</definition>
 
 
-	 <definition name="noticeList" template="/WEB-INF/views/notice/noticeList.jsp">
+	<!--<definition name="noticeList" template="/WEB-INF/views/notice/noticeList2.jsp">
 	</definition> 
 	
 	<definition name="noticeView" template="/WEB-INF/views/notice/noticeView.jsp">
@@ -24,27 +24,25 @@
 	</definition>
 	
 	<definition name="noticeModify" template="/WEB-INF/views/notice/noticeModify.jsp">
+	</definition>-->
+	
+	
+	<!--  notice   -->
+	<definition name="noticeList" extends="notice">
+		<put-attribute name="body" value="/WEB-INF/views/notice/noticeList2.jsp"/>
 	</definition>
 	
-	
-	
-	
-	<!--  notice  
-	<definition name="noticeList" extends="default">
-		<put-attribute name="body" value="/WEB-INF/views/notice/noticeList.jsp"/>
-	</definition>
-	
- 	<definition name="noticeView" extends="default">
-		<put-attribute name="body" value="/WEB-INF/views/notice/noticeView.jsp" />
+ 	<definition name="noticeView" extends="notice">
+		<put-attribute name="body" value="/WEB-INF/views/notice/noticeView2.jsp" />
 	</definition>
 
-	<definition name="noticeForm" extends="default">
+	<definition name="noticeForm" extends="notice">
 	<put-attribute name="body" value="/WEB-INF/views/notice/noticeForm.jsp" />
 	</definition>
 
-	<definition name="noticeModify" extends="default">
+	<definition name="noticeModify" extends="notice">
 		<put-attribute name="body" value="/WEB-INF/views/notice/noticeModify.jsp" />
-	</definition> -->
+	</definition>
 	
 	
 	
