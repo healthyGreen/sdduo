@@ -12,7 +12,7 @@ public class MemberModel {
    private String m_sex;
    private String m_year;
    private String m_month;
-   private Date m_date;
+   private String m_date;
    private String m_tongsinsa;
    private String m_phone1;
    private String m_phone2;
@@ -21,6 +21,7 @@ public class MemberModel {
    private String m_zipcode;
    private String m_addr;
    private String m_addr2;
+   private String m_email;
    
 public int getM_number() {
    return m_number;
@@ -64,10 +65,10 @@ public String getM_month() {
 public void setM_month(String m_month) {
    this.m_month = m_month;
 }
-public Date getM_date() {
+public String getM_date() {
    return m_date;
 }
-public void setM_date(Date m_date) {
+public void setM_date(String m_date) {
    this.m_date = m_date;
 }
 public String getM_tongsinsa() {
@@ -124,6 +125,14 @@ public String getM_admin() {
 public void setM_admin(String m_admin) {
 	this.m_admin = m_admin;
 }
+public String getM_email() {
+	return m_email;
+}
+public void setM_email(String m_email) {
+	this.m_email = m_email;
+}
+
+
 
 
 }

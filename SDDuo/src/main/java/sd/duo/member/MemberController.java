@@ -21,7 +21,7 @@ import sd.duo.member.MemberValidator;
 @RequestMapping("/member")
 public class MemberController {
    
-  // @Resource
+	@Resource(name="memberService")
    private MemberService memberService;
    
    ModelAndView mav = new ModelAndView();
@@ -228,11 +228,11 @@ public class MemberController {
        public ModelAndView findId(@ModelAttribute("member") MemberModel member, HttpServletRequest request){
           
           int findIdChk;
-          String name = request.getParameter("name");
-          String tongsinsa = request.getParameter("tongsinsa");
-          String phone1 = request.getParameter("phone1");
-          String phone2 = request.getParameter("phone2");
-          String phone3 = request.getParameter("phone3");
+          String name = request.getParameter("m_name");
+          String tongsinsa = request.getParameter("m_tongsinsa");
+          String phone1 = request.getParameter("m_phone1");
+          String phone2 = request.getParameter("m_phone2");
+          String phone3 = request.getParameter("m_phone3");
           
           member.setM_name(name);
           member.setM_tongsinsa(tongsinsa);
@@ -241,26 +241,22 @@ public class MemberController {
           member.setM_phone3(phone3);
           
           member = memberService.idFind(member);
+   
+          if(member.getM_name().equals(name) && member.getM_tongsinsa().equals(tongsinsa) && member.getM_phone1().equals(phone1) && member.getM_phone2().equals(phone2) && member.getM_phone3().equals(phone3))
+          {
+              findIdChk = 1;   //findIdChk=1 : 찾기 성공.
+              mav.addObject("member",member);
+              mav.addObject("memberFindIdChk",findIdChk);
+              mav.setViewName("findIdResult");
+              return mav;
           
-          if(member == null){
-             findIdChk = 0;   //findIdChk=0 : 가입되어 있지 않는 이름입니다.
-             mav.addObject("memberFindChk",findIdChk);
-             mav.setViewName("findIdResult");
-             return mav;
-          }else if(member.getM_name().equals(name) && member.getM_tongsinsa().equals(tongsinsa) && member.getM_phone1().equals(phone1) && member.getM_phone2().equals(phone2) && member.getM_phone3().equals(phone3))
-             {
-                findIdChk = 1;   //findIdChk=1 : 찾기 성공.
-                mav.addObject("member",member);
-                mav.addObject("findIdChk",findIdChk);
-                mav.setViewName("findIdResult");
-                return mav;
-             }else{
-                findIdChk = -1;   //findIdChk=-1 : 입력하신 정보가 일치하지 않습니다.
-                mav.addObject("findIdChk",findIdChk);
-                mav.setViewName("findIdResult");
-                return mav;
-             }
-          }
+         }else{
+            findIdChk = -1;   //findIdChk=-1 : 입력하신 정보가 일치하지 않습니다.
+            mav.addObject("memberFindIdChk",findIdChk);
+            mav.setViewName("findIdResult");
+            return mav;
+         }
+      }
        
        // 비밀번호 찾기 폼
        @RequestMapping("/findPwForm.do")
