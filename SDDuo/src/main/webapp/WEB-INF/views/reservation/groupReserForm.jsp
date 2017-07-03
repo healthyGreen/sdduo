@@ -1,11 +1,14 @@
+<%@page contentType="text/html; charset=utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBliC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>마이스토리</title>
 	<meta http-equiv="Content-Type" content="text/html;charset=euc-kr" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<link rel="stylesheet" href="../../css/layout.css" />
-	<link rel="stylesheet" href="../../css/default.css" />
+	<link rel="stylesheet" href="SDDuo/src/main/webapp/WEB-INF/views/css/layout.css" />
+	<link rel="stylesheet" href="SDDuo/src/main/webapp/WEB-INF/views/css/default.css" />
 
 	<!--JQUERY-->
 
@@ -19,17 +22,23 @@
 	<script src="../../js/jquery.supercal.js"></script>
 	<script type="text/javascript">
 	    // <![CDATA[
-	    $(document).ready(function () {
+	    /* $(document).ready(function () {
 		   $('#tab').tabify();
-	    });
+	    }); */
 	    // ]]>
-	</script>
-	<script>
-  /*** 롤링배너 ***/
-  jQuery(function($){
-    $("div.gallery_rolling").gallery_rolling();
-  });
+	<!-- </script>
+	<script> -->
+
+
+  function checkForm(){
+     if(!reserAgree.agree[0].checked){
+        alert("이용약관  동의하셔야 됩니다");
+     }else{   
+        reserAgree.submit();
+     }
+     }
   </script>
+
 
 
 
@@ -42,11 +51,11 @@
 <div id="quick">
 		<div class="btn_area">
 			<ul class="icon_zone">
-				<li q="1"><img src="../../images/common/quick_tit.jpg" border="0" alt="마이스토리" /></li>
-				<li q="1"><img src="../../images/common/quick01.png" border="0" alt="카카오톡예약상담" /></li>
-				<li q="2"><img src="../../images/common/quick02.png" border="0" alt="실시간전화예약" /></li>
-				<li q="3"><img src="../../images/common/quick03.png" border="0" alt="실시간온라인예약" /></li>
-				<li q="4"><img src="../../images/common/quick04.png" border="0" alt="오시는길" /></li>
+				<li q="1"><img src="SDDuo/views/images/common/quick_tit.jpg" border="0" alt="마이스토리" /></li>
+				<li q="1"><img src="../images/common/quick01.png" border="0" alt="카카오톡예약상담" /></li>
+				<li q="2"><img src="../images/common/quick02.png" border="0" alt="실시간전화예약" /></li>
+				<li q="3"><img src="../images/common/quick03.png" border="0" alt="실시간온라인예약" /></li>
+				<li q="4"><img src="../images/common/quick04.png" border="0" alt="오시는길" /></li>
 			</ul>
 			<p style="text-align:right;"><img src="../../images/common/quick05.png" border="0" alt="02-345-8765" /></p>
 			<div class="s-center">
@@ -936,7 +945,7 @@ $(document).ready(function() {
 						<li class="last"><a href="sub0206_list.html">자주하는 질문</a></li>
 					</ul>
 					<h3>온라인 실시간예약</h3>
-					<p class="sub02_txt">
+					<!-- <p class="sub02_txt">
 						마이스토리 심리상담센터는 예약상담으로만 운영되고 있으며 상담을 희망하시는 경우 반드시 예약 및 상담규정을 준수해야 합니다.<br />
 						<span>온라인 예약을 하시면 상담 직원이 전화를 드리며 상담문의 내용 등을 확인 한 후 정확한 예약이 확정 됩니다.    </span><br />
 					</p>
@@ -953,13 +962,9 @@ $(document).ready(function() {
 						</div>
 						<div class="calright">
 							<p class="tit">예약정보를 입력해 주세요</p>
-							<p class="txt">왼쪽 달력에서 먼저 원하는 날짜를 선택 후 예약해주세요</p>
-							<div class="revform">
-								<table width="287px !important;" border="0" cellspacing="0" cellpadding="0" style="margin-left: 89px;">
-								  <tr>
-									<td>
-
-
+							<p class="txt">왼쪽 달력에서 먼저 원하는 날짜를 선택 후 예약해주세요</p> -->
+							<form action="GroupReserveForm.do" method="post">
+							<div>
 									<table width="100%" border="0" cellspacing="0" cellpadding="0">
 									  <tr>
 										<td>
@@ -972,13 +977,10 @@ $(document).ready(function() {
 												<td valign="top"  class="formtit" style="color: #4f4f4f; font-size: 16px; padding-top: 10px;">센&nbsp&nbsp&nbsp&nbsp터</td>
 												<td align="center" width="4" ></td>
 												<td valign="top">
-													<select style="width:220px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;" id='133_f4_0' name='fname[4][]'>
-														<option value="">상담센터를 선택해주세요.</option>
-														<option>강남센터</option>
-														<option>강남센터</option>
-														<option>강남센터</option>
-														<option>강남센터</option>
-														<option>강남센터</option>
+													<select name="gr_center" style="width:220px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;" id='133_f4_0' name='fname[4][]'>
+														<option value="서울센터">서울센터</option>
+														<option value="대구센터">대구센터</option>
+														<option value="부산센터">부산센터</option>
 													</select>
 												</td>
 											  </tr>
@@ -992,24 +994,23 @@ $(document).ready(function() {
 													<table width="100%" border="0" cellspacing="0" cellpadding="0" align="left">
 													  <tr>
 														<td width="65">
-															<select style="width:100px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb;  font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;" id='133_f2_0' name='fname[2][]'>
-																<option >12시</option>
-																<option >12시</option>
-																<option >12시</option>
-																<option >12시</option>
-																<option >12시</option>
-																<option >12시</option>
+															<select name="gr_hour" style="width:100px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb;  font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;" id='133_f2_0' name='fname[2][]'>
+																<option value="09">09시</option>
+																<option value="10">10시</option>
+																<option value="11">11시</option>
+																<option value="12">12시</option>
+																<option value="14">14시</option>
+																<option value="15">15시</option>
+																<option value="16">16시</option>
+																<option value="17">17시</option>
+																<option value="18">18시</option>
 															</select>
 														</td>
-														<td align="center" width="18" style="vertical-align: middle;">&nbsp&nbsp:</td>
+														<td align="center" width="18" style="vertical-align: middle;">&nbsp&nbsp:&nbsp&nbsp</td>
 														<td width="65">
-															<select style="width:100px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;" id='133_f2_0' name='fname[2][]'>
-																<option >12시</option>
-																<option >12시</option>
-																<option >12시</option>
-																<option >12시</option>
-																<option >12시</option>
-																<option >12시</option>
+															<select name="gr_minute" style="width:100px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;" id='133_f2_0' name='fname[2][]'>
+																<option value="00">00분</option>
+																<option value="30">30분</option>
 															</select>
 														</td>
 														<td>&nbsp;</td>
@@ -1023,10 +1024,17 @@ $(document).ready(function() {
 
 
 											   <tr>
-												<td class="formtit"  style="color: #4f4f4f; font-size: 16px; padding-top: 10px;">이&nbsp;&nbsp;&nbsp&nbsp름</td>
+												<td class="formtit"  style="color: #4f4f4f; font-size: 16px; padding-top: 10px;">그&nbsp;룹&nbsp;명</td>
 												<td align="center" width="4" ></td>
 												<td valign="top">
-													<input type="text" style="width:220px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;" id='133_f3_0' name='fname[3][]'>
+													<input type="text" value="" name="gr_group" style="width:220px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;" id='133_f3_0' name='fname[3][]'>
+												</td>
+											  </tr>
+											  <tr>
+												<td class="formtit"  style="color: #4f4f4f; font-size: 16px; padding-top: 10px;">인&nbsp;원&nbsp;수</td>
+												<td align="center" width="4" ></td>
+												<td valign="top">
+													<input type="text" value="" name="gr_p_number" style="width:40px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;" id='133_f3_0' name='fname[3][]'>&nbsp;&nbsp;명
 												</td>
 											  </tr>
 											  <tr>
@@ -1039,12 +1047,30 @@ $(document).ready(function() {
 													<table width="100%" border="0" cellspacing="0" cellpadding="0" align="left">
 													  <tr>
 														<td width="63">
-															<input type="text" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;">
+															<input type="text" value="" name="gr_phone1" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;">
 														</td>
 														<td align="center" width="13" style="vertical-align: middle;">-</td>
-														<td width="63"><input type="text" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;"></td>
+														<td width="63"><input type="text" value="" name="gr_phone2" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;"></td>
 														<td align="center" width="13" style="vertical-align: middle;">-</td>
-														<td width="63"><input type="text" style="width:65px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;"></td>
+														<td width="63"><input type="text" value="" name="gr_phone3" style="width:65px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;"></td>
+														<td>&nbsp;</td>
+													  </tr>
+													</table>
+												</td>
+											  </tr>
+											  <tr>
+												<td class="formtit"  style="color: #4f4f4f; font-size: 16px; padding-top: 10px;">대표번호</td>
+												<td align="center" width="4" ></td>
+												<td>
+													<table width="100%" border="0" cellspacing="0" cellpadding="0" align="left">
+													  <tr>
+														<td width="63">
+															<input type="text" value="" name="gr_rephone1" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;">
+														</td>
+														<td align="center" width="13" style="vertical-align: middle;">-</td>
+														<td width="63"><input type="text" value="" name="gr_rephone2" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;"></td>
+														<td align="center" width="13" style="vertical-align: middle;">-</td>
+														<td width="63"><input type="text" value="" name="gr_rephone3" style="width:65px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;"></td>
 														<td>&nbsp;</td>
 													  </tr>
 													</table>
@@ -1060,7 +1086,7 @@ $(document).ready(function() {
 												<td valign="top" class="formtit"  style="color: #4f4f4f; font-size: 16px; line-height: 120%; padding-top: 10px;">상담신청<br>사유&nbsp;</td>
 												<td align="center" width="4" ></td>
 												<td>
-													<textarea style="width:220px; height:110px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;" id='133_f5_0' name='fname[5][]'></textarea>
+													<textarea value="" name="gr_reason" style="width:220px; height:110px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;" id='133_f5_0' name='fname[5][]'></textarea>
 												</td>
 											  </tr>
 											</table>
@@ -1072,7 +1098,7 @@ $(document).ready(function() {
 											<table width="100%" border="0" cellspacing="0" cellpadding="0">
 											  <tr>
 
-												<td colspan="3 " style="font-family:맑은 고딕; font-size:14px; color:#ab9159;padding:10px 0; width: 290px; letter-spacing: -2.2px;">*&nbsp연락처를 남기시지 않으면 예약이 확정 되지 않습니다. </td>
+												<td colspan="3 " style="font-family:맑은 고딕; font-size:14px; color:#ab9159;padding:10px 0; width: 290px; letter-spacing: -2.2px;">*&nbsp;연락처를 남기시지 않으면 예약이 확정 되지 않습니다. </td>
 											  </tr>
 
 											</table>
@@ -1083,28 +1109,22 @@ $(document).ready(function() {
 											<table width="100%" border="0" cellspacing="0" cellpadding="0">
 											  <tr>
 
-												<td colspan="3 " style="font-family:맑은 고딕;font-size:14px; color:#8b8b8b;padding:10px 0; letter-spacing: -1.5px;"><input type="checkbox" id='133_f6_0' name='fname[6][]'  style="margin-top: -2px;"/> 개인정보 취급방침에 동의 <a href="#" style="color:#505050; font-family: 맑은 고딕; text-decoration:underline; " id="layer_open3">개인정보취급방침</a></td>
+												<td colspan="3 " style="font-family:맑은 고딕;font-size:14px; color:#8b8b8b;padding:10px 0; letter-spacing: -1.5px;"><input type="checkbox" name="agree" value="yes" id='133_f6_0' name='fname[6][]'  style="margin-top: -2px;"/> 개인정보 취급방침에 동의 <a href="#" style="color:#505050; font-family: 맑은 고딕; text-decoration:underline; " id="layer_open3">개인정보취급방침</a></td>
 											  </tr>
 
 											</table>
 										</td>
 									  </tr>
 									</table>
-									</form>
-
-									</td>
-								  </tr>
-								</table>
-							</div>
-						</div>
+									</div>
+					<p><span>2016년 02월 25일</span>에 예약하시겠습니까?</p>
+					<div>
+						<input type="submit" value="확인"   />
+						<input type="button" value="취소" class="cancel" />
 					</div>
-					<p class="identify"><span>2016년 02월 25일</span>에 예약하시겠습니까?</p>
-					<div class="btn-area2">
-						<input type="button" value="확인" class="submit">
-						<input type="button" value="취소" class="cancel">
-					</div>
-				</div>
-			</div>
+			</form>
+			
+			
 			<div class="footer">
 				<div class="footer-top">
 					<div class="footer-top-inbox">

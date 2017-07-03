@@ -1,4 +1,4 @@
-/*package sd.duo.consulting;
+package sd.duo.consulting;
 
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
@@ -22,4 +22,4 @@ public class consultingValidator implements Validator{
 		ValidationUtils.rejectIfEmptyOrWhitespace(error, "pass", "pass");
 	}
 	
-}*/
+}
