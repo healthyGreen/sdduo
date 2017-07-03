@@ -9,12 +9,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="pr_number" column="pr_number" />
 		<result property="pr_hour" column="pr_hour" />
 		<result property="pr_minute" column="pr_minute" />
-		<result property="pr_year" column="actor" />
-		<result property="pr_month" column="show_date" />
-		<result property="pr_day" column="story" />
+		<result property="pr_year" column="pr_year" />
+		<result property="pr_month" column="pr_month" />
+		<result property="pr_day" column="pr_day" />
 		<result property="pr_center" column="poster" />
-		<result property="m_id" column="cut1" />
-		<result property="pr_name" column="cut2" />
+		<result property="m_id" column="m_id" />
+		<result property="pr_name" column="pr_name" />
 		<result property="pr_phone1" column="pr_phone1" />
 		<result property="pr_phone2" column="pr_phone2" />
 		<result property="pr_phone3" column="pr_phone3" />
@@ -23,18 +23,83 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="pr_date" column="pr_date" />
 	</resultMap>
 	
+	<resultMap type="GroupReserModel" id="GroupReserRes">
+		<result property="gr_number" column="gr_number" />
+		<result property="gr_hour" column="gr_hour" />
+		<result property="gr_minute" column="gr_minute" />
+		<result property="gr_year" column="gr_year" />
+		<result property="gr_month" column="gr_month" />
+		<result property="gr_day" column="gr_day" />
+		<result property="gr_center" column="gr_center" />
+		<result property="m_id" column="m_id" />
+		<result property="gr_group" column="gr_group" />
+		<result property="gr_phone1" column="gr_phone1" />
+		<result property="gr_phone2" column="gr_phone2" />
+		<result property="gr_phone3" column="gr_phone3" />
+		<result property="gr_rephone1" column="gr_rephone1" />
+		<result property="gr_rephone2" column="gr_rephone2" />
+		<result property="gr_rephone3" column="gr_rephone3" />
+		<result property="gr_p_number" column="gr_p_number" />
+		<result property="gr_reason" column="gr_reason" />
+		<result property="gr_status" column="gr_status" />
+		<result property="gr_date" column="gr_date" />
+	</resultMap>
+	
 	<!-- 개인예약 처리 -->
-	<insert id="OneReserve" parameterType="OneReserModel">
+	<insert id="OneReserve" parameterType="Integer">
 		insert into f_reservation
 		(pr_number, pr_hour, pr_minute, pr_year, pr_month, pr_day, 
 		pr_center, m_id, pr_name, pr_phone1, pr_phone2, pr_phone3,
 		pr_reason, pr_status, pr_date)
 
 		values
-		(seq_pr_number.nextval,	#{pr_hour}, #{pr_minute}, #{pr_year}, #{pr_month},
-		#{pr_day}, #{pr_center}, #{m_id}, #{pr_name}, #{pr_phone1}, #{pr_phone2},
-		#{pr_phone3}, #{pr_reason}, sysdate);
+		(seq_f_pr_number.nextval,	
+		#{pr_hour}, 
+		#{pr_minute}, 
+		#{pr_year}, 
+		#{pr_month},
+		#{pr_day}, 
+		#{pr_center}, 
+		#{m_id}, 
+		#{pr_name}, 
+		#{pr_phone1}, 
+		#{pr_phone2},
+		#{pr_phone3}, 
+		#{pr_reason},
+		#{pr_status}, 
+		sysdate)
 	</insert>
+	
+	<!-- 그룹예약 처리 -->
+	<insert id="GroupReserve" parameterType="Integer">
+		insert into f_gr_reservation
+		(gr_number, gr_hour, gr_minute, gr_year, gr_month, gr_day, 
+		gr_center, m_id, gr_group, gr_phone1, gr_phone2, gr_phone3,
+		gr_rephone1, gr_rephone2, gr_rephone3, gr_p_number, gr_reason,
+		gr_status, gr_date)
+
+		values
+		(seq_f_gr_number.nextval,	
+		#{gr_hour}, 
+		#{gr_minute}, 
+		#{gr_year}, 
+		#{gr_month},
+		#{gr_day}, 
+		#{gr_center}, 
+		#{m_id}, 
+		#{gr_group}, 
+		#{gr_phone1}, 
+		#{gr_phone2},
+		#{gr_phone3}, 
+		#{gr_rephone1},
+		#{gr_rephone2},
+		#{gr_rephone3},
+		#{gr_p_number},
+		#{gr_reason},
+		#{gr_status},
+		sysdate)
+	</insert>
+	
 	
 	<!--개인예약 취소 -->
 	<delete id="OneReserDelete" parameterType="int">

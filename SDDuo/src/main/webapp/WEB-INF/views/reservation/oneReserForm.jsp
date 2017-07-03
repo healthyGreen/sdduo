@@ -1024,7 +1024,7 @@ $(document).ready(function() {
 
 
 											   <tr>
-												<td class="formtit"  style="color: #4f4f4f; font-size: 16px; padding-top: 10px;">이&nbsp;&nbsp;&nbsp&nbsp름</td>
+												<td class="formtit"  style="color: #4f4f4f; font-size: 16px; padding-top: 10px;">이&nbsp;&nbsp;&nbsp;&nbsp;름</td>
 												<td align="center" width="4" ></td>
 												<td valign="top">
 													<input type="text" value="" name="pr_name" style="width:220px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;" id='133_f3_0' name='fname[3][]'>
@@ -1073,7 +1073,7 @@ $(document).ready(function() {
 											<table width="100%" border="0" cellspacing="0" cellpadding="0">
 											  <tr>
 
-												<td colspan="3 " style="font-family:맑은 고딕; font-size:14px; color:#ab9159;padding:10px 0; width: 290px; letter-spacing: -2.2px;">*/nbsp연락처를 남기시지 않으면 예약이 확정 되지 않습니다. </td>
+												<td colspan="3 " style="font-family:맑은 고딕; font-size:14px; color:#ab9159;padding:10px 0; width: 290px; letter-spacing: -2.2px;">*&nbsp;연락처를 남기시지 않으면 예약이 확정 되지 않습니다. </td>
 											  </tr>
 
 											</table>

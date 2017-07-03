@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Service;
 
+@Service
 public class MemberService implements MemberDao {
 
    @Resource(name="sqlSessionTemplate")

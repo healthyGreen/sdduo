@@ -17,4 +17,6 @@ public interface MemberDao {
    public Object memberDelete(String id);
    
    public MemberModel memberList(MemberModel member);
+
+
 }

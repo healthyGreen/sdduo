@@ -20,8 +20,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="m_phone2" column="m_phone2" />
 		<result property="m_phone3" column="m_phone3" />
 		<result property="m_zipcode" column="m_zipcode" />
-		<result property="m_add1" column="m_add1" />
-		<result property="m_add2" column="m_add2" />
+		<result property="m_addr" column="m_add1" />
+		<result property="m_addr2" column="m_add2" />
 		<result property="m_email" column="m_email" />
 		<result property="m_number" column="m_number" />
 		<result property="m_r_coupon" column="m_r_coupon" />
@@ -59,12 +59,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 아이디찾기 -->
 	<select id="idFind" parameterType="memberModel" resultMap="memberRes" >
-		select * form F_MEMBER where m_name = #{m_name} and m_tongsinsa = #{m_tongsinsa} and m_phone1 = #{m_phone1} and m_phone2 = #{m_phone2} and m_phone3 = #{m_phone3}
+		select * from F_MEMBER where m_name = #{m_name} and m_tongsinsa = #{m_tongsinsa} and m_phone1 = #{m_phone1} and m_phone2 = #{m_phone2} and m_phone3 = #{m_phone3} and m_id = #{m_id}
 	</select>
 
 	<!-- 비밀번호 찾기 -->
 	<select id="pwFind" parameterType="memberModel" resultMap="memberRes" >
-		select * form F_MAMBER where m_id = #{m_id} and m_name = #{m_name} and m_tongsinsa = #{m_tongsinsa} and m_phone1 = #{m_phone1} and m_phone2 = #{m_phone2} and m_phone3 = #{m_phone3}
+		select * from F_MAMBER where m_id = #{m_id} and m_name = #{m_name} and m_tongsinsa = #{m_tongsinsa} and m_phone1 = #{m_phone1} and m_phone2 = #{m_phone2} and m_phone3 = #{m_phone3}
 	</select>
 	
 	<!-- 회원 정보 수정 -->
