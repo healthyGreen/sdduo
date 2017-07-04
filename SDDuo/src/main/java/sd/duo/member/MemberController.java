@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import sd.duo.member.MemberValidator;
-import sd.duo.notice.NoticeValidator;
+
 
 @Controller
 @RequestMapping("/member")
