@@ -66,48 +66,50 @@
 							</div>
 						</div>
 					</form>
-					<div class="pwbox">
-						<div class="helpinbox">
-							<h4>비밀번호 찾기</h4>
-							<p class="suport-txt">
-								회원님의 아이디와 이름, 이메일을 입력하신 후 찾기 버튼을<br>
-								클릭하시면 비밀번호를 찾을 수 있습니다.
-							</p>
-							<div class="suport-formbox suport-formbox1">
-								<table width="100%" class="noneline-tbl mt-10">
-									<colgroup>
-										<col width="50">
-										<col width="">
-									</colgroup>
-									<tbody>
-									<tr>
-										<th>아이디</th>
-										<td><input type="text" class="common-text-box wdp50p"></td>
-									</tr>
-									<tr>
-										<th>이름</th>
-										<td><input type="text" class="common-text-box wdp50p"></td>
-									</tr>
-									<tr>
-										<th>핸드폰</th>
-										<td>
-											<select>
-												<option>skt</option>
-												<option>kt</option>
-												<option>lg</option>
-											</select>
-											<input type="text" class="common-text-box wdp50p">-
-											<input type="text" class="common-text-box wdp50p">-
-											<input type="text" class="common-text-box wdp50p">
-										</td>
-									</tr>
-									</tbody>
-								</table>
-							</div>
-							<div class="text-c">
-								<input type="button" value="비밀번호 찾기" name="" class="select02-btn" onclick="jQuery.callIPwFind();">
+					<form action="findPwResult.do" method="post" name="findForm">
+						<div class="pwbox">
+							<div class="helpinbox">
+								<h4>비밀번호 찾기</h4>
+								<p class="suport-txt">
+									회원님의 아이디와 이름, 이메일을 입력하신 후 찾기 버튼을<br>
+									클릭하시면 비밀번호를 찾을 수 있습니다.
+								</p>
+								<div class="suport-formbox suport-formbox1">
+									<table width="100%" class="noneline-tbl mt-10">
+										<colgroup>
+											<col width="50">
+											<col width="">
+										</colgroup>
+										<tbody>
+										<tr>
+											<th>아이디</th>
+											<td><input type="text" name="m_id" class="common-text-box wdp50p"></td>
+										</tr>
+										<tr>
+											<th>이름</th>
+											<td><input type="text" name="m_name" class="common-text-box wdp50p"></td>
+										</tr>
+										<tr>
+											<th>핸드폰</th>
+											<td>
+												<select name="m_tongsinsa">
+													<option>skt</option>
+													<option>kt</option>
+													<option>lg</option>
+												</select>
+												<input type="text" name="m_phone1" class="common-text-box wdp50p">-
+												<input type="text" name="m_phone2" class="common-text-box wdp50p">-
+												<input type="text" name="m_phone3" class="common-text-box wdp50p">
+											</td>
+										</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="text-c">
+									<input type="submit" value="비밀번호 찾기" name="" class="select02-btn" ">
+								</div>
 							</div>
 						</div>
-					</div>
+					</form>
 				</div>
 			</div>

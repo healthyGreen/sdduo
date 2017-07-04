@@ -19,8 +19,8 @@ public class MemberModel {
    private String m_phone3;
    private String m_r_coupon;
    private String m_zipcode;
-   private String m_addr;
-   private String m_addr2;
+   private String m_add1;
+   private String m_add2;
    private String m_email;
    
 public int getM_number() {
@@ -107,29 +107,29 @@ public String getM_zipcode() {
 public void setM_zipcode(String m_zipcode) {
    this.m_zipcode = m_zipcode;
 }
-public String getM_addr() {
-   return m_addr;
+public String getM_add1() {
+   return m_add1;
 }
-public void setM_addr(String m_addr) {
-   this.m_addr = m_addr;
+public void setM_add1(String m_add1) {
+   this.m_add1 = m_add1;
 }
-public String getM_addr2() {
-   return m_addr2;
+public String getM_add2() {
+   return m_add2;
 }
-public void setM_addr2(String m_addr2) {
-   this.m_addr2 = m_addr2;
+public void setM_add2(String m_add2) {
+   this.m_add2 = m_add2;
 }
 public String getM_admin() {
-	return m_admin;
+   return m_admin;
 }
 public void setM_admin(String m_admin) {
-	this.m_admin = m_admin;
+   this.m_admin = m_admin;
 }
 public String getM_email() {
-	return m_email;
+   return m_email;
 }
 public void setM_email(String m_email) {
-	this.m_email = m_email;
+   this.m_email = m_email;
 }
 
 

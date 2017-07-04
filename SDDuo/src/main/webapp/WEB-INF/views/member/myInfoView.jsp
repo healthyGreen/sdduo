@@ -4,9 +4,121 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>내 정보 보기</title>
 </head>
 <body>
-내 정보 보기.
+<div class="sub-content">
+				<div class="sub-content-inbox">
+					
+					<div class="sub-top">
+						<h2>회원정보보기</h2>
+					</div>
+					<div class="sub-cont clear">
+						<div class="sub-cont-inbox">
+							<div class="leftbox">
+								<div class="tit"><span>MY</span> PAGE</div>
+									<dl class="mlist">
+										<dt>나의 정보 수정/탈퇴</dt>
+										<dt>예약 현황</dt>
+										<dt>상담 내역</dt>
+										<dt>나의 자가 진단</dt>
+										<dt>쿠폰함(1개)</dt>
+									</dl>
+								</div>
+							</div>
+							<div class="rightbox">
+								
+								<table width="100%" cellpadding="0" cellspacing="0">
+									<tbody>
+										<tr>
+											<td style="padding:10px; border:1px solid #dedede; background-color:#fbfbfb;" align="center">
+									
+									
+									
+									
+									<table width="97%" cellpadding="5" cellspacing="0" border="0" class="jogin_infotbl">
+									<tbody>
+									<tr>
+										<td class="memberCols1"><font color="FF6000">*</font> 아이디</td>
+										<td class="memberCols2">
+											<span class="eng"><b>ktlovegh</b></span>
+									
+										</td>
+									</tr>
+									
+									<tr>
+										<td class="memberCols1"><font color="FF6000">*</font> 이름</td>
+										<td class="memberCols2">
+											신희진
+										</td>
+									</tr>
+									
+									<tr>
+										<td class="memberCols1"><font color="FF6000">*</font> 성별</td>
+										<td class="memberCols2"><span class="noline">
+											여자
+										</td>
+									</tr>
+									
+									<tr>
+										<td class="memberCols1"><font color="FF6000">*</font> 생년월일</td>
+										<td class="memberCols2">
+											1993년 03월 20일 
+									
+										</td>
+									</tr>
+									
+									
+									
+									
+									<tr>
+										<td class="memberCols1"><font color="FF6000">*</font> 이메일</td>
+										<td class="memberCols2">
+											ktlovegh@gmail.com
+										</td>
+									</tr>
+									
+									
+									<tr>
+										<td class="memberCols1"><font color="FF6000">*</font> 주소</td>
+									<td class="memberCols2">
+
+									<table>
+									<tbody><tr>
+										<td>
+											12451(477-815) <br>
+											경기도 가평군 청평면 골안길 경남아너스빌
+											</td>
+										</tr>
+										</tbody></table>
+									
+										</td>
+									</tr>
+									
+									
+									<tr>
+										<td class="memberCols1"><font color="FF6000">*</font> 핸드폰</td>
+										<td class="memberCols2">
+											010-4158-2290
+									</td>
+								</tr>
+	
+
+								</tbody></table>
+
+								</td>
+								</tr>
+								</tbody></table>
+								<div style="width:100%" class="btnArea">
+									<input type="button" value="정보수정" onclick="location.href='http://localhost:8080/SDDuo/member/checkPassForm.do'" style=" border: none; background: #333; color: #fff; padding: 10px 30px; ">
+									<input type="button" value="이전으로" onclick="window.history.go(-1); return false;" style="border: none;  background: #999; color: #fff; padding: 10px 30px; ">
+									<input type="button" value="회원탈퇴" onclick="location.href='http://localhost:8080/SDDuo/member/existPassForm.do'" style=" float: right!important;  border: none; background: #333; color: #fff; padding: 10px 30px; ">
+								</div>
+							</div>
+						</div>	
+						
+					</div>
+					
+				</div>
 </body>
 </html>

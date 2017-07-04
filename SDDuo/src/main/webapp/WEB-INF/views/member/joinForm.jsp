@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <!DOCTYPE html PUBliC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -38,7 +44,6 @@
 
 
  <body>
-
       <?include "../../inc/quick.html"?>
 
 
@@ -159,7 +164,7 @@
                </div>
             </div>
          </div>
-         <div class="sub-content">
+          <div class="sub-content">
             <div class="sub-content-inbox">
                
                <div class="sub-top">
@@ -174,13 +179,15 @@
             <p class="table-title">상세정보입력</p>
             <p class="table-sub-title"><span class="color">* </span>표시는 필수입력사항이며, 본인확인 및 서비스 이용을 위하여 기본정보를 정확히 입력해주세요.</p>
          </div>
+    <form:form commandName="MemberModel" action="joinSuccess.do" enctype="multipart/form-data"   method="post">
          <div class="idpw_box">
+         
             <table>
                <tbody>
                <tr>
                   <th class=" "><label for="id"><span class="color">*</span>아이디<!-- label--></label></th>
                   <td class=" ">
-                      <input type="text" class="common-text-box box-left " id="userId" name="userId" maxlength="8">
+                      <input type="text" class="common-text-box box-left " id="m_id" name="m_id" maxlength="8">
                       <p class="exp">4~8자의 영문+숫자만 사용가능</p>
                       <p class="errorpage errorpage2 mt-5" id="errUserId" style="display:none;">4~8자의 영문+숫자를 사용해 주세요.</p>
                       <p class="errorpage2 errorpage3  mt-5" id="useUserId" style="display:none;">사용이 가능한 아이디 입니다.</p>
@@ -189,7 +196,7 @@
                <tr>
                  <th class=" "><label for="id"><span class="color">*</span>이름<!-- label--></label></th>
                  <td class=" ">
-                   <input type="text" class="common-text-box box-left " id="userId" name="userId" maxlength="8">
+                   <input type="text" class="common-text-box box-left " id="m_name" name="m_name" maxlength="8">
                    
                  </td>
                </tr>
@@ -197,7 +204,7 @@
                <tr>
                  <th><label for="login_pw"><span class="color">*</span>비밀번호</label></th>
                  <td>
-                   <input type="password" id="loginPw" name="loginPw" maxlength="10" class="common-text-box box-left">
+                   <input type="password" id="m_pass" name="m_pass" maxlength="10" class="common-text-box box-left">
                    <p class="exp ">8~10자의 영문+숫자/특수문자(_!@#$%^&amp;*())만 사용가능</p>
                    <p class="errorpage errorpage2 mt-5" id="errUserPw" style="display:none;">8~10자의 영문+숫자/특수문자(_!@#$%^&amp;*())를 사용해주세요.</p>
                  </td>
@@ -205,7 +212,7 @@
                <tr>
                  <th><label for="login_pw_chk"><span class="color">*</span>비밀번호확인</label></th>
                  <td>
-                   <input type="password" id="loginPwChk" name="loginPwChk" maxlength="10" class="common-text-box box-left">
+                   <input type="password" id="m_pass" name="m_pass2" maxlength="10" class="common-text-box box-left">
                    <p class="exp ">비밀번호 확인을 위해 다시 한번 입력바랍니다.</p>
                    <p class="errorpage errorpage2 mt-5" id="errUserRePw" style="display:none;">입력하신 비밀번호가 일치하지 않습니다.</p>
                  </td>
@@ -213,16 +220,16 @@
                <tr>
                  <th class=" "><label for="id"><span class="color">*</span>성별<!-- label--></label></th>
                  <td class=" ">
-                   <input type="text" class="common-text-box box-left " id="userId" name="userId" maxlength="8">
+                   <input type="text" class="common-text-box box-left " id="m_sex" name="m_sex" maxlength="8">
                    
                  </td>
                </tr>
                <tr>
                   <th class=" "><label for="id"><span class="color">*</span>생년월일<!-- label--></label></th>
                   <td class="memberCols2">
-        <input type="text" name="birth_year" value="1993" required="" label="생년월일" style="background:#FFF" size="4" maxlength="4">년
-        <input type="text" name="birth[]" value="03" required="" label="생년월일" style="background:#FFF" size="2" maxlength="2">월
-        <input type="text" name="birth[]" value="20" required="" label="생년월일" style="background:#FFF" size="2" maxlength="2">일
+        <input type="text" name="m_year" value="1993" required="" label="생년월일" style="background:#FFF" size="4" maxlength="4">년
+        <input type="text" name="m_month" value="03" required="" label="생년월일" style="background:#FFF" size="2" maxlength="2">월
+        <input type="text" name="m_date" value="20" required="" label="생년월일" style="background:#FFF" size="2" maxlength="2">일
     
     
         </td>
@@ -230,14 +237,14 @@
                <tr>
                   <th class=" "><label for="id"><span class="color">*</span>전화번호<!-- label--></label></th>
                   <td class="memberCols2">
-                  <select>
+                  <select name="m_tongsinsa" id="m_tongsinsa">
                      <option>SKT</option>
                      <option>KT</option>
                      <option>LG</option>
                   </select>
-   <input type="text" name="mobile[]" id="mobile0" value="010" size="4" maxlength="4" required="" option="regNum" label="핸드폰"> -
-   <input type="text" name="mobile[]" id="mobile1" value="4158" size="4" maxlength="4" required="" option="regNum" label="핸드폰"> -
-   <input type="text" name="mobile[]" id="mobile2" value="2290" size="4" maxlength="4" required="" option="regNum" label="핸드폰">
+   <input type="text" name="m_phone1" id="m_phone1" value="010" size="4" maxlength="4" required=""  label="핸드폰"> -
+   <input type="text" name="m_phone2" id="m_phone2" value="4158" size="4" maxlength="4" required=""  label="핸드폰"> -
+   <input type="text" name="m_phone3" id="m_phone3" value="2290" size="4" maxlength="4" required=""  label="핸드폰">
    <span class="noline" style="padding-left:10px"><input type="checkbox" name="sms"><span style="font:8pt 돋움;color:#007FC8">광고성 정보,이벤트SMS수신</span></span>
    <div style="letter-spacing:-1;color:#FF6000">※ <span style="font-size:8pt;">주문 관련 정보 등 주요 안내 사항은 수신 동의 여부에 관계없이 자동 발송됩니다.</span></div>
    </td>
@@ -248,8 +255,8 @@
                   </th>
                   <td class="radio-txt-pt">
                      <p class="mt-5">
-                        <input type="text" id="uemailId" name="uemailId" class="common-text-box2 ">&nbsp;@
-                        <input type="text" id="uemailAddr" name="uemailAddr" class="common-text-box2  " title="">
+                        <input type="text" id="m_email" name="m_email" class="common-text-box2 "/>
+                   
                         <select class="common-text-box2" id="selectEmailAddr" name="selectEmailAddr">
                            <option value="etc">직접입력</option>
                               <option value="naver.com">naver.com</option>
@@ -267,17 +274,17 @@
                <th class="memberCols1" rowspan="2"><font color="FF6000">*</font> 주소</th>
                
                  <td>
-                 <input type="text" name="zonecode" id="zonecode" size="5" class="line" readonly="" value="12451" label="우편번호">
-                 ( <input type="text" name="zipcode[]" id="zipcode0" size="3" class="line" readonly="" value="477" required="" label="우편번호"> -
-                 <input type="text" name="zipcode[]" id="zipcode1" size="3" class="line" readonly="" value="815" required="" label="우편번호"> )
-                 <a href="javascript:popup('../proc/popup_address.php',500,432)">우편번호버튼</a>
+                 <input type="text" name="m_zipcode" id="m_zipcode" size="5" class="line"  value="12451" label="우편번호">
+                <!--  ( <input type="text" name="m_addr" id="m_addr" size="3" class="line" readonly="" value="477" required="" label="우편번호"> -
+                 <input type="text" name="m_addr2" id="m_addr2" size="3" class="line" readonly="" value="815" required="" label="우편번호"> )
+                 <a href="javascript:popup('../proc/popup_address.php',500,432)"> -->우편번호버튼</a>
                      </td>
             </tr>
             <tr>
            <td id="mmber1">
-           <input type="text" name="address" id="address" value="경기도 가평군 청평면 청평리 306 청평 경남아너스빌" readonly="" size="30" required="" label="주소">
-           <input type="text" name="address_sub" id="address_sub" value="경남아너스빌 103동 902호" size="30" onkeyup="SameAddressSub(this)" oninput="SameAddressSub(this)" label="세부주소"><br>
-           <input type="hidden" name="road_address" id="road_address" value="경기도 가평군 청평면 골안길 7-28 (청평 경남아너스빌)">
+           <input type="text" name="m_add1" id="m_add1" value="경기도 가평군 "  size="30" required="" label="주소"/>
+           <input type="text" name=m_add2 id="m_add2" value="경남아너스빌" size="30" onkeyup="SameAddressSub(this)" oninput="SameAddressSub(this)" label="세부주소"/><br>
+           <input type="hidden" name="m_admin" value="1"/>
            <div style="padding:5px 5px 0 1px;font:12px dotum;color:#999;float:left;" id="div_road_address">경기도 가평군 청평면 골안길 7-28 (청평 경남아너스빌)</div>
            <div style="padding:5px 0 0 1px;font:12px dotum;color:#999;" id="div_road_address_sub">경남아너스빌 103동 902호</div>
                </td>
@@ -288,11 +295,13 @@
          </table>
             <div class="join-conf-btn join-conf-btn2 ">
                <ul>
-                  <li><input type="button" class="submit" title="" value="확인" name="" onclick="jQuery.validateInput();"></li>
-                  <li><input type="button" class="cancel" title="" value="취소" name="" onclick="jQuery.cancel();"></li>
+                  <button type="button" onclick="this.form.submit();" class="btn btn-primary">작성완료</button>
+                  <li><input type="button" class="cancel" title="" value="취소" ></li>
                </ul>
             </div>
+          
          </div>
+          </form:form>
          
       </div>
                </div>
@@ -321,8 +330,10 @@
                   </p>
                </div>
             </div>
+           
          </div>
+        
       </div>
-
+  
  </body>
 </html>

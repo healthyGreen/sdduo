@@ -39,7 +39,7 @@
 	</definition>
 	<definition name="findIdForm" extends="main">
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
-		<put-attribute name="body" value="/WEB-INF/views/member/findIdForm.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/member/findForm.jsp" />
 	</definition>
 	<definition name="findIdResult" extends="main">
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
@@ -47,7 +47,7 @@
 	</definition>
 	<definition name="findPwForm" extends="main">
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
-		<put-attribute name="body" value="/WEB-INF/views/member/findPwForm.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/member/findForm.jsp" />
 	</definition>
 	<definition name="findPwResult" extends="main">
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />

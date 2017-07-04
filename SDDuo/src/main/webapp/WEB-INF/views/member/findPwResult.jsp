@@ -1,12 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+    
+<div class="tac">
+	<h3><center>비번찾기</center></h3>
 
-</body>
-</html>
+	<p class="fz15"><center>${member.m_name}님의 비밀번호는 <strong>${member.m_pass}</strong>입니다.</center></p>
+				
+	<div class="btn_type_04">
+	<center><a href="/SDDuo/member/loginForm.do"><input type="button" value="로그인하기"></a>
+					</center>
+	</div>
+</div>

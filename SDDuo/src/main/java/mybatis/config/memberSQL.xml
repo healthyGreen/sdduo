@@ -20,8 +20,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="m_phone2" column="m_phone2" />
 		<result property="m_phone3" column="m_phone3" />
 		<result property="m_zipcode" column="m_zipcode" />
-		<result property="m_addr" column="m_add1" />
-		<result property="m_addr2" column="m_add2" />
+		<result property="m_add1" column="m_add1" />
+		<result property="m_add2" column="m_add2" />
 		<result property="m_email" column="m_email" />
 		<result property="m_number" column="m_number" />
 		<result property="m_r_coupon" column="m_r_coupon" />
@@ -37,14 +37,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 회원 정보 입력 -->
-	<insert id="insertMember" parameterType="memberModel">
-		insert into F_MEMBER
-		(m_number, m_id, m_pass, m_name, m_sex, m_year, m_month, m_date, m_tongsinsa, m_phone1, m_phone2, m_phone3, m_zipcode, m_add1, m_add2, m_email, m_admin, m_r_coupon)
-		values(
-		SEQ_M_NUMBER.nextval, #{m_id}, #{m_pass}, #{m_name}, #{m_sex}, #{m_year}, #{m_month}, #{m_date}, #{m_tongsinsa}, #{m_phone1}, #{m_phone2}, #{m_phone3}, #{m_zipcode}, #{m_add1}, #{m_add2}, #{m_email}, #{m_admin}, '1' 
-		)
-	</insert>
-	
+   <insert id="insertMember" parameterType="memberModel">
+      insert into F_MEMBER
+      (m_number, m_id, m_pass, m_name, m_sex, m_year, m_month, m_date, m_tongsinsa, m_phone1, m_phone2, m_phone3, m_zipcode, m_add1, m_add2, m_email, m_admin, m_r_coupon)
+      values(
+      SEQ_F_M_NUMBER.nextval, #{m_id}, #{m_pass}, #{m_name}, #{m_sex}, #{m_year}, #{m_month}, #{m_date}, #{m_tongsinsa}, #{m_phone1}, #{m_phone2}, #{m_phone3}, #{m_zipcode}, #{m_add1}, #{m_add2}, #{m_email}, #{m_admin}, '1' 
+      )
+   </insert>
+   
 	<!-- 회원정보가져오기 -->
 	<select id="getMember" parameterType="String" resultMap="memberRes">
 		<include refid="select_all" />
@@ -54,17 +54,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 로그인 체크 -->
 	<select id="memberLogin" parameterType="memberModel" resultMap="memberRes">
 		select * from F_MEMBER	
-		where m_id = #{id} and m_pass = #{m_pass}
+		where m_id = #{m_id} and m_pass = #{m_pass}
 	</select>
 	
 	<!-- 아이디찾기 -->
 	<select id="idFind" parameterType="memberModel" resultMap="memberRes" >
-		select * from F_MEMBER where m_name = #{m_name} and m_tongsinsa = #{m_tongsinsa} and m_phone1 = #{m_phone1} and m_phone2 = #{m_phone2} and m_phone3 = #{m_phone3} and m_id = #{m_id}
+		select * from F_MEMBER where m_name = #{m_name} and m_tongsinsa = #{m_tongsinsa} and m_phone1 = #{m_phone1} and m_phone2 = #{m_phone2} and m_phone3 = #{m_phone3} 
 	</select>
 
 	<!-- 비밀번호 찾기 -->
 	<select id="pwFind" parameterType="memberModel" resultMap="memberRes" >
-		select * from F_MAMBER where m_id = #{m_id} and m_name = #{m_name} and m_tongsinsa = #{m_tongsinsa} and m_phone1 = #{m_phone1} and m_phone2 = #{m_phone2} and m_phone3 = #{m_phone3}
+		select * from F_MEMBER where m_id = #{m_id} and m_name = #{m_name} and m_tongsinsa = #{m_tongsinsa} and m_phone1 = #{m_phone1} and m_phone2 = #{m_phone2} and m_phone3 = #{m_phone3}
 	</select>
 	
 	<!-- 회원 정보 수정 -->
@@ -73,7 +73,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update F_MEMBER set
 		m_pass = #{m_pass},
 		m_sex = #{m_sex},
-		m_tongsinsa = #{m_tongsinsa},
+		m_year = #{m_year},
+		m_month = #{m_month},
+		m_date = #{m_date},
 		m_phone1 = #{m_phone1},
 		m_phone2 = #{m_phone2},
 		m_phone3 = #{m_phone3},
@@ -85,12 +87,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 회원탈퇴 -->
 	<delete id="deleteMember" parameterType="String">
 		delete from F_MEMBER	
-		where id = #{id}
+		where id = #{m_id}
 	</delete>
 	
 	<!-- 관리자 회원목록 출력 -->
 	<select id="memberList" resultMap="memberRes">
-		select * from F_MEMBER order by 
+		select * from F_MEMBER order by m_number desc
 	</select>
 	
 	
