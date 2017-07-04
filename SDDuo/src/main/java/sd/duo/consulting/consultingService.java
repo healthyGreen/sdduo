@@ -15,13 +15,13 @@ public class consultingService implements consultingDao {
 	@Override
 	public List<consultingModel> consultingList() {
 		// TODO Auto-generated method stub
-		return null;
+		return sqlSessionTemplate.selectList("consulting.consultingList");
 	}
 
 	@Override
 	public consultingModel consultingView(int c_number) {
 		// TODO Auto-generated method stub
-		return null;
+		return sqlSessionTemplate.selectOne("consulting.consultingView", c_number);
 	}
 
 	@Override
@@ -29,6 +29,7 @@ public class consultingService implements consultingDao {
 		return sqlSessionTemplate.insert("consulting.insertConsulting", consultingmodel);
 	}
 
+	
 	@Override
 	public int modConsulting(consultingModel consultingmodel) {
 		// TODO Auto-generated method stub
@@ -44,7 +45,13 @@ public class consultingService implements consultingDao {
 	@Override
 	public int totalConsultingNum() {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSessionTemplate.selectOne("consulting.totalConsultingNum");
+	}
+
+	@Override
+	public int insertConsultingReply(consultingModel consultingmodel) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.insert("consulting.insertConsultingReply");
 	}
 	
 }

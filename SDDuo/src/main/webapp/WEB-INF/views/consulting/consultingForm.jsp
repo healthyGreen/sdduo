@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>마이스토리</title>
@@ -951,10 +951,12 @@ $(document).ready(function() {
 							<tr>
 								<th>이야기 제목</th>
 								<td colspan="3">
-								<input type="hidden" name="c_m_id" value="id">
-								<input type="text" class="writetxt01" name="c_title">
+							 <input type="hidden" name="c_ref" value="${consultingmodel.c_ref }"/>
+								<input type="hidden" name="c_number" value="${consultingmodel.c_number }">
+								<input type="text" class="writetxt01" name="c_title" value="${consultingmodel.c_title }">
 								</td>
 							</tr>
+					<%-- 		<c:if test=""> 관리자가 아닌 경우만 보이게  --%>
 							<tr>
 								<th>비밀설정</th>
 								<td>
@@ -962,7 +964,10 @@ $(document).ready(function() {
 									비밀번호4자리 입력
 								</td>
 							</tr>
+							<%-- </c:if> --%>
 							<tr>
+
+							
 								<th>문의내용</th>
 								<td colspan="3"><textarea class="writetxt04" name="c_content"></textarea></td>
 							</tr>

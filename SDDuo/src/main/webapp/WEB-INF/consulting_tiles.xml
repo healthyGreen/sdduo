@@ -3,26 +3,13 @@
 <!DOCTYPE tiles-definitions PUBLIC
        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
-       
 <tiles-definitions>
-<!--   	<definition name="main" template="/WEB-INF/views/common/main.jsp">
-		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
-		<put-attribute name="container" value="/WEB-INF/views/common/container.jsp"/>
-		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
-	</definition> -->
-
-	<definition name="consultingForm" template="/WEB-INF/views/consulting/consultingForm.jsp">
-	</definition>
-	
-	<definition name="consultingList" template="/WEB-INF/views/consulting/consultingList.jsp">
-	</definition>
-<!-- 	<definition name="consultingList" extends="main">
-		<put-attribute name="container" value="/WEB-INF/views/consulting/consultingList.jsp"/>
-	</definition>
-	<definition name="consultingModForm" extends="main">
-		<put-attribute name="container" value="/WEB-INF/views/consulting/consultingModifyForm.jsp"/>
-	</definition>
-	<definition name="consultingView" extends="main"> 
-		<put-attribute name="container" value="/WEB-INF/views/consulting/consultingModifyView.jsp"/>
-	</definition>  -->
+<!-- <definition name="main" template="/WEB-INF/views/common/main.jsp"> 
+<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/> 
+<put-attribute name="container" value="/WEB-INF/views/common/container.jsp"/> 
+<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/> </definition> -->
+<definition template="/WEB-INF/views/consulting/consultingForm.jsp" name="consultingForm"> 
+</definition><definition template="/WEB-INF/views/consulting/consultingList.jsp" name="consultingList"> 
+</definition><definition template="/WEB-INF/views/consulting/consultingView.jsp" name="consultingView"> </definition><definition template="/WEB-INF/views/consulting/consultingPassForm.jsp" name="consultingPassForm"> </definition>
+<!-- <definition name="consultingList" extends="main"> <put-attribute name="container" value="/WEB-INF/views/consulting/consultingList.jsp"/> </definition> <definition name="consultingModForm" extends="main"> <put-attribute name="container" value="/WEB-INF/views/consulting/consultingModifyForm.jsp"/> </definition> <definition name="consultingView" extends="main"> <put-attribute name="container" value="/WEB-INF/views/consulting/consultingModifyView.jsp"/> </definition> -->
 </tiles-definitions>

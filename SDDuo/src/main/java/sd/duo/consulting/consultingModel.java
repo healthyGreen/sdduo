@@ -8,7 +8,7 @@ public class consultingModel {
 	private String c_title;
 	private String c_content;
 	private String c_pass;
-	private String c_m_id;
+	private String m_id;
 	private Date c_date;
 	private int c_re_status;
 	private int c_ref;
@@ -37,11 +37,12 @@ public class consultingModel {
 	public void setC_pass(String c_pass) {
 		this.c_pass = c_pass;
 	}
-	public String getC_m_id() {
-		return c_m_id;
+	
+	public String getM_id() {
+		return m_id;
 	}
-	public void setC_m_id(String c_m_id) {
-		this.c_m_id = c_m_id;
+	public void setM_id(String m_id) {
+		this.m_id = m_id;
 	}
 	public Date getC_date() {
 		return c_date;
