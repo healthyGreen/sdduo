@@ -1,10 +1,10 @@
-package sd.duo.notice;
+package sd.duo.adminNotice;
 
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import sd.duo.notice.AdminNoticeModel;
+import sd.duo.adminNotice.AdminNoticeModel;
 
 public class NoticeValidator implements Validator{
 

@@ -1,12 +1,12 @@
-package sd.duo.notice;
+package sd.duo.adminNotice;
 
 import java.util.List;
 import javax.annotation.Resource;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Service;
 
-import sd.duo.notice.AdminNoticeDAO;
-import sd.duo.notice.AdminNoticeModel;
+import sd.duo.adminNotice.AdminNoticeDAO;
+import sd.duo.adminNotice.AdminNoticeModel;
 
 
 @Service

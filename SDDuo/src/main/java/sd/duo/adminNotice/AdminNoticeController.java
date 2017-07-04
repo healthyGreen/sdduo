@@ -1,4 +1,4 @@
-package sd.duo.notice;
+package sd.duo.adminNotice;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -23,10 +23,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import sd.duo.notice.AdminNoticeModel;
-import sd.duo.notice.AdminNoticeService;
-import sd.duo.notice.Paging;
-import sd.duo.notice.NoticeValidator;
+import sd.duo.adminNotice.AdminNoticeModel;
+import sd.duo.adminNotice.AdminNoticeService;
+import sd.duo.adminNotice.NoticeValidator;
+import sd.duo.adminNotice.Paging;
 
 @Controller
 public class AdminNoticeController {
@@ -48,7 +48,7 @@ public class AdminNoticeController {
 	
 	
 	//리스트 처리(검색)
-		@RequestMapping(value="/notice/noticeList.do", method=RequestMethod.GET)
+		@RequestMapping(value="/notice/adminNoticeList.do", method=RequestMethod.GET)
 		public ModelAndView noticeList(HttpServletRequest request) throws UnsupportedEncodingException{
 			
 			ModelAndView mav = new ModelAndView();
@@ -121,7 +121,7 @@ public class AdminNoticeController {
 		}
 	
 	//공지사항 상세보기
-	@RequestMapping("/notice/noticeView.do")
+	@RequestMapping("/notice/adminNoticeView.do")
 	public ModelAndView noticeView(HttpServletRequest request){
 		   
 		ModelAndView mav = new ModelAndView();
@@ -139,7 +139,7 @@ public class AdminNoticeController {
 	}
 	
 	//공지사항 글쓰기 폼
-	@RequestMapping(value="/notice/noticeWrite.do", method=RequestMethod.GET)
+	@RequestMapping(value="/notice/adminNoticeWriteForm.do", method=RequestMethod.GET)
 	public ModelAndView noticeForm(HttpServletRequest request) {
 		
 		ModelAndView mav = new ModelAndView();
@@ -149,7 +149,7 @@ public class AdminNoticeController {
 	}
 	
 	//공지사항 글쓰기
-	@RequestMapping(value="/notice/noticeWrite.do", method=RequestMethod.POST)
+	@RequestMapping(value="/notice/adminNoticeWrite.do", method=RequestMethod.POST)
 	public ModelAndView noticeWrite(@ModelAttribute("noticeModel") AdminNoticeModel noticeModel, BindingResult result, 
 			HttpServletRequest request, HttpSession session,MultipartHttpServletRequest multipartHttpServletRequest)throws Exception{
 		
@@ -194,7 +194,7 @@ public class AdminNoticeController {
 		
 	
 	//공지사항 삭제
-	@RequestMapping("/notice/noticeDelete.do")
+	@RequestMapping("/notice/adminNoticeDelete.do")
 	public ModelAndView noticeDelete(HttpServletRequest request){
 		
 		ModelAndView mav = new ModelAndView();
@@ -206,7 +206,7 @@ public class AdminNoticeController {
 	}
 	
 	//공지사항 수정폼
-	@RequestMapping("/notice/noticeModify.do")
+	@RequestMapping("/notice/adminNoticeModify.do")
 	public ModelAndView noticeModifyForm(@ModelAttribute("noticeModel") AdminNoticeModel noticeModel, BindingResult result, HttpServletRequest request){
 		
 		ModelAndView mav = new ModelAndView();
@@ -222,7 +222,7 @@ public class AdminNoticeController {
 	}
 	
 	//공지사항 수정
-	@RequestMapping("/notice/noticeModifySuccess.do")
+	@RequestMapping("/notice/adminNoticeModifySuccess.do")
 	public ModelAndView reviewModify(@ModelAttribute("noticeModel") AdminNoticeModel noticeModel, MultipartHttpServletRequest multipartHttpServletRequest){
 		
 		ModelAndView mav = new ModelAndView();
