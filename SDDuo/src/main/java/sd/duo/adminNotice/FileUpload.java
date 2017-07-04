@@ -1,4 +1,4 @@
-package sd.duo.notice;
+package sd.duo.adminNotice;
 
 import java.io.File;
 import java.io.FileOutputStream;
