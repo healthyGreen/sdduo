@@ -22,7 +22,7 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="sd.duo.consulting.consultingModel" alias="consultingModel" />
 		
 	<!--  Notice -->
-		<typeAlias type="sd.duo.notice.AdminNoticeModel" alias="noticeModel" />
+		<typeAlias type="sd.duo.adminNotice.AdminNoticeModel" alias="noticeModel" />
 	
 	<!-- Reserve -->
 		<typeAlias type="sd.duo.reserve.OneReserModel" alias="oneReserModel" />
