@@ -45,6 +45,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="gr_date" column="gr_date" />
 	</resultMap>
 	
+	<select id="oneSelect-All" resultMap="OneReserRes">
+		select * from f_reservation
+		order by pr_number DESC 
+	</select>
+	
+
+	
+	<select id="grSelect-All" resultMap="GroupReserRes">
+		select * from f_gr_reservation
+		ORDER BY gr_number DESC
+	</select>
+	
 	<!-- 개인예약 처리 -->
 	<insert id="OneReserve" parameterType="Integer">
 		insert into f_reservation
