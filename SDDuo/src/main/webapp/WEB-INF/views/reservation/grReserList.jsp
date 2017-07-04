@@ -20,18 +20,20 @@
 				<table class="list-board01">
 					<caption>상담문의 리스트</caption>
 					<colgroup>
-						<col width="113px">
-						<col width="225px">
-						<col width="167px">
-						<col width="235px">
-						<col width="162px">
-						<col width="151px">
+						<col width="88px">
+						<col width="200px">
+						<col width="142px">
+						<col width="150px">
+						<col width="210px">
+						<col width="137px">
+						<col width="126px">
 					</colgroup>
 					<thead>
 						<tr>
 							<th>번호</th>
 							<th>등록일</th>
 							<th>신청자</th>
+							<th>예약인원</th>
 							<th>고객희망일자</th>
 							<th>희망센터</th>
 							<th>답변상태</th>
@@ -42,24 +44,24 @@
 					
 						<c:forEach var="list" items="${list}">
 							<tr>
-								<td>${list.pr_number}</td>
-								<td><fmt:formatDate value="${list.pr_date}" pattern="yyyy.MM.dd"/></td>
-								<td>${ list.pr_name }</td> 
-                     			<td>${ list.pr_year }.${ list.pr_month }.${ list.pr_day }&nbsp;&nbsp;${ list.pr_hour }:${ list.pr_minute }</td>
-                     			<td>${ list.pr_center }</td>
+								<td>${list.gr_number}</td>
+								<td><fmt:formatDate value="${list.gr_date}" pattern="yyyy.MM.dd"/></td>
+								<td>${list.gr_group}</td>
+								<td>${list.gr_p_number}</td>
+								<td>${list.gr_year}.${list.gr_month}.${list.gr_day}&nbsp;&nbsp;${ list.gr_hour }:${ list.gr_minute }</td>
+								<td>${list.gr_center }</td>
 								<td>
-                     
-                     				<c:choose>
+								<c:choose>
 
-                           				<c:when test="${list.pr_status eq '0'}">
-                                			 예약 대기
-                           				</c:when>
-                           
-                          			 <c:when test="${list.pr_status ne '0'}">
-                               				  예약 완료
-                           				</c:when>
-                           			</c:choose>
-
+									<c:when test="${list.gr_status eq '0'}">
+										예약 대기
+									</c:when>
+									
+									<c:when test="${list.gr_status ne '0'}">
+										예약 완료
+									</c:when>
+									
+								</c:choose>
 								</td>
 							</tr>
 					</c:forEach>

@@ -1,11 +1,13 @@
 package sd.duo.reserve;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 import org.mybatis.spring.SqlSessionTemplate;
 
-@Service(value="oneReserService")
+@Service(value="ReserService")
 public class ReserService implements ReserDAO{
 	
 	@Resource(name="sqlSessionTemplate")
@@ -20,6 +22,18 @@ public class ReserService implements ReserDAO{
 	@Override
 	public int insertGroupReser(GroupReserModel groupReserModel){
 		return sqlSessionTemplate.insert("reserve.GroupReserve", groupReserModel);
+	}
+
+	@Override
+	public List<GroupReserModel> GrReserList() {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectList("reserve.grSelect-All");
+	}
+	
+	@Override
+	public List<OneReserModel> oneReserList() {
+	   // TODO Auto-generated method stub
+	   return sqlSessionTemplate.selectList("reserve.oneSelect-All");
 	}
 
 }
