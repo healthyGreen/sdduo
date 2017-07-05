@@ -28,6 +28,7 @@
 							</div>
 							<div class="rightbox">
 								<form action="/SDDuo/member/myInfoModify.do" method="post">
+								<input type="hidden" name="m_id" value="${sessionScope.session_member_id}" >
 								<table width="100%" cellpadding="0" cellspacing="0">
 									<tbody><tr>
 									<td style="padding:10px; border:1px solid #dedede; background-color:#fbfbfb;" align="center">
@@ -35,14 +36,15 @@
 										<table width="97%" cellpadding="5" cellspacing="0" border="0" class="jogin_infotbl">
 										<tbody><tr>
 											<td class="memberCols1"><font color="FF6000">*</font> 아이디</td>
-											<td class="memberCols2"><span class="eng"><b>ktlovegh</b></span></td>
+									
+											<td class="memberCols2"><span class="eng"><b>${sessionScope.session_member_id}</b></span></td>
 										</tr>
 										
 										<tr>
 											<td class="memberCols1"><font color="FF6000">*</font> 비밀번호</td>
 											<!-- 비밀번호 버튼 -->
 											<td class="memberCols2">
-												<input type="password" >
+												<input type="password" name="m_pass">
 												
 											</td>
 										</tr>
@@ -50,7 +52,7 @@
 										<tr>
 											<td class="memberCols1"><font color="FF6000">*</font> 이름</td>
 											<td class="memberCols2">
-												신희진
+												${sessionScope.session_member_name}
 											</td>
 										</tr>
 										
@@ -65,9 +67,9 @@
 										<tr>
 											<td class="memberCols1"><font color="FF6000">*</font> 생년월일</td>
 											<td class="memberCols2">
-											<input type="text" name="m_year" value="1993" required="" label="생년월일" style="background:#FFF" size="4" maxlength="4">년
-											<input type="text" name="m_month" value="03" required="" label="생년월일" style="background:#FFF" size="2" maxlength="2">월
-											<input type="text" name="m_date" value="20" required="" label="생년월일" style="background:#FFF" size="2" maxlength="2">일
+											<input type="text" name="m_year" value="${member.m_year }" required="" label="생년월일" style="background:#FFF" size="4" maxlength="4">년
+											<input type="text" name="m_month" value="${member.m_month }" required="" label="생년월일" style="background:#FFF" size="2" maxlength="2">월
+											<input type="text" name="m_date" value="${member.m_date }" required="" label="생년월일" style="background:#FFF" size="2" maxlength="2">일
 										
 										
 											</td>
@@ -79,7 +81,7 @@
 										<tr>
 											<td class="memberCols1"><font color="FF6000">*</font> 이메일</td>
 											<td class="memberCols2">
-											<input type="text" name="m_email" value="ktlovegh@naver.com" size="30" required="" option="regEmail" label="이메일" style="background:#FFF">
+											<input type="text" name="m_email" value="${member.m_email }" size="30" required="" option="regEmail" label="이메일" style="background:#FFF">
 											<a href="javascript:void(0)" onclick="chkEmail()"><img src="/shop/data/skin/standard_C/dsm/img/mb/join_btn_mail.jpg" border="0" align="absmiddle"></a>
 											
 											
@@ -94,8 +96,8 @@
 									<table>
 									<tbody><tr>
 										<td>
-											12451(477-815) <br>
-											경기도 가평군 청평면 골안길 경남아너스빌
+											${member.m_zipcode } <br>
+											${member.m_add1 } ${member.m_add2 }
 											</td>
 										</tr>
 										</tbody></table>
@@ -107,9 +109,9 @@
 										<tr>
 											<td class="memberCols1"><font color="FF6000">*</font> 핸드폰</td>
 											<td class="memberCols2">
-										<input type="text" name="m_phone1" id="mobile0" value="010" size="4" maxlength="4" required="" option="regNum" label="핸드폰"> -
-										<input type="text" name="m_phone2" id="mobile1" value="4158" size="4" maxlength="4" required="" option="regNum" label="핸드폰"> -
-										<input type="text" name="m_phone3" id="mobile2" value="2290" size="4" maxlength="4" required="" option="regNum" label="핸드폰">
+										<input type="text" name="m_phone1" id="mobile0" value="${member.m_phone1 }" size="4" maxlength="4" required="" option="regNum" label="핸드폰"> -
+										<input type="text" name="m_phone2" id="mobile1" value="${member.m_phone2 }" size="4" maxlength="4" required="" option="regNum" label="핸드폰"> -
+										<input type="text" name="m_phone3" id="mobile2" value="${member.m_phone3 }" size="4" maxlength="4" required="" option="regNum" label="핸드폰">
 										
 										</td>
 									</tr>
@@ -122,7 +124,6 @@
 								</tr>
 								</tbody></table>
 								<div style="width:100%" class="btnArea">
-								
 									<input type="submit" value="수정완료" style="border: none;  background: #999; color: #fff; padding: 10px 30px; ">
 									
 								</div>

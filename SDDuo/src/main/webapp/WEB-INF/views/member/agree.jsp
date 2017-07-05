@@ -28,23 +28,16 @@
        });
        // ]]>
        <script type="text/javascript">
-      function check_agreement(){
-         var frm = document.getElementById("frm");
-      
-         if(joinCheck.elements["agreement[]"][0].checked == false){
+      function checkForm(){
+         if(!document.joinCheck.agree.checked){
             alert("이용약관의 동의하셔야 합니다.");
-            frm.elements["agreement[]"][0].focus();
-            return;
-         }else if(joinCheck.elements["agreement[]"][1].checked == false){
+           
+         }else {
+        	 (!document.infoCheck.agree.checked){
             alert("개인정보취급방침에 동의하셔야 합니다.");
-            joinCheck.elements["agreement[]"][1].focus();
-            return;
          }
       
-         joinCheck.method = "post";
-         joinCheck.action = "joinForm.do";
-         joinCheck.submit();
-      }
+      
       
       function all_check(_this, chk_name){
          var chks = document.getElementsByName(chk_name);
@@ -55,7 +48,7 @@
       }
       
       function cancel(){
-         alert("약관의 동의하셔야 회원가입이 가능합니다.");
+         alert("약관에 동의하셔야 회원가입이 가능합니다.");
          document.frmMain.action = "/common/main.do";
          document.frmMain.submit();
       }
@@ -75,11 +68,8 @@
 
 
  <body>
-<form name='joinCheck' action="joinForm.do">
-      <?include "../../inc/quick.html"?>
-
-
-      <div class="wrapper">
+<form name='joinCheck' action="joinForm.do" method="post">
+         <div class="wrapper">
          <div class="header" id="top">
             <div class="subBg"></div>
             <div class="header-inbox">
@@ -614,11 +604,12 @@
             </div>
             <div class="join-check-center">
             <span class="chk_grp">
-               <input type="checkbox" id="allChk1" onclick="all_check(this, 'agreement[]')" value="Y "> <label for="allChk1">이용약관, 개인정보처리방침에 모두 동의합니다.</label>
+               <input type="checkbox" id="allChk1" onclick="all_check(this, 'joinCheck')" value="Y "> <label for="allChk1">이용약관, 개인정보처리방침에 모두 동의합니다.</label>
             </div>
             <div class="join-conf-btn">
                <ul>
-                  <li><input type="button" class="submit" title="" value="확인" name="" onclick="joinCheck"></li>
+               <button type="button" onclick="this.form.submit();" class="btn btn-primary">확인</button>
+                  <!-- <li><input type="button" class="submit" title="" value="확인" name="" onclick="joinCheck"></li> -->
                   <li><input type="button" class="cancel" title="" value="취소" name="" onclick="jQuery.cancel();"></li>
                </ul>
             </div>
