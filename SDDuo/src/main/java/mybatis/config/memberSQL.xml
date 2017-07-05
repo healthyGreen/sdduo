@@ -44,10 +44,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
       SEQ_F_M_NUMBER.nextval, #{m_id}, #{m_pass}, #{m_name}, #{m_sex}, #{m_year}, #{m_month}, #{m_date}, #{m_tongsinsa}, #{m_phone1}, #{m_phone2}, #{m_phone3}, #{m_zipcode}, #{m_add1}, #{m_add2}, #{m_email}, #{m_admin}, '1')
    </insert>
    
-	<!— 회원정보가져오기 —>
-	<select id="getMember" parameterType="String" resultMap="memberRes">
+	 <!-- 회원정보가져오기 --> 
+	 	<select id="getMember" parameterType="String" resultMap="memberRes">
 		<include refid="select_all" />
 		where m_id = #{m_id}
+		</select>
 	
 	<!-- 로그인 체크 -->
 	<select id="memberLogin" parameterType="memberModel" resultMap="memberRes">
