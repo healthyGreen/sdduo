@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-@Repository(value="oneReserDAO")
+@Repository(value="ReserDAO")
 public interface ReserDAO {
 
 	/*개인예약 등록*/ 
