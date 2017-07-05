@@ -51,7 +51,7 @@ public class Paging {
 		// ?´? „ block ?Ž˜?´ì§?
 		pagingHtml = new StringBuffer();
 		if (currentPage > blockPage) {
-			pagingHtml.append("<a class='page prv' href=" + viewName + ".mt?currentPage=" + (startPage - 1) + ">");
+			pagingHtml.append("<a class='page prv' href=" + viewName + ".do?currentPage=" + (startPage - 1) + ">");
 			pagingHtml.append("&lt;");
 			pagingHtml.append("</a>");
 		}
@@ -66,7 +66,7 @@ public class Paging {
 				pagingHtml.append(i);
 				pagingHtml.append("</strong>");
 			} else {
-				pagingHtml.append("<a class='page' href=" + viewName + ".mt?currentPage=");
+				pagingHtml.append("<a class='page' href=" + viewName + ".do?currentPage=");
 				pagingHtml.append(i);
 				pagingHtml.append(">");
 				pagingHtml.append(i);
@@ -76,7 +76,7 @@ public class Paging {
 
 		// ?‹¤?Œ block ?Ž˜?´ì§?
 		if (totalPage - startPage >= blockPage) {
-			pagingHtml.append("<a class='page next' href=" + viewName + ".mt?currentPage=" + (endPage + 1) + ">");
+			pagingHtml.append("<a class='page next' href=" + viewName + ".do?currentPage=" + (endPage + 1) + ">");
 			pagingHtml.append("&gt;");
 			pagingHtml.append("</a>");
 		}
@@ -113,9 +113,9 @@ public class Paging {
 		pagingHtml = new StringBuffer();
 		if(currentPage > blockPage){
 			if(isSearch != "")
-				pagingHtml.append("<a class='page prv' href=" + viewName + ".mt?currentPage=" + (startPage - 1) + "&searchNum="+searchNum+ "&isSearch="+isSearch+">");
+				pagingHtml.append("<a class='page prv' href=" + viewName + ".do?currentPage=" + (startPage - 1) + "&searchNum="+searchNum+ "&isSearch="+isSearch+">");
 			else                    
-				pagingHtml.append("<a class='page prv' href=" + viewName + ".mt?currentPage=" + (startPage - 1) + ">");
+				pagingHtml.append("<a class='page prv' href=" + viewName + ".do?currentPage=" + (startPage - 1) + ">");
 			pagingHtml.append("&lt;");
 			pagingHtml.append("</a>");
 			}
@@ -131,7 +131,7 @@ public class Paging {
 				pagingHtml.append("</strong>");
 			}
 			else{
-				pagingHtml.append("<a class='page' href=" + viewName + ".mt?currentPage=" + i);
+				pagingHtml.append("<a class='page' href=" + viewName + ".do?currentPage=" + i);
 				if(isSearch != "")
 					pagingHtml.append("&isSearch=" + isSearch+"&searchNum="+searchNum);
 				pagingHtml.append(">");
@@ -141,7 +141,7 @@ public class Paging {
 		}
 		// ?‹¤?Œ block ?Ž˜?´ì§?
 		if(totalPage - startPage >= blockPage){
-			pagingHtml.append("<a class='page next' href=" + viewName + ".mt?currentPage=" + (endPage + 1));
+			pagingHtml.append("<a class='page next' href=" + viewName + ".do?currentPage=" + (endPage + 1));
 			if(isSearch != "")
 				pagingHtml.append("&isSearch=" + isSearch+"&searchNum="+searchNum);
 			pagingHtml.append(">");

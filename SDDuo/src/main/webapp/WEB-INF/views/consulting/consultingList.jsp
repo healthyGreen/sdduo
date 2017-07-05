@@ -964,14 +964,26 @@ $(document).ready(function() {
 								<th>작성자</th>
 								<th>답변상태</th>
 							</tr>
-							<%int number = 0; %>
+							<%int number = 1; %>
+							
 							<c:forEach var="list" items="${consultinglist }">
-							<c:url var="viewURL" value="consultingView.do">
+							<c:url var="passURL" value="consultingPassForm.do">
 								<c:param name="c_number" value="${list.c_number }"/>
 							</c:url>	
+							<c:url var="viewURL" value="consultingView.do">
+								<c:param name="c_number" value="${list.c_number }"/>
+							<%-- 	<c:param name="c_ref" value="${list.c_ref }"/> --%>
+							</c:url>
 							<tr>
-								<th><%= ++number%></th>
-								<th class="subject"><a href="${viewURL}"><img src="../../images/sub/lock.gif" alt="자물쇠" class="lock">${list.c_title }</a></th>
+								<th><%= number++%></th>
+								<th class="subject">
+								<c:if test="${session_member_id != 1 }">
+									<a href="${passURL}"><img src="../../images/sub/lock.gif" alt="자물쇠" class="lock">${list.c_title }</a>
+								</c:if>
+								<c:if test="${session_member_id == 1 }">
+									<a href="${viewURL}">${list.c_title }</a>
+								</c:if>
+								</th>
 								<th>${list.m_id }</th>
 								<th><p class="finish">${list.c_re_status }</p></th>
 							</tr>
@@ -981,7 +993,7 @@ $(document).ready(function() {
 					
 				<!-- 언니 위에 요거 button으로 하고싶은데 버튼으로하면 jstl이 안머거영 ㅠㅠ -->
 				<%-- 	<input type="button" onclick="${replyURL}" value="관리자 답변달기" class="storywrite"> --%> 
-					<input type="button" onclick="" value="이야기 쓰기" class="storywrite">
+					<p class="btn01"><input type="button" value="이야기 쓰기" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingForm.do'"></p>
 					<div class="pageing">
 						${html}
 						</div>

@@ -10,6 +10,8 @@
 <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/> </definition> -->
 <definition template="/WEB-INF/views/consulting/consultingForm.jsp" name="consultingForm"> 
 </definition><definition template="/WEB-INF/views/consulting/consultingList.jsp" name="consultingList"> 
-</definition><definition template="/WEB-INF/views/consulting/consultingView.jsp" name="consultingView"> </definition><definition template="/WEB-INF/views/consulting/consultingPassForm.jsp" name="consultingPassForm"> </definition>
+</definition><definition template="/WEB-INF/views/consulting/consultingView.jsp" name="consultingView"> </definition>
+<definition template="/WEB-INF/views/consulting/consultingPassForm.jsp" name="consultingPassForm"> </definition>
+<definition template="/WEB-INF/views/consulting/consultingPassError.jsp" name="consultingPassError"> </definition>
 <!-- <definition name="consultingList" extends="main"> <put-attribute name="container" value="/WEB-INF/views/consulting/consultingList.jsp"/> </definition> <definition name="consultingModForm" extends="main"> <put-attribute name="container" value="/WEB-INF/views/consulting/consultingModifyForm.jsp"/> </definition> <definition name="consultingView" extends="main"> <put-attribute name="container" value="/WEB-INF/views/consulting/consultingModifyView.jsp"/> </definition> -->
 </tiles-definitions>
