@@ -45,17 +45,60 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="gr_date" column="gr_date" />
 	</resultMap>
 	
-	<select id="oneSelect-All" resultMap="OneReserRes">
+	<sql id="oneSelect_All">
 		select * from f_reservation
+	</sql>
+	
+	<sql id="grSelect_All">
+		select * from f_gr_reservation
+	</sql>
+	
+	<!-- 개인 예약 리스트 -->
+	<select id="oneSelect" resultMap="OneReserRes">
+		<include refid="oneSelect_All" />
 		order by pr_number DESC 
 	</select>
 	
-
+	<!-- 개인 센터별 리스트 -->
+	<select id="OneCenterList_S" resultMap="OneReserRes">
+		<include refid="oneSelect_All" />
+		where pr_center = #{pr_center}
+	</select>
 	
-	<select id="grSelect-All" resultMap="GroupReserRes">
-		select * from f_gr_reservation
+	<select id="OneCenterList_D" resultMap="OneReserRes">
+		<include refid="oneSelect_All" />
+		where pr_center = #{pr_center}
+	</select>
+	
+	<select id="OneCenterList_B" resultMap="OneReserRes">
+		<include refid="oneSelect_All" />
+		where pr_center = #{pr_center}
+	</select>
+	
+	<!-- 그룹 예약 리스트 -->
+	<select id="grSelect" resultMap="GroupReserRes">
+		<include refid="grSelect_All" />
 		ORDER BY gr_number DESC
 	</select>
+	
+	<!-- 그룹 센터별 리스트 -->
+	<select id="GrCenterList_S" resultMap="GroupReserRes">
+		<include refid="grSelect_All" />
+		where pr_center = #{pr_center}
+	</select>
+	
+	<select id="GrCenterList_D" resultMap="GroupReserRes">
+		<include refid="grSelect_All" />
+		where pr_center = #{pr_center}
+	</select>
+	
+	<select id="GrCenterList_B" resultMap="GroupReserRes">
+		<include refid="grSelect_All" />
+		where pr_center = #{pr_center}
+	</select>
+	
+	
+	
 	
 	<!-- 개인예약 처리 -->
 	<insert id="OneReserve" parameterType="Integer">

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>마이스토리</title>
-	<meta http-equiv="Content-Type" content="text/html;charset=euc-kr" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<link rel="stylesheet" href="SDDuo/src/main/webapp/WEB-INF/views/css/layout.css" />
 	<link rel="stylesheet" href="SDDuo/src/main/webapp/WEB-INF/views/css/default.css" />
@@ -63,9 +63,9 @@
 												<td align="center" width="4" ></td>
 												<td valign="top">
 													<select name="gr_center" style="width:220px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;" id='133_f4_0' name='fname[4][]'>
-														<option value="서울센터">서울센터</option>
-														<option value="대구센터">대구센터</option>
-														<option value="부산센터">부산센터</option>
+														<option value="1">서울센터</option>
+														<option value="2">대구센터</option>
+														<option value="3">부산센터</option>
 													</select>
 												</td>
 											  </tr>

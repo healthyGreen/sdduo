@@ -27,10 +27,11 @@ public class MemberController {
    
    ModelAndView mav = new ModelAndView();
    
-   // 로그인 페이지
+// 로그인 페이지
    @RequestMapping(value="/loginForm.do", method = RequestMethod.GET)
-   public String loginForm(){
-      return "loginForm";
+   public ModelAndView loginForm(){
+	   mav.setViewName("loginForm");
+      return mav;
    }
    
    // 로그인 여부
@@ -47,13 +48,16 @@ public class MemberController {
          session.setAttribute("session_member_id", result.getM_id());
          session.setAttribute("session_member_name" ,result.getM_name());
          session.setAttribute("session_member_no" ,result.getM_number());
+         session.setAttribute("session_admin", result.getM_admin());
+         session.setAttribute("session_member_coupon" ,result.getM_r_coupon());
          
-         mav.setViewName("redirect:/main.do");
+         mav.setViewName("myInfoView");
          return mav;
       }
       
       // 로그인 실패
-      mav.setViewName("member/loginError");
+      System.out.println("로그인 실패");
+      mav.setViewName("loginForm");
       return mav;
    }
    
@@ -68,7 +72,7 @@ public class MemberController {
       }
       
       //mav.setViewName("member/logout");
-      mav.setViewName("redirect:/main.mt");
+      mav.setViewName("loginForm");
       return mav;
    }
    // 유효성 검사시 에러발생시 넘어가게 하는 로직 ( joinStep2 의 commandName )
@@ -78,21 +82,21 @@ public class MemberController {
    }
    
    // 이용약관 , 개인정보 동의
-   @RequestMapping("/agree.do")
-   public ModelAndView memberStep1(){
-      mav.setViewName("agree");
+   @RequestMapping(value="/agree.do", method=RequestMethod.GET)
+   public ModelAndView memberStep1(HttpServletRequest request){
+      mav.setViewName("/member/agree");
       return mav;
    }
    
    // 회원정보 입력
-   @RequestMapping(value="/joinForm.do", method=RequestMethod.GET)
+   @RequestMapping(value="/joinForm.do", method=RequestMethod.POST)
    public ModelAndView memberStep2(HttpServletRequest request){
       mav.setViewName("joinForm");
       return mav;
    }
    
    // 회원가입완료
-   @RequestMapping(value="/joinSuccess.do", method=RequestMethod.POST)
+   @RequestMapping(value="/joinSuccess.do")
    public ModelAndView memberStep3(@ModelAttribute("member") MemberModel member, BindingResult result,HttpServletRequest request){
       
       
@@ -147,14 +151,14 @@ public class MemberController {
             mav.setViewName("myInfoModifyForm");
             return mav;
          }
-         //회원 정보 수정
+       //회원 정보 수정
          @RequestMapping("/myInfoModify.do")
          public ModelAndView myInfoModifyPro(@ModelAttribute("member") MemberModel member, BindingResult result, HttpSession session)
          {
             MemberModel memberModel = new MemberModel();
             
             memberService.memberModify(member);
-            mav.addObject("member",memberModel);
+            //mav.addObject("member",memberModel);
             
             mav.setViewName("myInfoView");
              return mav;
@@ -293,6 +297,20 @@ public class MemberController {
                 mav.setViewName("findPwResult");
                 return mav;
              }
+       }
+        //회원 정보 보기
+          @RequestMapping("/myInfoView.do")
+          public ModelAndView myInfoView(@ModelAttribute("member") MemberModel member, HttpServletRequest request, HttpSession session)
+          {
+       	   String id;
+       	   id = session.getAttribute("session_member_id").toString();
+       	   member = memberService.getMember(id);
+       	  mav.addObject("member",member);
+       	  
+       	  System.out.println("이름"+member.getM_name());
+             mav.setViewName("myInfoView");
+             return mav;
+          
           }
 }
    

@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-메인이야
+
 </body>
 </html>

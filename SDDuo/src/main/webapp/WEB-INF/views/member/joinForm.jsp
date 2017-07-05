@@ -284,9 +284,9 @@
            <td id="mmber1">
            <input type="text" name="m_add1" id="m_add1" value="경기도 가평군 "  size="30" required="" label="주소"/>
            <input type="text" name=m_add2 id="m_add2" value="경남아너스빌" size="30" onkeyup="SameAddressSub(this)" oninput="SameAddressSub(this)" label="세부주소"/><br>
-           <input type="hidden" name="m_admin" value="1"/>
-           <div style="padding:5px 5px 0 1px;font:12px dotum;color:#999;float:left;" id="div_road_address">경기도 가평군 청평면 골안길 7-28 (청평 경남아너스빌)</div>
-           <div style="padding:5px 0 0 1px;font:12px dotum;color:#999;" id="div_road_address_sub">경남아너스빌 103동 902호</div>
+            <input type="hidden" name="m_admin" value="0"/> 
+           <div style="padding:5px 5px 0 1px;font:12px dotum;color:#999;float:left;" id="div_road_address"></div>
+           <div style="padding:5px 0 0 1px;font:12px dotum;color:#999;" id="div_road_address_sub"></div>
                </td>
             </tr>
          

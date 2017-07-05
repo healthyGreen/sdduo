@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="c_title" column="c_title"/>
 		<result property="c_content" column="c_content"/>
 		<result property="c_pass" column="c_pass"/>
-		<result property="c_m_id" column="c_m_id"/>
+		<result property="m_id" column="m_id"/>
 		<result property="c_date" column="c_date"/>
 		<result property="c_re_status" column="c_re_status"/>
 		<result property="c_ref" column="c_ref"/>
@@ -19,9 +19,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 글목록  -->
 	
 	<insert id="insertConsulting" parameterType="consultingModel">
-		insert into f_consulting(c_number, c_title, c_content, c_pass, c_m_id, c_date, c_re_status, c_ref) 
-		values(seq_f_c_number.nextval, #{c_title}, #{c_content}, #{c_pass}, #{c_m_id}, sysdate, #{c_re_status}, seq_f_c_number.CURRVAL);
+		insert into f_consulting(c_number, c_title, c_content, c_pass, m_id, c_date, c_re_status, c_ref) 
+		values(seq_f_c_number.nextval, #{c_title}, #{c_content}, #{c_pass}, #{m_id}, sysdate, 1, seq_f_c_number.CURRVAL)
 	</insert>
 
+	<insert id="insertConsultingReply" parameterType="consultingModel">
+		insert into f_consulting(c_number, c_title, c_content, c_pass, m_id, c_date, c_re_status, c_ref) 
+		values(seq_f_c_number.nextval, #{c_title}, #{c_content}, #{c_pass}, #{m_id}, sysdate, 2, #{c_ref})
+	</insert>
+	
+	<select id="consultingList" resultType="consultingModel">
+		select * from f_consulting order by c_ref asc, c_re_status asc
+	</select>
+	
+	<select id="consultingPass" resultType="consultingModel" parameterType="consultingModel">
+		select * from f_consulting where c_number=#{c_number} and c_pass=#{c_pass} 
+	</select>
+	
+	<select id="consultingView" parameterType="int" resultType="consultingModel">
+		select * from f_consulting where c_number = #{c_number}
+	</select>
+	
+	<select id="totalConsultingNum" resultType="int">
+		select count(*) from f_consulting
+	</select>
+	
+	
 </mapper>
-

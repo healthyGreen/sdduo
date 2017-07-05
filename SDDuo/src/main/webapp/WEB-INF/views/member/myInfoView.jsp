@@ -41,7 +41,7 @@
 									<tr>
 										<td class="memberCols1"><font color="FF6000">*</font> 아이디</td>
 										<td class="memberCols2">
-											<span class="eng"><b>ktlovegh</b></span>
+											<span class="eng"><b>${sessionScope.session_member_id}</b></span>
 									
 										</td>
 									</tr>
@@ -49,21 +49,21 @@
 									<tr>
 										<td class="memberCols1"><font color="FF6000">*</font> 이름</td>
 										<td class="memberCols2">
-											신희진
+											${sessionScope.session_member_name}
 										</td>
 									</tr>
 									
 									<tr>
 										<td class="memberCols1"><font color="FF6000">*</font> 성별</td>
 										<td class="memberCols2"><span class="noline">
-											여자
+											${member.m_sex }
 										</td>
 									</tr>
 									
 									<tr>
 										<td class="memberCols1"><font color="FF6000">*</font> 생년월일</td>
 										<td class="memberCols2">
-											1993년 03월 20일 
+											${member.m_year}년 ${member.m_month }월 ${member.m_date }일 
 									
 										</td>
 									</tr>
@@ -74,7 +74,7 @@
 									<tr>
 										<td class="memberCols1"><font color="FF6000">*</font> 이메일</td>
 										<td class="memberCols2">
-											ktlovegh@gmail.com
+											${member.m_email }
 										</td>
 									</tr>
 									
@@ -86,8 +86,8 @@
 									<table>
 									<tbody><tr>
 										<td>
-											12451(477-815) <br>
-											경기도 가평군 청평면 골안길 경남아너스빌
+											${member.m_zipcode } <br>
+											${member.m_add1 } ${member.m_add2 }
 											</td>
 										</tr>
 										</tbody></table>
@@ -99,7 +99,7 @@
 									<tr>
 										<td class="memberCols1"><font color="FF6000">*</font> 핸드폰</td>
 										<td class="memberCols2">
-											010-4158-2290
+											${member.m_phone1 }-${member.m_phone2 }-${member.m_phone3 }
 									</td>
 								</tr>
 	

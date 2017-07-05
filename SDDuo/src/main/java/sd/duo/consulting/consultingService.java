@@ -33,7 +33,7 @@ public class consultingService implements consultingDao {
 	@Override
 	public int modConsulting(consultingModel consultingmodel) {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSessionTemplate.update("consulting.modConsulting", consultingmodel);
 	}
 
 	@Override
@@ -51,7 +51,13 @@ public class consultingService implements consultingDao {
 	@Override
 	public int insertConsultingReply(consultingModel consultingmodel) {
 		// TODO Auto-generated method stub
-		return sqlSessionTemplate.insert("consulting.insertConsultingReply");
+		return sqlSessionTemplate.insert("consulting.insertConsultingReply", consultingmodel);
+	}
+
+	@Override
+	public consultingModel consultingPass(consultingModel consultingmodel) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectOne("consulting.consultingPass", consultingmodel);
 	}
 	
 }

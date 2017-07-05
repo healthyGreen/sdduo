@@ -14,8 +14,17 @@
 						</ul>
 						<h1><a href="index.html"><img src="../resources/images/common/logo.gif" alt="로고"></a></h1>
 						<ul class="right-area">
-							<li><a href="">사이트맵</a></li>
-							<li class="last"><a href="">주변센터찾기</a></li>
+						<c:choose>
+							<c:when test="${sessionScope.session_member_id != null}"> <!-- 아이디가 null이 아닌 경우 -->
+								<li>${sessionScope.session_member_name}님 환영합니다!
+								<li><a href="myInfo.do" >마이페이지</a>
+								<li><a href="logout.do" >로그아웃</a>
+							</c:when>
+							<c:otherwise>
+								<li><a href="joinForm.do" >회원가입</a>
+								<li><a href="loginForm.do" >로그인</a>
+							</c:otherwise>
+						</c:choose>
 						</ul>
 					</div>
 					<div class="header-bottom" >
