@@ -5,20 +5,31 @@
        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
        
 <tiles-definitions>
-	<definition name="main" template="/WEB-INF/views/common/main.jsp">
-		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
-		<put-attribute name="body" value="/WEB-INF/views/common/container.jsp"/>
-		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
+	<!-- Main Page -->
+	<definition name="main" template="/WEB-INF/views/common/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/common/container.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
 	</definition>
-
-	<!-- OneReser -->
+	
+	<!-- Reservation -->
 	<definition name="oneReserForm" extends="main">
-		<put-attribute name="body" value="/WEB-INF/views/reservation/oneReserForm.jsp"/>
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/reservation/oneReserForm.jsp" />
+	</definition>
+	
+	<definition name="groupReserForm" extends="main">
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/reservation/groupReserForm.jsp" />
 	</definition>
 	
 	<definition name="oneReserList" extends="main">
-		<put-attribute name="body" value="/WEB-INF/views/reservation/oneReserList.jsp"/>
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/reservation/oneReserList.jsp" />
 	</definition>
 	
+	<definition name="groupReserList" extends="main">
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/reservation/grReserList.jsp" />
+	</definition>
 </tiles-definitions>
-
