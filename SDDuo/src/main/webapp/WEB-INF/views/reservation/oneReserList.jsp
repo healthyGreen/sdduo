@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+<%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
@@ -6,7 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
 </head>
 <body>
@@ -46,17 +46,34 @@
 								<td><fmt:formatDate value="${list.pr_date}" pattern="yyyy.MM.dd"/></td>
 								<td>${ list.pr_name }</td> 
                      			<td>${ list.pr_year }.${ list.pr_month }.${ list.pr_day }&nbsp;&nbsp;${ list.pr_hour }:${ list.pr_minute }</td>
-                     			<td>${ list.pr_center }</td>
+                     			<td>
+                     
+                     				<c:choose>
+
+                           				<c:when test="${list.pr_center eq '1'}">
+                                			 서울센터
+                           				</c:when>
+                           
+                          			 	<c:when test="${list.pr_center eq '2'}">
+                               				  대구센터
+                           				</c:when>
+                           				
+                           				<c:when test="${list.pr_center eq '3'}">
+                                			 부산센터
+                           				</c:when>
+                           			</c:choose>
+
+								</td>
 								<td>
                      
                      				<c:choose>
 
                            				<c:when test="${list.pr_status eq '0'}">
-                                			 예약 대기
+                                			 예약대기
                            				</c:when>
                            
                           			 <c:when test="${list.pr_status ne '0'}">
-                               				  예약 완료
+                               				  예약완료
                            				</c:when>
                            			</c:choose>
 

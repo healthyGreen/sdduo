@@ -944,19 +944,57 @@ $(document).ready(function() {
 						답변 순서는 각 센터별 전문가 선생님들의 여건에 따라 달라질 수 있음을 양해해 주시기 바랍니다.</span><br />
 					</p>
 					<p class="reserv-btn">실시간예약 바로가기</p>
-					<form:form commandName="consulting" action="consultingPro.do">
-					<table class="write-board01">
-						<caption>상담문의 글쓰기</caption>
+					
+					<script type="text/javascript">
+function regOnlineInquery(consult){
+	if(document.consult.c_title.value.trim() == ""){
+		alert("제목을 입력해주세요.");
+		consult.c_title.focus();
+		return false;
+	}
+
+	if(document.consult.c_pass.value.trim() == ""){
+		alert("비밀번호를 입력해주세요.");
+		consult.c_pass.focus();
+		return false;
+	}
+	if(document.consult.c_pass.value.length() < 4){
+		alert("비밀번호는 4자 이상으로 입력해주세요");
+		consult.c_pass.focus();
+		return false;
+	}
+	if(document.consult.c_content.value.trim() == ""){
+		alert("문의내용을 입력해주세요.");
+		consult.c_content.focus();
+		return false;
+	}
+	/* if(form.chk_lock_yn.checked ==  true) {
+		form.lock_yn.value="Y";
+	}else{
+		form.lock_yn.value="N";
+	} */
+/*  	if(confirm("등록하시겠습니까?")) {
+		return;
+	}  */
+}
+</script>
+	<c:choose>
+				<c:when test="${state.equals('modify')}">
+						<form:form commandName="consulting" name="consult" onsubmit="return regOnlineInquery();" action="consultingModifyPro.do">
+						<table class="write-board01">
+						<caption>상담문의 글 수정</caption>
 						<tbody>
 							<tr>
 								<th>이야기 제목</th>
 								<td colspan="3">
-							 <input type="hidden" name="c_ref" value="${consultingmodel.c_ref }"/>
+								 <input type="hidden" name="c_ref" value="${consultingmodel.c_ref }"/>
 								<input type="hidden" name="c_number" value="${consultingmodel.c_number }">
-								<input type="text" class="writetxt01" name="c_title" value="${consultingmodel.c_title }">
+
+								<input type="text" class="writetxt01" name="c_title" value="${consultingModmodel.c_title }">
+								
 								</td>
 							</tr>
-					<%-- 		<c:if test=""> 관리자가 아닌 경우만 보이게  --%>
+						<%-- <c:if test="${session_member_id != 1 }">
 							<tr>
 								<th>비밀설정</th>
 								<td>
@@ -964,7 +1002,7 @@ $(document).ready(function() {
 									비밀번호4자리 입력
 								</td>
 							</tr>
-							<%-- </c:if> --%>
+						 </c:if>  --%>
 							<tr>
 
 							
@@ -975,10 +1013,55 @@ $(document).ready(function() {
 					</table>
 					
 					<div class="btn-area">
-						<input type="button" value="확인" onclick="this.form.submit();" class="submit">
+						<input type="submit" value="확인" class="submit">
 						<input type="button" value="취소" class="cancel">
 					</div>
 					</form:form>
+					</c:when>
+					
+					<c:otherwise>
+						<form:form commandName="consulting" name="consult" onsubmit="return regOnlineInquery();" action="consultingPro.do">
+						<table class="write-board01">
+						<caption>상담문의 글쓰기</caption>
+						<tbody>
+							<tr>
+								<th>이야기 제목</th>
+								<td colspan="3">
+								 <input type="hidden" name="c_ref" value="${consultingmodel.c_ref }"/>
+								<input type="hidden" name="c_number" value="${consultingmodel.c_number }">
+								<c:if test="${state.equals('reply')}">
+									<input type="text" class="writetxt01" name="c_title" value="[답변]${consultingmodel.c_title }">
+								</c:if>
+								<c:if test="${state.equals('noting')}">
+									<input type="text" class="writetxt01" name="c_title"">
+								</c:if>
+								</td>
+							</tr>
+						<c:if test="${session_member_id == 1 }">
+							<tr>
+								<th>비밀설정</th>
+								<td>
+									<input type="text" class="writetxt03" name="c_pass">
+									비밀번호4자리 입력
+								</td>
+							</tr>
+						 </c:if> 
+							<tr>
+
+							
+								<th>문의내용</th>
+								<td colspan="3"><textarea class="writetxt04" name="c_content"></textarea></td>
+							</tr>
+						</tbody>
+					</table>
+					
+					<div class="btn-area">
+						<input type="submit" value="확인" class="submit">
+						<input type="button" value="취소" class="cancel">
+					</div>
+					</form:form>
+					</c:otherwise>
+		</c:choose>
 				</div>
 			</div>
 			<div class="footer">

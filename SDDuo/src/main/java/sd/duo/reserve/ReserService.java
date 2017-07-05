@@ -27,13 +27,13 @@ public class ReserService implements ReserDAO{
 	@Override
 	public List<GroupReserModel> GrReserList() {
 		// TODO Auto-generated method stub
-		return sqlSessionTemplate.selectList("reserve.grSelect-All");
+		return sqlSessionTemplate.selectList("reserve.grSelect");
 	}
 	
 	@Override
 	public List<OneReserModel> oneReserList() {
 	   // TODO Auto-generated method stub
-	   return sqlSessionTemplate.selectList("reserve.oneSelect-All");
+	   return sqlSessionTemplate.selectList("reserve.oneSelect");
 	}
 
 }

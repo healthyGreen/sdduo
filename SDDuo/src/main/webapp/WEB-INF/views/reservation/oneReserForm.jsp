@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
 
 	<script> -->
@@ -13,7 +13,7 @@
 
   function checkForm(){
      if(!document.reserAgree.agree.checked){
-        alert("°³ÀÎÁ¤º¸ Ãë±Þ¹æÄ§¿¡ µ¿ÀÇÇÏ¼Å¾ß µË´Ï´Ù.");
+        alert("ê°œì¸ì •ë³´ ì·¨ê¸‰ë°©ì¹¨ì— ë™ì˜í•˜ì…”ì•¼ ë©ë‹ˆë‹¤.");
      }else{   
         reserAgree.submit();
      }
@@ -23,26 +23,26 @@
 <body>
 <div class="sub-content">
 				<div class="bg02area">
-					<p class="tit">¿¹¾à/Ä¿¹Â´ÏÆ¼</p>
+					<p class="tit">ì˜ˆì•½/ì»¤ë®¤ë‹ˆí‹°</p>
 				</div>
 				<div class="sub-content-inbox">
 					<ul class="sub-menu2">
-						<li><a href="sub0201_list.html">¿Â¶óÀÎ»ó´ã</a></li>
-						<li class="act act2"><a href="sub0202_01.html">¿Â¶óÀÎ ½Ç½Ã°£¿¹¾à</a></li>
-						<li><a href="sub0203_list.html">¸¶ÀÌ½ºÅä¸® °øÁö»çÇ×</a></li>
-						<li><a href=" sub0204_list.html">¸¶ÀÌ½ºÅä¸® ½É¸® ÄÃ·³</a></li>
-						<li><a href="sub0205_list.html">Ã¥À¸·Î ¸¸³ª´Â ½É¸®ÀÌ¾ß±â</a></li>
-						<li class="last"><a href="sub0206_list.html">ÀÚÁÖÇÏ´Â Áú¹®</a></li>
+						<li><a href="sub0201_list.html">ì˜¨ë¼ì¸ìƒë‹´</a></li>
+						<li class="act act2"><a href="sub0202_01.html">ì˜¨ë¼ì¸ ì‹¤ì‹œê°„ì˜ˆì•½</a></li>
+						<li><a href="sub0203_list.html">ë§ˆì´ìŠ¤í† ë¦¬ ê³µì§€ì‚¬í•­</a></li>
+						<li><a href=" sub0204_list.html">ë§ˆì´ìŠ¤í† ë¦¬ ì‹¬ë¦¬ ì»¬ëŸ¼</a></li>
+						<li><a href="sub0205_list.html">ì±…ìœ¼ë¡œ ë§Œë‚˜ëŠ” ì‹¬ë¦¬ì´ì•¼ê¸°</a></li>
+						<li class="last"><a href="sub0206_list.html">ìžì£¼í•˜ëŠ” ì§ˆë¬¸</a></li>
 					</ul>
-					<h3>¿Â¶óÀÎ ½Ç½Ã°£¿¹¾à</h3>
+					<h3>ì˜¨ë¼ì¸ ì‹¤ì‹œê°„ì˜ˆì•½</h3>
 					<!-- <p class="sub02_txt">
-						¸¶ÀÌ½ºÅä¸® ½É¸®»ó´ã¼¾ÅÍ´Â ¿¹¾à»ó´ãÀ¸·Î¸¸ ¿î¿µµÇ°í ÀÖÀ¸¸ç »ó´ãÀ» Èñ¸ÁÇÏ½Ã´Â °æ¿ì ¹Ýµå½Ã ¿¹¾à ¹× »ó´ã±ÔÁ¤À» ÁØ¼öÇØ¾ß ÇÕ´Ï´Ù.<br />
-						<span>¿Â¶óÀÎ ¿¹¾àÀ» ÇÏ½Ã¸é »ó´ã Á÷¿øÀÌ ÀüÈ­¸¦ µå¸®¸ç »ó´ã¹®ÀÇ ³»¿ë µîÀ» È®ÀÎ ÇÑ ÈÄ Á¤È®ÇÑ ¿¹¾àÀÌ È®Á¤ µË´Ï´Ù.    </span><br />
+						ë§ˆì´ìŠ¤í† ë¦¬ ì‹¬ë¦¬ìƒë‹´ì„¼í„°ëŠ” ì˜ˆì•½ìƒë‹´ìœ¼ë¡œë§Œ ìš´ì˜ë˜ê³  ìžˆìœ¼ë©° ìƒë‹´ì„ í¬ë§í•˜ì‹œëŠ” ê²½ìš° ë°˜ë“œì‹œ ì˜ˆì•½ ë° ìƒë‹´ê·œì •ì„ ì¤€ìˆ˜í•´ì•¼ í•©ë‹ˆë‹¤.<br />
+						<span>ì˜¨ë¼ì¸ ì˜ˆì•½ì„ í•˜ì‹œë©´ ìƒë‹´ ì§ì›ì´ ì „í™”ë¥¼ ë“œë¦¬ë©° ìƒë‹´ë¬¸ì˜ ë‚´ìš© ë“±ì„ í™•ì¸ í•œ í›„ ì •í™•í•œ ì˜ˆì•½ì´ í™•ì • ë©ë‹ˆë‹¤.    </span><br />
 					</p>
 					<div class="step"><img src="../../images/sub/step1.gif"></div>
 					<div class="calarea">
 						<div class="calleft">
-							<p class="tit">¿øÇÏ½Ã´Â Èñ¸Á ¿¹¾à³¯Â¥¸¦ ¼±ÅÃÇØ ÁÖ¼¼¿ä</p>
+							<p class="tit">ì›í•˜ì‹œëŠ” í¬ë§ ì˜ˆì•½ë‚ ì§œë¥¼ ì„ íƒí•´ ì£¼ì„¸ìš”</p>
 							<div class="example1" style="margin:0 auto"></div>
 							<script>
 								$('.example1').supercal({
@@ -51,8 +51,8 @@
 							</script>
 						</div>
 						<div class="calright">
-							<p class="tit">¿¹¾àÁ¤º¸¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä</p>
-							<p class="txt">¿ÞÂÊ ´Þ·Â¿¡¼­ ¸ÕÀú ¿øÇÏ´Â ³¯Â¥¸¦ ¼±ÅÃ ÈÄ ¿¹¾àÇØÁÖ¼¼¿ä</p> -->
+							<p class="tit">ì˜ˆì•½ì •ë³´ë¥¼ ìž…ë ¥í•´ ì£¼ì„¸ìš”</p>
+							<p class="txt">ì™¼ìª½ ë‹¬ë ¥ì—ì„œ ë¨¼ì € ì›í•˜ëŠ” ë‚ ì§œë¥¼ ì„ íƒ í›„ ì˜ˆì•½í•´ì£¼ì„¸ìš”</p> -->
 							<form name="reserAgree" action="OneReserveForm.do" method="post">
 							<div>
 									<table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -64,13 +64,13 @@
 												<td colspan="3" height="20"></td>
 											  </tr>
 											  <tr>
-												<td valign="top"  class="formtit" style="color: #4f4f4f; font-size: 16px; padding-top: 10px;">¼¾&nbsp&nbsp&nbsp&nbspÅÍ</td>
+												<td valign="top"  class="formtit" style="color: #4f4f4f; font-size: 16px; padding-top: 10px;">ì„¼&nbsp&nbsp&nbsp&nbspí„°</td>
 												<td align="center" width="4" ></td>
 												<td valign="top">
-													<select name="pr_center" style="width:220px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:¸¼Àº °íµñ; font-size:13; color:#676767; box-sizing: border-box;" id='133_f4_0' name='fname[4][]'>
-														<option value="¼­¿ï¼¾ÅÍ">¼­¿ï¼¾ÅÍ</option>
-														<option value="´ë±¸¼¾ÅÍ">´ë±¸¼¾ÅÍ</option>
-														<option value="ºÎ»ê¼¾ÅÍ">ºÎ»ê¼¾ÅÍ</option>
+													<select name="pr_center" style="width:220px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:ë§‘ì€ ê³ ë”•; font-size:13; color:#676767; box-sizing: border-box;" id='133_f4_0' name='fname[4][]'>
+														<option value="1">ì„œìš¸ì„¼í„°</option>
+														<option value="2">ëŒ€êµ¬ì„¼í„°</option>
+														<option value="3">ë¶€ì‚°ì„¼í„°</option>
 													</select>
 												</td>
 											  </tr>
@@ -78,29 +78,29 @@
 												<td colspan="3" height="15">&nbsp;</td>
 											  </tr>
 											  <tr>
-												<td class="formtit"  style="color: #4f4f4f; font-size: 16px; padding-top: 10px;">½Ã&nbsp&nbsp&nbsp&nbsp°£ </td>
+												<td class="formtit"  style="color: #4f4f4f; font-size: 16px; padding-top: 10px;">ì‹œ&nbsp&nbsp&nbsp&nbspê°„ </td>
 												<td align="center" width="4" ></td>
 												<td>
 													<table width="100%" border="0" cellspacing="0" cellpadding="0" align="left">
 													  <tr>
 														<td width="65">
-															<select name="pr_hour" style="width:100px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb;  font-family:¸¼Àº °íµñ; font-size:13; color:#676767; box-sizing: border-box;" id='133_f2_0' name='fname[2][]'>
-																<option value="09">09½Ã</option>
-																<option value="10">10½Ã</option>
-																<option value="11">11½Ã</option>
-																<option value="12">12½Ã</option>
-																<option value="14">14½Ã</option>
-																<option value="15">15½Ã</option>
-																<option value="16">16½Ã</option>
-																<option value="17">17½Ã</option>
-																<option value="18">18½Ã</option>
+															<select name="pr_hour" style="width:100px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb;  font-family:ë§‘ì€ ê³ ë”•; font-size:13; color:#676767; box-sizing: border-box;" id='133_f2_0' name='fname[2][]'>
+																<option value="09">09ì‹œ</option>
+																<option value="10">10ì‹œ</option>
+																<option value="11">11ì‹œ</option>
+																<option value="12">12ì‹œ</option>
+																<option value="14">14ì‹œ</option>
+																<option value="15">15ì‹œ</option>
+																<option value="16">16ì‹œ</option>
+																<option value="17">17ì‹œ</option>
+																<option value="18">18ì‹œ</option>
 															</select>
 														</td>
 														<td align="center" width="18" style="vertical-align: middle;">&nbsp&nbsp:&nbsp&nbsp</td>
 														<td width="65">
-															<select name="pr_minute" style="width:100px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:¸¼Àº °íµñ; font-size:13; color:#676767; box-sizing: border-box;" id='133_f2_0' name='fname[2][]'>
-																<option value="00">00ºÐ</option>
-																<option value="30">30ºÐ</option>
+															<select name="pr_minute" style="width:100px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:ë§‘ì€ ê³ ë”•; font-size:13; color:#676767; box-sizing: border-box;" id='133_f2_0' name='fname[2][]'>
+																<option value="00">00ë¶„</option>
+																<option value="30">30ë¶„</option>
 															</select>
 														</td>
 														<td>&nbsp;</td>
@@ -114,28 +114,28 @@
 
 
 											   <tr>
-												<td class="formtit"  style="color: #4f4f4f; font-size: 16px; padding-top: 10px;">ÀÌ&nbsp;&nbsp;&nbsp;&nbsp;¸§</td>
+												<td class="formtit"  style="color: #4f4f4f; font-size: 16px; padding-top: 10px;">ì´&nbsp;&nbsp;&nbsp;&nbsp;ë¦„</td>
 												<td align="center" width="4" ></td>
 												<td valign="top">
-													<input type="text" value="" name="pr_name" style="width:220px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:¸¼Àº °íµñ; font-size:13; color:#676767; box-sizing: border-box;" id='133_f3_0' name='fname[3][]'>
+													<input type="text" value="" name="pr_name" style="width:220px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:ë§‘ì€ ê³ ë”•; font-size:13; color:#676767; box-sizing: border-box;" id='133_f3_0' name='fname[3][]'>
 												</td>
 											  </tr>
 											  <tr>
 												<td colspan="3" height="15"></td>
 											  </tr>
 											  <tr>
-												<td class="formtit"  style="color: #4f4f4f; font-size: 16px; padding-top: 10px;">¿¬&nbsp;¶ô&nbsp;Ã³</td>
+												<td class="formtit"  style="color: #4f4f4f; font-size: 16px; padding-top: 10px;">ì—°&nbsp;ë½&nbsp;ì²˜</td>
 												<td align="center" width="4" ></td>
 												<td>
 													<table width="100%" border="0" cellspacing="0" cellpadding="0" align="left">
 													  <tr>
 														<td width="63">
-															<input type="text" value="" name="pr_phone1" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:¸¼Àº °íµñ; font-size:13; color:#676767; box-sizing: border-box;">
+															<input type="text" value="" name="pr_phone1" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:ë§‘ì€ ê³ ë”•; font-size:13; color:#676767; box-sizing: border-box;">
 														</td>
 														<td align="center" width="13" style="vertical-align: middle;">-</td>
-														<td width="63"><input type="text" value="" name="pr_phone2" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:¸¼Àº °íµñ; font-size:13; color:#676767; box-sizing: border-box;"></td>
+														<td width="63"><input type="text" value="" name="pr_phone2" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:ë§‘ì€ ê³ ë”•; font-size:13; color:#676767; box-sizing: border-box;"></td>
 														<td align="center" width="13" style="vertical-align: middle;">-</td>
-														<td width="63"><input type="text" value="" name="pr_phone3" style="width:65px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:¸¼Àº °íµñ; font-size:13; color:#676767; box-sizing: border-box;"></td>
+														<td width="63"><input type="text" value="" name="pr_phone3" style="width:65px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:ë§‘ì€ ê³ ë”•; font-size:13; color:#676767; box-sizing: border-box;"></td>
 														<td>&nbsp;</td>
 													  </tr>
 													</table>
@@ -148,10 +148,10 @@
 												<td colspan="3" height="15"></td>
 											  </tr>
 											  <tr>
-												<td valign="top" class="formtit"  style="color: #4f4f4f; font-size: 16px; line-height: 120%; padding-top: 10px;">»ó´ã½ÅÃ»<br>»çÀ¯&nbsp;</td>
+												<td valign="top" class="formtit"  style="color: #4f4f4f; font-size: 16px; line-height: 120%; padding-top: 10px;">ìƒë‹´ì‹ ì²­<br>ì‚¬ìœ &nbsp;</td>
 												<td align="center" width="4" ></td>
 												<td>
-													<textarea value="" name="pr_reason" style="width:220px; height:110px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:¸¼Àº °íµñ; font-size:13; color:#676767; box-sizing: border-box;" id='133_f5_0' name='fname[5][]'></textarea>
+													<textarea value="" name="pr_reason" style="width:220px; height:110px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:ë§‘ì€ ê³ ë”•; font-size:13; color:#676767; box-sizing: border-box;" id='133_f5_0' name='fname[5][]'></textarea>
 												</td>
 											  </tr>
 											</table>
@@ -163,7 +163,7 @@
 											<table width="100%" border="0" cellspacing="0" cellpadding="0">
 											  <tr>
 
-												<td colspan="3 " style="font-family:¸¼Àº °íµñ; font-size:14px; color:#ab9159;padding:10px 0; width: 290px; letter-spacing: -2.2px;">*&nbsp;¿¬¶ôÃ³¸¦ ³²±â½ÃÁö ¾ÊÀ¸¸é ¿¹¾àÀÌ È®Á¤ µÇÁö ¾Ê½À´Ï´Ù. </td>
+												<td colspan="3 " style="font-family:ë§‘ì€ ê³ ë”•; font-size:14px; color:#ab9159;padding:10px 0; width: 290px; letter-spacing: -2.2px;">*&nbsp;ì—°ë½ì²˜ë¥¼ ë‚¨ê¸°ì‹œì§€ ì•Šìœ¼ë©´ ì˜ˆì•½ì´ í™•ì • ë˜ì§€ ì•ŠìŠµë‹ˆë‹¤. </td>
 											  </tr>
 
 											</table>
@@ -174,7 +174,7 @@
 											<table width="100%" border="0" cellspacing="0" cellpadding="0">
 											  <tr>
 
-												<td colspan="3 " style="font-family:¸¼Àº °íµñ;font-size:14px; color:#8b8b8b;padding:10px 0; letter-spacing: -1.5px;"><input type="checkbox" name="agree" value="yes" style="margin-top: -2px;"/> °³ÀÎÁ¤º¸ Ãë±Þ¹æÄ§¿¡ µ¿ÀÇ <a href="#" style="color:#505050; font-family: ¸¼Àº °íµñ; text-decoration:underline; " id="layer_open3">°³ÀÎÁ¤º¸Ãë±Þ¹æÄ§</a></td>
+												<td colspan="3 " style="font-family:ë§‘ì€ ê³ ë”•;font-size:14px; color:#8b8b8b;padding:10px 0; letter-spacing: -1.5px;"><input type="checkbox" name="agree" value="yes" style="margin-top: -2px;"/> ê°œì¸ì •ë³´ ì·¨ê¸‰ë°©ì¹¨ì— ë™ì˜ <a href="#" style="color:#505050; font-family: ë§‘ì€ ê³ ë”•; text-decoration:underline; " id="layer_open3">ê°œì¸ì •ë³´ì·¨ê¸‰ë°©ì¹¨</a></td>
 											  </tr>
 
 											</table>
@@ -182,10 +182,10 @@
 									  </tr>
 									</table>
 									</div>
-					<p><span>2016³â 02¿ù 25ÀÏ</span>¿¡ ¿¹¾àÇÏ½Ã°Ú½À´Ï±î?</p>
+					<p><span>2016ë…„ 02ì›” 25ì¼</span>ì— ì˜ˆì•½í•˜ì‹œê² ìŠµë‹ˆê¹Œ?</p>
 					<div>
-						<input type="button" onclick="return checkForm()" value="È®ÀÎ"   />
-						<input type="button" value="Ãë¼Ò" class="cancel" />
+						<input type="button" onclick="return checkForm()" value="í™•ì¸"   />
+						<input type="button" value="ì·¨ì†Œ" class="cancel" />
 					</div>
 			</form>
 </body>

@@ -66,7 +66,7 @@ public class ReserController {
 	      mv.addObject("pagingHtml", pagingHtml);
 	      mv.addObject("totalCount", totalCount);
 	      
-	      mv.setViewName("/reservation/oneReserList");
+	      mv.setViewName("oneReserList");
 	      
 	      return mv;
 	      
@@ -112,7 +112,7 @@ public class ReserController {
 		System.out.println(GrReserList.size());
 		
 		
-		mv.setViewName("/reservation/grReserList");
+		mv.setViewName("groupReserList");
 		return mv;
 	}
 	
@@ -120,7 +120,7 @@ public class ReserController {
 	@RequestMapping(value="/OneReserveForm.do", method = RequestMethod.GET)
 	public String oneReserForm() {
 		
-		return "/reservation/oneReserForm";
+		return "oneReserForm";
 	}
 	
 	// 개인예약 처리
@@ -141,7 +141,7 @@ public class ReserController {
 	@RequestMapping(value="/GroupReserveForm.do", method = RequestMethod.GET)
 	public String groupReserForm(){
 		
-		return "/reservation/groupReserForm";
+		return "groupReserForm";
 	}
 	
 	// 그룹예약 처리
