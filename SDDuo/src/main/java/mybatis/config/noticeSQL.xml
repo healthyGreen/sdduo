@@ -25,7 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 글쓰기 -->
-	<insert id="noticeWrite" parameterType="Integer">
+	<insert id="noticeWrite" parameterType="noticeModel">
 			INSERT INTO F_NOTICE
 			(
 			n_number,
@@ -72,19 +72,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 글수정 -->
-
+	
 	<update id="noticeModify" parameterType="noticeModel">
 			UPDATE F_NOTICE
 			SET
-			n_title = #n_title#,
-			n_name = #n_name#,
-			n_date = SYSDATE,
-			n_content = #n_content#,
-			n_org_image = #n_org_image#,
-			n_sav_image = #n_sav_image#
+				n_title = #{n_title},
+				n_content = #{n_content},
+				n_sav_image = #{n_sav_image}
 			WHERE
 				n_number = #{n_number}	
 	</update>
+	
 
 	<!-- 글삭제 -->
 	<delete id="noticeDelete" parameterType="Integer">

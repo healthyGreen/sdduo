@@ -1,15 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
-<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 
+
 <script type="text/javascript">
 
 $('.searchOption').val($('.searchOptionVal').val());
 var onWrite = function(){
-	location.href = 'noticeWrite.do'; 
+	location.href = 'adminNoticeWrite.do'; 
 };
 </script>
  
@@ -17,24 +18,22 @@ var onWrite = function(){
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">ê³µì§ì¬í­ ê´ë¦¬</h1>
+                    <h1 class="page-header">공지사항 관리</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <div class="row">
-
-  
                 <div class="resev-box">
-					<p class="listnum">ì´ <span>3</span>ê±´ 1/1</p>
+					<p class="listnum">총 <span>3</span>건 1/1</p>
 					<form name="frmCommonList" method="post">
 					<p class="search-area">
 						<select name="search_gubun">
-							<option value="" selected="">ì ì²´</option>
-							<option value="title">ì ëª©</option>
-							<option value="content">ë´ì©</option>
+							<option value="" selected="">전체</option>
+							<option value="title">제목</option>
+							<option value="content">내용</option>
 						</select>
 						<input type="text" name="search" maxlength="20" value="" class="noticebox">
-						<input type="button" value="ê²ì" onclick="searchList(document.frmCommonList);" class="noticebtn">
+						<input type="button" value="검색" onclick="searchList(document.frmCommonList);" class="noticebtn">
 					</p>
 					</form>
 				</div>
@@ -48,17 +47,17 @@ var onWrite = function(){
 				</colgroup>
 				<tbody>
 					<tr>
-						<th>ë²í¸</th>
-						<th>ì ëª©</th>
-						<th>ìì±ì</th>
-						<th>ìì±ì¼</th>
-						<th>ì¡°íì</th>
+						<th>번호</th>
+						<th>제목</th>
+						<th>작성자</th>
+						<th>작성일</th>
+						<th>조회수</th>
 					</tr>
 
 				</tbody>
 				<tbody>
 					<c:forEach var="list" items="${noticeList}">
-						<c:url var="viewURL" value="noticeView.do" >
+						<c:url var="viewURL" value="adminNoticeView.do" >
 							<c:param name="n_number" value="${list.n_number }" />
 						    <c:param name="currentPage" value="${currentPage }" />
 						</c:url>
@@ -80,11 +79,11 @@ var onWrite = function(){
 			<div style="margin-top:40px; float: right;">
 			
 			<%-- <c:if test="${session_member_name == 'admin' }">
-			<button type="button" onclick="onWrite()" class="btn btn-primary">ê¸ì°ê¸°</button>
+			<button type="button" onclick="onWrite()" class="btn btn-primary">글쓰기</button>
 			</c:if> --%>
-			<button type="button" onclick="onWrite()" class="btn btn-primary">ê¸ì°ê¸°</button>
+			<button type="button" onclick="onWrite()" class="btn btn-primary">글쓰기</button>
 			
-			<button type="button" onclick="onList()" class="btn btn-primary">ëª©ë¡</button>
+			<button type="button" onclick="onList()" class="btn btn-primary">목록</button>
 			
 			</div>
             </div>
@@ -92,7 +91,7 @@ var onWrite = function(){
             
             <c:if test="${fn:length(noticeList) le 0}">
 				<br />
-				<center>ë±ë¡ë ê²ìë¬¼ì´ ììµëë¤</center>
+				<center>등록된 게시물이 없습니다</center>
 				<br />
 			</c:if>
 
@@ -102,11 +101,11 @@ var onWrite = function(){
 
 					<form action="">
 						<select class="slcte" name="searchNum" id="searchNum">
-							<option value="0">ì ëª©</option>
-							<option value="1">ë´ì©</option>
+							<option value="0">제목</option>
+							<option value="1">내용</option>
 						</select> <input class="txte" type="text" name="isSearch" id="isSearch" />
 						<span class="btn btnC_03 btnP_04 mr10"> <input
-							type="submit" value="ê²ì"
+							type="submit" value="검색"
 							style="font-size: 11px; padding-bottom: 20; vertical-align: middle;" />
 						</span>
 					</form>

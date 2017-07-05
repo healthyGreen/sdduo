@@ -28,19 +28,19 @@
 	
 	
 	<!--  notice   -->
-	<definition name="noticeList" extends="notice">
-		<put-attribute name="body" value="/WEB-INF/views/notice/noticeList2.jsp"/>
+	<definition name="adminNoticeList" extends="notice">
+		<put-attribute name="body" value="/WEB-INF/views/notice/noticeList.jsp"/>
 	</definition>
 	
- 	<definition name="noticeView" extends="notice">
-		<put-attribute name="body" value="/WEB-INF/views/notice/noticeView2.jsp" />
+ 	<definition name="adminNoticeView" extends="notice">
+		<put-attribute name="body" value="/WEB-INF/views/notice/noticeView.jsp" />
 	</definition>
 
-	<definition name="noticeForm" extends="notice">
+	<definition name="adminNoticeForm" extends="notice">
 	<put-attribute name="body" value="/WEB-INF/views/notice/noticeForm.jsp" />
 	</definition>
 
-	<definition name="noticeModify" extends="notice">
+	<definition name="adminNoticeModify" extends="notice">
 		<put-attribute name="body" value="/WEB-INF/views/notice/noticeModify.jsp" />
 	</definition>
 	

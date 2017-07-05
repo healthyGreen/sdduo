@@ -37,18 +37,19 @@ public class AdminNoticeController {
 	private String isSearch;
 	//페이징을 위한 변수 설정
 		private int currentPage = 1;	 
-		private int totalCount; 		 
+		private int totalCount; 
+		private int totalPage;
 		private int blockCount = 10;	 
 		private int blockPage = 5; 	 
 		private String pagingHtml;  
 		private Paging page;
 		
-	private static final String uploadPath = "C:\\Java\\FINAL\\SDDuo\\src\\main\\webapp\\WEB-INF\\upload";
+	private static final String uploadPath = "C:\\Java\\FINAL\\SDDuo\\src\\main\\webapp\\resources\\upload";
 
 	
 	
 	//리스트 처리(검색)
-		@RequestMapping(value="/notice/adminNoticeList.do", method=RequestMethod.GET)
+		@RequestMapping(value="/admin/adminNoticeList.do", method=RequestMethod.GET)
 		public ModelAndView noticeList(HttpServletRequest request) throws UnsupportedEncodingException{
 			
 			ModelAndView mav = new ModelAndView();
@@ -59,9 +60,9 @@ public class AdminNoticeController {
 	            currentPage = Integer.parseInt(request.getParameter("currentPage"));
 	        }
 
-			List<AdminNoticeModel> noticeList = noticeService.noticeList();
+			List<AdminNoticeModel> adminNoticeList = noticeService.noticeList();
 			
-			System.out.println("size"+noticeList.size());
+			System.out.println("size"+adminNoticeList.size());
 			
 			
 			String isSearch = request.getParameter("isSearch");
@@ -73,55 +74,59 @@ public class AdminNoticeController {
 				searchNum = Integer.parseInt(request.getParameter("searchNum"));
 
 				if(searchNum==0)
-					noticeList = noticeService.noticeSearch0(isSearch);
+					adminNoticeList = noticeService.noticeSearch0(isSearch);
 				else
-					noticeList = noticeService.noticeSearch1(isSearch);
+					adminNoticeList = noticeService.noticeSearch1(isSearch);
 			
-				totalCount = noticeList.size();
-				page = new Paging(currentPage, totalCount, blockCount, blockPage, "noticeList", searchNum, isSearch);
+				totalCount = adminNoticeList.size();
+				page = new Paging(currentPage, totalCount, blockCount, blockPage, "adminNoticeList", searchNum, isSearch);
 				pagingHtml = page.getPagingHtml().toString();
+				totalPage = page.getTotalPage();
 			
 				int lastCount = totalCount;
 			
 				if(page.getEndCount() < totalCount)
 					lastCount = page.getEndCount() + 1;
 				
-				noticeList = noticeList.subList(page.getStartCount(), lastCount);
+				adminNoticeList = adminNoticeList.subList(page.getStartCount(), lastCount);
 			
 				mav.addObject("isSearch", isSearch);
 				mav.addObject("searchNum", searchNum);
 				mav.addObject("totalCount", totalCount);
+				mav.addObject("totalPage", totalPage);
 				mav.addObject("pagingHtml", pagingHtml);
 				mav.addObject("currentPage", currentPage);
-				mav.addObject("noticeList", noticeList);
-				mav.setViewName("noticeList");
+				mav.addObject("adminNoticeList", adminNoticeList);
+				mav.setViewName("adminNoticeList");
 				return mav;
 			}
 			
-			noticeList = noticeService.noticeList();
+			adminNoticeList = noticeService.noticeList();
 			
-			totalCount = noticeList.size();
+			totalCount = adminNoticeList.size();
 			
-			page = new Paging(currentPage, totalCount, blockCount, blockPage, "noticeList");
+			page = new Paging(currentPage, totalCount, blockCount, blockPage, "adminNoticeList");
 			pagingHtml=page.getPagingHtml().toString();  
+			totalPage = page.getTotalPage();
 			
 			int lastCount = totalCount;
 			 
 			if (page.getEndCount() < totalCount)
 				lastCount = page.getEndCount() + 1;
 			 
-			noticeList = noticeList.subList(page.getStartCount(), lastCount);
+			adminNoticeList = adminNoticeList.subList(page.getStartCount(), lastCount);
 			
 			mav.addObject("totalCount", totalCount);
 			mav.addObject("pagingHtml", pagingHtml);
 			mav.addObject("currentPage", currentPage);
-			mav.addObject("noticeList", noticeList);
-			mav.setViewName("noticeList");
+			mav.addObject("totalPage", totalPage);
+			mav.addObject("adminNoticeList", adminNoticeList);
+			mav.setViewName("adminNoticeList");
 			return mav;
 		}
 	
 	//공지사항 상세보기
-	@RequestMapping("/notice/adminNoticeView.do")
+	@RequestMapping("/admin/adminNoticeView.do")
 	public ModelAndView noticeView(HttpServletRequest request){
 		   
 		ModelAndView mav = new ModelAndView();
@@ -133,32 +138,31 @@ public class AdminNoticeController {
 		noticeService.noticeUpdateReadcount(n_number);
 		
 		mav.addObject("noticeModel", noticeModel);
-		mav.setViewName("noticeView");
+		mav.setViewName("adminNoticeView");
 		
 		return mav;
 	}
 	
 	//공지사항 글쓰기 폼
-	@RequestMapping(value="/notice/adminNoticeWriteForm.do", method=RequestMethod.GET)
+	@RequestMapping(value="/admin/adminNoticeWrite.do", method=RequestMethod.GET)
 	public ModelAndView noticeForm(HttpServletRequest request) {
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("noticeModel", new AdminNoticeModel());
-		mav.setViewName("noticeForm");
+		mav.setViewName("adminNoticeForm");
 		return mav;
 	}
 	
 	//공지사항 글쓰기
-	@RequestMapping(value="/notice/adminNoticeWrite.do", method=RequestMethod.POST)
+	@RequestMapping(value="/admin/adminNoticeWrite.do", method=RequestMethod.POST)
 	public ModelAndView noticeWrite(@ModelAttribute("noticeModel") AdminNoticeModel noticeModel, BindingResult result, 
 			HttpServletRequest request, HttpSession session,MultipartHttpServletRequest multipartHttpServletRequest)throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
-		
 		new NoticeValidator().validate(noticeModel, result);
 		
 		if(result.hasErrors()) {
-			mav.setViewName("noticeForm");
+			mav.setViewName("adminNoticeForm");
 			return mav;
 		}
 		/*줄바꿈*/
@@ -184,7 +188,7 @@ public class AdminNoticeController {
 		System.out.println("image:"+noticeModel.getN_org_image());
 		noticeService.noticeWrite(noticeModel);
 			
-		mav.setViewName("redirect:noticeList.do");
+		mav.setViewName("redirect:adminNoticeList.do");
 				
 		return mav;
 			
@@ -194,42 +198,42 @@ public class AdminNoticeController {
 		
 	
 	//공지사항 삭제
-	@RequestMapping("/notice/adminNoticeDelete.do")
+	@RequestMapping("/admin/adminNoticeDelete.do")
 	public ModelAndView noticeDelete(HttpServletRequest request){
 		
 		ModelAndView mav = new ModelAndView();
 		int n_number = Integer.parseInt(request.getParameter("n_number"));
 		noticeService.noticeDelete(n_number);
-		mav.setViewName("redirect:noticeList.do");
+		mav.setViewName("redirect:adminNoticeList.do");
 		
 		return mav;	
 	}
 	
 	//공지사항 수정폼
-	@RequestMapping("/notice/adminNoticeModify.do")
+	@RequestMapping("/admin/adminNoticeModify.do")
 	public ModelAndView noticeModifyForm(@ModelAttribute("noticeModel") AdminNoticeModel noticeModel, BindingResult result, HttpServletRequest request){
 		
 		ModelAndView mav = new ModelAndView();
 		noticeModel = noticeService.noticeView(noticeModel.getN_number());
 		
-		String content = noticeModel.getN_content().replaceAll("<br />", "\r\n");
-		noticeModel.setN_content(content);
+		String n_content = noticeModel.getN_content().replaceAll("<br />", "\r\n");
+		noticeModel.setN_content(n_content);
 		
 		mav.addObject("noticeModel", noticeModel);
-		mav.setViewName("noticeModify");
+		mav.setViewName("adminNoticeModify");
 		
 		return mav;	
 	}
 	
 	//공지사항 수정
-	@RequestMapping("/notice/adminNoticeModifySuccess.do")
+	@RequestMapping("/admin/adminNoticeModifySuccess.do")
 	public ModelAndView reviewModify(@ModelAttribute("noticeModel") AdminNoticeModel noticeModel, MultipartHttpServletRequest multipartHttpServletRequest){
 		
 		ModelAndView mav = new ModelAndView();
         
         /*줄바꿈*/
-		String content = noticeModel.getN_content().replaceAll("\r\n", "<br />");
-		noticeModel.setN_content(content);
+		String n_content = noticeModel.getN_content().replaceAll("\r\n", "<br />");
+		noticeModel.setN_content(n_content);
 	    
         if (multipartHttpServletRequest.getFile("file") != null){
  		//메인 상품이미지
@@ -258,7 +262,7 @@ public class AdminNoticeController {
         noticeService.noticeModify(noticeModel);
 		
 		mav.addObject("n_number", noticeModel.getN_number());
-		mav.setViewName("redirect:/notice/noticeView.do");
+		mav.setViewName("redirect:/admin/adminNoticeView.do");
 		return mav;	
 	}
 	
