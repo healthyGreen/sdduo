@@ -86,7 +86,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 회원탈퇴 -->
 	<delete id="deleteMember" parameterType="String">
 		delete from F_MEMBER	
-		where id = #{m_id}
+		where m_id = #{m_id}
 	</delete>
 	
 	<!-- 관리자 회원목록 출력 -->
