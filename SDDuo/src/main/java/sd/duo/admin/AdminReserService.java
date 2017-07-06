@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import sd.duo.reserve.GroupReserModel;
 import sd.duo.reserve.OneReserModel;
 import sd.duo.reserve.ReserDAO;
 
@@ -21,9 +22,14 @@ public class AdminReserService implements AdminReserDAO{
 	   private SqlSessionTemplate sqlSessionTemplate;
 
 	@Override
-	public List<OneReserModel> OneReserList_G() {
+	public List<OneReserModel> OneReserList(String pr_center) {
 		// TODO Auto-generated method stub
-		return sqlSessionTemplate.selectList("");
+		return sqlSessionTemplate.selectList("reserve.OneCenterList", pr_center);
+	}
+
+	public List<GroupReserModel> GroupReserList(String gr_center) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectList("reserve.GrCenterList", gr_center);
 	}
 
 }

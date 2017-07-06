@@ -40,7 +40,7 @@
 									</tbody>
 								</table>
 								<div class="btn-area">
-									<input type="submit" value="확인" value="확인" class="submit" >
+									<input type="submit" value="확인" class="submit" >
 									<input type="button" value="취소" class="cancel" onclick="window.history.go(-1); return false;">
 								</div>
 								</form>

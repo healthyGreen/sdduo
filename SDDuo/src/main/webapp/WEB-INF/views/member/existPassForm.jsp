@@ -27,22 +27,23 @@
 								</div>
 							</div>
 							<div class="rightbox">
-								
+								<form action="/SDDuo/member/existPass.do" method="post">
 								<table class="write-board01">
 									<caption>비밀번호 확인</caption>
 									<tbody>
 										<tr>
 											<th>비밀번호 확인 (4자리)</th>
 											<td>
-												<input type="password" name="lock_pwd" id="lock_pwd" maxlength="4" style="IME-MODE: disabled;" class="writetxt03">
+												<input type="password" name="m_pass" id="lock_pwd" maxlength="4" style="IME-MODE: disabled;" class="writetxt03">
 											</td>
 										</tr>
 									</tbody>
 								</table>
 								<div class="btn-area">
-									<input type="button" value="확인" class="submit" onclick="location.href='http://localhost:8080/SDDuo/member/existPass.do'">
+									<input type="submit" value="확인" class="submit" >
 									<input type="button" value="취소" class="cancel" onclick="window.history.go(-1); return false;">
 								</div>
+								</form>
 							</div>
 						</div>	
 						

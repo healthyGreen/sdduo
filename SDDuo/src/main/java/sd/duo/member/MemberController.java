@@ -27,6 +27,14 @@ public class MemberController {
    
    ModelAndView mav = new ModelAndView();
    
+// aboutÆäÀÌÁö
+   @RequestMapping(value="/about.do")
+   public ModelAndView about(){
+      mav.setViewName("/about");
+      return mav;
+   }
+      
+   
 // ·Î±×ÀÎ ÆäÀÌÁö
    @RequestMapping(value="/loginForm.do", method = RequestMethod.GET)
    public ModelAndView loginForm(){
@@ -165,53 +173,54 @@ public class MemberController {
          }
          
       // È¸¿ø Å»Åð ºñ¹ø Æû
-       @RequestMapping("/existPassFrom.do")
-       public ModelAndView existPassForm()
-       {
-          mav.setViewName("existPassForm");
-          return mav;
-       }
-       
-      // È¸¿ø Å»Åð ºñ¹ø È®ÀÎ 
-       @RequestMapping("/existPass.do")
-       public ModelAndView existPassPro(@ModelAttribute("member") MemberModel member, HttpServletRequest requeset, HttpSession session)
-       {
-          MemberModel memberModel;
-          String id;
-          String passwd;
-          
-          passwd = requeset.getParameter("passwd");
-          id = session.getAttribute("session_member_id").toString();
-          
-          memberModel = (MemberModel)memberService.getMember(id);
-          if(memberModel.getM_pass().equals(passwd))
-          {
-             mav.setViewName("existWarring");
-             return mav;
-          }else
-          {
-             mav.setViewName("checkPassFrom");
-             return mav;
-          }
-       }
-      
-      // È¸¿ø Å»Åð
-       @RequestMapping("/exist.do")
-       public ModelAndView exist(@ModelAttribute("member") MemberModel member, BindingResult result, HttpServletRequest requeset, HttpSession session)
-       {
-          MemberModel memberModel;
-          String id;
-          
-          id = session.getAttribute("session_member_id").toString();
-          memberService.memberDelete(id);
-          session.removeAttribute("session_member_id");
-           session.removeAttribute("session_member_name");
-           session.removeAttribute("session_member_no");
-           
-           mav.setViewName("main");
-           return mav;
-       }
+         @RequestMapping("/existPassForm.do")
+         public ModelAndView existPassForm()
+         {
+            mav.setViewName("existPassForm");
+            return mav;
+         }
          
+        // È¸¿ø Å»Åð ºñ¹ø È®ÀÎ 
+         @RequestMapping("/existPass.do")
+         public ModelAndView existPassPro(@ModelAttribute("member") MemberModel member, HttpServletRequest requeset, HttpSession session)
+         {
+            String id;
+            String passwd;
+            
+            passwd = requeset.getParameter("m_pass");
+            id = session.getAttribute("session_member_id").toString();
+            
+            System.out.println(id);
+            System.out.println(passwd);
+            
+            member = (MemberModel)memberService.getMember(id);
+            if(member.getM_pass().equals(passwd))
+            {
+               mav.setViewName("existWarning");
+               return mav;
+            }else
+            {
+               mav.setViewName("existPassForm");
+               return mav;
+            }
+         }
+        
+        // È¸¿ø Å»Åð
+         @RequestMapping("/exist.do")
+         public ModelAndView exist(@ModelAttribute("member") MemberModel member, BindingResult result, HttpServletRequest requeset, HttpSession session)
+         {
+            MemberModel memberModel;
+            String id;
+            
+            id = session.getAttribute("session_member_id").toString();
+            memberService.memberDelete(id);
+            session.removeAttribute("session_member_id");
+             session.removeAttribute("session_member_name");
+             session.removeAttribute("session_member_no");
+             
+             mav.setViewName("main");
+             return mav;
+         }
     // ¾ÆÀÌµð Ã£±â Æû
        @RequestMapping("/findIdForm.do")
        public ModelAndView FindIdForm(){

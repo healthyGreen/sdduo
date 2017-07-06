@@ -11,6 +11,8 @@ public interface AdminReserDAO {
 
    /*List<GroupReserModel> GrReserList();*/
 
-   List<OneReserModel> OneReserList_G();
+   List<OneReserModel> OneReserList(String pr_center);
+   
+   List<GroupReserModel> GroupReserList(String gr_center);
 
 }
