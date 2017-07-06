@@ -6,5 +6,5 @@ import sd.duo.member.MemberModel;
 
 public interface adminDao {
 
-	public List<MemberModel> memberList();
+	List<MemberModel> memberList();
 }

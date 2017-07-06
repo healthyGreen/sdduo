@@ -12,6 +12,7 @@ $(document).ready(function(){
 		$(".gnb > li").on("mouseenter focusin",function(){
 			$(".gnb > li > a").removeClass("current");
 			$(this).children().addClass("current");
+			
 		});
 
 	});

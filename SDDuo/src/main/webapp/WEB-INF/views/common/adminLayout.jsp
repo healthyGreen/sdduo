@@ -50,11 +50,11 @@
 	
 	<!-- Left --> 
 	
-	<tiles:insertAttribute name="adminLeft"/><!-- // container -->
+	<tiles:insertAttribute name="adminLeft"/>
 
 	<!-- container --> 
-	<
-	<tiles:insertAttribute name="adminContainer"/><!-- // footer -->
+	
+	<tiles:insertAttribute name="adminContainer"/>
 
 </body>
 </html>

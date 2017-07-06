@@ -26,7 +26,6 @@ public class adminController{
 	
 	//회원목록 노출 
 	@Resource
-	private MemberService memberService;
 	private adminService adminService;
 	
 	//페이징
@@ -49,7 +48,10 @@ public class adminController{
         }
 		List<MemberModel> memberList=adminService.memberList();
 		
+		System.out.println(memberList);
+		
 		totalCount = memberList.size();
+		System.out.println("size"+memberList.size());
 		page = new Paging(currentPage, totalCount, blockCount, blockPage, "adminMemberList");
 		pagingHtml = page.getPagingHtml().toString();
 	
