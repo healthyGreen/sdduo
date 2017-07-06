@@ -37,6 +37,50 @@
   });
   </script>
 
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script>
+    function sample6_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var fullAddr = ''; // 최종 주소 변수
+                var extraAddr = ''; // 조합형 주소 변수
+
+                // 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    fullAddr = data.roadAddress;
+
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    fullAddr = data.jibunAddress;
+                }
+
+                // 사용자가 선택한 주소가 도로명 타입일때 조합한다.
+                if(data.userSelectedType === 'R'){
+                    //법정동명이 있을 경우 추가한다.
+                    if(data.bname !== ''){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있을 경우 추가한다.
+                    if(data.buildingName !== ''){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+                    fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('sample6_postcode').value = data.zonecode; //5자리 새우편번호 사용
+                document.getElementById('sample6_address').value = fullAddr;
+
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById('sample6_address2').focus();
+            }
+        }).open();
+    }
+</script>
 
 
 
@@ -46,124 +90,6 @@
  <body>
       <?include "../../inc/quick.html"?>
 
-
-      <div class="wrapper">
-         <div class="header" id="top">
-            <div class="subBg"></div>
-            <div class="header-inbox">
-               <div class="header-top">
-                  <ul class="left-area">
-                     <li><a href=""><img src="../../images/common/site01.gif" alt="카페"></a></li>
-                     <li><a href=""><img src="../../images/common/site02.gif" alt="블로그"></a></li>
-                     <li><a href=""><img src="../../images/common/site03.gif" alt="페이스북"></a></li>
-                     <li><a href=""><img src="../../images/common/site04.gif" alt="카카오톡"></a></li>
-                  </ul>
-                  <h1><a href="../../index.html"><img src="../../images/common/logo.gif" alt="로고"></a></h1>
-                  <ul class="right-area">
-                     <li><a href="">사이트맵</a></li>
-                     <li class="last"><a href="">주변센터찾기</a></li>
-                  </ul>
-               </div>
-               <div class="header-bottom">
-                  <!-- gnb 시작 -->
-                   <div id="gnbarea">
-
-                     <ul class="gnb clear">
-                       <li class="li01"><a href="sub0101.html"><img src="../../images/common/gnb01.gif">소개</a>
-                         <div class="subWrap sub01">
-                           <ul>
-                               <li><a href="sub0101.html">My story is</a></li>
-                               <li><a href="sub0102.html">마이스토리 이용안내</a></li>
-                               <li><a href="sub0103_list.html">가까운센터 둘러보기</a></li>
-                               <li><a href="sub0104.html">마이스토리 사람들</a></li>
-                               <li><a href="sub0105_list.html">마이스토리 방송이야기</a></li>
-                               <li><a href="sub0106.html">센터 운영 문의</a></li>
-                           </ul>
-                         </div>
-                       </li>
-                       <li class="li02"><a href="../sub02/sub0201_list.html">예약/커뮤니티</a>
-                         <div class="subWrap sub02">
-                           <ul>
-                               <li><a href="../sub02/sub0201_list.html">온라인상담</a></li>
-                               <li><a href="../sub02/sub0202_01.html">온라인 실시간 예약</a></li>
-                               <li><a href="../sub02/sub0203_list.html">마이스토리 공지사항</a></li>
-                               <li><a href="../sub02/sub0204_list.html">TODAY 심리컬럼</a></li>
-                               <li><a href="../sub02/sub0205_list.html">책으로 만나는 심리산책</a></li>
-                               <li><a href="../sub02/sub0206_list.html">자주하는 질문</a></li>
-                           </ul>
-                         </div>
-                       </li>
-                       <li class="li03"><a href="../sub03/sub0301.html">아이심리상담</a>
-                         <div class="subWrap sub03">
-                           <ul>
-                               <li><a href="../sub03/sub0301.html">ADHD</a></li>
-                               <li><a href="../sub03/sub0302.html">아동청소년우울</a></li>
-                               <li><a href="../sub03/sub0303.html">문제행동</a></li>
-                               <li><a href="../sub03/sub0304.html">불안</a></li>
-                               <li><a href="../sub03/sub0305.html">스마트 폰 게임 중독</a></li>
-                               <li><a href="../sub03/sub0306.html">학교 부적응, 따돌림</a></li>
-                              <li><a href="../sub03/sub0307.html">학급부진, 학습장애</a></li>
-                              <li><a href="../sub03/sub0308.html">틱장애</a></li>
-                           </ul>
-                         </div>
-                       </li>
-                       <li class="li04"><a href="../sub04/sub0401.html">성인심리상담</a>
-                         <div class="subWrap sub04">
-                           <ul>
-                               <li><a href="../sub04/sub0401.html">우울증상</a></li>
-                               <li><a href="../sub04/sub0402.html">불안증상</a></li>
-                               <li><a href="../sub04/sub0403.html">성경문제행동</a></li>
-                               <li><a href="../sub04/sub0404.html">중독</a></li>
-                               <li><a href="../sub04/sub0405.html">정신분열</a></li>
-                               <li><a href="../sub04/sub0406.html">부부상담</a></li>
-                               <li><a href="../sub04/sub0407.html">가족상담</a></li>
-                           </ul>
-                         </div>
-                       </li>
-                       <li class="li05"><a href="../sub05/sub0501.html" class="last">심리치료프로그램</a>
-                         <div class="subWrap sub05">
-                           <ul>
-                               <li><a href="../sub05/sub0501.html">개인상담치료</a></li>
-                               <li><a href="../sub05/sub0502.html">미술심리치료</a></li>
-                               <li><a href="../sub05/sub0503.html">놀이심리치료</a></li>
-                               <li><a href="../sub05/sub0504.html">연극심리치료</a></li>
-                               <li><a href="../sub05/sub0505.html">독서심리치료</a></li>
-                               <li><a href="../sub05/sub0506.html">음악심리치료</a></li>
-                               <li><a href="../sub05/sub0507.html">언어치료</a></li>
-                               <li><a href="../sub05/sub0508.html">학습치료-진로상담</a></li>
-                           </ul>
-                         </div>
-                       </li>
-                       <li class="li06"><a href="../sub06/sub0601.html" class="last">심리검사프로그램</a>
-                         <div class="subWrap sub06">
-                           <ul>
-                              <li><a href="../sub06/sub0601.html">종합심리평가</a></li>
-                               <li><a href="../sub06/sub0602.html">종합정서평가</a></li>
-                               <li><a href="../sub06/sub0603.html">영유아 발달검사</a></li>
-                               <li><a href="../sub06/sub0604.html">학슴 및 진로 종합평가</a></li>
-                               <li><a href="../sub06/sub0605.html">영유아 놀이평가</a></li>
-                               <li><a href="../sub06/sub0606.html">언어평가</a></li>
-                           </ul>
-                         </div>
-                       </li>
-                       <li class="li07"><a href="../sub07/sub0701.html" class="last">기업상담프로그램</a>
-                         <div class="subWrap sub07">
-                           <ul>
-                               <li><a href="../sub07/sub0701.html">마이스토리 기업상담</a></li>
-                               <li><a href="../sub07/sub0702.html">기업상담진행절차</a></li>
-                               <li><a href="../sub07/sub0703_01.html">실시간 기업상담예약</a></li>
-                               <li><a href="../sub07/sub0704.html">기업상담사례모음</a></li>
-                               <li><a href="../sub07/sub0705.html">심리 강의 교육</a></li>
-                           </ul>
-                         </div>
-                       </li>
-                     </ul>
-                   </div>
-
-               <!-- //gnb 끝 -->
-               </div>
-            </div>
-         </div>
           <div class="sub-content">
             <div class="sub-content-inbox">
                
@@ -274,23 +200,21 @@
                <th class="memberCols1" rowspan="2"><font color="FF6000">*</font> 주소</th>
                
                  <td>
-                 <input type="text" name="m_zipcode" id="m_zipcode" size="5" class="line"  value="12451" label="우편번호">
-                <!--  ( <input type="text" name="m_addr" id="m_addr" size="3" class="line" readonly="" value="477" required="" label="우편번호"> -
-                 <input type="text" name="m_addr2" id="m_addr2" size="3" class="line" readonly="" value="815" required="" label="우편번호"> )
-                 <a href="javascript:popup('../proc/popup_address.php',500,432)"> -->우편번호버튼</a>
+                 <input type="text" name="m_zipcode" id="sample6_postcode" size="5" class="line"  value="" label="우편번호">
+                 <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" style="background:#484647;cursor: pointer; border: none; color: #Fff; padding: 3px 7px;"><br>
+                 
                      </td>
             </tr>
             <tr>
            <td id="mmber1">
-           <input type="text" name="m_add1" id="m_add1" value="경기도 가평군 "  size="30" required="" label="주소"/>
-           <input type="text" name=m_add2 id="m_add2" value="경남아너스빌" size="30" onkeyup="SameAddressSub(this)" oninput="SameAddressSub(this)" label="세부주소"/><br>
+           <input type="text" name="m_add1" id="sample6_address" value=""  size="30" required="" label="주소"/>
+           <input type="text" name=m_add2 id="sample6_address2" value="" size="30" onkeyup="SameAddressSub(this)" oninput="SameAddressSub(this)" label="상세주소"/><br>
             <input type="hidden" name="m_admin" value="0"/> 
            <div style="padding:5px 5px 0 1px;font:12px dotum;color:#999;float:left;" id="div_road_address"></div>
            <div style="padding:5px 0 0 1px;font:12px dotum;color:#999;" id="div_road_address_sub"></div>
                </td>
             </tr>
-         
-               
+   
             </tbody>
          </table>
             <div class="join-conf-btn join-conf-btn2 ">

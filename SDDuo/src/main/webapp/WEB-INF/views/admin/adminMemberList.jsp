@@ -9,7 +9,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">온라인상담 관리</h1>
+                    <h1 class="page-header">회원 관리</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -36,26 +36,25 @@
 							<th>성별</th>
 							<th>주소</th>
 						</tr>
-						<tr>
-							<td>1</td>
-							<td>gkdjlk</td>
-							<td>신희진</td>
-							<td>010-5555-5555</td>
-							<td>여자</td>
-							<td>경기도 가평군 청평면 골안길 경남아너스빌</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td>gkdjlk</td>
-							<td>신희진</td>
-							<td>010-5555-5555</td>
-							<td>여자</td>
-							<td>경기도 가평군 청평면 골안길 경남아너스빌</td>
-						</tr>
-						
+						<c:forEach var="memberList" items="${memberList}" varStatus="stat">
+							<tr>
+								<td>${memberList.m_number}</td>
+								<td>${memberList.m_id}</td>
+								<td>${memberList.m_name}</td>
+								<td>${memberList.m_phone1}-${memberList.m_phone2}-${memberList.m_phone3}</td>
+								<td>${memberList.m_sex}</td>
+								<td>${memberList.m_add1}<br/>${memberList.m_add1} </td>
+							</tr>
+							
+						</c:forEach>
+						<c:if test="${fn:length(memberList) le 0}">
+							<tr><td colspan="6" style="text-align:center;">회원이 없습니다.</td></tr>
+						</c:if> 
 					</tbody>
 				</table>
-			
+				<div class="paging">
+					${pagingHtml}
+				</div>
             </div>
             <!-- /.row -->
         </div>

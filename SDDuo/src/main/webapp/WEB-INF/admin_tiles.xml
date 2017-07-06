@@ -6,11 +6,25 @@
        
 <tiles-definitions>
 
-	<!-- admin member List -->
-	<definition name="adminMemberList">
-		<put-attribute name="adminLeft" value="/WEB-INF/views/common/adminLeft.jsp" />
-		<put-attribute name="adminContainer" value="/WEB-INF/views/common/adminMemberList.jsp" />
-	</definition>
 
+
+
+	 <!-- admin member List -->
+   <definition name="adminMemberList"  template="/WEB-INF/views/common/adminLayout.jsp">
+      <put-attribute name="adminLeft" value="/WEB-INF/views/common/adminLeft.jsp" />
+      <put-attribute name="adminContainer" value="/WEB-INF/views/admin/adminMemberList.jsp" />
+   </definition>
+   
+   <!-- 관리자 입장 센터별 개인예약 리스트 -->
+   <definition name="adminOneReserList"  template="/WEB-INF/views/common/adminLayout.jsp">
+      <put-attribute name="adminLeft" value="/WEB-INF/views/common/adminLeft.jsp" />
+      <put-attribute name="adminContainer" value="/WEB-INF/views/admin/adminOneReserList.jsp" />
+   </definition>
+   
+   <!-- 관리자 입장 센터별 그룹예약 리스트 -->
+   <definition name="adminGrReserList"  template="/WEB-INF/views/common/adminLayout.jsp">
+      <put-attribute name="adminLeft" value="/WEB-INF/views/common/adminLeft.jsp" />
+      <put-attribute name="adminContainer" value="/WEB-INF/views/admin/adminGrReserList.jsp" />
+   </definition>
 	
 </tiles-definitions>       

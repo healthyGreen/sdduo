@@ -1,24 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-    
-<script type="text/javascript">
-function noticeDelete() {
-	alert("삭제하겠습니까?");
-	location.href='adminNoticeDelete.do?n_number=${noticeModel.n_number}';
-}
-
-var onModify = function(n_number){
-	var form = $('.viewForm')[0];
-	form.action = 'adminNoticeModify.do?n_number='+n_number;
-	form.submit();
-};
-
-var onList = function(){
-	location.href='adminNoticeList.do';
-};
-
-</script>
+   
 
 
+
+<body>
+
+    <div id="wrapper">
+
+            
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
@@ -54,22 +48,30 @@ var onList = function(){
 					</tr>
 					<tr>
 						<td class="dmc_content content">
-							${noticeModel.n_content }
+						<img src="../resources/upload/${noticeModel.n_sav_image}" alt="이미지가 없습니다" /><br>
+						${noticeModel.n_content }
 						</td>
 					</tr>
 					</tbody>
 				</table>
-				
-				
-			<div style="width: 140px; margin: 40px auto; ">
+			
+			<div style="width: 240px; margin: 40px auto; ">
 				<form class="viewForm" method="post">
 				<input type="hidden" name="${noticeModel.n_number }" />
 				<%-- <input type="hidden" name="seq" value="${item.seq }" /> --%>
+					
+					<%-- <c:if test="${session_member_id == 'admin' }">	
 					<button type="button" onclick="onModify(${noticeModel.n_number })" class="btn btn-outline btn-primary" style="margin-right: 10px; ">수정</button>
+					<button type="button" onclick="noticeDelete(${noticeModel.n_number })" class="btn btn-outline btn-primary" style="margin-right: 10px; ">삭제</button>
+					</c:if> --%>
+					
+					<button type="button" onclick="onModify(${noticeModel.n_number })" class="btn btn-outline btn-primary" style="margin-right: 10px; ">수정</button>
+					<button type="button" onclick="noticeDelete(${noticeModel.n_number })" class="btn btn-outline btn-primary" style="margin-right: 10px; ">삭제</button>
+					
 					<button type="button" onclick="onList()" class="btn btn-outline btn-default">목록</button>
 				</form>	
 			</div>
-							<!--  	<c:if test="${session_member_id == 'admin' }">	</c:if>-->
+							
 				
             </div>    
             <!-- /.row -->
@@ -96,3 +98,22 @@ var onList = function(){
     <!-- Custom Theme JavaScript -->
     <script src="../resources/dist/js/sb-admin-2.js"></script>
 
+</body>
+
+<script type="text/javascript">
+function noticeDelete() {
+	alert("삭제하겠습니까?");
+	location.href='adminNoticeDelete.do?n_number=${noticeModel.n_number}';
+}
+
+var onModify = function(n_number){
+	var form = $('.viewForm')[0];
+	form.action = 'adminNoticeModify.do?n_number='+n_number;
+	form.submit();
+};
+
+var onList = function(){
+	location.href='adminNoticeList.do';
+};
+
+</script>
