@@ -1,32 +1,35 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>마이스토리</title>
-	<meta http-equiv="Content-Type" content="text/html;charset=euc-kr" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<link rel="stylesheet" href="../../css/layout.css" />
-	<link rel="stylesheet" href="../../css/default.css" />
+<title>마이스토리</title>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" " />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="stylesheet" href="../../css/layout.css" />
+<link rel="stylesheet" href="../../css/default.css" />
 
-	<!--JQUERY-->
+<!--JQUERY-->
 
-	<script  type="text/javascript" src="../../js/jquery-1.9.1.js"></script>
-	<script  type="text/javascript" src="../../js/common.js"></script>
-	<script  type="text/javascript" src="../../js/jquery.flexslider.js"></script>
-	<script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-	<script src="../../js/jquery.rolling.js" type="text/javascript"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.js"></script>
-	<script type="text/javascript" src="../../js/tab.js"></script>
-	<script type="text/javascript">
+<script type="text/javascript" src="../../js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="../../js/jquery.flexslider.js"></script>
+<script type="text/javascript"
+	src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script src="../../js/jquery.rolling.js" type="text/javascript"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.js"></script>
+<script type="text/javascript" src="../../js/tab.js"></script>
+<script type="text/javascript">
 	    // <![CDATA[
 	    $(document).ready(function () {
 		   $('#tab').tabify();
 	    });
 	    // ]]>
 	</script>
-	<script>
+<script>
   /*** 롤링배너 ***/
   jQuery(function($){
     $("div.gallery_rolling").gallery_rolling();
@@ -39,7 +42,7 @@
 </head>
 
 
- <body>
+<body>
 
 	<!-- <div id="quick">
 		<div class="btn_area">
@@ -590,13 +593,13 @@
 
 
 
-<!-- START #full_menu_pop -->
+	<!-- START #full_menu_pop -->
 
-<div id="full_menu">
+	<!-- <div id="full_menu">
 
-</div><!-- END #full_menu_pop -->
+</div>END #full_menu_pop
 
-<!--  개인정보 on&off 스크립트#3 -->
+ 개인정보 on&off 스크립트#3
 
 <script type="text/javascript">
 jQuery(function($){
@@ -625,7 +628,7 @@ jQuery(function($){
 });
 </script>
 
-<!--  개인정보 on&off 스크립트#4 -->
+ 개인정보 on&off 스크립트#4
 
 <script type="text/javascript">
 jQuery(function($){
@@ -672,9 +675,9 @@ jQuery(function($){
 
 
 //-->
-</script>
+	</script>
 
-<script type="text/javascript">
+	<script type="text/javascript">
 $(document).ready(function() {
     winWidth = $(window).width();
     if( winWidth <= 1400) {
@@ -688,7 +691,7 @@ $(document).ready(function() {
 </script>
 
 
-<script type="text/javascript">
+	<script type="text/javascript">
 $(document).ready(function(){
 
 	var open_check = 0;
@@ -790,7 +793,7 @@ $(document).ready(function(){
 });
 </script>
 
-<script type="text/javascript">
+	<script type="text/javascript">
 $(document).ready(function() {
 
   $(window).resize(function() {
@@ -806,8 +809,9 @@ $(document).ready(function() {
 
 });
 </script>
+	-->
 
-		<!-- <div class="wrapper">
+	<!-- <div class="wrapper">
 			<div class="header">
 				<div class="subBg"></div>
 				<div class="header-inbox">
@@ -924,41 +928,42 @@ $(document).ready(function() {
 					</div>
 				</div>
 			</div> -->
-			<div class="sub-content">
-				<!-- <div class="bg02area">
+	<div class="sub-content">
+		<!-- <div class="bg02area">
 					<p class="tit">예약/커뮤니티</p>
 				</div> -->
-				<div class="sub-content-inbox">
-					 <ul class="sub-menu2">
-						<li class="act"><a href="sub0201_list.html">온라인상담</a></li>
-						<li><a href="sub0202_01.html">온라인 실시간예약</a></li>
-						<li><a href="sub0203_list.html">마이스토리 공지사항</a></li>
-						<li><a href=" sub0204_list.html">마이스토리 심리 컬럼</a></li>
-						<li><a href="sub0205_list.html">책으로 만나는 심리이야기</a></li>
-						<li class="last"><a href="sub0206_list.html">자주하는 질문</a></li>
-					</ul> 
-					<h3>온라인 상담</h3>
-					<p class="sub02_txt">
-						마이스토리에 남겨주신 소중한 이야기는 내담자 보호 규정에 따라 철저히 비밀 보장 되며 병원과 달리 절대 기록이 남지 않습니다.<br />
-						<span>답변은 질문 내용에 따라 분류되어 해당 분야 전문선생님에 의해 성실이 이루어집니다. <br />
-						답변 순서는 각 센터별 전문가 선생님들의 여건에 따라 달라질 수 있음을 양해해 주시기 바랍니다.</span><br />
-					</p>
-					<p class="reserv-btn">실시간예약 바로가기</p>
-					
-					<script type="text/javascript">
-function regOnlineInquery(consult){
+		<div class="sub-content-inbox">
+			<ul class="sub-menu2">
+				<li class="act"><a href="sub0201_list.html">온라인상담</a></li>
+				<li><a href="sub0202_01.html">온라인 실시간예약</a></li>
+				<li><a href="sub0203_list.html">마이스토리 공지사항</a></li>
+				<li><a href=" sub0204_list.html">마이스토리 심리 컬럼</a></li>
+				<li><a href="sub0205_list.html">책으로 만나는 심리이야기</a></li>
+				<li class="last"><a href="sub0206_list.html">자주하는 질문</a></li>
+			</ul>
+			<h3>온라인 상담</h3>
+			<p class="sub02_txt">
+				마이스토리에 남겨주신 소중한 이야기는 내담자 보호 규정에 따라 철저히 비밀 보장 되며 병원과 달리 절대 기록이 남지
+				않습니다.<br /> <span>답변은 질문 내용에 따라 분류되어 해당 분야 전문선생님에 의해 성실이
+					이루어집니다. <br /> 답변 순서는 각 센터별 전문가 선생님들의 여건에 따라 달라질 수 있음을 양해해 주시기
+					바랍니다.
+				</span><br />
+			</p>
+			<p class="reserv-btn">실시간예약 바로가기</p>
+
+			<script type="text/javascript">
+/* function regOnlineInquery(consult){
 	if(document.consult.c_title.value.trim() == ""){
 		alert("제목을 입력해주세요.");
 		consult.c_title.focus();
 		return false;
 	}
-
 	if(document.consult.c_pass.value.trim() == ""){
 		alert("비밀번호를 입력해주세요.");
 		consult.c_pass.focus();
 		return false;
 	}
-	if(document.consult.c_pass.value.length() < 4){
+	if(document.consult.c_pass.value.trim().length < 4){
 		alert("비밀번호는 4자 이상으로 입력해주세요");
 		consult.c_pass.focus();
 		return false;
@@ -972,29 +977,31 @@ function regOnlineInquery(consult){
 		form.lock_yn.value="Y";
 	}else{
 		form.lock_yn.value="N";
-	} */
+	} */ */
 /*  	if(confirm("등록하시겠습니까?")) {
 		return;
-	}  */
-}
+	}  
+}*/
 </script>
-	<c:choose>
+			<c:choose>
 				<c:when test="${state.equals('modify')}">
-						<form:form commandName="consulting" name="consult" onsubmit="return regOnlineInquery();" action="consultingModifyPro.do">
+					<spring:hasBindErrors name="consulting" />
+					<form:errors path="consulting" />
+					<form:form commandName="consulting" action="consultingModifyPro.do">
 						<table class="write-board01">
-						<caption>상담문의 글 수정</caption>
-						<tbody>
-							<tr>
-								<th>이야기 제목</th>
-								<td colspan="3">
-								 <input type="hidden" name="c_ref" value="${consultingmodel.c_ref }"/>
-								<input type="hidden" name="c_number" value="${consultingmodel.c_number }">
+							<caption>상담문의 글 수정</caption>
+							<tbody>
+								<tr>
+									<th>이야기 제목</th>
+									<td colspan="3"><input type="hidden" name="c_ref"
+										value="${consultingmodel.c_ref }" /> <input type="hidden"
+										name="c_number" value="${consultingmodel.c_number }">
 
-								<input type="text" class="writetxt01" name="c_title" value="${consultingModmodel.c_title }">
-								
-								</td>
-							</tr>
-						<%-- <c:if test="${session_member_id != 1 }">
+										<input type="text" class="writetxt01" name="c_title"
+										value="${consultingModmodel.c_title }"> <form:errors
+											path="c_title" /></td>
+								</tr>
+								<%-- <c:if test="${session_member_id != 1 }">
 							<tr>
 								<th>비밀설정</th>
 								<td>
@@ -1003,91 +1010,91 @@ function regOnlineInquery(consult){
 								</td>
 							</tr>
 						 </c:if>  --%>
-							<tr>
+								<tr>
 
-							
-								<th>문의내용</th>
-								<td colspan="3"><textarea class="writetxt04" name="c_content"></textarea></td>
-							</tr>
-						</tbody>
-					</table>
-					
-					<div class="btn-area">
-						<input type="submit" value="확인" class="submit">
-						<input type="button" value="취소" class="cancel">
-					</div>
+
+									<th>문의내용</th>
+									<td colspan="3"><textarea class="writetxt04"
+											name="c_content">${consultingModmodel.c_content }</textarea>
+										<form:errors path="c_content" /></td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="btn-area">
+							<input type="submit" value="확인" class="submit"> 
+							<input type="button" value="취소" class="cancel">
+						</div>
 					</form:form>
-					</c:when>
-					
-					<c:otherwise>
-						<form:form commandName="consulting" name="consult" onsubmit="return regOnlineInquery();" action="consultingPro.do">
+				</c:when>
+
+				<c:otherwise>
+				<spring:hasBindErrors name="consulting" />
+					<form:errors path="consulting" />
+					<form:form commandName="consulting" action="consultingPro.do">
 						<table class="write-board01">
-						<caption>상담문의 글쓰기</caption>
-						<tbody>
-							<tr>
-								<th>이야기 제목</th>
-								<td colspan="3">
-								 <input type="hidden" name="c_ref" value="${consultingmodel.c_ref }"/>
-								<input type="hidden" name="c_number" value="${consultingmodel.c_number }">
-								<c:if test="${state.equals('reply')}">
-									<input type="text" class="writetxt01" name="c_title" value="[답변]${consultingmodel.c_title }">
-								</c:if>
-								<c:if test="${state.equals('noting')}">
-									<input type="text" class="writetxt01" name="c_title"">
-								</c:if>
-								</td>
-							</tr>
-						<c:if test="${session_member_id == 1 }">
-							<tr>
-								<th>비밀설정</th>
-								<td>
-									<input type="text" class="writetxt03" name="c_pass">
-									비밀번호4자리 입력
-								</td>
-							</tr>
-						 </c:if> 
-							<tr>
+							<caption>상담문의 글쓰기</caption>
+							<tbody>
+								<tr>
+									<th>이야기 제목</th>
+									<td colspan="3"><input type="hidden" name="c_ref" value="${consultingmodel.c_ref }" /> 
+									<input type="hidden" name="c_number" value="${consultingmodel.c_number }">
+										<c:if test="${state.equals('reply')}">
+											<input type="text" class="writetxt01" name="c_title" value="[답변]${consultingmodel.c_title }">
+										<form:errors path="c_title" /> 
+										</c:if> <c:if test="${state.equals('noting')}">
+											<input type="text" class="writetxt01" name="c_title"">
+											 <form:errors path="c_title" /> 
+											<tr>
+												<th>비밀설정</th>
+												<td><input type="text" class="writetxt03" name="c_pass">
+												비밀번호4자리 입력 <form:errors path="c_pass" /></td>
+											</tr>
+										</c:if></td>
+								</tr>
 
-							
-								<th>문의내용</th>
-								<td colspan="3"><textarea class="writetxt04" name="c_content"></textarea></td>
-							</tr>
-						</tbody>
-					</table>
-					
-					<div class="btn-area">
-						<input type="submit" value="확인" class="submit">
-						<input type="button" value="취소" class="cancel">
-					</div>
+								<tr>
+									<th>문의내용</th>
+									<td colspan="3"><textarea class="writetxt04" name="c_content"></textarea> 
+									 <form:errors path="c_content" /> 
+									<td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="btn-area">
+							<input type="submit" value="확인" class="submit"> <input type="button" value="취소" class="cancel">
+						</div>
 					</form:form>
-					</c:otherwise>
-		</c:choose>
-				</div>
-			</div>
-			<div class="footer">
-				<div class="footer-top">
-					<div class="footer-top-inbox">
-						<ul>
-							<li>회사소개</li>
-							<li>사이트이용약관</li>
-							<li>개인정보처리방침</li>
-							<li>임직원서비스</li>
-						</ul>
-					</div>
-				</div>
-				<div class="footer-bottom">
-					<div class="footer-bottom-inbox">
-						<h2><img src="../../images/common/b_logo.gif"></h2>
-						<p>
-							고객서비스센터 080-3243-2312<br>
-							(주)마이스토리 서울특별시 강남구 테헤란로길 52길 17 역삼동 이에스타워 10층 사업자등록번호:505-88-00158 홈페이지 관리책임자:안영미<br>
-							<br/>
-							Copyright ⓒ MYSTORY All Rights Reserved
-						</p>
-					</div>
-				</div>
+				</c:otherwise>
+			</c:choose>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="footer-top">
+			<div class="footer-top-inbox">
+				<ul>
+					<li>회사소개</li>
+					<li>사이트이용약관</li>
+					<li>개인정보처리방침</li>
+					<li>임직원서비스</li>
+				</ul>
 			</div>
 		</div>
+		<div class="footer-bottom">
+			<div class="footer-bottom-inbox">
+				<h2>
+					<img src="../../images/common/b_logo.gif">
+				</h2>
+				<p>
+					고객서비스센터 080-3243-2312<br> (주)마이스토리 서울특별시 강남구 테헤란로길 52길 17 역삼동
+					이에스타워 10층 사업자등록번호:505-88-00158 홈페이지 관리책임자:안영미<br> <br />
+					Copyright ⓒ MYSTORY All Rights Reserved
+				</p>
+			</div>
+		</div>
+	</div>
+	</div>
 
- </body>
+</body>
 </html>

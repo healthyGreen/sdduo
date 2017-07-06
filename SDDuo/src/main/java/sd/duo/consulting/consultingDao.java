@@ -6,6 +6,7 @@ public interface consultingDao {
 	List<consultingModel> consultingList();
 	consultingModel consultingView(int c_number);
 	consultingModel consultingPass(consultingModel consultingmodel);
+	int updateConsultingState(int c_number);
 	int insertConsulting(consultingModel consultingmodel);
 	int insertConsultingReply(consultingModel consultingmodel);
 	int modConsulting(consultingModel consultingmodel);

@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>¸¶ÀÌ½ºÅä¸®</title>
-	<meta http-equiv="Content-Type" content="text/html;charset=euc-kr" />
+	<title>ë§ˆì´ìŠ¤í† ë¦¬</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<link rel="stylesheet" href="../../css/layout.css" />
 	<link rel="stylesheet" href="../../css/default.css" />
@@ -28,7 +28,7 @@
 	    // ]]>
 	</script>
 	<script>
-  /*** ·Ñ¸µ¹è³Ê ***/
+  /*** ë¡¤ë§ë°°ë„ˆ ***/
   jQuery(function($){
     $("div.gallery_rolling").gallery_rolling();
   });
@@ -45,47 +45,47 @@
 	<!-- <div id="quick">
 		<div class="btn_area">
 			<ul class="icon_zone">
-				<li q="1"><img src="../../images/common/quick_tit.jpg" border="0" alt="¸¶ÀÌ½ºÅä¸®" /></li>
-				<li q="1"><img src="../../images/common/quick01.png" border="0" alt="Ä«Ä«¿ÀÅå¿¹¾à»ó´ã" /></li>
-				<li q="2"><img src="../../images/common/quick02.png" border="0" alt="½Ç½Ã°£ÀüÈ­¿¹¾à" /></li>
-				<li q="3"><img src="../../images/common/quick03.png" border="0" alt="½Ç½Ã°£¿Â¶óÀÎ¿¹¾à" /></li>
-				<li q="4"><img src="../../images/common/quick04.png" border="0" alt="¿À½Ã´Â±æ" /></li>
+				<li q="1"><img src="../../images/common/quick_tit.jpg" border="0" alt="ë§ˆì´ìŠ¤í† ë¦¬" /></li>
+				<li q="1"><img src="../../images/common/quick01.png" border="0" alt="ì¹´ì¹´ì˜¤í†¡ì˜ˆì•½ìƒë‹´" /></li>
+				<li q="2"><img src="../../images/common/quick02.png" border="0" alt="ì‹¤ì‹œê°„ì „í™”ì˜ˆì•½" /></li>
+				<li q="3"><img src="../../images/common/quick03.png" border="0" alt="ì‹¤ì‹œê°„ì˜¨ë¼ì¸ì˜ˆì•½" /></li>
+				<li q="4"><img src="../../images/common/quick04.png" border="0" alt="ì˜¤ì‹œëŠ”ê¸¸" /></li>
 			</ul>
 			<p style="text-align:right;"><img src="../../images/common/quick05.png" border="0" alt="02-345-8765" /></p>
 			<div class="s-center">
-				<p>ÁÖº¯¼¾ÅÍÃ£±â</p>
+				<p>ì£¼ë³€ì„¼í„°ì°¾ê¸°</p>
 				<input type="text" class="tbox">
 				<input type="button" class="sbtn">
 			</div>
 		</div>END .btn_area
 		<div class="show_box">
-			<div class="btn_close"><img src="../../images/common/quick_close.gif" border="0" alt="´Ý±â" /></div>
+			<div class="btn_close"><img src="../../images/common/quick_close.gif" border="0" alt="ë‹«ê¸°" /></div>
 		END .quick_box
 
 			<div id="quick_1" class="quick_box">
 				<div style="position:relative;">
-					<section class="contents">Ä«Åå »ó´ã
+					<section class="contents">ì¹´í†¡ ìƒë‹´
 
-					<div class="tit"><img src="../../images/common/tit01.jpg" alt="Ä«Ä«¿ÀÅå »ó´ã"></div>
+					<div class="tit"><img src="../../images/common/tit01.jpg" alt="ì¹´ì¹´ì˜¤í†¡ ìƒë‹´"></div>
 					<div class="contents">
 						<div class="con">
 							<select>
-								<option>¼¾ÅÍ¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä</option>
-								<option>°­³²¼¾ÅÍ</option>
-								<option>ºÐ´ç¼¾ÅÍ</option>
-								<option>°æ±â¼¾ÅÍ</option>
-								<option>ºÎ»ê¼¾ÅÍ</option>
+								<option>ì„¼í„°ë¥¼ ì„ íƒí•´ì£¼ì„¸ìš”</option>
+								<option>ê°•ë‚¨ì„¼í„°</option>
+								<option>ë¶„ë‹¹ì„¼í„°</option>
+								<option>ê²½ê¸°ì„¼í„°</option>
+								<option>ë¶€ì‚°ì„¼í„°</option>
 							</select>
-							<div class="qr"><img src="../../images/common/qr.png" alt="Å¥¾ËÄÚµå"></div>
-							<div class="qrid">ID &nbsp:&nbsp ¸¶ÀÌ½ºÅä¸®</div>
-							<div class="prplus"><a href=""><img src="../../images/common/kabtn.gif" alt="Ä£±¸Ãß°¡ÇÏ±â"></a></div>
+							<div class="qr"><img src="../../images/common/qr.png" alt="íì•Œì½”ë“œ"></div>
+							<div class="qrid">ID &nbsp:&nbsp ë§ˆì´ìŠ¤í† ë¦¬</div>
+							<div class="prplus"><a href=""><img src="../../images/common/kabtn.gif" alt="ì¹œêµ¬ì¶”ê°€í•˜ê¸°"></a></div>
 							<p class="qrtxt">
-								¾Æ·¡ ÄÚµå¸¦ ½ºÄµÇÏ¸é Ä«Ä«¿ÀÅå<br/>
-								Ä£±¸¸¦ ¹Ù·Î Ãß°¡ÇÒ ¼ö ÀÖ½À´Ï´Ù.<br/>
+								ì•„ëž˜ ì½”ë“œë¥¼ ìŠ¤ìº”í•˜ë©´ ì¹´ì¹´ì˜¤í†¡<br/>
+								ì¹œêµ¬ë¥¼ ë°”ë¡œ ì¶”ê°€í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.<br/>
 								<br/>
-								QRÄÚµå µî·ÏÀÌ ¾î·Á¿ì½ÅºÐÀº<br/>
-								Ä«Ä«¿ÀÅå ¾ÆÀÌµð°Ë»ö¿¡ <span>¸¶ÀÌ½ºÅä¸®</span>¸¦ °Ë»öÇÏ¼¼¿ä.<br/>
-								Ä£±¸µî·Ï ÈÄ ÀÚ¼¼ÇÑ »ó´ãÀÌ °¡´ÉÇÕ´Ï´Ù.<br/>
+								QRì½”ë“œ ë“±ë¡ì´ ì–´ë ¤ìš°ì‹ ë¶„ì€<br/>
+								ì¹´ì¹´ì˜¤í†¡ ì•„ì´ë””ê²€ìƒ‰ì— <span>ë§ˆì´ìŠ¤í† ë¦¬</span>ë¥¼ ê²€ìƒ‰í•˜ì„¸ìš”.<br/>
+								ì¹œêµ¬ë“±ë¡ í›„ ìžì„¸í•œ ìƒë‹´ì´ ê°€ëŠ¥í•©ë‹ˆë‹¤.<br/>
 							</p>
 						</div>
 					</div>
@@ -105,7 +105,7 @@
 
 				<div class="tit"><img src="../../images/common/tit03.jpg" /></div>
 
-				<section class="contents">snsºñ¿ë»ó´ã
+				<section class="contents">snsë¹„ìš©ìƒë‹´
 					<div class="con">
 							<table width="265px !important;" style="margin-top: 41px;" border="0" cellspacing="0" cellpadding="0">
 							  <tr>
@@ -120,28 +120,28 @@
 											<td colspan="3" height="12"></td>
 										  </tr>
 										   <tr>
-											<td class="formtit">ÀÌ¸§</td>
+											<td class="formtit">ì´ë¦„</td>
 											<td align="center" width="3"></td>
 											<td valign="top">
-												<input type="text" style="width:205px; height:33px; border:2px solid #d1d1d1; font-family:¸¼Àº °íµñ; font-size:13; color:#676767; box-sizing: border-box;" id='133_f3_0' name='fname[3][]'>
+												<input type="text" style="width:205px; height:33px; border:2px solid #d1d1d1; font-family:ë§‘ì€ ê³ ë”•; font-size:13; color:#676767; box-sizing: border-box;" id='133_f3_0' name='fname[3][]'>
 											</td>
 										  </tr>
 										  <tr>
 											<td colspan="3" height="12"></td>
 										  </tr>
 										  <tr>
-											<td class="formtit">¿¬¶ôÃ³</td>
+											<td class="formtit">ì—°ë½ì²˜</td>
 											<td align="center" width="3"></td>
 											<td>
 												<table width="100%" border="0" cellspacing="0" cellpadding="0" align="left">
 												  <tr>
 													<td width="58">
-														<input type="text" style="width:65px; height:33px; border:2px solid #d1d1d1; font-family:¸¼Àº °íµñ; font-size:13; color:#676767; box-sizing: border-box;">
+														<input type="text" style="width:65px; height:33px; border:2px solid #d1d1d1; font-family:ë§‘ì€ ê³ ë”•; font-size:13; color:#676767; box-sizing: border-box;">
 													</td>
 													<td align="center" width="6"></td>
-													<td width="57"><input type="text" style="width:65px; height:33px; border:2px solid #d1d1d1; font-family:¸¼Àº °íµñ; font-size:13; color:#676767; box-sizing: border-box;"></td>
+													<td width="57"><input type="text" style="width:65px; height:33px; border:2px solid #d1d1d1; font-family:ë§‘ì€ ê³ ë”•; font-size:13; color:#676767; box-sizing: border-box;"></td>
 													<td align="center" width="6"></td>
-													<td width="57"><input type="text" style="width:65px; height:33px; border:2px solid #d1d1d1; font-family:¸¼Àº °íµñ; font-size:13; color:#676767; box-sizing: border-box;"></td>
+													<td width="57"><input type="text" style="width:65px; height:33px; border:2px solid #d1d1d1; font-family:ë§‘ì€ ê³ ë”•; font-size:13; color:#676767; box-sizing: border-box;"></td>
 													<td>&nbsp;</td>
 												  </tr>
 												</table>
@@ -152,16 +152,16 @@
 											<td colspan="3" height="12"></td>
 										  </tr>
 										  <tr>
-											<td valign="top"  class="formtit" style="">»ó´ã¼¾ÅÍ</td>
+											<td valign="top"  class="formtit" style="">ìƒë‹´ì„¼í„°</td>
 											<td align="center" width="3"></td>
 											<td valign="top">
-												<select style="width:207px; height:33px; border:2px solid #d1d1d1; font-family:¸¼Àº °íµñ; font-size:13; color:#676767; box-sizing: border-box;" id='133_f4_0' name='fname[4][]'>
-													<option value="">»ó´ã¼¾ÅÍ¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä.</option>
-													<option>°­³²¼¾ÅÍ</option>
-													<option>°­³²¼¾ÅÍ</option>
-													<option>°­³²¼¾ÅÍ</option>
-													<option>°­³²¼¾ÅÍ</option>
-													<option>°­³²¼¾ÅÍ</option>
+												<select style="width:207px; height:33px; border:2px solid #d1d1d1; font-family:ë§‘ì€ ê³ ë”•; font-size:13; color:#676767; box-sizing: border-box;" id='133_f4_0' name='fname[4][]'>
+													<option value="">ìƒë‹´ì„¼í„°ë¥¼ ì„ íƒí•´ì£¼ì„¸ìš”.</option>
+													<option>ê°•ë‚¨ì„¼í„°</option>
+													<option>ê°•ë‚¨ì„¼í„°</option>
+													<option>ê°•ë‚¨ì„¼í„°</option>
+													<option>ê°•ë‚¨ì„¼í„°</option>
+													<option>ê°•ë‚¨ì„¼í„°</option>
 												</select>
 											</td>
 										  </tr>
@@ -171,10 +171,10 @@
 
 
 										  <tr>
-											<td class="formtit">ÅëÈ­°¡´É<br />½Ã°£</td>
+											<td class="formtit">í†µí™”ê°€ëŠ¥<br />ì‹œê°„</td>
 											<td align="center" width="3"></td>
 											<td valign="top">
-												<select style="width:205px; height:33px; border:2px solid #d1d1d1; font-family:¸¼Àº °íµñ; font-size:13; color:#676767; box-sizing: border-box;" id='133_f1_0' name='fname[1][]'>
+												<select style="width:205px; height:33px; border:2px solid #d1d1d1; font-family:ë§‘ì€ ê³ ë”•; font-size:13; color:#676767; box-sizing: border-box;" id='133_f1_0' name='fname[1][]'>
 													<option value="">09:00</option>
 													<option value="">09:00</option>
 													<option value="">09:00</option>
@@ -188,10 +188,10 @@
 											<td colspan="3" height="12"></td>
 										  </tr>
 										  <tr>
-											<td valign="top"  class="formtit" style="">¿¬·É´ë</td>
+											<td valign="top"  class="formtit" style="">ì—°ë ¹ëŒ€</td>
 											<td align="center" width="3"></td>
 											<td valign="top">
-												<select style="width:207px; height:33px; border:2px solid #d1d1d1; font-family:¸¼Àº °íµñ; font-size:13; color:#676767; box-sizing: border-box;" id='133_f4_0' name='fname[4][]'>
+												<select style="width:207px; height:33px; border:2px solid #d1d1d1; font-family:ë§‘ì€ ê³ ë”•; font-size:13; color:#676767; box-sizing: border-box;" id='133_f4_0' name='fname[4][]'>
 													<option value="">10~15</option>
 													<option value="">10~15</option>
 													<option value="">10~15</option>
@@ -206,10 +206,10 @@
 											<td colspan="3" height="12"></td>
 										  </tr>
 										  <tr>
-											<td valign="top" class="formtit">¹®ÀÇ³»¿ë</td>
+											<td valign="top" class="formtit">ë¬¸ì˜ë‚´ìš©</td>
 											<td align="center" width="3"></td>
 											<td>
-												<textarea style="width:205px; height:80px; border:2px solid #d1d1d1; font-family:¸¼Àº °íµñ; font-size:13; color:#676767; box-sizing: border-box;" id='133_f5_0' name='fname[5][]'></textarea>
+												<textarea style="width:205px; height:80px; border:2px solid #d1d1d1; font-family:ë§‘ì€ ê³ ë”•; font-size:13; color:#676767; box-sizing: border-box;" id='133_f5_0' name='fname[5][]'></textarea>
 											</td>
 										  </tr>
 										</table>
@@ -221,7 +221,7 @@
 										<table width="100%" border="0" cellspacing="0" cellpadding="0">
 										  <tr>
 
-											<td colspan="3 " style="font-family:¸¼Àº °íµñ; font-size:12px; color:#7a7a7a;padding:10px 0; width: 210px; padding-left: 45px;">¿¬·É´ë¿Í »ó´ã³»¿ëÀ» °£´ÜÈ÷ ³²°ÜÁÖ¼¼¿ä </td>
+											<td colspan="3 " style="font-family:ë§‘ì€ ê³ ë”•; font-size:12px; color:#7a7a7a;padding:10px 0; width: 210px; padding-left: 45px;">ì—°ë ¹ëŒ€ì™€ ìƒë‹´ë‚´ìš©ì„ ê°„ë‹¨ížˆ ë‚¨ê²¨ì£¼ì„¸ìš” </td>
 										  </tr>
 
 										</table>
@@ -232,7 +232,7 @@
 										<table width="100%" border="0" cellspacing="0" cellpadding="0">
 										  <tr>
 
-											<td colspan="3 " style="font-family:¸¼Àº °íµñ;font-size:13px; color:#8b8b8b;padding:10px 0; letter-spacing: -1.5px;"><input type="checkbox" id='133_f6_0' name='fname[6][]' /> °³ÀÎÁ¤º¸ Ãë±Þ¹æÄ§¿¡ µ¿ÀÇ <a href="#" style="color:#505050; font-family: ¸¼Àº °íµñ; text-decoration:underline; " id="layer_open3">°³ÀÎÁ¤º¸Ãë±Þ¹æÄ§</a></td>
+											<td colspan="3 " style="font-family:ë§‘ì€ ê³ ë”•;font-size:13px; color:#8b8b8b;padding:10px 0; letter-spacing: -1.5px;"><input type="checkbox" id='133_f6_0' name='fname[6][]' /> ê°œì¸ì •ë³´ ì·¨ê¸‰ë°©ì¹¨ì— ë™ì˜ <a href="#" style="color:#505050; font-family: ë§‘ì€ ê³ ë”•; text-decoration:underline; " id="layer_open3">ê°œì¸ì •ë³´ì·¨ê¸‰ë°©ì¹¨</a></td>
 										  </tr>
 
 										</table>
@@ -275,7 +275,7 @@
 
 		<div id="quick_2" class="quick_box">
 			<div style="position:relative;">
-				<section class="contents">¿Â¶óÀÎ¿¹¾à 
+				<section class="contents">ì˜¨ë¼ì¸ì˜ˆì•½ 
 
 					<div class="tit"><img src="../../images/common/tit02.jpg"></div>
 					<div class="contents">
@@ -293,13 +293,13 @@
 											<td colspan="3" height="33">&nbsp;</td>
 										  </tr>
 										  <tr>
-											<td class="formtit" width="58px">³¯Â¥</td>
+											<td class="formtit" width="58px">ë‚ ì§œ</td>
 											<td align="center" width="3"></td>
 											<td>
 												<table width="100%" border="0" cellspacing="0" cellpadding="0" align="left">
 												  <tr>
 													<td width="65">
-														<select style="width:65px; height:33px; border:2px solid #d1d1d1; font-family:¸¼Àº °íµñ; font-size:13; color:#676767; box-sizing: border-box;" id='133_f2_0' name='fname[2][]'>
+														<select style="width:65px; height:33px; border:2px solid #d1d1d1; font-family:ë§‘ì€ ê³ ë”•; font-size:13; color:#676767; box-sizing: border-box;" id='133_f2_0' name='fname[2][]'>
 															<option >2017</option>
 															<option >2016</option>
 															<option >2015</option>
@@ -310,7 +310,7 @@
 													</td>
 													<td align="center" width="6"></td>
 													<td width="65">
-														<select style="width:65px; height:33px; border:2px solid #d1d1d1; font-family:¸¼Àº °íµñ; font-size:13; color:#676767; box-sizing: border-box;" id='133_f2_0' name='fname[2][]'>
+														<select style="width:65px; height:33px; border:2px solid #d1d1d1; font-family:ë§‘ì€ ê³ ë”•; font-size:13; color:#676767; box-sizing: border-box;" id='133_f2_0' name='fname[2][]'>
 															<option >01</option>
 															<option >02</option>
 															<option >03</option>
@@ -321,7 +321,7 @@
 													</td>
 													<td align="center" width="6"></td>
 													<td width="65">
-														<select style="width:65px; height:33px; border:2px solid #d1d1d1; font-family:¸¼Àº °íµñ; font-size:13; color:#676767; box-sizing: border-box;" id='133_f2_0' name='fname[2][]'>
+														<select style="width:65px; height:33px; border:2px solid #d1d1d1; font-family:ë§‘ì€ ê³ ë”•; font-size:13; color:#676767; box-sizing: border-box;" id='133_f2_0' name='fname[2][]'>
 															<option >01</option>
 															<option >02</option>
 															<option >03</option>
@@ -339,10 +339,10 @@
 											<td colspan="3" height="12"></td>
 										  </tr>
 										  <tr>
-											<td class="formtit">½Ã°£</td>
+											<td class="formtit">ì‹œê°„</td>
 											<td align="center" width="3"></td>
 											<td valign="top">
-												<select style="width:205px; height:33px; border:2px solid #d1d1d1; font-family:¸¼Àº °íµñ; font-size:13; color:#676767; box-sizing: border-box;" id='133_f1_0' name='fname[1][]'>
+												<select style="width:205px; height:33px; border:2px solid #d1d1d1; font-family:ë§‘ì€ ê³ ë”•; font-size:13; color:#676767; box-sizing: border-box;" id='133_f1_0' name='fname[1][]'>
 													<option value="">09:00</option>
 													<option value="">09:00</option>
 													<option value="">09:00</option>
@@ -356,28 +356,28 @@
 											<td colspan="3" height="12"></td>
 										  </tr>
 										   <tr>
-											<td class="formtit">ÀÌ¸§</td>
+											<td class="formtit">ì´ë¦„</td>
 											<td align="center" width="3"></td>
 											<td valign="top">
-												<input type="text" style="width:205px; height:33px; border:2px solid #d1d1d1; font-family:¸¼Àº °íµñ; font-size:13; color:#676767; box-sizing: border-box;" id='133_f3_0' name='fname[3][]'>
+												<input type="text" style="width:205px; height:33px; border:2px solid #d1d1d1; font-family:ë§‘ì€ ê³ ë”•; font-size:13; color:#676767; box-sizing: border-box;" id='133_f3_0' name='fname[3][]'>
 											</td>
 										  </tr>
 										  <tr>
 											<td colspan="3" height="12"></td>
 										  </tr>
 										  <tr>
-											<td class="formtit">¿¬¶ôÃ³</td>
+											<td class="formtit">ì—°ë½ì²˜</td>
 											<td align="center" width="3"></td>
 											<td>
 												<table width="100%" border="0" cellspacing="0" cellpadding="0" align="left">
 												  <tr>
 													<td width="58">
-														<input type="text" style="width:65px; height:33px; border:2px solid #d1d1d1; font-family:¸¼Àº °íµñ; font-size:13; color:#676767; box-sizing: border-box;">
+														<input type="text" style="width:65px; height:33px; border:2px solid #d1d1d1; font-family:ë§‘ì€ ê³ ë”•; font-size:13; color:#676767; box-sizing: border-box;">
 													</td>
 													<td align="center" width="6"></td>
-													<td width="57"><input type="text" style="width:65px; height:33px; border:2px solid #d1d1d1; font-family:¸¼Àº °íµñ; font-size:13; color:#676767; box-sizing: border-box;"></td>
+													<td width="57"><input type="text" style="width:65px; height:33px; border:2px solid #d1d1d1; font-family:ë§‘ì€ ê³ ë”•; font-size:13; color:#676767; box-sizing: border-box;"></td>
 													<td align="center" width="6"></td>
-													<td width="57"><input type="text" style="width:65px; height:33px; border:2px solid #d1d1d1; font-family:¸¼Àº °íµñ; font-size:13; color:#676767; box-sizing: border-box;"></td>
+													<td width="57"><input type="text" style="width:65px; height:33px; border:2px solid #d1d1d1; font-family:ë§‘ì€ ê³ ë”•; font-size:13; color:#676767; box-sizing: border-box;"></td>
 													<td>&nbsp;</td>
 												  </tr>
 												</table>
@@ -390,16 +390,16 @@
 											<td colspan="3" height="12"></td>
 										  </tr>
 										  <tr>
-											<td valign="top"  class="formtit" style="">»ó´ã¼¾ÅÍ</td>
+											<td valign="top"  class="formtit" style="">ìƒë‹´ì„¼í„°</td>
 											<td align="center" width="3"></td>
 											<td valign="top">
-												<select style="width:207px; height:33px; border:2px solid #d1d1d1; font-family:¸¼Àº °íµñ; font-size:13; color:#676767; box-sizing: border-box;" id='133_f4_0' name='fname[4][]'>
-													<option value="">»ó´ã¼¾ÅÍ¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä.</option>
-													<option>°­³²¼¾ÅÍ</option>
-													<option>°­³²¼¾ÅÍ</option>
-													<option>°­³²¼¾ÅÍ</option>
-													<option>°­³²¼¾ÅÍ</option>
-													<option>°­³²¼¾ÅÍ</option>
+												<select style="width:207px; height:33px; border:2px solid #d1d1d1; font-family:ë§‘ì€ ê³ ë”•; font-size:13; color:#676767; box-sizing: border-box;" id='133_f4_0' name='fname[4][]'>
+													<option value="">ìƒë‹´ì„¼í„°ë¥¼ ì„ íƒí•´ì£¼ì„¸ìš”.</option>
+													<option>ê°•ë‚¨ì„¼í„°</option>
+													<option>ê°•ë‚¨ì„¼í„°</option>
+													<option>ê°•ë‚¨ì„¼í„°</option>
+													<option>ê°•ë‚¨ì„¼í„°</option>
+													<option>ê°•ë‚¨ì„¼í„°</option>
 												</select>
 											</td>
 										  </tr>
@@ -407,10 +407,10 @@
 											<td colspan="3" height="12"></td>
 										  </tr>
 										  <tr>
-											<td valign="top" class="formtit">¹®ÀÇ³»¿ë</td>
+											<td valign="top" class="formtit">ë¬¸ì˜ë‚´ìš©</td>
 											<td align="center" width="3"></td>
 											<td>
-												<textarea style="width:205px; height:80px; border:2px solid #d1d1d1; font-family:¸¼Àº °íµñ; font-size:13; color:#676767; box-sizing: border-box;" id='133_f5_0' name='fname[5][]'></textarea>
+												<textarea style="width:205px; height:80px; border:2px solid #d1d1d1; font-family:ë§‘ì€ ê³ ë”•; font-size:13; color:#676767; box-sizing: border-box;" id='133_f5_0' name='fname[5][]'></textarea>
 											</td>
 										  </tr>
 										</table>
@@ -422,7 +422,7 @@
 										<table width="100%" border="0" cellspacing="0" cellpadding="0">
 										  <tr>
 
-											<td colspan="3 " style="font-family:¸¼Àº °íµñ; font-size:12px; color:#7a7a7a;padding:10px 0; width: 210px; padding-left: 45px;">¿¬·É´ë¿Í »ó´ã³»¿ëÀ» °£´ÜÈ÷ ³²°ÜÁÖ¼¼¿ä </td>
+											<td colspan="3 " style="font-family:ë§‘ì€ ê³ ë”•; font-size:12px; color:#7a7a7a;padding:10px 0; width: 210px; padding-left: 45px;">ì—°ë ¹ëŒ€ì™€ ìƒë‹´ë‚´ìš©ì„ ê°„ë‹¨ížˆ ë‚¨ê²¨ì£¼ì„¸ìš” </td>
 										  </tr>
 
 										</table>
@@ -433,7 +433,7 @@
 										<table width="100%" border="0" cellspacing="0" cellpadding="0">
 										  <tr>
 
-											<td colspan="3 " style="font-family:¸¼Àº °íµñ;font-size:13px; color:#8b8b8b;padding:10px 0; letter-spacing: -1.5px;"><input type="checkbox" id='133_f6_0' name='fname[6][]' /> °³ÀÎÁ¤º¸ Ãë±Þ¹æÄ§¿¡ µ¿ÀÇ <a href="#" style="color:#505050; font-family: ¸¼Àº °íµñ; text-decoration:underline; " id="layer_open3">°³ÀÎÁ¤º¸Ãë±Þ¹æÄ§</a></td>
+											<td colspan="3 " style="font-family:ë§‘ì€ ê³ ë”•;font-size:13px; color:#8b8b8b;padding:10px 0; letter-spacing: -1.5px;"><input type="checkbox" id='133_f6_0' name='fname[6][]' /> ê°œì¸ì •ë³´ ì·¨ê¸‰ë°©ì¹¨ì— ë™ì˜ <a href="#" style="color:#505050; font-family: ë§‘ì€ ê³ ë”•; text-decoration:underline; " id="layer_open3">ê°œì¸ì •ë³´ì·¨ê¸‰ë°©ì¹¨</a></td>
 										  </tr>
 
 										</table>
@@ -479,68 +479,68 @@
 
 		<div id="quick_4" class="quick_box">
 			<div style="position:relative;">
-				<section class="contents">¿À½Ã´Â±æ
+				<section class="contents">ì˜¤ì‹œëŠ”ê¸¸
 					<div class="tit"><img src="../../images/common/tit04.jpg" alt="" /></div>
 					<div class="con">
-						<select style="width:260px; height:33px; border:2px solid #d1d1d1; font-family:¸¼Àº °íµñ; font-size:13; color:#676767; box-sizing: border-box;" id='133_f4_0' name='fname[4][]'>
-							<option value="">»ó´ã¼¾ÅÍ¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä.</option>
-							<option>°­³²¼¾ÅÍ</option>
-							<option>°­³²¼¾ÅÍ</option>
-							<option>°­³²¼¾ÅÍ</option>
-							<option>°­³²¼¾ÅÍ</option>
-							<option>°­³²¼¾ÅÍ</option>
+						<select style="width:260px; height:33px; border:2px solid #d1d1d1; font-family:ë§‘ì€ ê³ ë”•; font-size:13; color:#676767; box-sizing: border-box;" id='133_f4_0' name='fname[4][]'>
+							<option value="">ìƒë‹´ì„¼í„°ë¥¼ ì„ íƒí•´ì£¼ì„¸ìš”.</option>
+							<option>ê°•ë‚¨ì„¼í„°</option>
+							<option>ê°•ë‚¨ì„¼í„°</option>
+							<option>ê°•ë‚¨ì„¼í„°</option>
+							<option>ê°•ë‚¨ì„¼í„°</option>
+							<option>ê°•ë‚¨ì„¼í„°</option>
 						</select>
 						<table >
 							<tr>
-								<td width="75px">°­³²¼¾ÅÍ</td>
+								<td width="75px">ê°•ë‚¨ì„¼í„°</td>
 								<td width="100px">02-1245-8959</td>
-								<td  width="63px"><p class="spot">À§Ä¡¾È³»</p></td>
+								<td  width="63px"><p class="spot">ìœ„ì¹˜ì•ˆë‚´</p></td>
 								<td><a href=""><img src="../../images/common/quick04icon.gif" ></a></td>
 							</tr>
 							<tr>
-								<td>°­³²¼¾ÅÍ</td>
+								<td>ê°•ë‚¨ì„¼í„°</td>
 								<td>02-1245-8959</td>
-								<td><p class="spot">À§Ä¡¾È³»</p></td>
+								<td><p class="spot">ìœ„ì¹˜ì•ˆë‚´</p></td>
 								<td><a href=""><img src="../../images/common/quick04icon.gif" ></a></td>
 							</tr>
 							<tr>
-								<td>°­³²¼¾ÅÍ</td>
+								<td>ê°•ë‚¨ì„¼í„°</td>
 								<td>02-1245-8959</td>
-								<td><p class="spot">À§Ä¡¾È³»</p></td>
+								<td><p class="spot">ìœ„ì¹˜ì•ˆë‚´</p></td>
 								<td><a href=""><img src="../../images/common/quick04icon.gif" ></a></td>
 							</tr>
 							<tr>
-								<td>°­³²¼¾ÅÍ</td>
+								<td>ê°•ë‚¨ì„¼í„°</td>
 								<td>02-1245-8959</td>
-								<td><p class="spot">À§Ä¡¾È³»</p></td>
+								<td><p class="spot">ìœ„ì¹˜ì•ˆë‚´</p></td>
 								<td><a href=""><img src="../../images/common/quick04icon.gif" ></a></td>
 							</tr>
 							<tr>
-								<td>°­³²¼¾ÅÍ</td>
+								<td>ê°•ë‚¨ì„¼í„°</td>
 								<td>02-1245-8959</td>
-								<td><p class="spot">À§Ä¡¾È³»</p></td>
+								<td><p class="spot">ìœ„ì¹˜ì•ˆë‚´</p></td>
 								<td><a href=""><img src="../../images/common/quick04icon.gif" ></a></td>
 							</tr>
 							<tr>
-								<td>°­³²¼¾ÅÍ</td>
+								<td>ê°•ë‚¨ì„¼í„°</td>
 								<td>02-1245-8959</td>
-								<td><p class="spot">À§Ä¡¾È³»</p></td>
+								<td><p class="spot">ìœ„ì¹˜ì•ˆë‚´</p></td>
 								<td><a href=""><img src="../../images/common/quick04icon.gif" ></a></td>
 							</tr>
 							<tr class="last">
-								<td>°­³²¼¾ÅÍ</td>
+								<td>ê°•ë‚¨ì„¼í„°</td>
 								<td>02-1245-8959</td>
-								<td><p class="spot">À§Ä¡¾È³»</p></td>
+								<td><p class="spot">ìœ„ì¹˜ì•ˆë‚´</p></td>
 								<td><a href=""><img src="../../images/common/quick04icon.gif" ></a></td>
 							</tr>
 
 						</table>
 						<div class="pageing2">
-							<a href="#none" class="prev"><img src="../../images/common/prev.png" alt="ÀÌÀü ÆäÀÌÁö"></a>
+							<a href="#none" class="prev"><img src="../../images/common/prev.png" alt="ì´ì „ íŽ˜ì´ì§€"></a>
 							<a href="#none" class="current"><strong>1</strong></a>
 							<a href="#">2</a>
 							<a href="#">3</a>
-							<a href="#none" class="next"><img src="../../images/common/next.png" alt="´ÙÀ½ ÆäÀÌÁö·Î"></a>
+							<a href="#none" class="next"><img src="../../images/common/next.png" alt="ë‹¤ìŒ íŽ˜ì´ì§€ë¡œ"></a>
 						</div>
 
 				</section>
@@ -551,7 +551,7 @@
 
 	</div>END .show_box
 
- ½Ç½Ã°£ ºñ¿ë °³ÀÎÁ¤º¸ ÆË¾÷
+ ì‹¤ì‹œê°„ ë¹„ìš© ê°œì¸ì •ë³´ íŒì—…
 
     <div class="layer3" style="display:none;">
 	<div class="bg3"></div>
@@ -559,16 +559,16 @@
 		<div style="width:780px; height:87px; float:left; cursor:pointer;" id="layer_close3"><img src="../../images/common/popup_tit01.png"></div>
 		<div style="width:780px; height:663px; float:left; background:#ffffff;">
 			<textarea style="width:720px; height:573px;float:left; margin-top:30px; margin-left:28px; border:0;" readonly="">
-				³»¿ë
+				ë‚´ìš©
 			</textarea>
 		</div>
 	</div>
 </div>
 
- ½Ç½Ã°£ ºñ¿ë °³ÀÎÁ¤º¸ ÆË¾÷
+ ì‹¤ì‹œê°„ ë¹„ìš© ê°œì¸ì •ë³´ íŒì—…
 
 
- °£ÆíÄ«Åå»ó´ã °³ÀÎÁ¤º¸ ÆË¾÷
+ ê°„íŽ¸ì¹´í†¡ìƒë‹´ ê°œì¸ì •ë³´ íŒì—…
 
 	<div class="layer4" style="display: none;">
 	<div class="bg4"></div>
@@ -576,13 +576,13 @@
 		<div style="width:780px; height:87px; float:left; cursor:pointer;" id="layer_close4"><img src="../../images/common/popup_tit01.png"></div>
 		<div style="width:780px; height:663px; float:left; background:#ffffff;">
 			<textarea style="width:720px; height:573px;float:left; margin-top:30px; margin-left:28px; border:0;" readonly="">
-				³»¿ë
+				ë‚´ìš©
 			</textarea>
 		</div>
 	</div>
 </div>
 
- °£ÆíÄ«Åå»ó´ã °³ÀÎÁ¤º¸ ÆË¾÷
+ ê°„íŽ¸ì¹´í†¡ìƒë‹´ ê°œì¸ì •ë³´ íŒì—…
 </div>END #quick
  -->
 
@@ -597,7 +597,7 @@
 
 </div><!-- END #full_menu_pop -->
 
-<!--  °³ÀÎÁ¤º¸ on&off ½ºÅ©¸³Æ®#3 -->
+<!--  ê°œì¸ì •ë³´ on&off ìŠ¤í¬ë¦½íŠ¸#3 -->
 
 <script type="text/javascript">
 jQuery(function($){
@@ -611,7 +611,7 @@ jQuery(function($){
 		else temp.css('left', '0px');
 	}
 	$('#layer_open3').click(function(){
-		layer_open('layer3'); /* ¿­°íÀÚ ÇÏ´Â °ÍÀÇ ¾ÆÀÌµð¸¦ ÀÔ·Â */
+		layer_open('layer3'); /* ì—´ê³ ìž í•˜ëŠ” ê²ƒì˜ ì•„ì´ë””ë¥¼ ìž…ë ¥ */
 		return false;
 	});
 	$('.layer3 .bg3').click(function(){
@@ -626,7 +626,7 @@ jQuery(function($){
 });
 </script>
 
-<!--  °³ÀÎÁ¤º¸ on&off ½ºÅ©¸³Æ®#4 -->
+<!--  ê°œì¸ì •ë³´ on&off ìŠ¤í¬ë¦½íŠ¸#4 -->
 
 <script type="text/javascript">
 jQuery(function($){
@@ -640,7 +640,7 @@ jQuery(function($){
 		else temp.css('left', '0px');
 	}
 	$('#layer_open4').click(function(){
-		layer_open('layer4'); /* ¿­°íÀÚ ÇÏ´Â °ÍÀÇ ¾ÆÀÌµð¸¦ ÀÔ·Â */
+		layer_open('layer4'); /* ì—´ê³ ìž í•˜ëŠ” ê²ƒì˜ ì•„ì´ë””ë¥¼ ìž…ë ¥ */
 		return false;
 	});
 	$('.layer4 .bg4').click(function(){
@@ -750,7 +750,7 @@ $(document).ready(function(){
 		if(point_check !=7){
 			quick_open(point_check);
 		}else{
-			/* ¿À¸¥ÂÊ ¸Þ´º ´Ý¾ÆÁÖ´Â ¼Ò½º º¹»çÇØ¼­ ºÙ¿©¾ßÇÔ */
+			/* ì˜¤ë¥¸ìª½ ë©”ë‰´ ë‹«ì•„ì£¼ëŠ” ì†ŒìŠ¤ ë³µì‚¬í•´ì„œ ë¶™ì—¬ì•¼í•¨ */
 			$('#quick').animate({
 				right:-322
 			},600, 'easeInOutCubic');
@@ -764,7 +764,7 @@ $(document).ready(function(){
 
 	$('#quick_mini').click(function(){
 
-			/* ¿À¸¥ÂÊ ¸Þ´º ´Ý¾ÆÁÖ´Â ¼Ò½º º¹»çÇØ¼­ ºÙ¿©¾ßÇÔ */
+			/* ì˜¤ë¥¸ìª½ ë©”ë‰´ ë‹«ì•„ì£¼ëŠ” ì†ŒìŠ¤ ë³µì‚¬í•´ì„œ ë¶™ì—¬ì•¼í•¨ */
 			$('#quick').animate({
 				right:0
 			},600, 'easeInOutCubic');
@@ -775,7 +775,7 @@ $(document).ready(function(){
 
 	$('.quick_top_banner').click(function(){
 
-			/* ¿À¸¥ÂÊ ¸Þ´º ´Ý¾ÆÁÖ´Â ¼Ò½º º¹»çÇØ¼­ ºÙ¿©¾ßÇÔ */
+			/* ì˜¤ë¥¸ìª½ ë©”ë‰´ ë‹«ì•„ì£¼ëŠ” ì†ŒìŠ¤ ë³µì‚¬í•´ì„œ ë¶™ì—¬ì•¼í•¨ */
 			$('#quick').animate({
 				right:0
 			},600, 'easeInOutCubic');
@@ -814,139 +814,139 @@ $(document).ready(function() {
 				<div class="header-inbox">
 					<div class="header-top">
 						<ul class="left-area">
-							<li><a href=""><img src="../../images/common/site01.gif" alt="Ä«Æä"></a></li>
-							<li><a href=""><img src="../../images/common/site02.gif" alt="ºí·Î±×"></a></li>
-							<li><a href=""><img src="../../images/common/site03.gif" alt="ÆäÀÌ½ººÏ"></a></li>
-							<li><a href=""><img src="../../images/common/site04.gif" alt="Ä«Ä«¿ÀÅå"></a></li>
+							<li><a href=""><img src="../../images/common/site01.gif" alt="ì¹´íŽ˜"></a></li>
+							<li><a href=""><img src="../../images/common/site02.gif" alt="ë¸”ë¡œê·¸"></a></li>
+							<li><a href=""><img src="../../images/common/site03.gif" alt="íŽ˜ì´ìŠ¤ë¶"></a></li>
+							<li><a href=""><img src="../../images/common/site04.gif" alt="ì¹´ì¹´ì˜¤í†¡"></a></li>
 						</ul>
-						<h1><a href="../../index.html"><img src="../../images/common/logo.gif" alt="·Î°í"></a></h1>
+						<h1><a href="../../index.html"><img src="../../images/common/logo.gif" alt="ë¡œê³ "></a></h1>
 						<ul class="right-area">
-							<li><a href="">»çÀÌÆ®¸Ê</a></li>
-							<li class="last"><a href="">ÁÖº¯¼¾ÅÍÃ£±â</a></li>
+							<li><a href="">ì‚¬ì´íŠ¸ë§µ</a></li>
+							<li class="last"><a href="">ì£¼ë³€ì„¼í„°ì°¾ê¸°</a></li>
 						</ul>
 					</div>
 					<div class="header-bottom">
-									gnb ½ÃÀÛ
+									gnb ì‹œìž‘
 					    <div id="gnbarea">
 
 						   <ul class="gnb clear">
-							  <li class="li01"><a href="../sub01/sub0101.html"><img src="../../images/common/gnb01.gif">¼Ò°³</a>
+							  <li class="li01"><a href="../sub01/sub0101.html"><img src="../../images/common/gnb01.gif">ì†Œê°œ</a>
 								 <div class="subWrap sub01">
 									<ul>
 									    <li><a href="../sub01/sub0101.html">My story is</a></li>
-									    <li><a href="../sub01/sub0102.html">¸¶ÀÌ½ºÅä¸® ÀÌ¿ë¾È³»</a></li>
-									    <li><a href="../sub01/sub0103_list.html">°¡±î¿î¼¾ÅÍ µÑ·¯º¸±â</a></li>
-									    <li><a href="../sub01/sub0104.html">¸¶ÀÌ½ºÅä¸® »ç¶÷µé</a></li>
-									    <li><a href="../sub01/sub0105_list.html">¸¶ÀÌ½ºÅä¸® ¹æ¼ÛÀÌ¾ß±â</a></li>
-									    <li><a href="../sub01/sub0106.html">¼¾ÅÍ ¿î¿µ ¹®ÀÇ</a></li>
+									    <li><a href="../sub01/sub0102.html">ë§ˆì´ìŠ¤í† ë¦¬ ì´ìš©ì•ˆë‚´</a></li>
+									    <li><a href="../sub01/sub0103_list.html">ê°€ê¹Œìš´ì„¼í„° ë‘˜ëŸ¬ë³´ê¸°</a></li>
+									    <li><a href="../sub01/sub0104.html">ë§ˆì´ìŠ¤í† ë¦¬ ì‚¬ëžŒë“¤</a></li>
+									    <li><a href="../sub01/sub0105_list.html">ë§ˆì´ìŠ¤í† ë¦¬ ë°©ì†¡ì´ì•¼ê¸°</a></li>
+									    <li><a href="../sub01/sub0106.html">ì„¼í„° ìš´ì˜ ë¬¸ì˜</a></li>
 									</ul>
 								 </div>
 							  </li>
-							  <li class="li02"><a href=" sub0201_list.html">¿¹¾à/Ä¿¹Â´ÏÆ¼</a>
+							  <li class="li02"><a href=" sub0201_list.html">ì˜ˆì•½/ì»¤ë®¤ë‹ˆí‹°</a>
 								 <div class="subWrap sub02">
 									<ul>
-									    <li><a href=" sub0201_list.html">¿Â¶óÀÎ»ó´ã</a></li>
-									    <li><a href=" sub0202_01.html">¿Â¶óÀÎ ½Ç½Ã°£ ¿¹¾à</a></li>
-									    <li><a href=" sub0203_list.html">¸¶ÀÌ½ºÅä¸® °øÁö»çÇ×</a></li>
-									    <li><a href=" sub0204_list.html">TODAY ½É¸®ÄÃ·³</a></li>
-									    <li><a href=" sub0205_list.html">Ã¥À¸·Î ¸¸³ª´Â ½É¸®»êÃ¥</a></li>
-									    <li><a href=" sub0206_list.html">ÀÚÁÖÇÏ´Â Áú¹®</a></li>
+									    <li><a href=" sub0201_list.html">ì˜¨ë¼ì¸ìƒë‹´</a></li>
+									    <li><a href=" sub0202_01.html">ì˜¨ë¼ì¸ ì‹¤ì‹œê°„ ì˜ˆì•½</a></li>
+									    <li><a href=" sub0203_list.html">ë§ˆì´ìŠ¤í† ë¦¬ ê³µì§€ì‚¬í•­</a></li>
+									    <li><a href=" sub0204_list.html">TODAY ì‹¬ë¦¬ì»¬ëŸ¼</a></li>
+									    <li><a href=" sub0205_list.html">ì±…ìœ¼ë¡œ ë§Œë‚˜ëŠ” ì‹¬ë¦¬ì‚°ì±…</a></li>
+									    <li><a href=" sub0206_list.html">ìžì£¼í•˜ëŠ” ì§ˆë¬¸</a></li>
 									</ul>
 								 </div>
 							  </li>
-							  <li class="li03"><a href="../sub03/sub0301.html">¾ÆÀÌ½É¸®»ó´ã</a>
+							  <li class="li03"><a href="../sub03/sub0301.html">ì•„ì´ì‹¬ë¦¬ìƒë‹´</a>
 								 <div class="subWrap sub03">
 									<ul>
 									    <li><a href="../sub03/sub0301.html">ADHD</a></li>
-									    <li><a href="../sub03/sub0302.html">¾Æµ¿Ã»¼Ò³â¿ì¿ï</a></li>
-									    <li><a href="../sub03/sub0303.html">¹®Á¦Çàµ¿</a></li>
-									    <li><a href="../sub03/sub0304.html">ºÒ¾È</a></li>
-									    <li><a href="../sub03/sub0305.html">½º¸¶Æ® Æù °ÔÀÓ Áßµ¶</a></li>
-									    <li><a href="../sub03/sub0306.html">ÇÐ±³ ºÎÀûÀÀ, µûµ¹¸²</a></li>
-										<li><a href="../sub03/sub0307.html">ÇÐ±ÞºÎÁø, ÇÐ½ÀÀå¾Ö</a></li>
-										<li><a href="../sub03/sub0308.html">Æ½Àå¾Ö</a></li>
+									    <li><a href="../sub03/sub0302.html">ì•„ë™ì²­ì†Œë…„ìš°ìš¸</a></li>
+									    <li><a href="../sub03/sub0303.html">ë¬¸ì œí–‰ë™</a></li>
+									    <li><a href="../sub03/sub0304.html">ë¶ˆì•ˆ</a></li>
+									    <li><a href="../sub03/sub0305.html">ìŠ¤ë§ˆíŠ¸ í° ê²Œìž„ ì¤‘ë…</a></li>
+									    <li><a href="../sub03/sub0306.html">í•™êµ ë¶€ì ì‘, ë”°ëŒë¦¼</a></li>
+										<li><a href="../sub03/sub0307.html">í•™ê¸‰ë¶€ì§„, í•™ìŠµìž¥ì• </a></li>
+										<li><a href="../sub03/sub0308.html">í‹±ìž¥ì• </a></li>
 									</ul>
 								 </div>
 							  </li>
-							  <li class="li04"><a href="../sub04/sub0401.html">¼ºÀÎ½É¸®»ó´ã</a>
+							  <li class="li04"><a href="../sub04/sub0401.html">ì„±ì¸ì‹¬ë¦¬ìƒë‹´</a>
 								 <div class="subWrap sub04">
 									<ul>
-									    <li><a href="../sub04/sub0401.html">¿ì¿ïÁõ»ó</a></li>
-									    <li><a href="../sub04/sub0402.html">ºÒ¾ÈÁõ»ó</a></li>
-									    <li><a href="../sub04/sub0403.html">¼º°æ¹®Á¦Çàµ¿</a></li>
-									    <li><a href="../sub04/sub0404.html">Áßµ¶</a></li>
-									    <li><a href="../sub04/sub0405.html">Á¤½ÅºÐ¿­</a></li>
-									    <li><a href="../sub04/sub0406.html">ºÎºÎ»ó´ã</a></li>
-									    <li><a href="../sub04/sub0407.html">°¡Á·»ó´ã</a></li>
+									    <li><a href="../sub04/sub0401.html">ìš°ìš¸ì¦ìƒ</a></li>
+									    <li><a href="../sub04/sub0402.html">ë¶ˆì•ˆì¦ìƒ</a></li>
+									    <li><a href="../sub04/sub0403.html">ì„±ê²½ë¬¸ì œí–‰ë™</a></li>
+									    <li><a href="../sub04/sub0404.html">ì¤‘ë…</a></li>
+									    <li><a href="../sub04/sub0405.html">ì •ì‹ ë¶„ì—´</a></li>
+									    <li><a href="../sub04/sub0406.html">ë¶€ë¶€ìƒë‹´</a></li>
+									    <li><a href="../sub04/sub0407.html">ê°€ì¡±ìƒë‹´</a></li>
 									</ul>
 								 </div>
 							  </li>
-							  <li class="li05"><a href="../sub05/sub0501.html" class="last">½É¸®Ä¡·áÇÁ·Î±×·¥</a>
+							  <li class="li05"><a href="../sub05/sub0501.html" class="last">ì‹¬ë¦¬ì¹˜ë£Œí”„ë¡œê·¸ëž¨</a>
 								 <div class="subWrap sub05">
 									<ul>
-									    <li><a href="../sub05/sub0501.html">°³ÀÎ»ó´ãÄ¡·á</a></li>
-									    <li><a href="../sub05/sub0502.html">¹Ì¼ú½É¸®Ä¡·á</a></li>
-									    <li><a href="../sub05/sub0503.html">³îÀÌ½É¸®Ä¡·á</a></li>
-									    <li><a href="../sub05/sub0504.html">¿¬±Ø½É¸®Ä¡·á</a></li>
-									    <li><a href="../sub05/sub0505.html">µ¶¼­½É¸®Ä¡·á</a></li>
-									    <li><a href="../sub05/sub0506.html">À½¾Ç½É¸®Ä¡·á</a></li>
-									    <li><a href="../sub05/sub0507.html">¾ð¾îÄ¡·á</a></li>
-									    <li><a href="../sub05/sub0508.html">ÇÐ½ÀÄ¡·á-Áø·Î»ó´ã</a></li>
+									    <li><a href="../sub05/sub0501.html">ê°œì¸ìƒë‹´ì¹˜ë£Œ</a></li>
+									    <li><a href="../sub05/sub0502.html">ë¯¸ìˆ ì‹¬ë¦¬ì¹˜ë£Œ</a></li>
+									    <li><a href="../sub05/sub0503.html">ë†€ì´ì‹¬ë¦¬ì¹˜ë£Œ</a></li>
+									    <li><a href="../sub05/sub0504.html">ì—°ê·¹ì‹¬ë¦¬ì¹˜ë£Œ</a></li>
+									    <li><a href="../sub05/sub0505.html">ë…ì„œì‹¬ë¦¬ì¹˜ë£Œ</a></li>
+									    <li><a href="../sub05/sub0506.html">ìŒì•…ì‹¬ë¦¬ì¹˜ë£Œ</a></li>
+									    <li><a href="../sub05/sub0507.html">ì–¸ì–´ì¹˜ë£Œ</a></li>
+									    <li><a href="../sub05/sub0508.html">í•™ìŠµì¹˜ë£Œ-ì§„ë¡œìƒë‹´</a></li>
 									</ul>
 								 </div>
 							  </li>
-							  <li class="li06"><a href="../sub06/sub0601.html" class="last">½É¸®°Ë»çÇÁ·Î±×·¥</a>
+							  <li class="li06"><a href="../sub06/sub0601.html" class="last">ì‹¬ë¦¬ê²€ì‚¬í”„ë¡œê·¸ëž¨</a>
 								 <div class="subWrap sub06">
 									<ul>
-										<li><a href="../sub06/sub0601.html">Á¾ÇÕ½É¸®Æò°¡</a></li>
-									    <li><a href="../sub06/sub0602.html">Á¾ÇÕÁ¤¼­Æò°¡</a></li>
-									    <li><a href="../sub06/sub0603.html">¿µÀ¯¾Æ ¹ß´Þ°Ë»ç</a></li>
-									    <li><a href="../sub06/sub0604.html">ÇÐ½¿ ¹× Áø·Î Á¾ÇÕÆò°¡</a></li>
-									    <li><a href="../sub06/sub0605.html">¿µÀ¯¾Æ ³îÀÌÆò°¡</a></li>
-									    <li><a href="../sub06/sub0606.html">¾ð¾îÆò°¡</a></li>
+										<li><a href="../sub06/sub0601.html">ì¢…í•©ì‹¬ë¦¬í‰ê°€</a></li>
+									    <li><a href="../sub06/sub0602.html">ì¢…í•©ì •ì„œí‰ê°€</a></li>
+									    <li><a href="../sub06/sub0603.html">ì˜ìœ ì•„ ë°œë‹¬ê²€ì‚¬</a></li>
+									    <li><a href="../sub06/sub0604.html">í•™ìŠ´ ë° ì§„ë¡œ ì¢…í•©í‰ê°€</a></li>
+									    <li><a href="../sub06/sub0605.html">ì˜ìœ ì•„ ë†€ì´í‰ê°€</a></li>
+									    <li><a href="../sub06/sub0606.html">ì–¸ì–´í‰ê°€</a></li>
 									</ul>
 								 </div>
 							  </li>
-							  <li class="li07"><a href="../sub07/sub0701.html" class="last">±â¾÷»ó´ãÇÁ·Î±×·¥</a>
+							  <li class="li07"><a href="../sub07/sub0701.html" class="last">ê¸°ì—…ìƒë‹´í”„ë¡œê·¸ëž¨</a>
 								 <div class="subWrap sub07">
 									<ul>
-									    <li><a href="../sub07/sub0701.html">¸¶ÀÌ½ºÅä¸® ±â¾÷»ó´ã</a></li>
-									    <li><a href="../sub07/sub0702.html">±â¾÷»ó´ãÁøÇàÀýÂ÷</a></li>
-									    <li><a href="../sub07/sub0703_01.html">½Ç½Ã°£ ±â¾÷»ó´ã¿¹¾à</a></li>
-									    <li><a href="../sub07/sub0704.html">±â¾÷»ó´ã»ç·Ê¸ðÀ½</a></li>
-									    <li><a href="../sub07/sub0705.html">½É¸® °­ÀÇ ±³À°</a></li>
+									    <li><a href="../sub07/sub0701.html">ë§ˆì´ìŠ¤í† ë¦¬ ê¸°ì—…ìƒë‹´</a></li>
+									    <li><a href="../sub07/sub0702.html">ê¸°ì—…ìƒë‹´ì§„í–‰ì ˆì°¨</a></li>
+									    <li><a href="../sub07/sub0703_01.html">ì‹¤ì‹œê°„ ê¸°ì—…ìƒë‹´ì˜ˆì•½</a></li>
+									    <li><a href="../sub07/sub0704.html">ê¸°ì—…ìƒë‹´ì‚¬ë¡€ëª¨ìŒ</a></li>
+									    <li><a href="../sub07/sub0705.html">ì‹¬ë¦¬ ê°•ì˜ êµìœ¡</a></li>
 									</ul>
 								 </div>
 							  </li>
 						   </ul>
 					    </div>
 
-					//gnb ³¡
+					//gnb ë
 					</div>
 				</div>
 			</div> -->
 			<div class="sub-content">
 				<!-- <div class="bg02area">
-					<p class="tit">¿¹¾à/Ä¿¹Â´ÏÆ¼</p>
+					<p class="tit">ì˜ˆì•½/ì»¤ë®¤ë‹ˆí‹°</p>
 				</div> -->
 				<div class="sub-content-inbox">
 					<ul class="sub-menu2">
-						<li class="act"><a href="sub0201_list.html">¿Â¶óÀÎ»ó´ã</a></li>
-						<li><a href="sub0202_01.html">¿Â¶óÀÎ ½Ç½Ã°£¿¹¾à</a></li>
-						<li><a href="sub0203_list.html">¸¶ÀÌ½ºÅä¸® °øÁö»çÇ×</a></li>
-						<li><a href=" sub0204_list.html">¸¶ÀÌ½ºÅä¸® ½É¸® ÄÃ·³</a></li>
-						<li><a href="sub0205_list.html">Ã¥À¸·Î ¸¸³ª´Â ½É¸®ÀÌ¾ß±â</a></li>
-						<li class="last"><a href="sub0206_list.html">ÀÚÁÖÇÏ´Â Áú¹®</a></li>
+						<li class="act"><a href="sub0201_list.html">ì˜¨ë¼ì¸ìƒë‹´</a></li>
+						<li><a href="sub0202_01.html">ì˜¨ë¼ì¸ ì‹¤ì‹œê°„ì˜ˆì•½</a></li>
+						<li><a href="sub0203_list.html">ë§ˆì´ìŠ¤í† ë¦¬ ê³µì§€ì‚¬í•­</a></li>
+						<li><a href=" sub0204_list.html">ë§ˆì´ìŠ¤í† ë¦¬ ì‹¬ë¦¬ ì»¬ëŸ¼</a></li>
+						<li><a href="sub0205_list.html">ì±…ìœ¼ë¡œ ë§Œë‚˜ëŠ” ì‹¬ë¦¬ì´ì•¼ê¸°</a></li>
+						<li class="last"><a href="sub0206_list.html">ìžì£¼í•˜ëŠ” ì§ˆë¬¸</a></li>
 					</ul>
-					<h3>¿Â¶óÀÎ »ó´ã</h3>
+					<h3>ì˜¨ë¼ì¸ ìƒë‹´</h3>
 					<p class="sub02_txt">
-						¸¶ÀÌ½ºÅä¸®¿¡ ³²°ÜÁÖ½Å ¼ÒÁßÇÑ ÀÌ¾ß±â´Â ³»´ãÀÚ º¸È£ ±ÔÁ¤¿¡ µû¶ó Ã¶ÀúÈ÷ ºñ¹Ð º¸Àå µÇ¸ç º´¿ø°ú ´Þ¸® Àý´ë ±â·ÏÀÌ ³²Áö ¾Ê½À´Ï´Ù.<br />
-						<span>´äº¯Àº Áú¹® ³»¿ë¿¡ µû¶ó ºÐ·ùµÇ¾î ÇØ´ç ºÐ¾ß Àü¹®¼±»ý´Ô¿¡ ÀÇÇØ ¼º½ÇÀÌ ÀÌ·ç¾îÁý´Ï´Ù. <br />
-						´äº¯ ¼ø¼­´Â °¢ ¼¾ÅÍº° Àü¹®°¡ ¼±»ý´ÔµéÀÇ ¿©°Ç¿¡ µû¶ó ´Þ¶óÁú ¼ö ÀÖÀ½À» ¾çÇØÇØ ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.</span><br />
+						ë§ˆì´ìŠ¤í† ë¦¬ì— ë‚¨ê²¨ì£¼ì‹  ì†Œì¤‘í•œ ì´ì•¼ê¸°ëŠ” ë‚´ë‹´ìž ë³´í˜¸ ê·œì •ì— ë”°ë¼ ì² ì €ížˆ ë¹„ë°€ ë³´ìž¥ ë˜ë©° ë³‘ì›ê³¼ ë‹¬ë¦¬ ì ˆëŒ€ ê¸°ë¡ì´ ë‚¨ì§€ ì•ŠìŠµë‹ˆë‹¤.<br />
+						<span>ë‹µë³€ì€ ì§ˆë¬¸ ë‚´ìš©ì— ë”°ë¼ ë¶„ë¥˜ë˜ì–´ í•´ë‹¹ ë¶„ì•¼ ì „ë¬¸ì„ ìƒë‹˜ì— ì˜í•´ ì„±ì‹¤ì´ ì´ë£¨ì–´ì§‘ë‹ˆë‹¤. <br />
+						ë‹µë³€ ìˆœì„œëŠ” ê° ì„¼í„°ë³„ ì „ë¬¸ê°€ ì„ ìƒë‹˜ë“¤ì˜ ì—¬ê±´ì— ë”°ë¼ ë‹¬ë¼ì§ˆ ìˆ˜ ìžˆìŒì„ ì–‘í•´í•´ ì£¼ì‹œê¸° ë°”ëžë‹ˆë‹¤.</span><br />
 					</p>
 					<div class="resev-box">
-						<p class="listnum">ÃÑ <span>88</span>°Ç 1/9</p>
-						<p class="reserv-btn">½Ç½Ã°£¿¹¾à ¹Ù·Î°¡±â</p>
+						<p class="listnum">ì´ <span>88</span>ê±´ 1/9</p>
+						<p class="reserv-btn">ì‹¤ì‹œê°„ì˜ˆì•½ ë°”ë¡œê°€ê¸°</p>
 					</div>
 					<table width="100%" class="view-board01">
 						<colgroup>
@@ -955,7 +955,7 @@ $(document).ready(function() {
 						<thead>
 						<tr>
 							<th scope="col">
-								<div class="tit"><span class="mark">Á¦¸ñ : </span>${consultingmodel.c_title }</div>
+								<div class="tit"><span class="mark">ì œëª© : </span>${consultingmodel.c_title }</div>
 							</th>
 							<th></th>
 						</tr>
@@ -964,16 +964,16 @@ $(document).ready(function() {
 						<tr>
 							<td>
 								<div class="board-infor">
-									<strong>ÀÛ¼ºÀÚ</strong>
+									<strong>ìž‘ì„±ìž</strong>
 									<span>${ consultingmodel.m_id}</span>
 									<span class="line"><img src="../../images/sub/line.jpg" class="vertical-m"  alt="" /></span>
-									<strong>ÀÛ¼ºÀÏ</strong>
+									<strong>ìž‘ì„±ì¼</strong>
 									<span><fmt:formatDate value="${consultingmodel.c_date}" pattern="yyyy.MM.dd"/></span>
 							
 								</div>
 							</td>
 						</tr>
-						<tr><th>»ó´ã ³»¿ë</th></tr>
+						<tr><th>ìƒë‹´ ë‚´ìš©</th></tr>
 						<tr>
 							<td class="dmc_content content">
 								
@@ -982,7 +982,7 @@ ${consultingmodel.c_content }
 						</tr>
 						<!-- <tr>
 							<td class="recontent">
-								<p class="retit"><img src="../../images/sub/redat.gif">[´äº¯ ÀÔ´Ï´Ù!!]</p>
+								<p class="retit"><img src="../../images/sub/redat.gif">[ë‹µë³€ ìž…ë‹ˆë‹¤!!]</p>
 								<div class="recont">
 									
 								</div>
@@ -997,13 +997,13 @@ ${consultingmodel.c_content }
 								<c:param name="c_number" value="${consultingmodel.c_number }"/>
 							</c:url>
 						<%-- 	<c:if test="${isReply.equals('noReply') }"> --%>
-							<a href="${replyURL}" class="storywrite">°ü¸®ÀÚ ´äº¯´Þ±â</a> 
+							<a href="${replyURL}" class="storywrite">ê´€ë¦¬ìž ë‹µë³€ë‹¬ê¸°</a> 
 			<%-- 	</c:if> --%>
  				</c:if>
-						<p class="btn01 list"><input type="button" value="¸ñ·Ï" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingList.do'"></p>
+						<p class="btn01 list"><input type="button" value="ëª©ë¡" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingList.do'"></p>
 						<div class="area">
-							<p class="btn01"><input type="button" value="¼öÁ¤" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingModify.do?c_number=${consultingmodel.c_number }'"></p>
-							<p class="btn02"><input type="button" value="»èÁ¦" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingDelete.do?c_number=${consultingmodel.c_number }'"></p>
+							<p class="btn01"><input type="button" value="ìˆ˜ì •" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingModify.do?c_number=${consultingmodel.c_number }'"></p>
+							<p class="btn02"><input type="button" value="ì‚­ì œ" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingDeletePro.do?c_number=${consultingmodel.c_number }'"></p>
 						</div>
 					</div>
 				</div>
@@ -1012,10 +1012,10 @@ ${consultingmodel.c_content }
 				<div class="footer-top">
 					<div class="footer-top-inbox">
 						<ul>
-							<li>È¸»ç¼Ò°³</li>
-							<li>»çÀÌÆ®ÀÌ¿ë¾à°ü</li>
-							<li>°³ÀÎÁ¤º¸Ã³¸®¹æÄ§</li>
-							<li>ÀÓÁ÷¿ø¼­ºñ½º</li>
+							<li>íšŒì‚¬ì†Œê°œ</li>
+							<li>ì‚¬ì´íŠ¸ì´ìš©ì•½ê´€</li>
+							<li>ê°œì¸ì •ë³´ì²˜ë¦¬ë°©ì¹¨</li>
+							<li>ìž„ì§ì›ì„œë¹„ìŠ¤</li>
 						</ul>
 					</div>
 				</div>
@@ -1023,10 +1023,10 @@ ${consultingmodel.c_content }
 					<div class="footer-bottom-inbox">
 						<h2><img src="../../images/common/b_logo.gif"></h2>
 						<p>
-							°í°´¼­ºñ½º¼¾ÅÍ 080-3243-2312<br>
-							(ÁÖ)¸¶ÀÌ½ºÅä¸® ¼­¿ïÆ¯º°½Ã °­³²±¸ Å×Çì¶õ·Î±æ 52±æ 17 ¿ª»ïµ¿ ÀÌ¿¡½ºÅ¸¿ö 10Ãþ »ç¾÷ÀÚµî·Ï¹øÈ£:505-88-00158 È¨ÆäÀÌÁö °ü¸®Ã¥ÀÓÀÚ:¾È¿µ¹Ì<br>
+							ê³ ê°ì„œë¹„ìŠ¤ì„¼í„° 080-3243-2312<br>
+							(ì£¼)ë§ˆì´ìŠ¤í† ë¦¬ ì„œìš¸íŠ¹ë³„ì‹œ ê°•ë‚¨êµ¬ í…Œí—¤ëž€ë¡œê¸¸ 52ê¸¸ 17 ì—­ì‚¼ë™ ì´ì—ìŠ¤íƒ€ì›Œ 10ì¸µ ì‚¬ì—…ìžë“±ë¡ë²ˆí˜¸:505-88-00158 í™ˆíŽ˜ì´ì§€ ê´€ë¦¬ì±…ìž„ìž:ì•ˆì˜ë¯¸<br>
 							<br/>
-							Copyright ¨Ï MYSTORY All Rights Reserved
+							Copyright â“’ MYSTORY All Rights Reserved
 						</p>
 					</div>
 				</div>

@@ -1,8 +1,11 @@
 package sd.duo.consulting;
 
+
+
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
+
 
 public class consultingValidator implements Validator{
 
@@ -17,9 +20,9 @@ public class consultingValidator implements Validator{
 		// TODO Auto-generated method stub
 		//consultingModel consultingmodel = (consultingModel)target;
 		
-		ValidationUtils.rejectIfEmptyOrWhitespace(error, "title", "title");
-		ValidationUtils.rejectIfEmptyOrWhitespace(error, "content", "content");
-		ValidationUtils.rejectIfEmptyOrWhitespace(error, "pass", "pass");
+		ValidationUtils.rejectIfEmptyOrWhitespace(error, "c_title", "title");
+		ValidationUtils.rejectIfEmptyOrWhitespace(error, "c_content", "content");
+		ValidationUtils.rejectIfEmptyOrWhitespace(error, "c_pass", "pass");
 	}
 	
 }

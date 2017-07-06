@@ -25,11 +25,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert id="insertConsultingReply" parameterType="consultingModel">
 		insert into f_consulting(c_number, c_title, c_content, c_pass, m_id, c_date, c_re_status, c_ref) 
-		values(seq_f_c_number.nextval, #{c_title}, #{c_content}, #{c_pass}, #{m_id}, sysdate, 2, #{c_ref})
+		values(seq_f_c_number.nextval, #{c_title}, #{c_content}, #{c_pass}, #{m_id}, sysdate, 3, #{c_ref})
 	</insert>
 	
+	<insert id="updateConsultingState" parameterType="int">
+		update f_consulting set c_re_status=2 where c_number=#{c_number}
+	</insert>
+	
+	<update id="modConsulting" parameterType="consultingModel">
+		update f_consulting set c_title=#{c_title}, c_content=#{c_content} where c_number=#{c_number}
+	</update>
+	
 	<select id="consultingList" resultType="consultingModel">
-		select * from f_consulting order by c_ref asc, c_re_status asc
+		select * from f_consulting order by c_ref desc, c_re_status asc
 	</select>
 	
 	<select id="consultingPass" resultType="consultingModel" parameterType="consultingModel">
@@ -44,5 +52,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from f_consulting
 	</select>
 	
-	
+	<delete id="deleteConsulting" parameterType="int">
+		delete f_consulting where c_number = #{c_number}
+	</delete>
 </mapper>

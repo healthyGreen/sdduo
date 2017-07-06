@@ -40,17 +40,20 @@ public class consultingController {
 		consultingmodel.setC_pass(request.getParameter("c_pass"));
 		
 		resultConsultingModel = service.consultingPass(consultingmodel);
-		int c_number = resultConsultingModel.getC_number();
-		if(resultConsultingModel!=null)
+		if(resultConsultingModel!=null){
+			int c_number = resultConsultingModel.getC_number();
 			mv.setViewName("redirect:/consulting/consultingView.do?c_number="+c_number);
-		else
+		}
+		else{
 			mv.setViewName("consultingPassError");
+		}
 		return mv;
 	}
 	
 	@RequestMapping(value="/consultingPassForm.do")
 	public ModelAndView consultingPassForm(HttpServletRequest request){
 		int c_number = Integer.parseInt(request.getParameter("c_number"));
+		System.out.println(c_number);
 		mv.addObject("c_number", c_number);
 		mv.setViewName("consultingPassForm");
 		return mv;
@@ -61,17 +64,23 @@ public class consultingController {
 		//consultingmodel.setM_id(id);
 	//	consultingmodel.setC_re_status(1); // ¥‰∫ØªÛ≈¬ æ∆¡˜ æ»¥ﬁ∏∞ ªÛ≈¬
 
+		new consultingValidator().validate(consultingmodel, result);
+		
 		int c_ref = consultingmodel.getC_ref();
 		int c_number = consultingmodel.getC_number();
 		consultingModel c = new consultingModel();
-		if(c_ref!=0 && c_number!=0){
+		/*if(result.hasErrors()){
+			mv.setViewName("consultingForm");
+			return mv;
+		}else{*/
+		if(c_ref != 0){
 			c = service.consultingView(c_number);
 			//consultingmodel.setC_re_status(2);
-		//	System.out.println(consultingmodel);
+			//	System.out.println(consultingmodel);
 			consultingmodel.setC_pass(c.getC_pass());
 			//consultingmodel.setC_title("[¥‰∫Ø]"+consultingmodel.getC_title());
 			consultingmodel.setC_ref(c_ref);
-			consultingmodel.setM_id("admin");
+			consultingmodel.setM_id("admin"); // ¬˜»ƒø° ∑Œ±◊¿Œ µ«∏È session∞™¿∏∑Œ πŸ≤‹∞Ì¿”
 			/*System.out.println(consultingmodel.getC_title());
 			System.out.println(consultingmodel.getC_pass());
 			System.out.println(consultingmodel.getC_ref());
@@ -80,18 +89,16 @@ public class consultingController {
 			
 			System.out.println("!");*/
 			service.insertConsultingReply(consultingmodel);
+			service.updateConsultingState(c_number);
 		}else{
 			consultingmodel.setM_id("Asd"); // ¬˜»ƒø° ∑Œ±◊¿Œ µ«∏È session∞™¿∏∑Œ πŸ≤‹∞Ì¿”
 			service.insertConsulting(consultingmodel);
 		}
 		mv.setViewName("redirect:/consulting/consultingList.do");
 			return mv;
+	}
+/*	}*/
 	/*	
-		new consultingValidator().validate(consultingmodel, result);
-		if(result.hasErrors()){
-			mv.setViewName("consultingForm");
-			return mv;
-		}*/
 		
 		//HttpSession session = request.getSession();
 		//String id = (String)session.getAttribute("session_member_id");	
@@ -172,26 +179,32 @@ public class consultingController {
 	}
 	
 	@RequestMapping(value="/consultingModifyPro.do")
-	public ModelAndView consultingModifyPro(BindingResult result, HttpServletRequest request, 
-			@ModelAttribute("consulting") consultingModel consultingmodel){
+	public ModelAndView consultingModifyPro(@ModelAttribute("consulting") consultingModel consultingmodel, BindingResult result){
 		
 		new consultingValidator().validate(consultingmodel, result);
-		int consultingNum = consultingmodel.getC_number();
+		//int c_number = Integer.parseInt(request.getParameter("c_number"));
+	//	int c_ref = Integer.parseInt(request.getParameter("c_ref")); 
+		
+//		if(c_ref == c_number) // ∞¸∏Æ¿⁄¿« ¥‰±€ ºˆ¡§¿Œ ∞ÊøÏ
+		
+		int c_number = consultingmodel.getC_number();	
+		//System.out.println(c_number);
+		//System.out.println("!");
 		if(result.hasErrors()){
 			//mv.addObject("consultingNum", consultingmodel.getC_number());
-			mv.setViewName("redirect:/consulting/consultingModifyForm.do?consultingNum="+consultingNum);
+			mv.setViewName("redirect:/consulting/consultingModifyForm.do?consultingNum="+c_number);
 			return mv;
 		}
-		else{
+	
 			service.modConsulting(consultingmodel);
-			mv.setViewName("redirect:/consulting/consultingView.do?consultingNum="+consultingNum); // ?ã§?ù¥?†â?ä∏?ïòÍ∏? ÏΩòÏÑ§?åÖ?úºÎ°?(Î≤àÌò∏ ?ÑòÍ≤®Ï£ºÎ©¥ÏÑú )
+			mv.setViewName("redirect:/consulting/consultingView.do?c_number="+c_number); // ?ã§?ù¥?†â?ä∏?ïòÍ∏? ÏΩòÏÑ§?åÖ?úºÎ°?(Î≤àÌò∏ ?ÑòÍ≤®Ï£ºÎ©¥ÏÑú )
 			return mv;
-		}
+	
 	}
 	
 	@RequestMapping(value="/consultingDeletePro.do")
 	public ModelAndView consultingDeletePro(HttpServletRequest request, consultingModel consultingmodel){
-		int c_number = Integer.parseInt(request.getParameter("consultingNum"));
+		int c_number = Integer.parseInt(request.getParameter("c_number"));
 		service.deleteConsulting(c_number);
 		mv.setViewName("redirect:/consulting/consultingList.do");
 		return mv;

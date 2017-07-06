@@ -39,7 +39,7 @@ public class consultingService implements consultingDao {
 	@Override
 	public int deleteConsulting(int c_number) {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSessionTemplate.delete("consulting.deleteConsulting", c_number);
 	}
 
 	@Override
@@ -58,6 +58,12 @@ public class consultingService implements consultingDao {
 	public consultingModel consultingPass(consultingModel consultingmodel) {
 		// TODO Auto-generated method stub
 		return sqlSessionTemplate.selectOne("consulting.consultingPass", consultingmodel);
+	}
+
+	@Override
+	public int updateConsultingState(int c_number) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.update("consulting.updateConsultingState", c_number);
 	}
 	
 }
