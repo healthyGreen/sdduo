@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+<%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div id="wrapper">
@@ -23,16 +23,16 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href=""><i class="fa fa-dashboard fa-fw"></i>&nbsp예약 관리<span class="fa arrow"></span></a>
+                            <a href="http://localhost:8080/SDDuo/AdminReserve/OneReserList.do?pr_center=1"><i class="fa fa-dashboard fa-fw"></i>&nbsp예약 관리<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level">
                                 <li>
-                                    <a href="reser1.html">강남지점</a>
+                                    <a href="http://localhost:8080/SDDuo/AdminReserve/OneReserList.do?pr_center=1">강남지점</a>
                                 </li>
                                 <li>
-                                    <a href="reser2.html">대구지점</a>
+                                    <a href="http://localhost:8080/SDDuo/AdminReserve/OneReserList.do?pr_center=2">대구지점</a>
                                 </li>
 								<li>
-                                    <a href="reser3.html">부산지점</a>
+                                    <a href="http://localhost:8080/SDDuo/AdminReserve/OneReserList.do?pr_center=3">부산지점</a>
                                 </li>
 	
                             </ul>

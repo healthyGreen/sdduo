@@ -11,13 +11,13 @@
             <div class="row">
                 <div class="col-lg-12">
                 	<c:choose>
-						<c:when test="${pr_center eq '1'}">
+						<c:when test="${gr_center eq '1'}">
                     		<h1 class="page-header">강남지점</h1>
                     	</c:when>
-                    	<c:when test="${pr_center eq '2'}">
+                    	<c:when test="${gr_center eq '2'}">
                     		<h1 class="page-header">대구지점</h1>
                     	</c:when>
-                    	<c:when test="${pr_center eq '3'}">
+                    	<c:when test="${gr_center eq '3'}">
                     		<h1 class="page-header">부산지점</h1>
                     	</c:when>
                     </c:choose>
@@ -44,56 +44,6 @@
                                  <thead>
                                     <tr>
                                        <th>번호</th>
-                                       <th>예약자</th>
-                                       <th>상담내용</th>
-                                       <th>예약일</th>
-                                       <th>예약상태</th>
-                                    </tr>
-                                 </thead>
-                                 <tbody>
-                                    <c:forEach var="oneReserList" items="${oneReserList}">
-                                       <tr>
-                                          <td>${oneReserList.pr_number}</td>
-                                          <td>${ oneReserList.pr_name }</td>
-                                          <td>${oneReserList.pr_reason}</td> 
-                                             <td>${ oneReserList.pr_year }.${ oneReserList.pr_month }.${ oneReserList.pr_day }&nbsp;&nbsp;${ oneReserList.pr_hour }:${ oneReserList.pr_minute }</td>
-
-                                            <td>
-                     
-                                             <c:choose>
-
-                                                <c:when test="${oneReserList.pr_status eq '0'}">
-                                       예약대기
-                                                </c:when>
-                           
-                                             <c:when test="${oneReserList.pr_status ne '0'}">
-                                         예약완료
-                                                </c:when>
-                                             </c:choose>
-
-                                          </td>
-                                          
-                                          </tr>
-                                       </c:forEach>
-                                    
-                                 </tbody>
-                              </table>
-                              <c:if test="${fn:length(oneReserList) le 0}">
-							<br />
-							<center>예약내역이 존재하지 않습니다.</center>
-							<br />
-						</c:if>
-                              <!-- /.table-responsive -->
-                              
-                           </div>
-                        <!-- /.panel-body -->
-                                </div>
-                                <%-- <div class="tab-pane fade" id="profile">
-                                    <div class="panel-body">
-                              <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                 <thead>
-                                    <tr>
-                                       <th>번호</th>
                                        <th>그룹명</th>
                                        <th>상담내용</th>
                                        <th>예약일</th>
@@ -102,7 +52,7 @@
                                     </tr>
                                  </thead>
                                  <tbody>
-                                 <c:forEach var="groupReserList" items="${groupReserList}">
+                                    <c:forEach var="groupReserList" items="${groupReserList}">
                                        <tr>
                                           <td>${groupReserList.gr_number}</td>
                                           <td>${ groupReserList.gr_group}</td>
@@ -130,12 +80,38 @@
                                     
                                  </tbody>
                               </table>
+                              <c:if test="${fn:length(groupReserList) le 0}">
+							<br />
+							<center>예약내역이 존재하지 않습니다.</center>
+							<br />
+						</c:if>
+                              <!-- /.table-responsive -->
+                              
+                           </div>
+                        <!-- /.panel-body -->
+                                </div>
+                                <div class="tab-pane fade" id="profile">
+                                    <div class="panel-body">
+                              <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                 <thead>
+                                    <tr>
+                                       <th>번호</th>
+                                       <th>상담내용</th>
+                                       <th>예약자</th>
+                                       <th>예약일</th>
+                                       <th>예약인원</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                 
+                                 </tbody>
+                              </table>
                               <!-- /.table-responsive -->
                               
                            </div>
                            
                         
-                                </div> --%>
+                                </div>
                                
                             </div>
                         </div>
