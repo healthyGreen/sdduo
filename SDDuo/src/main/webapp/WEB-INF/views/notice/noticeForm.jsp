@@ -19,18 +19,18 @@ function reviewList() {
 }
 
 function checkIt() {
-    var userinput = eval("document.userinput");
-    
-    if(!userinput.n_title.value) {
-        alert("제목을 입력하세요");
-        return false;
-    }
-   
-    if(!userinput.n_content.value ) {
-        alert("내용을 입력하세요");
-        return false;
-    }
-     
+	
+	 if(document.form.n_title.value==""){ //제목값이 없을 경우
+		 alert("제목을 입력하세요");         //메세지 경고창을 띄운 후
+		 document.form.n_title.focus();     // 제목 텍스트박스에 커서를 위치
+		 exit;
+		 return false;
+	}else if(document.form.n_content.value==""){
+		 alert("내용을 입력하세요");
+		 document.form.n_content.focus();
+		 exit;
+		 return false;
+		 }
 }
 
 </script>
@@ -71,7 +71,7 @@ function checkIt() {
 <body>
 
     <div id="wrapper">
-		<form:form commandName="noticeModel" action="adminNoticeWrite.do" enctype="multipart/form-data"	method="post">
+		<form:form commandName="noticeModel" name="form" action="adminNoticeWrite.do" enctype="multipart/form-data"	method="post">
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             
@@ -115,7 +115,7 @@ function checkIt() {
                             <a href=""><i class="fa fa-table fa-fw"></i>&nbsp공지사항 관리</a>
                         </li>
                         <li>
-                            <a href='noticeList.do'><i class="fa fa-edit fa-fw"></i>&nbsp회원 관리</a>
+                            <a href=''><i class="fa fa-edit fa-fw"></i>&nbsp회원 관리</a>
                         </li>
                        
                        
@@ -179,8 +179,8 @@ function checkIt() {
 				</table>
 					<!-- 취소 작성완료 버튼 -->
 					<div style="width: 125px; margin: 40px auto; ">
-						<button type="submit" onclick="checkIt();" class="btn btn-outline btn-primary" style="margin-right: 10px; ">확인</button>
-						<button type="button" onclick="reviewList();" class="btn btn-outline btn-default">취소</button>
+						<button type="submit" onclick="checkIt()" class="btn btn-outline btn-primary" style="margin-right: 10px; ">확인</button>
+						<button type="button" onclick="reviewList()" class="btn btn-outline btn-default">취소</button>
 					</div>
             </div>    
             <!-- /.row -->
@@ -209,6 +209,8 @@ function checkIt() {
     <script src="../resources/dist/js/sb-admin-2.js"></script>
 
 </body>
+
+
 
 
 </html>

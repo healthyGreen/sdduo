@@ -27,6 +27,7 @@ import sd.duo.adminNotice.AdminNoticeModel;
 import sd.duo.adminNotice.AdminNoticeService;
 import sd.duo.adminNotice.NoticeValidator;
 import sd.duo.adminNotice.Paging;
+import sd.duo.member.MemberController;
 
 @Controller
 public class AdminNoticeController {
@@ -44,15 +45,25 @@ public class AdminNoticeController {
 		private String pagingHtml;  
 		private Paging page;
 		
+		
+		
 	private static final String uploadPath = "C:\\Java\\FINAL\\SDDuo\\src\\main\\webapp\\resources\\upload";
 
 	
 	
 	//리스트 처리(검색)
 		@RequestMapping(value="/admin/adminNoticeList.do", method=RequestMethod.GET)
-		public ModelAndView noticeList(HttpServletRequest request) throws UnsupportedEncodingException{
+		public ModelAndView noticeList(HttpServletRequest request,HttpSession session) throws UnsupportedEncodingException{
+			String id = "";
+			System.out.println("1111");
 			
+
+			if(session != null){
+				System.out.println("2222");
+				id = (String)session.getAttribute("session_member_id");
+			}
 			ModelAndView mav = new ModelAndView();
+			
 			
 			if(request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty() || request.getParameter("currentPage").equals("0")) {
 	            currentPage = 1;
@@ -97,7 +108,13 @@ public class AdminNoticeController {
 				mav.addObject("pagingHtml", pagingHtml);
 				mav.addObject("currentPage", currentPage);
 				mav.addObject("adminNoticeList", adminNoticeList);
-				mav.setViewName("adminNoticeList");
+		         
+			
+				if(id.equals("admin")){
+					mav.setViewName("adminNoticeList");
+				}else{
+					mav.setViewName("NoticeList");
+				}
 				return mav;
 			}
 			
@@ -121,15 +138,22 @@ public class AdminNoticeController {
 			mav.addObject("currentPage", currentPage);
 			mav.addObject("totalPage", totalPage);
 			mav.addObject("adminNoticeList", adminNoticeList);
-			mav.setViewName("adminNoticeList");
+			
+			if(id.equals("admin")){
+				mav.setViewName("adminNoticeList");
+			}else{
+				mav.setViewName("NoticeList");
+			}
 			return mav;
 		}
 	
 	//공지사항 상세보기
 	@RequestMapping("/admin/adminNoticeView.do")
-	public ModelAndView noticeView(HttpServletRequest request){
+	public ModelAndView noticeView(HttpServletRequest request, HttpSession session){
 		   
 		ModelAndView mav = new ModelAndView();
+		
+	    String id = session.getAttribute("session_member_id").toString();
 		
 		int n_number = Integer.parseInt(request.getParameter("n_number"));
 		
@@ -138,7 +162,12 @@ public class AdminNoticeController {
 		noticeService.noticeUpdateReadcount(n_number);
 		
 		mav.addObject("noticeModel", noticeModel);
-		mav.setViewName("adminNoticeView");
+		
+		if(id.equals("admin")){
+			mav.setViewName("adminNoticeView");
+		}else{
+			mav.setViewName("NoticeView");
+		}
 		
 		return mav;
 	}

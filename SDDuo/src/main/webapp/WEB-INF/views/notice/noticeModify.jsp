@@ -17,24 +17,25 @@ function reviewList() {
 	}
 }
 
+function checkIt() {
+	 if(document.form.n_title.value==""){ //제목값이 없을 경우
+		 alert("제목을 입력하세요");         //메세지 경고창을 띄운 후
+		 document.form.n_title.focus();     // 제목 텍스트박스에 커서를 위치
+		 return false;
+	}else if(document.form.n_content.value==""){
+		 alert("내용을 입력하세요");
+		 document.form.n_content.focus();
+		 return false;
+		 }
+}
+
 </script>
 
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
-<link href="/pet/resources/admincss/bootstrap.min.css" rel="stylesheet">
-<link href="/pet/resources/css/reset.css" rel="stylesheet">
-<link href="/pet/resources/admincss/sb-admin-2.css" rel="stylesheet">
-<!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"> -->
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<style type="text/css"> 
 
-   .contents-wrap{margin:30px 0 0 0;min-height: 500px;}
-   .contents{ margin: 60px 0 0 0;}
-   .recode-wrap{text-align: right; color: #888;}
-   .hit-wrap{color:#888; margin: 10px 0;}
-   .viewForm{margin: 20px 0 0 0;}
-</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>REVIEW</title> 
 </head>
 <body>
@@ -46,7 +47,7 @@ function reviewList() {
 </div>
 
 <div id="wrapper">
-<form:form commandName="noticeModel" action="adminNoticeModifySuccess.do" enctype="multipart/form-data" method="post">
+<form:form commandName="noticeModel" name="form" action="adminNoticeModifySuccess.do" enctype="multipart/form-data" method="post" onSubmit="return checkIt()">
       <input type="hidden" name="n_number" value="${noticeModel.n_number}" />
       <div id="page-wrapper">
          <div class="row">
@@ -75,6 +76,7 @@ function reviewList() {
 								<input type="textarea" name="n_name" value="${noticeModel.n_name}"/>
 								
 							</td>
+							
 							<td>
 								<strong>작성일</strong>
 							</td>
@@ -124,7 +126,7 @@ function reviewList() {
 				
 				<!-- 취소 작성완료 버튼 -->
 				<div class="menu-wrap">
-					<button type="button" onclick="this.form.submit();" class="btn btn-primary">작성완료</button>
+					<button type="submit"  class="btn btn-primary">확인</button>
 					<button type="button" onclick="reviewList();" class="btn btn-primary">목록</button>
 				</div>
 				<!-- 취소 작성완료 버튼 -->

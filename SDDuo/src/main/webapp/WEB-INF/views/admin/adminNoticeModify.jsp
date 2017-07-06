@@ -10,9 +10,9 @@
 <body>
 
     <div id="wrapper">
-		<form:form commandName="noticeModel" name="form" action="adminNoticeWrite.do" enctype="multipart/form-data"	method="post">
-        <!-- Navigation -->
-       
+		<form:form commandName="noticeModel" name="form" action="adminNoticeModifySuccess.do" enctype="multipart/form-data" method="post" onSubmit="return checkIt()">
+      	<input type="hidden" name="n_number" value="${noticeModel.n_number}" />
+
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
@@ -37,22 +37,45 @@
 						<tr><!-- 사용자 -->
 							<th>사용자 ID</th>
 							
-							<%-- <td colspan=3>
-								<strong>
+							<td colspan=3>
+								<%-- <strong>
 									${session_member_name}
-								</strong>
-							</td> --%>
+								</strong>--%>
+								
+								<input type="textarea" name="n_name" value="${noticeModel.n_name}"/>
+								
+							</td> 
+							
+						</tr>
+						
+						<tr>
+							<th>작성일</th>
 							
 							<td colspan=3>
-							<input type="textarea" name="n_name" value="${noticeModel.n_name}">
-							</td>
+								<fmt:formatDate value="${noticeModel.n_date}" pattern="yyyy.MM.dd"/>
+								
+							</td> 
+							
 						</tr>
+						
+						
+						
 							
 						<tr><!-- 글내용 -->
 							<th>글내용</th>
 							<td colspan=3 height=600 style="padding: 0px !important;">
-							   <textarea  name="n_content" id="n_content" style=" padding:3px; margin: 1px; width: 100%; height: 98%;"></textarea>
+							   <textarea name="n_content" value="${noticeModel.n_content}"
+							   		style="margin: 3px; width: 100%; height: 100%;">${noticeModel.n_content}</textarea> 
 							</td>
+						</tr>
+						
+						<tr>
+							<th width="100">현재 이미지 </th>
+							<td colspan=3>
+								<c:if test="${!empty noticeModel.n_sav_image}">
+                            		<img src="../resources/upload/${noticeModel.n_sav_image}" width="100" height="100" alt=""  /><input type="hidden"  name="n_sav_image" value="${noticeModel.n_sav_image}">
+                           		</c:if>
+                           	</td>
 						</tr>
 							
 						<tr><!-- 파일 -->
@@ -65,11 +88,11 @@
 					</tbody>
 				</table>
 					<!-- 취소 작성완료 버튼 -->
-					<div style="width: 125px; margin: 40px auto; ">
-						<button type="submit" onclick="checkIt()" class="btn btn-outline btn-primary" style="margin-right: 10px; ">확인</button>
-						<button type="button" onclick="reviewList()" class="btn btn-outline btn-default">취소</button>
-					</div>
-            </div>    
+						<div class="menu-wrap">
+							<button type="submit"  class="btn btn-primary">확인</button>
+							<button type="button" onclick="reviewList();" class="btn btn-primary">목록</button>
+						</div>
+            	</div>    
             <!-- /.row -->
             </form:form>
         </div>
@@ -97,6 +120,7 @@
 
 </body>
 
+
 <script type="text/javascript">
 
 function reviewList() {
@@ -108,16 +132,13 @@ function reviewList() {
 }
 
 function checkIt() {
-	
 	 if(document.form.n_title.value==""){ //제목값이 없을 경우
 		 alert("제목을 입력하세요");         //메세지 경고창을 띄운 후
 		 document.form.n_title.focus();     // 제목 텍스트박스에 커서를 위치
-		 exit;
 		 return false;
 	}else if(document.form.n_content.value==""){
 		 alert("내용을 입력하세요");
 		 document.form.n_content.focus();
-		 exit;
 		 return false;
 		 }
 }

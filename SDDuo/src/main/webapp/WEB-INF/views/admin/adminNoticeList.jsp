@@ -3,17 +3,14 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 
 
-<script type="text/javascript">
 
-$('.searchOption').val($('.searchOptionVal').val());
-var onWrite = function(){
-	location.href = 'adminNoticeWrite.do'; 
-};
-</script>
- 
+<body>
+
+
+    <div id="wrapper">
 
         <div id="page-wrapper">
             <div class="row">
@@ -24,16 +21,15 @@ var onWrite = function(){
             </div>
             <div class="row">
                 <div class="resev-box">
-					<p class="listnum">총 <span>3</span>건 1/1</p>
-					<form name="frmCommonList" method="post">
+					<p class="listnum">총 <span>${ totalCount}</span>건 ${currentPage}/${totalPage }</p>
+					<form name="frmCommonList">
 					<p class="search-area">
-						<select name="search_gubun">
-							<option value="" selected="">전체</option>
-							<option value="title">제목</option>
-							<option value="content">내용</option>
+						<select name="searchNum" id="searchNum">
+							<option value="0">제목</option>
+							<option value="1">내용</option>
 						</select>
-						<input type="text" name="search" maxlength="20" value="" class="noticebox">
-						<input type="button" value="검색" onclick="searchList(document.frmCommonList);" class="noticebtn">
+						<input type="text" name="isSearch" id="isSearch" maxlength="20" value="" class="noticebox">
+						<input type="submit" value="검색"  class="noticebtn">
 					</p>
 					</form>
 				</div>
@@ -56,7 +52,7 @@ var onWrite = function(){
 
 				</tbody>
 				<tbody>
-					<c:forEach var="list" items="${noticeList}">
+					<c:forEach var="list" items="${adminNoticeList}">
 						<c:url var="viewURL" value="adminNoticeView.do" >
 							<c:param name="n_number" value="${list.n_number }" />
 						    <c:param name="currentPage" value="${currentPage }" />
@@ -76,6 +72,12 @@ var onWrite = function(){
 
 				</tbody>
 			</table>
+			
+			<div class="paging">
+				${pagingHtml}
+			</div>
+			
+			
 			<div style="margin-top:40px; float: right;">
 			
 			<%-- <c:if test="${session_member_name == 'admin' }">
@@ -83,40 +85,17 @@ var onWrite = function(){
 			</c:if> --%>
 			<button type="button" onclick="onWrite()" class="btn btn-primary">글쓰기</button>
 			
-			<button type="button" onclick="onList()" class="btn btn-primary">목록</button>
-			
 			</div>
             </div>
             <!-- /.row -->
             
-            <c:if test="${fn:length(noticeList) le 0}">
+            <c:if test="${fn:length(adminNoticeList) le 0}">
 				<br />
 				<center>등록된 게시물이 없습니다</center>
 				<br />
 			</c:if>
 
-		<div class="row">
-			<div style="text-align: center;">
-				<div id="dataTables-example_filter" class="dataTables_filter">
-
-					<form action="">
-						<select class="slcte" name="searchNum" id="searchNum">
-							<option value="0">제목</option>
-							<option value="1">내용</option>
-						</select> <input class="txte" type="text" name="isSearch" id="isSearch" />
-						<span class="btn btnC_03 btnP_04 mr10"> <input
-							type="submit" value="검색"
-							style="font-size: 11px; padding-bottom: 20; vertical-align: middle;" />
-						</span>
-					</form>
-					
-				</div>
-			</div>
-		</div>
 		
-		<div class="paging">
-			${pagingHtml}
-		</div>
             
         </div>
         <!-- /#page-wrapper -->
@@ -140,4 +119,15 @@ var onWrite = function(){
 
     <!-- Custom Theme JavaScript -->
     <script src="../resources/dist/js/sb-admin-2.js"></script>
+
+</body>
+<script type="text/javascript">
+
+$('.searchOption').val($('.searchOptionVal').val());
+var onWrite = function(){
+	location.href = 'adminNoticeWrite.do'; 
+};
+</script>
+
+
 

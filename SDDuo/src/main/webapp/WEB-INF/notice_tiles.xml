@@ -14,37 +14,17 @@
 	</definition>
 
 
-	<!--<definition name="noticeList" template="/WEB-INF/views/notice/noticeList2.jsp">
-	</definition> 
-	
-	<definition name="noticeView" template="/WEB-INF/views/notice/noticeView.jsp">
-	</definition>
-	
-	<definition name="noticeForm" template="/WEB-INF/views/notice/noticeForm.jsp">
-	</definition>
-	
-	<definition name="noticeModify" template="/WEB-INF/views/notice/noticeModify.jsp">
-	</definition>-->
 	
 	
 	<!--  notice   -->
-	<definition name="adminNoticeList" extends="notice">
-		<put-attribute name="body" value="/WEB-INF/views/notice/noticeList.jsp"/>
+	<definition name="NoticeList" extends="notice">
+		<put-attribute name="body" value="/WEB-INF/views/admin/adminNoticeList.jsp"/>
 	</definition>
 	
- 	<definition name="adminNoticeView" extends="notice">
-		<put-attribute name="body" value="/WEB-INF/views/notice/noticeView.jsp" />
+ 	<definition name="NoticeView" extends="notice">
+		<put-attribute name="body" value="/WEB-INF/views/admin/adminNoticeView.jsp" />
 	</definition>
 
-	<definition name="adminNoticeForm" extends="notice">
-	<put-attribute name="body" value="/WEB-INF/views/notice/noticeForm.jsp" />
-	</definition>
-
-	<definition name="adminNoticeModify" extends="notice">
-		<put-attribute name="body" value="/WEB-INF/views/notice/noticeModify.jsp" />
-	</definition>
-	
-	
 	
 	
 
