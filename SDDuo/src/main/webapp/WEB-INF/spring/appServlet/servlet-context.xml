@@ -46,6 +46,7 @@
 				<beans:value>/WEB-INF/notice_tiles.xml</beans:value>
 				<beans:value>/WEB-INF/member_tiles.xml</beans:value>
 				<beans:value>/WEB-INF/reser_tiles.xml</beans:value>
+				<beans:value>/WEB-INF/admin_tiles.xml</beans:value>
 			</beans:list>
 		</beans:property>
 		<beans:property name="preparerFactoryClass" value="org.springframework.web.servlet.view.tiles2.SpringBeanPreparerFactory"/>
