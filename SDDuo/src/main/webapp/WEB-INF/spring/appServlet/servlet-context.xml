@@ -19,9 +19,9 @@
 	<beans:bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
 		<beans:property name="basenames">
 			<beans:list>
-				<beans:value>messages.boardMessage_ko.properties</beans:value>
-				<beans:value>messages.memberMessage_ko.properties</beans:value>
-				<beans:value>messages.oneReserMessage_ko.properties</beans:value>
+				<beans:value>messages.boardMessage_ko</beans:value>
+				<beans:value>messages.memberMessage_ko</beans:value>
+				<beans:value>messages.oneReserMessage_ko</beans:value>
 			</beans:list>
 		</beans:property>
 	</beans:bean>
