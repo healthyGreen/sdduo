@@ -15,4 +15,7 @@ public interface AdminReserDAO {
    
    List<GroupReserModel> GroupReserList(String gr_center);
 
+   OneReserModel OneReserView(int pr_number);
+   
+
 }
