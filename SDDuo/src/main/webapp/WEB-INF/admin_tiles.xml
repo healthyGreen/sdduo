@@ -26,5 +26,11 @@
       <put-attribute name="adminLeft" value="/WEB-INF/views/common/adminLeft.jsp" />
       <put-attribute name="adminContainer" value="/WEB-INF/views/admin/adminGrReserList.jsp" />
    </definition>
+   
+   <!-- 관리자 입장 개인예약 상세보기 -->
+   <definition name="adminOneReserView"  template="/WEB-INF/views/common/adminLayout.jsp">
+      <put-attribute name="adminLeft" value="/WEB-INF/views/common/adminLeft.jsp" />
+      <put-attribute name="adminContainer" value="/WEB-INF/views/admin/adminOneReserView.jsp" />
+   </definition>
 	
 </tiles-definitions>       

@@ -14,22 +14,18 @@
 	
 	<!-- Reservation -->
 	<definition name="oneReserForm" extends="main">
-		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/reservation/oneReserForm.jsp" />
 	</definition>
 	
 	<definition name="groupReserForm" extends="main">
-		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/reservation/groupReserForm.jsp" />
 	</definition>
 	
 	<definition name="oneReserList" extends="main">
-		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/reservation/oneReserList.jsp" />
 	</definition>
 	
 	<definition name="groupReserList" extends="main">
-		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/reservation/grReserList.jsp" />
 	</definition>
 </tiles-definitions>

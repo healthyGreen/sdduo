@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="self">
+
+				<!-- F_SELFTEST - 테이블 이름 -->	
+
+	<resultMap type="selfModel" id="selfModelRes">
+		<result property="t_category" column="t_category" />		<!-- 진단유형 -->
+		<result property="m_id" column="m_id" />			<!-- 사용자아이디 -->
+		<result property="t_score" column="t_score" />			<!-- 진단점수 -->
+		<result property="t_grade" column="t_grade" />			<!-- 진단등급 -->
+	</resultMap>
+		
+	
+	<!-- 글쓰기 -->
+	<insert id="selfWrite" parameterType="selfModel">
+			INSERT INTO F_SELFTEST
+			(
+			t_category,
+			m_id,
+			t_score,
+			t_grade
+			)
+			VALUES
+			(
+			 #{t_category},
+			 #{m_id},
+			 #{t_score},
+			 #{t_grade}
+			)
+	</insert>
+
+
+
+</mapper>

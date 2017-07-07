@@ -77,6 +77,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where gr_center = #{gr_center}
 	</select>
 	
+	<!-- 개인 예약 상세보기 -->
+	<select id="OneReserView" parameterType="int" resultMap="OneReserRes">
+		select * from f_reservation
+		where pr_number = #{pr_number}
+	</select>
+	
 	
 	<!-- 개인예약 처리 -->
 	<insert id="OneReserve" parameterType="Integer">

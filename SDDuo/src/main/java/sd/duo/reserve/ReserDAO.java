@@ -7,19 +7,21 @@ import org.springframework.stereotype.Repository;
 @Repository(value="ReserDAO")
 public interface ReserDAO {
 
-	/*°³ÀÎ¿¹¾à µî·Ï*/ 
+	/*ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½*/ 
 	public int insertOneReser(OneReserModel oneReserModel);
 	 
 	 /*public OneReserModel insertOneReser(String id);
 	 
 	 public OneReserModel insertOneReser(int no);*/
 	
-	/*±×·ì¿¹¾à µî·Ï*/
+	/*ï¿½×·ì¿¹ï¿½ï¿½ ï¿½ï¿½ï¿½*/
 	public int insertGroupReser(GroupReserModel groupReserModel);
 	
-	// °³ÀÎ¿¹¾à ¸ñ·Ï
+	// ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	List<OneReserModel> oneReserList();
 	
-	// ±×·ì¿¹¾à ¸ñ·Ï
+	// ï¿½×·ì¿¹ï¿½ï¿½ ï¿½ï¿½ï¿½
 	List<GroupReserModel> GrReserList();
+	
+	List<OneReserModel> myOneReserList(String m_id);
 }
