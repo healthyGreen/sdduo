@@ -28,6 +28,9 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="sd.duo.reserve.OneReserModel" alias="oneReserModel" />
 		<typeAlias type="sd.duo.reserve.GroupReserModel" alias="groupReserModel" />
 		
+	<!-- selftest -->	
+		<typeAlias type="sd.duo.selfTest.SelfTestModel" alias="selfModel"/>
+		
 	</typeAliases>
 	
 	<!-- SQL 정의한 xml문서 Mapping -->
@@ -36,6 +39,7 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mybatis/config/reserveSQL.xml" />
 		<mapper resource="mybatis/config/memberSQL.xml" />
 		<mapper resource="mybatis/config/consultingSQL.xml" />
+		<mapper resource="mybatis/config/selftestSQL.xml"/>
 	</mappers>
 	
 </configuration>

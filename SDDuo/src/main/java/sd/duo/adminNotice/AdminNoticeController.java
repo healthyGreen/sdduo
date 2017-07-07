@@ -54,13 +54,16 @@ public class AdminNoticeController {
 	//리스트 처리(검색)
 		@RequestMapping(value="/admin/adminNoticeList.do", method=RequestMethod.GET)
 		public ModelAndView noticeList(HttpServletRequest request,HttpSession session) throws UnsupportedEncodingException{
+			
+			
 			String id = "";
-			System.out.println("1111");
+			System.out.println("1111"+session.getAttribute("session_member_id"));
 			
 
-			if(session != null){
+			if(	session.getAttribute("session_member_id") != null){
 				System.out.println("2222");
-				id = (String)session.getAttribute("session_member_id");
+				id = session.getAttribute("session_member_id").toString();
+				System.out.println("33");
 			}
 			ModelAndView mav = new ModelAndView();
 			
@@ -153,7 +156,16 @@ public class AdminNoticeController {
 		   
 		ModelAndView mav = new ModelAndView();
 		
-	    String id = session.getAttribute("session_member_id").toString();
+		String id = "";
+		System.out.println("1111"+session.getAttribute("session_member_id"));
+		
+
+		if(	session.getAttribute("session_member_id") != null){
+			System.out.println("2222");
+			id = session.getAttribute("session_member_id").toString();
+			System.out.println("33");
+		}
+		
 		
 		int n_number = Integer.parseInt(request.getParameter("n_number"));
 		

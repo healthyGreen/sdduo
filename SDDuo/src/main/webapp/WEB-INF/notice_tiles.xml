@@ -24,7 +24,12 @@
  	<definition name="NoticeView" extends="notice">
 		<put-attribute name="body" value="/WEB-INF/views/admin/adminNoticeView.jsp" />
 	</definition>
-
+	
+	<!-- 자가진단 -->
+	<definition name="self" extends="notice">
+		<put-attribute name="body" value="/WEB-INF/views/selfTest/selfTest.jsp" />
+	</definition>
+	
 	
 	
 
