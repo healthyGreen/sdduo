@@ -32,5 +32,22 @@
       <put-attribute name="adminLeft" value="/WEB-INF/views/common/adminLeft.jsp" />
       <put-attribute name="adminContainer" value="/WEB-INF/views/admin/adminOneReserView.jsp" />
    </definition>
+   
+    <!--  관리자 입장 센터별 공지사항   -->
+   <definition name="adminNoticeList" extends="adminMemberList">
+      <put-attribute name="adminContainer" value="/WEB-INF/views/admin/adminNoticeList.jsp"/>
+   </definition>
+   
+    <definition name="adminNoticeView" extends="adminMemberList">
+      <put-attribute name="adminContainer" value="/WEB-INF/views/admin/adminNoticeView.jsp" />
+   </definition>
+
+   <definition name="adminNoticeForm" extends="adminMemberList">
+   <put-attribute name="adminContainer" value="/WEB-INF/views/admin/adminNoticeWriteForm.jsp" />
+   </definition>
+
+   <definition name="adminNoticeModify" extends="adminMemberList">
+      <put-attribute name="adminContainer" value="/WEB-INF/views/admin/adminNoticeModify.jsp" />
+   </definition>
 	
 </tiles-definitions>       

@@ -83,6 +83,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where pr_number = #{pr_number}
 	</select>
 	
+	<!-- 마이페이지 예약내역 리스트 가져오기 -->
+	<select id="myOneReserList" parameterType="String" resultMap="OneReserRes">
+		<include refid="oneSelect_All" />
+		where m_id = #{m_id}
+		order by pr_number DESC 
+	</select>
+	
 	
 	<!-- 개인예약 처리 -->
 	<insert id="OneReserve" parameterType="Integer">

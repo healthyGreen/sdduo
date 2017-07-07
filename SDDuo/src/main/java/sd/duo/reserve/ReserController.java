@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
+import sd.duo.member.MemberService;
 import sd.duo.common.Paging;
 
 
@@ -23,6 +23,9 @@ public class ReserController {
 	
 	@Resource
 	public ReserService reserService;
+	 @Resource
+	   public MemberService memberService;
+
 	
 	private int currentPage = 1;
 	private int totalCount;
@@ -132,6 +135,8 @@ public class ReserController {
 			mv.setViewName("/reservation/oneReserForm");
 			return mv;
 		}*/
+		  memberService.couponSet(oneReserModel.getM_id());
+
 		reserService.insertOneReser(oneReserModel);
 		mv.setViewName("redirect:/Reserve/OneReserList.do");
 		return mv;
@@ -155,6 +160,7 @@ public class ReserController {
 				return mv;
 			}*/
 			reserService.insertGroupReser(groupReserModel);
+			memberService.couponSet(groupReserModel.getM_id());
 			mv.setViewName("redirect:/Reserve/GrReserList.do");
 			return mv;
 		}
