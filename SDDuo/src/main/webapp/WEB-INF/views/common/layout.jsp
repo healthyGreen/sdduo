@@ -6,18 +6,18 @@
 	<title>상담해듀오</title>
 	<meta http-equiv="Content-Type" content="text/html;charset=euc-kr" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<link rel="stylesheet" href="../resources/css/layout.css" />
-	<link rel="stylesheet" href="../resources/css/default.css" />
+	<link rel="stylesheet" href="./resources/css/layout.css" />
+	<link rel="stylesheet" href="./resources/css/default.css" />
 
 	<!--JQUERY-->
 
-	<script  type="text/javascript" src="../resources/js/jquery-1.9.1.js"></script>
-	<script  type="text/javascript" src="../resources/js/common.js"></script>
-	<script  type="text/javascript" src="../resources/js/jquery.flexslider.js"></script>
+	<script  type="text/javascript" src="./resources/js/jquery-1.9.1.js"></script>
+	<script  type="text/javascript" src="./resources/js/common.js"></script>
+	<script  type="text/javascript" src="./resources/js/jquery.flexslider.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-	<script src="../resources/js/jquery.rolling.js" type="text/javascript"></script>
+	<script src="./resources/js/jquery.rolling.js" type="text/javascript"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.js"></script>
-	<script type="text/javascript" src="../resources/js/tab.js"></script>
+	<script type="text/javascript" src="./resources/js/tab.js"></script>
 	<script type="text/javascript">
 	    // <![CDATA[
 	    $(document).ready(function () {
@@ -34,16 +34,16 @@
 
 </head>
 <body>
-	<div id="header">
-		<tiles:insertAttribute name="header"/><!-- // header -->
-	</div>
-	 	
-	<!-- container --> 
-	<div id="container" style="min-height:500px;">
-		<tiles:insertAttribute name="body"/><!-- // container -->
-	</div>
-	<!-- footer --> 
-	<tiles:insertAttribute name="footer"/><!-- // footer -->
-
+   
+      <tiles:insertAttribute name="header"/><!-- // header -->
+   
+   <!-- container --> 
+   <div class="sub-content" style="min-height:500px;">
+      <tiles:insertAttribute name="body"/><!-- // container -->
+   </div>
+   <!-- footer --> 
+   
+      <tiles:insertAttribute name="footer"/><!-- // footer -->
+   
 </body>
 </html>
