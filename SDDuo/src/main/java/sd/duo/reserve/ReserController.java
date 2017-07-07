@@ -32,7 +32,7 @@ public class ReserController {
 	private Paging paging;
 	ModelAndView mv = new ModelAndView();
 	
-	   // °³ÀÎ¿¹¾à ¸®½ºÆ®
+	   // ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	   @RequestMapping(value="/OneReserList.do", method = RequestMethod.GET)
 	   public ModelAndView oneReserList(HttpServletRequest request){
 	      
@@ -72,7 +72,7 @@ public class ReserController {
 	      
 	   }
 	
-	//±×·ì¿¹¾à ¸®½ºÆ®
+	//ï¿½×·ì¿¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	@RequestMapping(value="/GrReserList.do",method = RequestMethod.GET)
 	public ModelAndView GrReserList(HttpServletRequest request){
 		ModelAndView mv = new ModelAndView();
@@ -116,14 +116,14 @@ public class ReserController {
 		return mv;
 	}
 	
-	// °³ÀÎ¿¹¾à Æû
+	// ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½ï¿½
 	@RequestMapping(value="/OneReserveForm.do", method = RequestMethod.GET)
 	public String oneReserForm() {
 		
 		return "oneReserForm";
 	}
 	
-	// °³ÀÎ¿¹¾à Ã³¸®
+	// ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	@RequestMapping(value="/OneReserveForm.do", method = RequestMethod.POST)
 	public ModelAndView oneReserPro(@ModelAttribute("oneReserModel") OneReserModel oneReserModel, BindingResult result){
 		
@@ -137,14 +137,14 @@ public class ReserController {
 		return mv;
 	}
 	
-	// ±×·ì¿¹¾à Æû
+	// ï¿½×·ì¿¹ï¿½ï¿½ ï¿½ï¿½
 	@RequestMapping(value="/GroupReserveForm.do", method = RequestMethod.GET)
 	public String groupReserForm(){
 		
 		return "groupReserForm";
 	}
 	
-	// ±×·ì¿¹¾à Ã³¸®
+	// ï¿½×·ì¿¹ï¿½ï¿½ Ã³ï¿½ï¿½
 		@RequestMapping(value="/GroupReserveForm.do", method = RequestMethod.POST)
 		public ModelAndView groupReserPro(@ModelAttribute("groupReserModel") GroupReserModel groupReserModel, BindingResult result){
 			
@@ -158,4 +158,86 @@ public class ReserController {
 			mv.setViewName("redirect:/Reserve/GrReserList.do");
 			return mv;
 		}
+		
+		 @RequestMapping(value="/myOneReserList.do", method = RequestMethod.GET)
+		   public ModelAndView myOneReserList(HttpServletRequest request,  HttpSession session){
+		      
+			 String m_id = session.getAttribute("session_member_id").toString(); 
+			 ModelAndView mv = new ModelAndView();
+			 int totalPage;
+		      
+		      List<OneReserModel> myOneReserList = reserService.myOneReserList(m_id);
+		      
+		      if(request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty()
+		            || request.getParameter("currentPage").equals("0")){
+		         currentPage = 1;
+		      }
+		      else{
+		         currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		      }
+		      
+		      totalCount = myOneReserList.size();
+		      
+		      paging = new Paging(currentPage, totalCount, blockCount, blockPage, "oneReserList");
+		      pagingHtml = paging.getPagingHtml().toString();
+		      totalPage = paging.getTotalPage();
+		      
+		      int lastCount = totalCount;
+		      if(paging.getEndCount() < totalCount){
+		         lastCount = paging.getEndCount() + 1;
+		      }
+		      
+		      myOneReserList = myOneReserList.subList(paging.getStartCount(), lastCount);
+		      
+		      
+		      mv.addObject("list", myOneReserList);
+		      mv.addObject("currentPage", currentPage);
+		      mv.addObject("pagingHtml", pagingHtml);
+		      mv.addObject("totalCount", totalCount);
+		      mv.addObject("totalPage", totalPage);
+		      
+		      mv.setViewName("oneReserList");
+		      
+		      return mv;
+		      
+		   }
+		 
+		 @RequestMapping(value="/myGroupReserList.do", method = RequestMethod.GET)
+		   public ModelAndView myGroupReserList(HttpServletRequest request){
+		      
+		      ModelAndView mv = new ModelAndView();
+		      
+		      List<OneReserModel> oneReserList = reserService.oneReserList();
+		      
+		      if(request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty()
+		            || request.getParameter("currentPage").equals("0")){
+		         currentPage = 1;
+		      }
+		      else{
+		         currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		      }
+		      
+		      totalCount = oneReserList.size();
+		      
+		      paging = new Paging(currentPage, totalCount, blockCount, blockPage, "oneReserList");
+		      pagingHtml = paging.getPagingHtml().toString();
+		      
+		      int lastCount = totalCount;
+		      if(paging.getEndCount() < totalCount){
+		         lastCount = paging.getEndCount() + 1;
+		      }
+		      
+		      oneReserList = oneReserList.subList(paging.getStartCount(), lastCount);
+		      
+		      
+		      mv.addObject("list", oneReserList);
+		      mv.addObject("currentPage", currentPage);
+		      mv.addObject("pagingHtml", pagingHtml);
+		      mv.addObject("totalCount", totalCount);
+		      
+		      mv.setViewName("oneReserList");
+		      
+		      return mv;
+		      
+		   }
 }
