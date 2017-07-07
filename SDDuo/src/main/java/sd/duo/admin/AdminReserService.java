@@ -26,10 +26,18 @@ public class AdminReserService implements AdminReserDAO{
 		// TODO Auto-generated method stub
 		return sqlSessionTemplate.selectList("reserve.OneCenterList", pr_center);
 	}
-
+	
+	@Override
 	public List<GroupReserModel> GroupReserList(String gr_center) {
 		// TODO Auto-generated method stub
 		return sqlSessionTemplate.selectList("reserve.GrCenterList", gr_center);
+	}
+
+	@Override
+	public OneReserModel OneReserView(int pr_number) {
+		// TODO Auto-generated method stub
+		System.out.println(pr_number);
+		return sqlSessionTemplate.selectOne("reserve.OneReserView", pr_number);
 	}
 
 }
