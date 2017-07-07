@@ -1,5 +1,7 @@
 package sd.duo.member;
 
+import java.util.List;
+
 public interface MemberDao {
 
    public MemberModel memberLogin(MemberModel member);
@@ -17,6 +19,10 @@ public interface MemberDao {
    public Object memberDelete(String id);
    
    public MemberModel memberList(MemberModel member);
-
-
+   
+   public int couponSet(String m_id);
+   
+   public int MyTotCoupon(String m_id);
+   
+   public List<MemberModel> myCouponList(String m_id);
 }

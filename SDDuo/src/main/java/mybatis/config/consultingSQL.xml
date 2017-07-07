@@ -52,6 +52,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from f_consulting
 	</select>
 	
+	<select id="myConsultingList" parameterType="String" resultType="consultingModel">
+		select * from f_consulting where m_id = #{m_id} order by c_ref desc, c_re_status asc
+	</select>
+	
+	<select id="myTotalConsultingNum" parameterType="String" resultType="int">
+		select count(*) from f_consulting where m_id = #{m_id}
+	</select>
+	
 	<delete id="deleteConsulting" parameterType="int">
 		delete f_consulting where c_number = #{c_number}
 	</delete>

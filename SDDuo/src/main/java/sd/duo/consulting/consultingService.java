@@ -65,5 +65,17 @@ public class consultingService implements consultingDao {
 		// TODO Auto-generated method stub
 		return sqlSessionTemplate.update("consulting.updateConsultingState", c_number);
 	}
+
+	@Override
+	public List<consultingModel> myConsultingList(String m_id) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectList("consulting.myConsultingList", m_id);
+	}
+
+	@Override
+	public int myTotalConsultingNum(String m_id) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectOne("consulting.myTotalConsultingNum", m_id);
+	}
 	
 }

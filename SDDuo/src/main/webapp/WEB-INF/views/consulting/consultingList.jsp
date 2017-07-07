@@ -975,26 +975,26 @@ $(document).ready(function() {
 							</c:url>	
 							<c:url var="viewURL" value="consultingView.do">
 								<c:param name="c_number" value="${list.c_number }"/>
-							<%-- 	<c:param name="c_ref" value="${list.c_ref }"/> --%>
+							 	<c:param name="c_ref" value="${list.c_ref }"/>
 							</c:url>
 							<tr>
 								<th><%= number++%></th>
 								<td class="subject">
 								
 								<c:if test="${list.c_ref != list.c_number }">
-								  <c:if test="${session_member_id == 1 }"> 
-								 	<a href="${passURL}"><!-- <img src="../../images/sub/lock.gif" alt="자물쇠" class="lock"> -->♨sc↘${list.c_title }</a>
+								  <c:if test="${session_admin!=1}"> 
+								 	<a href="${passURL}"><!-- <img src="../../images/sub/lock.gif" alt="자물쇠" class="lock"> --><b>↘[♨비밀글] </b>${list.c_title }</a>
 							 	 </c:if> 
-								 <c:if test="${session_member_id != 1 }">
-								 	<a href="${viewURL}">${list.c_title }</a>
+								 <c:if test="${session_admin==1}">
+								 	<a href="${viewURL}"><b>↘[♨비밀글]</b>${list.c_title }</a>
 								 </c:if> 
 								</c:if>
 								
 								<c:if test="${list.c_ref == list.c_number }">
-							 <c:if test="${session_member_id == 1 }">
+							 <c:if test="${session_admin!=1 }">
 								 	<a href="${passURL}"><!-- <img src="../../images/sub/lock.gif" alt="자물쇠" class="lock"> -->${list.c_title }</a>
 								  </c:if> 
-								   <c:if test="${session_member_id != 1 }">
+								   <c:if test="${session_admin==1 }">
 								 	<a href="${viewURL}">${list.c_title }</a>
 								  </c:if> 
 								</c:if>
@@ -1021,7 +1021,7 @@ $(document).ready(function() {
 					
 				<!-- 언니 위에 요거 button으로 하고싶은데 버튼으로하면 jstl이 안머거영 ㅠㅠ -->
 				<%-- 	<input type="button" onclick="${replyURL}" value="관리자 답변달기" class="storywrite"> --%> 
-				<c:if test="${session_member_id != 1 }">
+				<c:if test="${session_admin!=1 }">
 					<p class="btn01"><input type="button" value="이야기 쓰기" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingForm.do'"></p>
 				</c:if>
 					<div class="pageing">

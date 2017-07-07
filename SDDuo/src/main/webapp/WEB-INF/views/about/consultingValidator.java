@@ -18,11 +18,14 @@ public class consultingValidator implements Validator{
 	@Override
 	public void validate(Object target, Errors error) {
 		// TODO Auto-generated method stub
-		//consultingModel consultingmodel = (consultingModel)target;
+		consultingModel consultingmodel = (consultingModel)target;
 		
 		ValidationUtils.rejectIfEmptyOrWhitespace(error, "c_title", "title");
 		ValidationUtils.rejectIfEmptyOrWhitespace(error, "c_content", "content");
 		ValidationUtils.rejectIfEmptyOrWhitespace(error, "c_pass", "pass");
+		if(consultingmodel.getC_pass().trim().length()!=0&&consultingmodel.getC_pass().trim().length()!=4){
+			error.rejectValue("c_pass", "passNum");
+		}
 	}
 	
 }

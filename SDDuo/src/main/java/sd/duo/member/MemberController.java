@@ -319,7 +319,6 @@ public class MemberController {
        	  System.out.println("¿Ã∏ß"+member.getM_name());
              mav.setViewName("myInfoView");
              return mav;
-          
           }
 }
    
