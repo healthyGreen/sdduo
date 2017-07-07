@@ -30,9 +30,9 @@
                         <div class="panel-body">
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs">
-                                <li class="active"><a href="#home" data-toggle="tab">개인예약</a>
+                                <li><a href="http://localhost:8080/SDDuo/AdminReserve/OneReserList.do?pr_center=${gr_center }" data-toggle="tab">개인예약</a>
                                 </li>
-                                <li><a href="#profile" data-toggle="tab">그룹예약</a>
+                                <li class="active"><a href="http://localhost:8080/SDDuo/AdminReserve/GrReserList.do?gr_center=${gr_center }" data-toggle="tab">그룹예약</a>
                                 </li>
                             </ul>
 

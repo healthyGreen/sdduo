@@ -31,6 +31,7 @@ public class AdminReserController {
          private Paging paging;
          private String pr_center;
          private String gr_center;
+         private int pr_number;
          
          
          // 개인예약 리스트
@@ -115,6 +116,24 @@ public class AdminReserController {
                   mav.setViewName("adminGrReserList");
                   return mav;
                   }
+            
+            /*개인예약 상세보기*/
+            @RequestMapping(value="/OneReserView.do")
+            public ModelAndView adminReserView(HttpServletRequest request){
+            	
+            	ModelAndView mav = new ModelAndView();
+            	
+            	int pr_number = Integer.parseInt(request.getParameter("pr_number"));
+            	/*pr_center = request.getParameter("pr_center");*/
+            	System.out.println("pr_number : "+pr_number);
+            	OneReserModel OneReserModel = adminReserService.OneReserView(pr_number);
+
+            	mav.addObject("OneReserModel", OneReserModel);
+            	mav.addObject("pr_number", pr_number);
+            	/*mav.addObject("pr_center", pr_center);*/
+            	mav.setViewName("adminOneReserView");
+            	return mav;
+            }
             }
 
                
