@@ -35,5 +35,11 @@ public class ReserService implements ReserDAO{
 	   // TODO Auto-generated method stub
 	   return sqlSessionTemplate.selectList("reserve.oneSelect");
 	}
+	
+	@Override
+	public List<OneReserModel> myOneReserList(String m_id) {
+	   // TODO Auto-generated method stub
+	   return sqlSessionTemplate.selectList("reserve.myOneReserList", m_id);
+	}
 
 }

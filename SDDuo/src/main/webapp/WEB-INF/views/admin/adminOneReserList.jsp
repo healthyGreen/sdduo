@@ -28,13 +28,14 @@
                 <div>
                     <div class="panel panel-default">
                         <div class="panel-body">
+                        		<ul class="nav nav-tabs">
+                                <li class="active"><a href="http://localhost:8080/SDDuo/AdminReserve/OneReserList.do?pr_center=${pr_center }" data-toggle="tab">개인예약</a>
+                                </li>
+                                <li><a href="http://localhost:8080/SDDuo/AdminReserve/GrReserList.do?gr_center=${pr_center }" data-toggle="tab">그룹예약</a>
+                                </li>
+                            	</ul>
                             <!-- Nav tabs -->
-                            <ul class="nav nav-tabs">
-                                <li class="active"><a href="#home" data-toggle="tab">개인예약</a>
-                                </li>
-                                <li><a href="#profile" data-toggle="tab">그룹예약</a>
-                                </li>
-                            </ul>
+                            
 
                             <!-- Tab panes -->
                             <div class="tab-content">
@@ -52,10 +53,13 @@
                                  </thead>
                                  <tbody>
                                     <c:forEach var="oneReserList" items="${oneReserList}">
+                                    	<c:url var="viewURL" value="OneReserView.do">
+											<c:param name="pr_number" value="${oneReserList.pr_number }"/>
+										</c:url>
                                        <tr>
                                           <td>${oneReserList.pr_number}</td>
                                           <td>${ oneReserList.pr_name }</td>
-                                          <td>${oneReserList.pr_reason}</td> 
+                                          <td><a href="${viewURL}">${oneReserList.pr_reason}</a></td> 
                                              <td>${ oneReserList.pr_year }.${ oneReserList.pr_month }.${ oneReserList.pr_day }&nbsp;&nbsp;${ oneReserList.pr_hour }:${ oneReserList.pr_minute }</td>
 
                                             <td>
