@@ -59,7 +59,7 @@
 									  <tr>
 										<td>
 											<table width="100%" border="0" cellspacing="0" cellpadding="0">
-
+					
 											  <tr>
 												<td colspan="3" height="20"></td>
 											  </tr>
@@ -67,6 +67,9 @@
 												<td valign="top"  class="formtit" style="color: #4f4f4f; font-size: 16px; padding-top: 10px;">센&nbsp&nbsp&nbsp&nbsp터</td>
 												<td align="center" width="4" ></td>
 												<td valign="top">
+													<input type="hidden" name="m_id" value="${session_member_id }">			
+													
+													
 													<select name="pr_center" class="form-control" style="width:220px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;" id='133_f4_0' name='fname[4][]'>
 														<option value="1">서울센터</option>
 														<option value="2">대구센터</option>

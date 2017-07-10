@@ -53,10 +53,13 @@
                                  </thead>
                                  <tbody>
                                     <c:forEach var="groupReserList" items="${groupReserList}">
+                                    <c:url var="viewURL" value="GroupReserView.do">
+											<c:param name="gr_number" value="${groupReserList.gr_number }"/>
+										</c:url>
                                        <tr>
                                           <td>${groupReserList.gr_number}</td>
                                           <td>${ groupReserList.gr_group}</td>
-                                          <td>${groupReserList.gr_reason}</td> 
+                                          <td><a href="${viewURL}">${groupReserList.gr_reason}</a></td> 
                                           <td>${ groupReserList.gr_year }.${ groupReserList.gr_month }.${ groupReserList.gr_day }&nbsp;&nbsp;${ groupReserList.gr_hour }:${ groupReserList.gr_minute }</td>
                                           <td>${groupReserList.gr_p_number}</td> 
 

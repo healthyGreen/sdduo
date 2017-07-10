@@ -39,5 +39,38 @@ public class AdminReserService implements AdminReserDAO{
 		System.out.println(pr_number);
 		return sqlSessionTemplate.selectOne("reserve.OneReserView", pr_number);
 	}
+	
+	@Override
+	public int OneReserModify(OneReserModel OneReserModel) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.update("reserve.OneReserModify", OneReserModel);
+		
+	}
+	
+	@Override
+	public GroupReserModel GroupReserView(int gr_number) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectOne("reserve.GroupReserView", gr_number);
+	}
+	
+	@Override
+	public int GroupReserModify(GroupReserModel groupReserModel) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.update("reserve.GroupReserModify", groupReserModel);
+	}
+
+	@Override
+	public int OneReserDelete(int pr_number) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.delete("reserve.OneReserDelete", pr_number);
+	}
+
+	@Override
+	public int GrReserDelete(int gr_number) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.delete("reserve.GrReserDelete", gr_number);
+	}
+
+
 
 }

@@ -6,8 +6,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>탈퇴 경고</title>
 <script>
-	alert('정말 탈퇴하시겠습까?')
-	location.href="http://localhost:8080/SDDuo/member/exist.do"
+	if(confirm('정말 탈퇴하시겠습까?')){
+		window.location.href="/exist.do";
+	}
+	else{
+		alert('탈퇴취소');
+		history.back();
+	}
 </script>
 </head>
 <body>

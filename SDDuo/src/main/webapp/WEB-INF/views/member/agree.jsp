@@ -68,7 +68,7 @@
 
 
  <body>
-<form name='joinCheck' action="joinForm.do" method="post">
+<form name='joinCheck' action="joinForm.do">
          <div class="wrapper">
          <div class="header" id="top">
             <div class="subBg"></div>

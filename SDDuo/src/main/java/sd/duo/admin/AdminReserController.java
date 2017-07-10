@@ -6,6 +6,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -119,21 +121,105 @@ public class AdminReserController {
             
             /*개인예약 상세보기*/
             @RequestMapping(value="/OneReserView.do")
-            public ModelAndView adminReserView(HttpServletRequest request){
+            public ModelAndView adminOneReserView(HttpServletRequest request){
             	
             	ModelAndView mav = new ModelAndView();
             	
             	int pr_number = Integer.parseInt(request.getParameter("pr_number"));
-            	/*pr_center = request.getParameter("pr_center");*/
+            	String pr_center = request.getParameter("pr_center");
             	System.out.println("pr_number : "+pr_number);
             	OneReserModel OneReserModel = adminReserService.OneReserView(pr_number);
 
             	mav.addObject("OneReserModel", OneReserModel);
-            	mav.addObject("pr_number", pr_number);
-            	/*mav.addObject("pr_center", pr_center);*/
+            	//mav.addObject("pr_number", pr_number);
+            	//mav.addObject("pr_center", pr_center);
             	mav.setViewName("adminOneReserView");
             	return mav;
             }
+            
+            /*그룹예약 상세보기*/
+            @RequestMapping(value="/GroupReserView.do")
+            public ModelAndView adminGrReserView(HttpServletRequest request){
+            	
+            	ModelAndView mav = new ModelAndView();
+            	
+            	int gr_number = Integer.parseInt(request.getParameter("gr_number"));
+            	String gr_center = request.getParameter("gr_center");
+            	System.out.println("gr_number : "+gr_number);
+            	GroupReserModel GroupReserModel = adminReserService.GroupReserView(gr_number);
+
+            	mav.addObject("GroupReserModel", GroupReserModel);
+            	//mav.addObject("pr_number", pr_number);
+            	//mav.addObject("pr_center", pr_center);
+            	mav.setViewName("adminGroupReserView");
+            	return mav;
+            }
+            
+            // 개인예약 수정처리
+            @RequestMapping(value="/OneReserModifyPro.do")
+            public ModelAndView adminOneReserModifyPro(@ModelAttribute("OneReserModel") OneReserModel OneReserModel, BindingResult result){
+            	
+            	ModelAndView mav = new ModelAndView();
+            	OneReserModel o = new OneReserModel();
+            	int pr_number = OneReserModel.getPr_number();
+            	/*String pr_center = OneReserModel.getPr_center();*/
+            	
+            	adminReserService.OneReserModify(OneReserModel);
+            	//System.out.println(n);
+            	o = adminReserService.OneReserView(pr_number);
+            	pr_center = o.getPr_center();
+            	/*mav.addObject(pr_ceeserView(pr_number);
+            	//mav.addObject("pr_number",nter, pr_center);*/
+            	mav.setViewName("redirect:/AdminReserve/OneReserList.do?pr_center="+pr_center);
+            	
+            	return mav;
+            }
+            
+         // 그룹예약 수정처리
+            @RequestMapping(value="/GrReserModifyPro.do")
+            public ModelAndView adminGrReserModifyPro(@ModelAttribute("GroupReserModel") GroupReserModel GroupReserModel, BindingResult result){
+            	
+            	ModelAndView mav = new ModelAndView();
+            	GroupReserModel g = new GroupReserModel();
+            	int gr_number = GroupReserModel.getGr_number();
+            	/*String pr_center = OneReserModel.getPr_center();*/
+            	
+            	adminReserService.GroupReserModify(GroupReserModel);
+            	//System.out.println(n);
+            	g = adminReserService.GroupReserView(gr_number);
+            	gr_center = g.getGr_center();
+            	/*mav.addObject(pr_ceeserView(pr_number);
+            	//mav.addObject("pr_number",nter, pr_center);*/
+            	mav.setViewName("redirect:/AdminReserve/GrReserList.do?gr_center="+gr_center);
+            	
+            	return mav;
+            }
+            
+           //개인예약 취소
+            @RequestMapping("AdminOneReserDelete.do")
+        	public ModelAndView OnewReserDelete(HttpServletRequest request){
+        		
+        		ModelAndView mav = new ModelAndView();
+        		int pr_number = Integer.parseInt(request.getParameter("pr_number"));
+        		adminReserService.OneReserDelete(pr_number);
+        		//System.out.println(pr_number);
+        		mav.setViewName("redirect:/AdminReserve/OneReserList.do?pr_center="+pr_center);
+        		
+        		return mav;	
+            }
+            //그룹예약 취소
+            @RequestMapping("AdminGrReserDelete.do")
+        	public ModelAndView GrReserDelete(HttpServletRequest request){
+        		
+        		ModelAndView mav = new ModelAndView();
+        		int gr_number = Integer.parseInt(request.getParameter("gr_number"));
+        		adminReserService.GrReserDelete(gr_number);
+        		mav.setViewName("redirect:/AdminReserve/GrReserList.do?gr_center="+gr_center);
+        		
+        		return mav;	
+            }
+            
+            
             }
 
                
