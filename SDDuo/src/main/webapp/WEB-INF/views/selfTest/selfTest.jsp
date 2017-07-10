@@ -38,17 +38,73 @@
 					sum = sum + parseInt(chk[i]);
 				}
 			}
+			
 			$('#result' + tnum).text(sum);
-			document.getElementByName('t_score').value = sum;
+			
+			alert(sum);
+			document.getElementById('t_score'+ tnum).value = sum;
 			
 		}
 		
-		window.onload = function() {
-		    document.getElementById('submit').onclick = function() {
-		        document.getElementById("form").submit();
-		        return;
-		    }
-		}
+		
+		 
+		 $(document).ready(function() {
+			    document.getElementById('submit1').onclick = function() {
+			        document.getElementById("form1").submit();
+			        return;
+			    }
+		     
+		});
+		 
+		 
+		 $(document).ready(function() {
+			    document.getElementById('submit2').onclick = function() {
+			        document.getElementById("form2").submit();
+			        return;
+			    }
+		     
+		});
+		 
+		 
+		 $(document).ready(function() {
+			    document.getElementById('submit3').onclick = function() {
+			        document.getElementById("form3").submit();
+			        return;
+			    }
+		     
+		});
+		 
+		 
+		 $(document).ready(function() {
+			    document.getElementById('submit4').onclick = function() {
+			        document.getElementById("form4").submit();
+			        return;
+			    }
+		     
+		});
+
+
+		 
+		/*  window.onload = function() {
+			    document.getElementById('submit2').onclick = function() {
+			        document.getElementById("form2").submit();
+			        return;
+			    }
+			} 
+		 
+		 window.onload = function() {
+			    document.getElementById('submit3').onclick = function() {
+			        document.getElementById("form3").submit();
+			        return;
+			    }
+			} 
+		 
+		 window.onload = function() {
+			    document.getElementById('submit4').onclick = function() {
+			        document.getElementById("form4").submit();
+			        return;
+			    }
+			}  */
 
 
 		
@@ -65,12 +121,11 @@
 	
 
 <body>
-	<form:form commandName="selfModel" id="form" action="selfWrite.do" enctype="multipart/form-data" method="post">
 
 	
-	<input type="hidden" name="m_id" value="${session_member_name}">
-	<input type="hidden" name="t_score" >
-	<input type="hidden" name="t_grade" value="1">
+
+	
+	
 
 	<div class="sub-content">
 	
@@ -81,8 +136,13 @@
 				<li data-tab="tab3"><a href="#">스트레스</a></li>
 				<li data-tab="tab4"><a href="#">분노조절</a></li>
 			</ul>
+			
+				
+				
 			<div id="tab1" class="tabcontent tab_content current">
-				<input type="hidden" name="t_category" value="1">
+			<form:form commandName="selfModel" id="form1" action="selfWrite.do" enctype="multipart/form-data" method="post">
+	
+				
 				<h4>1. 청소년 우울 자가진단</h4>
 					<h5>문항</h5>
 					<table class="tableData checkList">
@@ -486,10 +546,15 @@
 					</tr>
 					<tr>
 						<td colspan="4" class="text-c">
-							<a href="#" id="submit" onclick="getResult(1,22);return false;" class="btn color">결과보기</a>
+							<a href="#" onclick="getResult(1,22);return false;" class="btn color">결과보기</a>
 							<a href="#" class="btn" onclick="resetResult(1,22);return false;">다시하기</a>
+							<a href="#" id="submit1" class="btn color">결과저장</a>
 							<div id="total_div" class="result">
 								총점 : <span id="result1">0</span> 점
+								<input type="hidden" name="t_category" value="1">
+								<input type="hidden" name="m_id" value="1">
+								<input type="hidden" name="t_score" id="t_score1" value="">
+								<input type="hidden" name="t_grade" value="1">
 							</div>
 						</td>
 					</tr>
@@ -520,6 +585,7 @@
 					</tr>
 					</tbody>
 					</table>
+					</form:form>
 			</div>
 			
 			
@@ -535,7 +601,7 @@
 			
 			
 			<div id="tab2" class="tabcontent tab_content">
-			<input type="hidden" name="t_category" value="2">
+			<form:form commandName="selfModel" id="form2" action="selfWrite.do" enctype="multipart/form-data" method="post">
 				<h4>성인불안</h4>
 					<h5>척도</h5>
 					<div class="lineBox">
@@ -617,8 +683,13 @@
 						<td colspan="6" class="text-c">
 							<a href="#" onclick="getResult(3,7);return false;" class="btn color">결과보기</a>
 							<a href="#" class="btn" onclick="resetResult(3,7);return false;">다시하기</a>
+							<a href="#" id="submit2" class="btn color">결과저장</a>
 							<div id="total_div" class="result">
 								총점 : <span id="result3">0</span> 점
+								<input type="hidden" name="t_category" value="2">
+								<input type="hidden" name="m_id" value="1">
+								<input type="hidden" name="t_score" id="t_score3" value="">
+								<input type="hidden" name="t_grade" value="1">
 							</div>
 						</td>
 					</tr>
@@ -649,9 +720,19 @@
 					</tr>
 					</tbody>
 					</table>
+					</form:form>
 			</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			<div id="tab3" class="tabcontent tab_content">
-			<input type="hidden" name="t_category" value="3">
+			<form:form commandName="selfModel" id="form3" action="selfWrite.do" enctype="multipart/form-data" method="post">
 				<h4>스트레스 자가 진단</h4>
 					<h5>척도</h5>
 					<div class="lineBox">
@@ -890,8 +971,13 @@
 						<td colspan="5" class="text-c">
 							<a href="#" onclick="getResult(4,30);return false;" class="btn color">결과보기</a>
 							<a href="#" class="btn" onclick="resetResult(4,30);return false;">다시하기</a>
+							<a href="#" id="submit3" class="btn color">결과저장</a>
 							<div id="total_div" class="result">
 								총점 : <span id="result4">0</span> 점
+								<input type="hidden" name="t_category" value="3">
+								<input type="hidden" name="m_id" value="1">
+								<input type="hidden" name="t_score" id="t_score4" value="">
+								<input type="hidden" name="t_grade" value="1">
 							</div>
 						</td>
 					</tr>
@@ -929,10 +1015,18 @@
 					</tr>
 					</tbody>
 					</table>
+					</form:form>
 			</div>
+			
+			
+			
+			
+			
+			
+			
 
 			<div id="tab4" class="tabcontent tab_content">
-			<input type="hidden" name="t_category" value="4">
+			<form:form commandName="selfModel" id="form4" action="selfWrite.do" enctype="multipart/form-data" method="post">
 				<h4 class=" mt-40">분노조절 자가진단</h4>
 					<h5>척도</h5>
 					<div class="lineBox">
@@ -1108,8 +1202,13 @@
 						<td colspan="5" class="text-c">
 							<a href="#" onclick="getResult(5,21);return false;" class="btn color">결과보기</a>
 							<a href="#" class="btn" onclick="resetResult(5,21);return false;">다시하기</a>
+							<a href="#" id="submit4" class="btn color">결과저장</a>
 							<div id="total_div" class="result">
 								총점 : <span id="result5">0</span> 점
+								<input type="hidden" name="t_category" value="4">
+								<input type="hidden" name="m_id" value="1">
+								<input type="hidden" name="t_score" id="t_score5" value="">
+								<input type="hidden" name="t_grade" value="1">
 							</div>
 						</td>
 					</tr> 
@@ -1138,10 +1237,10 @@
 						<td>공격적 성향이 매우 높은 것 같습니다.<br />속히 전문가에게 치료를 받으시는 것이 좋겠습니다.</td>
 					</tbody>
 					</table>
+					</form:form>
 			</div>
 
 
 		</div>
 	</div>
-	</form:form>
 </body>

@@ -2,8 +2,8 @@ package sd.duo.selfTest;
 
 public class SelfTestModel {
 	
-	private String t_category; //진단유형
-	private String m_id; 	//사용자아이디
+	private String t_category=""; //진단유형
+	private String m_id=""; 	//사용자아이디
 	private int t_score;	//점수
 	private String t_grade; //등급
 	

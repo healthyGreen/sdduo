@@ -13,7 +13,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="t_score" column="t_score" />			<!-- 진단점수 -->
 		<result property="t_grade" column="t_grade" />			<!-- 진단등급 -->
 	</resultMap>
-		
+	
+	<!-- 글목록  -->
+	<select id="selfList" resultMap="selfModelRes">
+			SELECT * FROM F_SELFTEST 
+	</select>
+	
+	<!-- 값 체크 -->
+	<select id="check" parameterType="String" resultMap="selfModelRes">
+		select * from F_SELFTEST
+		where m_id = #{m_id}
+	</select>	
 	
 	<!-- 글쓰기 -->
 	<insert id="selfWrite" parameterType="selfModel">
@@ -32,6 +42,43 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			 #{t_grade}
 			)
 	</insert>
+	
+	<!-- 값변경 -->
+	<update id="selfModify1" parameterType="String">
+			UPDATE F_SELFTEST
+			SET
+				t_score = #{t_score},
+				t_grade = #{t_grade}
+			WHERE
+				m_id = #{m_id} and t_category = '1'	
+	</update>
+	
+	<update id="selfModify2" parameterType="String">
+			UPDATE F_SELFTEST
+			SET
+				t_score = #{t_score},
+				t_grade = #{t_grade}
+			WHERE
+				m_id = #{m_id} and t_category = '2'	
+	</update>
+	
+	<update id="selfModify3" parameterType="String">
+			UPDATE F_SELFTEST
+			SET
+				t_score = #{t_score},
+				t_grade = #{t_grade}
+			WHERE
+				m_id = #{m_id} and t_category = '3'	
+	</update>
+	
+	<update id="selfModify4" parameterType="String">
+			UPDATE F_SELFTEST
+			SET
+				t_score = #{t_score},
+				t_grade = #{t_grade}
+			WHERE
+				m_id = #{m_id} and t_category = '4'	
+	</update>
 
 
 
