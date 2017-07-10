@@ -13,19 +13,9 @@
 		}
 	}
 </script>
-			<div class="sub-content">
-				 <div class="bg02area">
-					<p class="tit">예약/커뮤니티</p>
-				</div> 
+			
 				<div class="sub-content-inbox">
-					<ul class="sub-menu2">
-						<li class="act"><a href="sub0201_list.html">온라인상담</a></li>
-						<li><a href="sub0202_01.html">온라인 실시간예약</a></li>
-						<li><a href="sub0203_list.html">마이스토리 공지사항</a></li>
-						<li><a href=" sub0204_list.html">마이스토리 심리 컬럼</a></li>
-						<li><a href="sub0205_list.html">책으로 만나는 심리이야기</a></li>
-						<li class="last"><a href="sub0206_list.html">자주하는 질문</a></li>
-					</ul>
+					
 					<h3>온라인 상담</h3>
 					<p class="sub02_txt">
 						마이스토리에 남겨주신 소중한 이야기는 내담자 보호 규정에 따라 철저히 비밀 보장 되며 병원과 달리 절대 기록이 남지 않습니다.<br />
@@ -43,7 +33,7 @@
 						<thead>
 						<tr>
 							<th scope="col">
-								<div class="tit"><span class="mark">제목 : </span>${consultingmodel.c_title }</div>
+								<div class="tit">${consultingmodel.c_title }</div>
 							</th>
 							<th></th>
 						</tr>
@@ -54,7 +44,7 @@
 								<div class="board-infor">
 									<strong>작성자</strong>
 									<span>${ consultingmodel.m_id}</span>
-									<span class="line"><img src="../../images/sub/line.jpg" class="vertical-m"  alt="" /></span>
+									<span class="line"><img src="/SDDuo/resources/images/sub/line.jpg" class="vertical-m"  alt="" /></span>
 									<strong>작성일</strong>
 									<span><fmt:formatDate value="${consultingmodel.c_date}" pattern="yyyy.MM.dd"/></span>
 							
@@ -68,14 +58,7 @@
 ${consultingmodel.c_content }
 							</td>
 						</tr>
-						<!-- <tr>
-							<td class="recontent">
-								<p class="retit"><img src="../../images/sub/redat.gif">[답변 입니다!!]</p>
-								<div class="recont">
-									
-								</div>
-							</td>
-						</tr> -->
+						
 					</tbody>
 				</table>
 					<div class="viewbtn">
@@ -85,10 +68,10 @@ ${consultingmodel.c_content }
 								<c:param name="c_number" value="${consultingmodel.c_number }"/>
 							</c:url>
 					<c:if test="${session_admin==1 }"> 
-							<a href="${replyURL}" class="storywrite">관리자 답변달기</a> 
+							<a href="${replyURL}" class="storywrite1">답변달기</a> 
 					</c:if> 
  			<%-- 	</c:if> --%>
-						<p class="btn01 list"><input type="button" value="목록" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingList.do'"></p>
+						<p ><input type="button" value="목록" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingList.do'" class="btn01 list"></p>
 						<c:if test="${isReply.equals('reply') }">
 						<div class="area">
 							<p class="btn01"><input type="button" value="수정" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingModify.do?c_number=${consultingmodel.c_number }'"></p>
@@ -98,31 +81,7 @@ ${consultingmodel.c_content }
 						</c:if>
 					</div>
 				</div>
-			</div>
-			<div class="footer">
-				<div class="footer-top">
-					<div class="footer-top-inbox">
-						<ul>
-							<li>회사소개</li>
-							<li>사이트이용약관</li>
-							<li>개인정보처리방침</li>
-							<li>임직원서비스</li>
-						</ul>
-					</div>
-				</div>
-				<div class="footer-bottom">
-					<div class="footer-bottom-inbox">
-						<h2><img src="../../images/common/b_logo.gif"></h2>
-						<p>
-							고객서비스센터 080-3243-2312<br>
-							(주)마이스토리 서울특별시 강남구 테헤란로길 52길 17 역삼동 이에스타워 10층 사업자등록번호:505-88-00158 홈페이지 관리책임자:안영미<br>
-							<br/>
-							Copyright ⓒ MYSTORY All Rights Reserved
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
+			
 
  </body>
-</html>
+

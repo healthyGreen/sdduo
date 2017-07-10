@@ -35,8 +35,17 @@
 </head>
 <body>
    
-      <tiles:insertAttribute name="header"/><!-- // header -->
-   
+   <tiles:insertAttribute name="header"/><!-- // header -->
+   <div class="container">
+	    <div class="flexslider">
+		   <ul class="slides">
+			  <li class="visual01"></li>
+			  <li class="visual02"></li>
+			  <li class="visual03"></li>
+			  <li class="visual04"></li>
+		   </ul>
+	    </div>
+	</div>
    <!-- container --> 
    <div class="sub-content" style="min-height:500px;">
       <tiles:insertAttribute name="body"/><!-- // container -->

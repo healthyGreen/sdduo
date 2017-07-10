@@ -97,11 +97,11 @@ public class consultingController {
 				service.insertConsultingReply(consultingmodel);
 				service.updateConsultingState(c_number);
 			} else {
-				new consultingValidator22().validate(consultingmodel, result);
+				/*new consultingValidator22().validate(consultingmodel, result);
 				if (result.hasErrors()) {
 					mv.setViewName("consultingForm");
 					return mv;
-				}
+				}*/
 				//consultingmodel.setM_id("Asd"); // 차후에 로그인 되면 session값으로 바꿀고임
 				service.insertConsulting(consultingmodel);
 			}
@@ -257,6 +257,7 @@ public class consultingController {
 		int blockCount = 10;
 		int blockPage = 5;
 		int lastCount = totalCount;
+		int totalPage;
 
 		// String currentPage = request.getParameter("currentPage");
 		if (request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty()
@@ -268,12 +269,14 @@ public class consultingController {
 		int listOrder = (currentPage - 1) * blockCount;
 		Paging page = new Paging(currentPage, totalCount, blockCount, blockPage, "myConsultingList");
 		String pagingHtml = page.getPagingHtml().toString();
+		totalPage = page.getTotalPage();
 		List<consultingModel> myConsultinglist = service.myConsultingList(m_id);
 		if (page.getEndCount() < totalCount) {
 			lastCount = page.getEndCount() + 1;
 		}
 		myConsultinglist = myConsultinglist.subList(page.getStartCount(), lastCount);
 		mv.addObject("totalCount", totalCount);
+		mv.addObject("totalPage", totalPage);
 		mv.addObject("myConsultinglist", myConsultinglist);
 		mv.addObject("currentPage", currentPage);
 		mv.addObject("blockPage", blockPage);

@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+비밀번호 에러다 이새끼야 <br>
+ <input type="button" onclick="javascript:history.go(-1);" value="다시 입력">
 </body>
 </html>

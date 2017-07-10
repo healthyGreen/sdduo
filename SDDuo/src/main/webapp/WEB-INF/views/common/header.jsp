@@ -5,10 +5,11 @@
 
 <div class="wrapper">
 			<div class="header">
+				<div class="dimd"></div>
 				
-				<div class="header-inbox">
+				<div class="header-inbox clear">
 					<div class="header-top">
-						<h1><a href="main.do"><img src="./resources/images/common/logo.gif" alt="로고"></a></h1>
+						<h1><a href="/SDDuo/main.do"><img src="/SDDuo/resources/images/common/logo.gif" alt="로고"></a></h1>
 						<ul class="right-area">
 							<c:choose>
                         <c:when test="${session_admin == 0}"> 
@@ -28,35 +29,40 @@
                      </c:choose>
 						</ul>
 					</div>
-					<div class="header-bottom" >
+					<div class="header-bottom head_box" >
 						<!-- gnb 시작 -->
-					    <div id="gnbarea">
-
-                     <ul class="gnb clear">
-                       <li class="li01"><a href="about.do"><img src="../resources/images/common/gnb01.gif">상담해듀오소개</a></li>
-                       <li class="li02"><a href="oneReserForm.do">상담예약</a>
-                         <div class="subWrap sub02">
-                           <ul>
-                               <li><a href="<%=request.getContextPath() %>/Reserve/oneReserForm.do">개인예약</a></li>
-                               <li><a href="<%=request.getContextPath() %>/Reserve/groupReserForm.do">그룹예약</a></li>
-                               <li><a href="<%=request.getContextPath() %>/Reserve/oneReserList.do">예약현황</a></li>
-               
-                           </ul>
-                         </div>
-                       </li>
-                       <li class="li03"><a href="<%=request.getContextPath() %>/consulting/consultingList.do">온라인상담</a></li>
-                       <li class="li04"><a href="">심리검사</a> </li>
-                       <li class="li05"><a href="" class="last">심리치료</a></li>
-                       <li class="li06"><a href="" class="last">커뮤니티</a>
-                         <div class="subWrap sub06">
-                           <ul>
-                              <li><a href="<%=request.getContextPath() %>/admin/adminNoticeList.do">공지사항</a></li>
-                           </ul>
-                         </div>
-                       </li>
-                     </ul>
-                   </div>
-
+					    <div id="gnb" class="pc_gnb nav">
+							<ul id="nav">
+								<li class="has-sub g1"><a href="<%=request.getContextPath() %>/member/about.do"><img src="/SDDuo/resources/images/common/gnb01.gif">상담해듀오소개</a>
+								</li>
+								<li class="has-sub g2"><a href="<%=request.getContextPath() %>/Reserve/oneReserForm.do">상담예약</a>
+									<div class="dropdown dropdown1">
+										<ul>
+											<li><a href="<%=request.getContextPath() %>/Reserve/oneReserForm.do">개인예약</a></li>
+			                                <li><a href="<%=request.getContextPath() %>/Reserve/groupReserForm.do">그룹예약</a></li>
+			                                <li><a href="<%=request.getContextPath() %>/Reserve/oneReserList.do">예약현황</a></li>
+										</ul>
+									</div>
+								</li>
+								<li class="has-sub g3"><a href="<%=request.getContextPath() %>/consulting/consultingList.do">온라인상담</a></li>
+								<li class="has-sub g4"><a href="/sub/sub04/sub0401.html">심리검사</a></li>
+								<li class="has-sub g5"><a href="/sub/sub05/sub0501.html">커뮤니티</a>
+									<div class="dropdown dropdown2">
+										<ul>
+											<c:choose>
+												<c:when test="${session_admin == 1}">
+													<li><a href="<%=request.getContextPath() %>/admin/adminNoticeList.do">공지사항</a></li>
+												</c:when>
+												<c:otherwise>
+													<li><a href="<%=request.getContextPath() %>/admin/NoticeList.do">공지사항</a></li>
+												</c:otherwise>
+											</c:choose>
+											
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</div>
 					<!-- //gnb 끝 -->
 					</div>
 				</div>

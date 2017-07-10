@@ -65,14 +65,25 @@
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/member/checkPassForm.jsp" />
 	</definition>
-	<definition name="existPassForm" extends="main">
+	<definition name="memberPassError" extends="main">
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/member/memberPassError.jsp" />
+	</definition>
+<!-- 	<definition name="existPassForm" extends="main">
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/member/existPassForm.jsp" />
+	</definition> -->
+	<definition name="existWarning" extends="main">
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/member/existWarning.jsp" />
 	</definition>
-	
 	<definition name="myConsultingList" extends="main">
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/consulting/myConsultingList.jsp" />
+	</definition>
+	<definition name="myCoupon" extends="main">
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/member/myCoupon.jsp" />
 	</definition>
 	
 	<!-- 상담해듀오 소개 페이지 -->

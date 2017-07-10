@@ -5,16 +5,7 @@
 <body>
 	
 	<div class="content">
-				<div class="container">
-				    <div class="flexslider">
-					   <ul class="slides">
-						  <li class="visual01"></li>
-						  <li class="visual02"></li>
-						  <li class="visual03"></li>
-						  <li class="visual04"></li>
-					   </ul>
-				    </div>
-				</div>
+				
 				<div class="content-inbox">
 					<ul class="content01">
 						<li class="box01" onclick="window.open('sub/sub03/sub0301.html')">

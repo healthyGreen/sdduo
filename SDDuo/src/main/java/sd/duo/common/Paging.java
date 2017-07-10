@@ -62,7 +62,7 @@ public class Paging {
 				break;
 			}
 			if (i == currentPage) {
-				pagingHtml.append("<strong>");
+				pagingHtml.append("<strong class='current'>");
 				pagingHtml.append(i);
 				pagingHtml.append("</strong>");
 			} else {
