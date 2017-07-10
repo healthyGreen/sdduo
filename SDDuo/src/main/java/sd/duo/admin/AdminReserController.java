@@ -175,7 +175,7 @@ public class AdminReserController {
             	return mav;
             }
             
-         // 개인예약 수정처리
+         // 그룹예약 수정처리
             @RequestMapping(value="/GrReserModifyPro.do")
             public ModelAndView adminGrReserModifyPro(@ModelAttribute("GroupReserModel") GroupReserModel GroupReserModel, BindingResult result){
             	
@@ -194,6 +194,31 @@ public class AdminReserController {
             	
             	return mav;
             }
+            
+           //개인예약 취소
+            @RequestMapping("AdminOneReserDelete.do")
+        	public ModelAndView OnewReserDelete(HttpServletRequest request){
+        		
+        		ModelAndView mav = new ModelAndView();
+        		int pr_number = Integer.parseInt(request.getParameter("pr_number"));
+        		adminReserService.OneReserDelete(pr_number);
+        		//System.out.println(pr_number);
+        		mav.setViewName("redirect:/AdminReserve/OneReserList.do?pr_center="+pr_center);
+        		
+        		return mav;	
+            }
+            //그룹예약 취소
+            @RequestMapping("AdminGrReserDelete.do")
+        	public ModelAndView GrReserDelete(HttpServletRequest request){
+        		
+        		ModelAndView mav = new ModelAndView();
+        		int gr_number = Integer.parseInt(request.getParameter("gr_number"));
+        		adminReserService.GrReserDelete(gr_number);
+        		mav.setViewName("redirect:/AdminReserve/GrReserList.do?gr_center="+gr_center);
+        		
+        		return mav;	
+            }
+            
             
             }
 

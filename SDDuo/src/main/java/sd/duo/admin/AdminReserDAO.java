@@ -23,5 +23,9 @@ public interface AdminReserDAO {
 
    int GroupReserModify(GroupReserModel groupReserModel);
    
+   int OneReserDelete(int pr_number);
+   
+   int GrReserDelete(int gr_number);
+   
 
 }

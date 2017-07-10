@@ -45,246 +45,164 @@
 											</colgroup>
 											
 											<tbody>
-												<tr class="odd gradeX">
-													<th>센터</th>
-													<td>
-													<input type="hidden" name="gr_number" value="${GroupReserModel.gr_number }">
-														<select name="gr_center" class="form-control" style="width: 20%;">
-															<option value="1">서울센터</option>
-															<option value="2">대구센터</option>
-															<option value="3">부산센터</option>
-														</select>
-													</td>
-												</tr>
-												<tr class="odd gradeX">
-													<th>예약날짜</th>
-													<td>
-														<select name="gr_year" class="form-control" style="width: 20%; display: inline-block;">
-															<option value="2017">2017</option>
-															<option value="2018">2018</option>
-															<option value="2019">2019</option>
-															<option value="2020">2020</option>
-															<option value="2021">2021</option>
-															<option value="2022">2022</option>
-															<option value="2023">2023</option>
-															<option value="2024">2024</option>
-															<option value="2025">2025</option>
-															<option value="2026">2026</option>
-														</select>
-														년&nbsp;&nbsp;
+                                    <tr class="odd gradeX">
+                                       <th>센터</th>
+                                       <td>
+                                       <input type="hidden" name="gr_number" value="${GroupReserModel.gr_number }">
+                                          <select id="gr_center" name="gr_center" class="form-control" style="width: 20%;">
+                                             <option value="1" ${GroupReserModel.gr_center eq "1" ? "selected" :""}>서울센터</option>
+                                             <option value="2" ${GroupReserModel.gr_center eq "2" ? "selected" :""}>대구센터</option>
+                                             <option value="3" ${GroupReserModel.gr_center eq "3" ? "selected" :""}>부산센터</option>
+                                          </select>
+                                       </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                       <th>예약날짜</th>
+                                       <td>
+                                          <select id="gr_year" name="gr_year" class="form-control" style="width: 20%; display: inline-block;">
+                                             <option value="2017" ${GroupReserModel.gr_year eq "2017" ? "selected" :""}>2017</option>
+                                             <option value="2018" ${GroupReserModel.gr_year eq "2018" ? "selected" :""}>2018</option>
+                                             <option value="2019" ${GroupReserModel.gr_year eq "2019" ? "selected" :""}>2019</option>
+                                             <option value="2020" ${GroupReserModel.gr_year eq "2020" ? "selected" :""}>2020</option>
+                                             <option value="2021" ${GroupReserModel.gr_year eq "2021" ? "selected" :""}>2021</option>
+                                             <option value="2022" ${GroupReserModel.gr_year eq "2022" ? "selected" :""}>2022</option>
+                                             <option value="2023" ${GroupReserModel.gr_year eq "2023" ? "selected" :""}>2023</option>
+                                             <option value="2024" ${GroupReserModel.gr_year eq "2024" ? "selected" :""}>2024</option>
+                                             <option value="2025" ${GroupReserModel.gr_year eq "2025" ? "selected" :""}>2025</option>
+                                             <option value="2026" ${GroupReserModel.gr_year eq "2026" ? "selected" :""}>2026</option>
+                                          </select>
+                                          년&nbsp;&nbsp;
 
-														<select name="gr_month" class="form-control"  style="width: 20%; display: inline-block;">
-															<option value="1">1</option>
-															<option value="2">2</option>
-															<option value="3">3</option>
-															<option value="4">4</option>
-															<option value="5">5</option>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-														</select>
-														월&nbsp;&nbsp;
-														
-														<select name="gr_day" class="form-control"  style="width: 20%; display: inline-block;">
-															<option value="1">1</option>
-															<option value="2">2</option>
-															<option value="3">3</option>
-															<option value="4">4</option>
-															<option value="5">5</option>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-															<option value="24">24</option>
-															<option value="25">25</option>
-															<option value="26">26</option>
-															<option value="27">27</option>
-															<option value="28">28</option>
-															<option value="29">29</option>
-															<option value="30">30</option>
-															<option value="31">31</option>
-															
-														</select>
-														일&nbsp;&nbsp;
-													</td>
-												</tr>
-												<tr class="odd gradeX">
-													<th>예약시간</th>
-													<td>
-														<select name="gr_hour" class="form-control" style="width: 20%; display: inline-block;">
-															<option value="09">09</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-														</select>
-														 시&nbsp;&nbsp;
+                                          <select id="gr_month" name="gr_month" class="form-control"  style="width: 20%; display: inline-block;">
+                                             <option value="1" ${GroupReserModel.gr_month eq "1" ? "selected" :""}>1</option>
+                                             <option value="2" ${GroupReserModel.gr_month eq "2" ? "selected" :""}>2</option>
+                                             <option value="3" ${GroupReserModel.gr_month eq "3" ? "selected" :""}>3</option>
+                                             <option value="4" ${GroupReserModel.gr_month eq "4" ? "selected" :""}>4</option>
+                                             <option value="5" ${GroupReserModel.gr_month eq "5" ? "selected" :""}>5</option>
+                                             <option value="6" ${GroupReserModel.gr_month eq "6" ? "selected" :""}>6</option>
+                                             <option value="7" ${GroupReserModel.gr_month eq "7" ? "selected" :""}>7</option>
+                                             <option value="8" ${GroupReserModel.gr_month eq "8" ? "selected" :""}>8</option>
+                                             <option value="9" ${GroupReserModel.gr_month eq "9" ? "selected" :""}>9</option>
+                                             <option value="10" ${GroupReserModel.gr_month eq "10" ? "selected" :""}>10</option>
+                                             <option value="11" ${GroupReserModel.gr_month eq "11" ? "selected" :""}>11</option>
+                                             <option value="12" ${GroupReserModel.gr_month eq "12" ? "selected" :""}>12</option>
+                                          </select>
+                                          월&nbsp;&nbsp;
+                                          
+                                          <select id="gr_day" name="gr_day" class="form-control"  style="width: 20%; display: inline-block;">
+                                             <option value="1" ${GroupReserModel.gr_day eq "1" ? "selected" :""}>1</option>
+                                             <option value="2" ${GroupReserModel.gr_day eq "2" ? "selected" :""}>2</option>
+                                             <option value="3" ${GroupReserModel.gr_day eq "3" ? "selected" :""}>3</option>
+                                             <option value="4" ${GroupReserModel.gr_day eq "4" ? "selected" :""}>4</option>
+                                             <option value="5" ${GroupReserModel.gr_day eq "5" ? "selected" :""}>5</option>
+                                             <option value="6" ${GroupReserModel.gr_day eq "6" ? "selected" :""}>6</option>
+                                             <option value="7" ${GroupReserModel.gr_day eq "7" ? "selected" :""}>7</option>
+                                             <option value="8" ${GroupReserModel.gr_day eq "8" ? "selected" :""}>8</option>
+                                             <option value="9" ${GroupReserModel.gr_day eq "9" ? "selected" :""}>9</option>
+                                             <option value="10" ${GroupReserModel.gr_day eq "10" ? "selected" :""}>10</option>
+                                             <option value="11" ${GroupReserModel.gr_day eq "11" ? "selected" :""}>11</option>
+                                             <option value="12" ${GroupReserModel.gr_day eq "12" ? "selected" :""}>12</option>
+                                             <option value="13" ${GroupReserModel.gr_day eq "13" ? "selected" :""}>13</option>
+                                             <option value="14" ${GroupReserModel.gr_day eq "14" ? "selected" :""}>14</option>
+                                             <option value="15" ${GroupReserModel.gr_day eq "15" ? "selected" :""}>15</option>
+                                             <option value="16" ${GroupReserModel.gr_day eq "16" ? "selected" :""}>16</option>
+                                             <option value="17" ${GroupReserModel.gr_day eq "17" ? "selected" :""}>17</option>
+                                             <option value="18" ${GroupReserModel.gr_day eq "18" ? "selected" :""}>18</option>
+                                             <option value="19" ${GroupReserModel.gr_day eq "19" ? "selected" :""}>19</option>
+                                             <option value="20" ${GroupReserModel.gr_day eq "20" ? "selected" :""}>20</option>
+                                             <option value="21" ${GroupReserModel.gr_day eq "21" ? "selected" :""}>21</option>
+                                             <option value="22" ${GroupReserModel.gr_day eq "22" ? "selected" :""}>22</option>
+                                             <option value="23" ${GroupReserModel.gr_day eq "23" ? "selected" :""}>23</option>
+                                             <option value="24" ${GroupReserModel.gr_day eq "24" ? "selected" :""}>24</option>
+                                             <option value="25" ${GroupReserModel.gr_day eq "25" ? "selected" :""}>25</option>
+                                             <option value="26" ${GroupReserModel.gr_day eq "26" ? "selected" :""}>26</option>
+                                             <option value="27" ${GroupReserModel.gr_day eq "27" ? "selected" :""}>27</option>
+                                             <option value="28" ${GroupReserModel.gr_day eq "28" ? "selected" :""}>28</option>
+                                             <option value="29" ${GroupReserModel.gr_day eq "29" ? "selected" :""}>29</option>
+                                             <option value="30" ${GroupReserModel.gr_day eq "30" ? "selected" :""}>30</option>
+                                             <option value="31" ${GroupReserModel.gr_day eq "31" ? "selected" :""}>31</option>
+                                             
+                                          </select>
+                                          일&nbsp;&nbsp;
+                                       </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                       <th>예약시간</th>
+                                       <td>
+                                          <select id="gr_hour" name="gr_hour" class="form-control" style="width: 20%; display: inline-block;">
+                                             <option value="09" ${GroupReserModel.gr_hour eq "09" ? "selected" :""}>09</option>
+                                             <option value="10" ${GroupReserModel.gr_hour eq "10" ? "selected" :""}>10</option>
+                                             <option value="11" ${GroupReserModel.gr_hour eq "11" ? "selected" :""}>11</option>
+                                             <option value="12" ${GroupReserModel.gr_hour eq "12" ? "selected" :""}>12</option>
+                                             <option value="14" ${GroupReserModel.gr_hour eq "14" ? "selected" :""}>14</option>
+                                             <option value="15" ${GroupReserModel.gr_hour eq "15" ? "selected" :""}>15</option>
+                                             <option value="16" ${GroupReserModel.gr_hour eq "16" ? "selected" :""}>16</option>
+                                             <option value="17" ${GroupReserModel.gr_hour eq "17" ? "selected" :""}>17</option>
+                                             <option value="18" ${GroupReserModel.gr_hour eq "18" ? "selected" :""}>18</option>
+                                          </select>
+                                           시&nbsp;&nbsp;
 
-														<select name="gr_minute" class="form-control"  style="width: 20%; display: inline-block;">
-															<option value="00">00</option>
-															<option value="30">30</option>
-														</select>
-														 분
-													</td>
-												</tr>
-												<tr class="odd gradeX">
-													<th>그룹명</th>
-													<td><div class="tit"><span> ${GroupReserModel.gr_group }</span></div></td>
-												</tr>
-												<tr class="odd gradeX">
-													<th>핸드폰</th>
-													<td><div class="tit"><span> ${GroupReserModel.gr_phone1 }</span>&nbsp;-<span> ${GroupReserModel.gr_phone2 }</span>&nbsp;-<span> ${GroupReserModel.gr_phone3 }</span></div></td>
-												</tr>
-												<tr class="odd gradeX">
-													<th>예약인원</th>
-													<td width="63"><input type="text" value="" name="gr_p_number" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;">
-												</tr>
-												<tr class="odd gradeX">
-													<th>상담사유</th>
-													<td><div class="tit"><span> ${GroupReserModel.gr_reason }</span></div></td>
-												</tr>
-												<tr class="odd gradeX">
-													<th>예약상태</th>
-													<td>
-														<select name="gr_status" class="form-control" style="width: 20%;">
-															<option value="0">예약대기</option>
-															<option value="1">예약완료</option>
-														</select>
-													</td>
-												</tr>
-											</tbody>
+                                          <select id="gr_minute" name="gr_minute" class="form-control"  style="width: 20%; display: inline-block;">
+                                             <option value="00" ${GroupReserModel.gr_minute eq "00" ? "selected" :""}>00</option>
+                                             <option value="30" ${GroupReserModel.gr_minute eq "30" ? "selected" :""}>30</option>
+                                          </select>
+                                           분
+                                       </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                       <th>그룹명</th>
+                                       <td><div class="tit"><span> ${GroupReserModel.gr_group }</span></div></td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                       <th>핸드폰</th>
+                                       <td><div class="tit"><span> ${GroupReserModel.gr_phone1 }</span>&nbsp;-<span> ${GroupReserModel.gr_phone2 }</span>&nbsp;-<span> ${GroupReserModel.gr_phone3 }</span></div></td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                       <th>상담인원</th>
+                                       <td>
+                                          <select id="gr_p_number" name="gr_p_number" class="form-control"  style="width: 20%; display: inline-block;">
+                                             <option value="2" ${GroupReserModel.gr_p_number eq "2" ? "selected" :""}>2</option>
+                                             <option value="3" ${GroupReserModel.gr_p_number eq "3" ? "selected" :""}>3</option>
+                                             <option value="4" ${GroupReserModel.gr_p_number eq "4" ? "selected" :""}>4</option>
+                                             <option value="5" ${GroupReserModel.gr_p_number eq "5" ? "selected" :""}>5</option>
+                                             <option value="6" ${GroupReserModel.gr_p_number eq "6" ? "selected" :""}>6</option>
+                                          </select>
+                                       </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                       <th>상담사유</th>
+                                       <td><div class="tit"><span> ${GroupReserModel.gr_reason }</span></div></td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                       <th>예약상태</th>
+                                       <td>
+                                          <select name="gr_status" class="form-control" style="width: 20%;">
+                                             <option value="0">예약대기</option>
+                                             <option value="1">예약완료</option>
+                                          </select>
+                                       </td>
+                                    </tr>
+                                 </tbody>
 										</table>
 										<!-- /.table-responsive -->
 										<button type="submit" class="btn btn-outline btn-primary">저장</button>
+										<button type="button" onclick="GrReserDelete(${GrReserModel.gr_number })" class="btn btn-outline btn-primary">삭제</button>
 									</div>
                         <!-- /.panel-body -->
 									
                                 </div>
-                                <%-- <div class="tab-pane fade" id="profile">
-                                    <div class="panel-body">
-										<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-											<colgroup>
-												<col width="25%">
-												<col width="">
-											</colgroup>
-											
-											<tbody>
-												<tr class="odd gradeX">
-													<th>센터</th>
-													<td>
-														<select class="form-control" style="width: 20%;">
-															<option>1</option>
-															<option>2</option>
-															<option>3</option>
-															<option>4</option>
-															<option>5</option>
-														</select>
-													</td>
-												</tr>
-												<tr class="odd gradeX">
-													<th>예약시간</th>
-													<td>
-														<select class="form-control" style="width: 20%; display: inline-block;">
-															<option>1</option>
-															<option>2</option>
-															<option>3</option>
-															<option>4</option>
-															<option>5</option>
-														</select>
-														~
-
-														<select class="form-control" style="width: 20%; display: inline-block;">
-															<option>1</option>
-															<option>2</option>
-															<option>3</option>
-															<option>4</option>
-															<option>5</option>
-														</select>
-													</td>
-												</tr>
-												<tr class="odd gradeX">
-													<th>이름</th>
-													<td></td>
-												</tr>
-												<tr class="odd gradeX">
-													<th>핸드폰</th>
-													<td></td>
-												</tr>
-												<tr class="odd gradeX">
-													<th>그룹명</th>
-													<td></td>
-												</tr>
-												<tr class="odd gradeX">
-													<th>아이디</th>
-													<td></td>
-												</tr>
-												<tr class="odd gradeX">
-													<th>대표번호</th>
-													<td></td>
-												</tr>
-												<tr class="odd gradeX">
-													<th>예약인원</th>
-													<td>
-														<select class="form-control" style="width: 20%;">
-															<option>1</option>
-															<option>2</option>
-															<option>3</option>
-															<option>4</option>
-															<option>5</option>
-														</select>
-													</td>
-												</tr>
-												<tr class="odd gradeX">
-													<th>상담사유</th>
-													<td></td>
-												</tr>
-
-												
-											</tbody>
-										</table>
-										<!-- /.table-responsive -->
-										<button type="button" onclick="oneModify()" class="btn btn-outline btn-primary">저장</button>
-									</div>
-                                </div>
-                                --%>
+                                
                             </div>
 							
                         </div>
-                        <!-- /.panel-body -->
+                        
                     </div>
-                    <!-- /.panel -->
+                    
                 </div>
-                <!-- /.col-lg-6 -->
+               
                 </div>
-                <!-- /.col-lg-6 -->
+                
             </div>
-            <!-- /.row -->
-        </div>
-        <!-- /#page-wrapper -->
-
-    </div>
     </form>
     <!-- /#wrapper -->
 
@@ -333,4 +251,8 @@
 		 
 	}
 } */
+function GrReserDelete() {
+	alert("삭제하겠습니까?");
+	location.href='AdminGrReserDelete.do?gr_number=${GroupReserModel.gr_number}';
+}
 </script>
