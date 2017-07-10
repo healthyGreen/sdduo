@@ -56,7 +56,7 @@ public class MemberService implements MemberDao {
 	@Override
 	public int couponSet(String m_id) {
 		// TODO Auto-generated method stub
-		return sqlSessionTemplate.insert("member.couponSet", m_id);
+		return sqlSessionTemplate.update("member.couponSet", m_id);
 	}
 
 	@Override

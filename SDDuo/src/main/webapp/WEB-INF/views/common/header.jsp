@@ -18,11 +18,11 @@
                         </c:when>
                         <c:when test="${session_admin == 1}"> 
                            <li>${session_member_name} (관리자)님 환영합니다!
-                           <li><a href="/<%=request.getContextPath() %>/AdminReserve/adminOneReserList.do" >관리자페이지</a>
-                           <li><a href="/<%=request.getContextPath() %>/member/logout.do" >로그아웃</a>
+                           <li><a href="<%=request.getContextPath() %>/AdminReserve/adminOneReserList.do" >관리자페이지</a>
+                           <li><a href="<%=request.getContextPath() %>/member/logout.do" >로그아웃</a>
                         </c:when>
                         <c:otherwise>
-                           <li><a href="<%=request.getContextPath() %>/member/joinForm.do" >회원가입</a>
+                           <li><a href="<%=request.getContextPath() %>/member/agree.do" >회원가입</a>
                            <li><a href="<%=request.getContextPath() %>/member/loginForm.do" >로그인</a>
                         </c:otherwise>
                      </c:choose>
@@ -37,7 +37,7 @@
                        <li class="li02"><a href="oneReserForm.do">상담예약</a>
                          <div class="subWrap sub02">
                            <ul>
-                               <li><a href="<%=request.getContextPath() %>/Reserve/oneReserForm.do">개인예약</a></li>
+                               <li><a href="<%=request.getContextPath() %>/Reserve/OneReserveForm.do">개인예약</a></li>
                                <li><a href="<%=request.getContextPath() %>/Reserve/groupReserForm.do">그룹예약</a></li>
                                <li><a href="<%=request.getContextPath() %>/Reserve/oneReserList.do">예약현황</a></li>
                
