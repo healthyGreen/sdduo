@@ -24,4 +24,9 @@ public interface ReserDAO {
 	List<GroupReserModel> GrReserList();
 	
 	List<OneReserModel> myOneReserList(String m_id);
+	
+	List<OneReserModel> myGroupReserList(String m_id);
+	
+	public int myTotalReserNum(String m_id);
+
 }
