@@ -5,7 +5,7 @@
        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 <tiles-definitions>
 
-<definition name="main" template="/WEB-INF/views/common/layout.jsp"> 
+<definition name="consultingTiles" template="/WEB-INF/views/common/layout.jsp"> 
 <put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/> 
 <put-attribute name="body" value="/WEB-INF/views/common/container.jsp"/> 
 <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/> 
@@ -13,22 +13,22 @@
 <!-- 
 <definition name="consultingForm" template="/WEB-INF/views/consulting/consultingForm.jsp"/> -->
 
-<definition name="consultingForm" extends="main"> 
+<definition name="consultingForm" extends="consultingTiles"> 
 <put-attribute name="body" value="/WEB-INF/views/consulting/consultingForm.jsp"/> 
 </definition>
-<definition name="consultingView" extends="main"> 
+<definition name="consultingView" extends="consultingTiles"> 
 <put-attribute name="body" value="/WEB-INF/views/consulting/consultingView.jsp"/> 
 </definition> 
-<definition name="consultingList" extends="main"> 
+<definition name="consultingList" extends="consultingTiles"> 
 <put-attribute name="body" value="/WEB-INF/views/consulting/consultingList.jsp"/> 
 </definition>
-<definition name="consultingPassForm" extends="main"> 
+<definition name="consultingPassForm" extends="consultingTiles"> 
 <put-attribute name="body" value="/WEB-INF/views/consulting/consultingPassForm.jsp"/> 
 </definition> 
-<definition name="consultingPassError" extends="main"> 
+<definition name="consultingPassError" extends="consultingTiles"> 
 <put-attribute name="body" value="/WEB-INF/views/consulting/consultingPassError.jsp"/> 
 </definition>
-<definition name="myConsultingList" extends="main"> 
+<definition name="myConsultingList" extends="consultingTiles"> 
 <put-attribute name="body" value="/WEB-INF/views/consulting/myConsultingList.jsp"/> 
 </definition>
 </tiles-definitions>

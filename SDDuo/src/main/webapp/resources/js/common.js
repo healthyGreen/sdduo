@@ -1,6 +1,5 @@
 $(document).ready(function(){
 	$(".gnb").on("mouseenter focusin",function(){
-
 		if($(".subWrap").is(":hidden")){
 			$(".subWrap").slideDown();
 			$(".subBg").slideDown();
@@ -8,31 +7,46 @@ $(document).ready(function(){
 			$(".subWrap").show();
 			$(".subBg").show();
 		}
-
 		$(".gnb > li").on("mouseenter focusin",function(){
 			$(".gnb > li > a").removeClass("current");
 			$(this).children().addClass("current");
-			
 		});
-
 	});
-
 	$(".gnb").on("mouseleave blur",function(){
 		$(".subWrap").slideUp();
 		$(".subBg").slideUp();
-
 	});
-
 	$(".gnb > li").on("mouseleave blur",function(){
 		$(this).children().removeClass("current");
 	});
-
 	$('*:not(".gnb *")').focus(function(){
 		$(".subWrap").slideUp();
 		$(".gnb > li > a").removeClass("current");
 		$(".subBg").slideUp();
 	});
-
+	
+	$(".centerBtn .tabs > li > a").hover(function() {
+		$(".centerBtn .tabs > li > a").removeClass("on"); //Remove any "on" class
+		$(this).addClass("on"); //Add "on" class to selected tab
+		
+		$(".centerBox .tab_container > ul > li").hide(); //Hide all content
+		var activeTab = $(this).parent().attr("class");
+		console.log(activeTab);
+		$("#" + activeTab).fadeIn(); //Fade in the active content
+		return false;
+	}, function(){
+		
+	});
+	
+	//On Click Event
+	$("ul.tabs li").click(function() {
+		$("ul.tabs li").removeClass("on"); //Remove any "on" class
+		$(this).addClass("on"); //Add "on" class to selected tab
+		$(".tab_content").hide(); //Hide all tab content
+		var activeTab = $(this).find("a").attr("href"); //Find the rel attribute value to identify the active tab + content
+		$(activeTab).fadeIn(); //Fade in the active content
+		return false;
+	});
 });
 
 

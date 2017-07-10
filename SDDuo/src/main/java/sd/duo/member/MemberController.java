@@ -30,7 +30,7 @@ public class MemberController {
 // aboutÆäÀÌÁö
    @RequestMapping(value="/about.do")
    public ModelAndView about(){
-      mav.setViewName("/about");
+      mav.setViewName("about");
       return mav;
    }
       

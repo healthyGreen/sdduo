@@ -4,18 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="sub-content">
-	<div class="bg02area">
-		<p class="tit">예약/커뮤니티</p>
-	</div>
-	<div class="sub-content-inbox">
-		<ul class="sub-menu2">
-			<li class="act"><a href="sub0201_list.html">온라인상담</a></li>
-			<li><a href="sub0202_01.html">온라인 실시간예약</a></li>
-			<li><a href="sub0203_list.html">마이스토리 공지사항</a></li>
-			<li><a href=" sub0204_list.html">마이스토리 심리 컬럼</a></li>
-			<li><a href="sub0205_list.html">책으로 만나는 심리이야기</a></li>
-			<li class="last"><a href="sub0206_list.html">자주하는 질문</a></li>
-		</ul>
+
 		<h3>온라인 상담</h3>
 		<p class="sub02_txt">
 			마이스토리에 남겨주신 소중한 이야기는 내담자 보호 규정에 따라 철저히 비밀 보장 되며 병원과 달리 절대 기록이 남지
