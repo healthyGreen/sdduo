@@ -33,6 +33,12 @@
       <put-attribute name="adminContainer" value="/WEB-INF/views/admin/adminOneReserView.jsp" />
    </definition>
    
+   <!-- 관리자 입장 그룹예약 상세보기 -->
+   <definition name="adminGroupReserView"  template="/WEB-INF/views/common/adminLayout.jsp">
+      <put-attribute name="adminLeft" value="/WEB-INF/views/common/adminLeft.jsp" />
+      <put-attribute name="adminContainer" value="/WEB-INF/views/admin/adminGrReserView.jsp" />
+   </definition>
+   
     <!--  관리자 입장 센터별 공지사항   -->
    <definition name="adminNoticeList" extends="adminMemberList">
       <put-attribute name="adminContainer" value="/WEB-INF/views/admin/adminNoticeList.jsp"/>

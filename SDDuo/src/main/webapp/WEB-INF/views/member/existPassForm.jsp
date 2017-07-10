@@ -18,11 +18,11 @@
 							<div class="leftbox">
 								<div class="tit"><span>MY</span> PAGE</div>
 									<dl class="mlist">
-										<dt>나의 정보 수정/탈퇴</dt>
+										<dt><a href="<%=request.getContextPath() %>/member/myInfoView.do">나의 정보 수정/탈퇴</a></dt>
 										<dt>예약 현황</dt>
 										<dt>상담 내역</dt>
 										<dt>나의 자가 진단</dt>
-										<dt>쿠폰함(1개)</dt>
+										<dt>쿠폰함(${member.m_r_coupon}개)</dt>
 									</dl>
 								</div>
 							</div>
