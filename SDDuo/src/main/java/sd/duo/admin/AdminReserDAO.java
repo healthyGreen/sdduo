@@ -16,6 +16,12 @@ public interface AdminReserDAO {
    List<GroupReserModel> GroupReserList(String gr_center);
 
    OneReserModel OneReserView(int pr_number);
+
+   int OneReserModify(OneReserModel OneReserModel);
+
+   GroupReserModel GroupReserView(int gr_number);
+
+   int GroupReserModify(GroupReserModel groupReserModel);
    
 
 }
