@@ -150,7 +150,7 @@ public class ReserController {
 		return mv;
 	}
 	
-	// �׷쿹�� ��
+	// �׷쿹�� ��d
 	@RequestMapping(value="/GroupReserveForm.do", method = RequestMethod.GET)
 	public String groupReserForm(){
 		
