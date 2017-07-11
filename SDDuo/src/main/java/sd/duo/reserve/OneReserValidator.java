@@ -15,7 +15,7 @@ public class OneReserValidator implements Validator{
    public void validate(Object target, Errors error) {
       // TODO Auto-generated method stub
 	   
-	   OneReserModel oneReserModel = (OneReserModel)target;
+	  /* OneReserModel oneReserModel = (OneReserModel)target;*/
       
 	   ValidationUtils.rejectIfEmptyOrWhitespace(error, "pr_hour", "pr_hour");
 		ValidationUtils.rejectIfEmptyOrWhitespace(error, "pr_minute", "pr_minute");

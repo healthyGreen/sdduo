@@ -130,11 +130,11 @@ public class ReserController {
 	@RequestMapping(value="/OneReserveForm.do", method = RequestMethod.POST)
 	public ModelAndView oneReserPro(@ModelAttribute("oneReserModel") OneReserModel oneReserModel, BindingResult result){
 		
-		/*new ReserValidator().validate(oneReserModel, result);
+		new OneReserValidator().validate(oneReserModel, result);
 		if(result.hasErrors()){
-			mv.setViewName("/reservation/oneReserForm");
+			mv.setViewName("oneReserForm");
 			return mv;
-		}*/
+		}
 		
 		String m_id = oneReserModel.getM_id();
 		System.out.println(m_id);
