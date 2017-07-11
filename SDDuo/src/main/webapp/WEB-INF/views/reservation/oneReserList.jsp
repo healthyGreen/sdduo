@@ -1,95 +1,95 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
 </head>
 <body>
 
-<p class="onlinetit">Ïò®ÎùºÏù∏ Ïã§ÏãúÍ∞Ñ ÏòàÏïΩÌòÑÌô©
-         </p>
+<p class="onlinetit">ø¬∂Û¿Œ Ω«Ω√∞£ øπæ‡«ˆ»≤
+			</p>
 <div class="resev-box">
-            <p class="listnum">Ï¥ù <span>${ list.size() }</span>Í±¥ 1/57</p>
-         </div>
+				<p class="listnum">√— <span>${ list.size() }</span>∞« 1/57</p>
+			</div>
 <div class="onlinetb">
-            <table class="list-board01">
-               <caption>ÏÉÅÎã¥Î¨∏Ïùò Î¶¨Ïä§Ìä∏</caption>
-               <colgroup>
-                  <col width="113px">
-                  <col width="225px">
-                  <col width="167px">
-                  <col width="235px">
-                  <col width="162px">
-                  <col width="151px">
-               </colgroup>
-               <thead>
-                  <tr>
-                     <th>Î≤àÌò∏</th>
-                     <th>Îì±Î°ùÏùº</th>
-                     <th>Ïã†Ï≤≠Ïûê</th>
-                     <th>Í≥†Í∞ùÌù¨ÎßùÏùºÏûê</th>
-                     <th>Ìù¨ÎßùÏÑºÌÑ∞</th>
-                     <th>ÎãµÎ≥ÄÏÉÅÌÉú</th>
-                  </tr>
-               </thead>
-               
-               <tbody>
-               
-                  <c:forEach var="list" items="${list}">
-                     <tr>
-                        <td>${list.pr_number}</td>
-                        <td><fmt:formatDate value="${list.pr_date}" pattern="yyyy.MM.dd"/></td>
-                        <td>${ list.pr_name }</td> 
-                              <td>${ list.pr_year }.${ list.pr_month }.${ list.pr_day }&nbsp;&nbsp;${ list.pr_hour }:${ list.pr_minute }</td>
-                              <td>
+				<table class="list-board01">
+					<caption>ªÛ¥„πÆ¿« ∏ÆΩ∫∆Æ</caption>
+					<colgroup>
+						<col width="113px">
+						<col width="225px">
+						<col width="167px">
+						<col width="235px">
+						<col width="162px">
+						<col width="151px">
+					</colgroup>
+					<thead>
+						<tr>
+							<th>π¯»£</th>
+							<th>µÓ∑œ¿œ</th>
+							<th>Ω≈√ª¿⁄</th>
+							<th>∞Ì∞¥»Ò∏¡¿œ¿⁄</th>
+							<th>»Ò∏¡ºæ≈Õ</th>
+							<th>¥‰∫ØªÛ≈¬</th>
+						</tr>
+					</thead>
+					
+					<tbody>
+					
+						<c:forEach var="list" items="${list}">
+							<tr>
+								<td>${list.pr_number}</td>
+								<td><fmt:formatDate value="${list.pr_date}" pattern="yyyy.MM.dd"/></td>
+								<td>${ list.pr_name }</td> 
+                     			<td>${ list.pr_year }.${ list.pr_month }.${ list.pr_day }&nbsp;&nbsp;${ list.pr_hour }:${ list.pr_minute }</td>
+                     			<td>
                      
-                                 <c:choose>
+                     				<c:choose>
 
-                                       <c:when test="${list.pr_center eq '1'}">
-                                          ÏÑúÏö∏ÏÑºÌÑ∞
-                                       </c:when>
+                           				<c:when test="${list.pr_center eq '1'}">
+                                			 º≠øÔºæ≈Õ
+                           				</c:when>
                            
-                                       <c:when test="${list.pr_center eq '2'}">
-                                             ÎåÄÍµ¨ÏÑºÌÑ∞
-                                       </c:when>
-                                       
-                                       <c:when test="${list.pr_center eq '3'}">
-                                          Î∂ÄÏÇ∞ÏÑºÌÑ∞
-                                       </c:when>
-                                    </c:choose>
+                          			 	<c:when test="${list.pr_center eq '2'}">
+                               				  ¥Î±∏ºæ≈Õ
+                           				</c:when>
+                           				
+                           				<c:when test="${list.pr_center eq '3'}">
+                                			 ∫ŒªÍºæ≈Õ
+                           				</c:when>
+                           			</c:choose>
 
-                        </td>
-                        <td>
+								</td>
+								<td>
                      
-                                 <c:choose>
+                     				<c:choose>
 
-                                       <c:when test="${list.pr_status eq '0'}">
-                                          ÏòàÏïΩÎåÄÍ∏∞
-                                       </c:when>
+                           				<c:when test="${list.pr_status eq '0'}">
+                                			 øπæ‡¥Î±‚
+                           				</c:when>
                            
-                                    <c:when test="${list.pr_status ne '0'}">
-                                             ÏòàÏïΩÏôÑÎ£å
-                                       </c:when>
-                                    </c:choose>
+                          			 <c:when test="${list.pr_status ne '0'}">
+                               				  øπæ‡øœ∑·
+                           				</c:when>
+                           			</c:choose>
 
-                        </td>
-                     </tr>
-               </c:forEach>
+								</td>
+							</tr>
+					</c:forEach>
 
-               </tbody>
-            </table>
-         </div>
-         
-         <c:if test="${fn:length(list) le 0}">
-            <br />
-            <center>Îì±Î°ùÎêú Í≤åÏãúÎ¨ºÏù¥ ÏóÜÏäµÎãàÎã§</center>
-            <br />
-         </c:if>
+					</tbody>
+				</table>
+			</div>
+			
+			<c:if test="${fn:length(list) le 0}">
+				<br />
+				<center>µÓ∑œµ» ∞‘Ω√π∞¿Ã æ¯Ω¿¥œ¥Ÿ</center>
+				<br />
+			</c:if>
 
 
 </body>
