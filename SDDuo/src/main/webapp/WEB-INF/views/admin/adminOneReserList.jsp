@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <body>
 
@@ -82,10 +82,6 @@
                                     
                                  </tbody>
                               </table>
-                              <div class="pageing">
-						${pagingHtml}
-					</div>
-                              
                               <c:if test="${fn:length(oneReserList) le 0}">
 							<br />
 							<center>예약내역이 존재하지 않습니다.</center>
@@ -94,8 +90,6 @@
                               <!-- /.table-responsive -->
                               
                            </div>
-                           
-                           
                         <!-- /.panel-body -->
                                 </div>
                                 <%-- <div class="tab-pane fade" id="profile">
@@ -180,8 +174,5 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
-    
-   
 
 </body>
-</html>

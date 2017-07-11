@@ -11,7 +11,7 @@ public class OneReserModel {
 	String pr_month="07";
 	String pr_day="04";
 	String pr_center;
-	String m_id;
+	String m_id="test";
 	String pr_name;
 	String pr_phone1;
 	String pr_phone2;
