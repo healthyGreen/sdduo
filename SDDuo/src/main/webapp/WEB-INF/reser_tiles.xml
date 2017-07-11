@@ -6,26 +6,30 @@
        
 <tiles-definitions>
 	<!-- Main Page -->
-	<definition name="main" template="/WEB-INF/views/common/layout.jsp">
+	<definition name="main1" template="/WEB-INF/views/common/layout.jsp">
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/common/container.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
 	</definition>
 	
 	<!-- Reservation -->
-	<definition name="oneReserForm" extends="main">
+	<definition name="oneReserForm" extends="main1">
 		<put-attribute name="body" value="/WEB-INF/views/reservation/oneReserForm.jsp" />
 	</definition>
 	
-	<definition name="groupReserForm" extends="main">
+	<definition name="groupReserForm" extends="main1">
 		<put-attribute name="body" value="/WEB-INF/views/reservation/groupReserForm.jsp" />
 	</definition>
 	
-	<definition name="oneReserList" extends="main">
+	<definition name="oneReserList" extends="main1">
 		<put-attribute name="body" value="/WEB-INF/views/reservation/oneReserList.jsp" />
 	</definition>
 	
-	<definition name="groupReserList" extends="main">
+	<definition name="groupReserList" extends="main1">
 		<put-attribute name="body" value="/WEB-INF/views/reservation/grReserList.jsp" />
+	</definition>
+	
+	<definition name="myReserList" extends="main1">
+		<put-attribute name="body" value="/WEB-INF/views/reservation/myReserList.jsp" />
 	</definition>
 </tiles-definitions>
