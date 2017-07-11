@@ -7,9 +7,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-	<script> -->
-
+	<script>
+	
+	/* $( function() {
+	    $( "#datepicker" ).datepicker({
+		dateFormat: 'yymmdd',
+		monthNamesShort:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+		dayNamesMin:['일','월','화','수','목','금','토'],	
+		changeMonth: true,
+		changeYear: true,
+		showMonthAfterYear: true,	
+		} );
+	} );
+ */
 
   function checkForm(){
      if(!document.reserAgree.agree.checked){
@@ -35,15 +50,17 @@
 						<li class="last"><a href="sub0206_list.html">자주하는 질문</a></li>
 					</ul>
 					<h3>온라인 실시간예약</h3>
-					<!-- <p class="sub02_txt">
+					<p class="sub02_txt">
 						마이스토리 심리상담센터는 예약상담으로만 운영되고 있으며 상담을 희망하시는 경우 반드시 예약 및 상담규정을 준수해야 합니다.<br />
 						<span>온라인 예약을 하시면 상담 직원이 전화를 드리며 상담문의 내용 등을 확인 한 후 정확한 예약이 확정 됩니다.    </span><br />
 					</p>
-					<div class="step"><img src="../../images/sub/step1.gif"></div>
+					<div class="step"><img src="/SDDuo/resources/images/sub/step1.gif"></div>
+					
 					<div class="calarea">
 						<div class="calleft">
 							<p class="tit">원하시는 희망 예약날짜를 선택해 주세요</p>
 							<div class="example1" style="margin:0 auto"></div>
+							<script src="/SDDuo/resources/js/jquery.supercal.js"></script>
 							<script>
 								$('.example1').supercal({
 									transition: 'carousel-vertical'
@@ -52,7 +69,7 @@
 						</div>
 						<div class="calright">
 							<p class="tit">예약정보를 입력해 주세요</p>
-							<p class="txt">왼쪽 달력에서 먼저 원하는 날짜를 선택 후 예약해주세요</p> -->
+							<p class="txt">왼쪽 달력에서 먼저 원하는 날짜를 선택 후 예약해주세요</p>
 							<form name="reserAgree" action="OneReserveForm.do" method="post">
 							<div>
 									<table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -67,9 +84,7 @@
 												<td valign="top"  class="formtit" style="color: #4f4f4f; font-size: 16px; padding-top: 10px;">센&nbsp&nbsp&nbsp&nbsp터</td>
 												<td align="center" width="4" ></td>
 												<td valign="top">
-													<input type="hidden" name="m_id" value="${session_member_id }">			
-													
-													
+													<input type="hidden" name="m_id" value="${session_member_id }">
 													<select name="pr_center" class="form-control" style="width:220px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;" id='133_f4_0' name='fname[4][]'>
 														<option value="1">서울센터</option>
 														<option value="2">대구센터</option>
@@ -189,7 +204,13 @@
 					<div>
 						<input type="button" onclick="return checkForm()" value="확인"   />
 						<input type="button" value="취소" class="cancel" />
+						
 					</div>
 			</form>
+			</div>
+			</div>
+			</div>
+			</div>
+			
 </body>
 </html>
