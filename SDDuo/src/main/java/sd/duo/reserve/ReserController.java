@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import sd.duo.member.MemberService;
 import sd.duo.common.Paging;
+import javax.servlet.http.HttpSession;
 
 
 
@@ -53,7 +54,7 @@ public class ReserController {
 	      
 	      totalCount = oneReserList.size();
 	      
-	      paging = new Paging(currentPage, totalCount, blockCount, blockPage, "oneReserList");
+	      paging = new Paging(currentPage, totalCount, blockCount, blockPage, "OneReserList");
 	      pagingHtml = paging.getPagingHtml().toString();
 	      
 	      int lastCount = totalCount;
@@ -92,7 +93,7 @@ public class ReserController {
 		
 		totalCount = GrReserList.size();
 		
-		paging = new Paging(currentPage, totalCount, blockCount, blockPage, "movieList");
+		paging = new Paging(currentPage, totalCount, blockCount, blockPage, "GrReserList");
 		pagingHtml = paging.getPagingHtml().toString();
 		
 		int lastCount = totalCount;
@@ -128,16 +129,20 @@ public class ReserController {
 	
 	// ���ο��� ó��
 	@RequestMapping(value="/OneReserveForm.do", method = RequestMethod.POST)
-	public ModelAndView oneReserPro(@ModelAttribute("oneReserModel") OneReserModel oneReserModel, BindingResult result){
+	public ModelAndView oneReserPro(@ModelAttribute("oneReserModel") OneReserModel oneReserModel, BindingResult result,
+			HttpSession session){
 		
-		/*new ReserValidator().validate(oneReserModel, result);
+		/*new OneReserValidator().validate(oneReserModel, result);
 		if(result.hasErrors()){
-			mv.setViewName("/reservation/oneReserForm");
+			mv.setViewName("oneReserForm");
 			return mv;
 		}*/
 		
-		String m_id = oneReserModel.getM_id();
+		String m_id = (String) session.getAttribute("session_member_id");
 		System.out.println(m_id);
+		
+		String pr_reason = oneReserModel.getPr_reason().replaceAll("\r\n", "<br />");
+		oneReserModel.setPr_reason(pr_reason);
 
 		reserService.insertOneReser(oneReserModel);
 		memberService.couponSet(m_id);
@@ -145,7 +150,7 @@ public class ReserController {
 		return mv;
 	}
 	
-	// �׷쿹�� ��d
+	// �׷쿹�� ��
 	@RequestMapping(value="/GroupReserveForm.do", method = RequestMethod.GET)
 	public String groupReserForm(){
 		
@@ -154,7 +159,8 @@ public class ReserController {
 	
 	// �׷쿹�� ó��
 		@RequestMapping(value="/GroupReserveForm.do", method = RequestMethod.POST)
-		public ModelAndView groupReserPro(@ModelAttribute("groupReserModel") GroupReserModel groupReserModel, BindingResult result){
+		public ModelAndView groupReserPro(@ModelAttribute("groupReserModel") GroupReserModel groupReserModel, BindingResult result,
+				HttpSession session){
 			
 			
 			/*new ReserValidator().validate(groupReserModel, result);
@@ -162,8 +168,13 @@ public class ReserController {
 				mv.setViewName("/reservation/groupReserForm");
 				return mv;
 			}*/
+			
+			String m_id = (String) session.getAttribute("session_member_id");
+			
+			System.out.println(m_id);
+			
 			reserService.insertGroupReser(groupReserModel);
-			memberService.couponSet(groupReserModel.getM_id());
+			memberService.couponSet(m_id);
 			mv.setViewName("redirect:/Reserve/GrReserList.do");
 			return mv;
 		}

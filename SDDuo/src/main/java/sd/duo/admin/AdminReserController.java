@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import sd.duo.common.Paging;
+import sd.duo.admin.AdminOneReserPaging;
+import sd.duo.admin.AdminGrReserPaging;
 import sd.duo.reserve.GroupReserModel;
 import sd.duo.reserve.OneReserModel;
 
@@ -30,7 +31,8 @@ public class AdminReserController {
          private int blockCount = 10;
          private int blockPage = 5;
          private String pagingHtml;
-         private Paging paging;
+         private AdminOneReserPaging OnePaging;
+         private AdminGrReserPaging GrPaging;
          private String pr_center;
          private String gr_center;
          private int pr_number;
@@ -57,15 +59,15 @@ public class AdminReserController {
                
                
                   totalCount = oneReserList.size();
-                  paging = new Paging(currentPage, totalCount, blockCount, blockPage, "oneReserList" );
-                  pagingHtml = paging.getPagingHtml().toString();
+                  OnePaging = new AdminOneReserPaging(currentPage, totalCount, blockCount, blockPage, "OneReserList", pr_center );
+                  pagingHtml = OnePaging.getPagingHtml().toString();
                
                   int lastCount = totalCount;
                
-                  if(paging.getEndCount() < totalCount)
-                     lastCount = paging.getEndCount() + 1;
+                  if(OnePaging.getEndCount() < totalCount)
+                     lastCount = OnePaging.getEndCount() + 1;
                   
-                  oneReserList = oneReserList.subList(paging.getStartCount(), lastCount);
+                  oneReserList = oneReserList.subList(OnePaging.getStartCount(), lastCount);
                
                  
                   mav.addObject("pr_center", pr_center);
@@ -99,15 +101,15 @@ public class AdminReserController {
                
                
                   totalCount = groupReserList.size();
-                  paging = new Paging(currentPage, totalCount, blockCount, blockPage, "groupReserList" );
-                  pagingHtml = paging.getPagingHtml().toString();
+                  GrPaging = new AdminGrReserPaging(currentPage, totalCount, blockCount, blockPage, "GrReserList", gr_center );
+                  pagingHtml = GrPaging.getPagingHtml().toString();
                
                   int lastCount = totalCount;
                
-                  if(paging.getEndCount() < totalCount)
-                     lastCount = paging.getEndCount() + 1;
+                  if(GrPaging.getEndCount() < totalCount)
+                     lastCount = GrPaging.getEndCount() + 1;
                   
-                  groupReserList = groupReserList.subList(paging.getStartCount(), lastCount);
+                  groupReserList = groupReserList.subList(GrPaging.getStartCount(), lastCount);
                
                  
                   mav.addObject("gr_center", gr_center);
