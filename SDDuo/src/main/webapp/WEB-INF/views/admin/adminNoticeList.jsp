@@ -53,14 +53,27 @@
 				</tbody>
 				<tbody>
 					<c:forEach var="list" items="${adminNoticeList}">
-						<c:url var="viewURL" value="adminNoticeView.do" >
+						<c:url var="viewURL1" value="/admin/adminNoticeView.do" >
+							<c:param name="n_number" value="${list.n_number }" />
+						    <c:param name="currentPage" value="${currentPage }" />
+						</c:url>
+						<c:url var="viewURL2" value="/notice/NoticeView.do" >
 							<c:param name="n_number" value="${list.n_number }" />
 						    <c:param name="currentPage" value="${currentPage }" />
 						</c:url>
 					<tr>
 						<td>${list.n_number}</td>
 						<td style="text-align:left;">
-							<a href="${viewURL}">${list.n_title}</a>
+							<c:choose>
+								
+								<c:when test="${session_admin == 1}">
+									<a href="${viewURL1}">${list.n_title}</a>
+								</c:when>
+								<c:otherwise>
+								<a href="${viewURL2}">${list.n_title}</a>
+								</c:otherwise>
+								
+							</c:choose>
 						</td>
 						<td>${list.n_name}</td> 
 						<td><fmt:formatDate value="${list.n_date}" pattern="yyyy.MM.dd"/></td>
@@ -73,17 +86,24 @@
 				</tbody>
 			</table>
 			
-			<div class="paging">
+			<div class="pageing">
 				${pagingHtml}
 			</div>
 			
 			
 			<div style="margin-top:40px; float: right;">
+				<c:choose>
+								
+					<c:when test="${session_admin == 1}">
+						<button type="button" onclick="onWrite()" class="btn01">글쓰기</button>
+					</c:when>
+					<c:otherwise>
+					
+					</c:otherwise>
+					
+				</c:choose>
 			
-			<%-- <c:if test="${session_member_name == 'admin' }">
-			<button type="button" onclick="onWrite()" class="btn btn-primary">글쓰기</button>
-			</c:if> --%>
-			<button type="button" onclick="onWrite()" class="btn btn-primary">글쓰기</button>
+			
 			
 			</div>
             </div>
@@ -103,22 +123,6 @@
     </div>
     <!-- /#wrapper -->
 
-    <!-- jQuery -->
-    <script src="../resources/vendor/jquery/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../resources/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="../resources/vendor/metisMenu/metisMenu.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="../resources/vendor/raphael/raphael.min.js"></script>
-    <script src="../resources/vendor/morrisjs/morris.min.js"></script>
-    <script src="../resources/data/morris-data.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="../resources/dist/js/sb-admin-2.js"></script>
 
 </body>
 <script type="text/javascript">

@@ -7,9 +7,9 @@ public class OneReserModel {
 	int pr_number;
 	String pr_hour;
 	String pr_minute;
-	String pr_year="2017";
-	String pr_month="07";
-	String pr_day="04";
+	String pr_year;
+	String pr_month;
+	String pr_day;
 	String pr_center;
 	String m_id;
 	String pr_name;
