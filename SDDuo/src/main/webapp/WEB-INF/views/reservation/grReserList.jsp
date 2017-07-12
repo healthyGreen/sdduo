@@ -83,6 +83,9 @@
 
 					</tbody>
 				</table>
+				<div class="pageing">
+						${pagingHtml}
+					</div>
 			</div>
 			
 			<c:if test="${fn:length(list) le 0}">

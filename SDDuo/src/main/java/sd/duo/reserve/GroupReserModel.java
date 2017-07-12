@@ -11,7 +11,7 @@ public class GroupReserModel {
 	String gr_month="07";
 	String gr_day="04";
 	String gr_center;
-	String m_id="test";
+	String m_id;
 	String gr_group;
 	String gr_phone1;
 	String gr_phone2;
