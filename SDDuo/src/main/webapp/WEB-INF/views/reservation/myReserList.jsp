@@ -35,6 +35,19 @@
    </script>
 </head>
 <body>
+<div class="sub-top">
+	<h2>나의 예약 현황</h2>
+</div>
+<div class="leftbox">
+	<div class="tit"><span>MY</span> PAGE</div>
+	<dl class="mlist">
+		<dt><a href="<%=request.getContextPath() %>/member/myInfoView.do">나의 정보 수정/탈퇴</a></dt>
+		<dt><a href="<%=request.getContextPath() %>/Reserve/myReserList.do">예약 현황</a></dt>
+		<dt><a href="<%=request.getContextPath() %>/consulting/myConsultingList.do">상담 내역</a></dt>
+		<dt>나의 자가 진단</dt>
+		<dt><a href="<%=request.getContextPath() %>/member/myCoupon.do">쿠폰함(${member.m_r_coupon}개)</a></dt>
+	</dl>
+</div>
 <div class="sub-content">
    
       <div class="sub-content-inbox">
@@ -45,10 +58,10 @@
             <li data-tab="tab2"><a href="#">그룹 예약 현황</a></li>
          </ul>
          <div id="tab1" class="tabcontent current">
-<div class="resev-box">
+			<div class="resev-box">
 				<p class="listnum">총 <span>${ list.size() }</span>건 ${currentPage }/${totalPage }</p>
 			</div>
-<div class="onlinetb">
+			<div class="onlinetb">
 				<table class="list-board01">
 					<caption>상담문의 리스트</caption>
 					<colgroup>
@@ -68,14 +81,14 @@
 							<th>희망센터</th>
 							<th>답변상태</th>
 						</tr>
-						<%int number = 1; %>
 					</thead>
 					
 					<tbody>
+					<%int number = 1; %>
 					
 						<c:forEach var="list" items="${list}">
 							<tr>
-								<td>${list.pr_number}</td>
+								<th><%= number++%></th>
 								<td><fmt:formatDate value="${list.pr_date}" pattern="yyyy.MM.dd"/></td>
 								<td>${ list.pr_name }</td> 
                      			<td>${ list.pr_year }.${ list.pr_month }.${ list.pr_day }&nbsp;&nbsp;${ list.pr_hour }:${ list.pr_minute }</td>
@@ -112,11 +125,13 @@
 
 								</td>
 							</tr>
-							<th><%= number++%></th>
 					</c:forEach>
 					
 					</tbody>
 				</table>
+				<div class="pageing">
+						${html}
+				</div>
 			</div>
 			
 			<c:if test="${fn:length(list) le 0}">

@@ -1,192 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <% String cp = request.getContextPath(); %>
 
-<!DOCTYPE html PUBliC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-   <title>마이스토리</title>
-   <meta http-equiv="Content-Type" content="text/html;charset=euc-kr" />
-   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-   <link rel="stylesheet" href="../../css/layout.css" />
-   <link rel="stylesheet" href="../../css/default.css" />
-
-   <!--JQUERY-->
-
-   <!-- <script  type="text/javascript" src="../../js/jquery-1.9.1.js"></script>
-   <script  type="text/javascript" src="../../js/common.js"></script>
-   <script  type="text/javascript" src="../../js/jquery.flexslider.js"></script>
-   <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-   <script src="../../js/jquery.rolling.js" type="text/javascript"></script>
-   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.js"></script>
-   <script type="text/javascript" src="../../js/tab.js"></script>
-   <script type="text/javascript" src="../../js/gallery.js"></script> -->
- 
-   <script type="text/javascript">
-       // <![CDATA[
-       $(document).ready(function () {
-         $('#tab').tabify();
-       });
-       // ]]>
-       <script type="text/javascript">
-      function checkForm(){
-         if(!document.joinCheck.agree.checked){
-            alert("이용약관의 동의하셔야 합니다.");
-           
-         }else {
-        	 (!document.infoCheck.agree.checked){
-            alert("개인정보취급방침에 동의하셔야 합니다.");
-         }
-      
-      
-      
-      function all_check(_this, chk_name){
-         var chks = document.getElementsByName(chk_name);
-      
-         for(var i=0; i<chks.length; i++){
-            chks[i].checked = _this.checked;
-         }
-      }
-      
-      function cancel(){
-         alert("약관에 동의하셔야 회원가입이 가능합니다.");
-         document.frmMain.action = "/common/main.do";
-         document.frmMain.submit();
-      }
-      
-   </script>
-   <script>
-  /*** 롤링배너 ***/
-  jQuery(function($){
-    $("div.gallery_rolling").gallery_rolling();
-  });
-  </script>
-
-
-
-
-</head>
 
 
  <body>
 <form name='joinCheck' action="joinForm.do">
-         <div class="wrapper">
-         <div class="header" id="top">
-            <div class="subBg"></div>
-            <div class="header-inbox">
-               <div class="header-top">
-                  <ul class="left-area">
-                     <li><a href=""><img src="../../images/common/site01.gif" alt="카페"></a></li>
-                     <li><a href=""><img src="../../images/common/site02.gif" alt="블로그"></a></li>
-                     <li><a href=""><img src="../../images/common/site03.gif" alt="페이스북"></a></li>
-                     <li><a href=""><img src="../../images/common/site04.gif" alt="카카오톡"></a></li>
-                  </ul>
-                  <h1><a href="../../index.html"><img src="../../images/common/logo.gif" alt="로고"></a></h1>
-                  <ul class="right-area">
-                     <li><a href="">사이트맵</a></li>
-                     <li class="last"><a href="">주변센터찾기</a></li>
-                  </ul>
-               </div>
-               <div class="header-bottom">
-                  <!-- gnb 시작 -->
-                   <div id="gnbarea">
-
-                     <ul class="gnb clear">
-                       <li class="li01"><a href="sub0101.html"><img src="../../images/common/gnb01.gif">소개</a>
-                         <div class="subWrap sub01">
-                           <ul>
-                               <li><a href="sub0101.html">My story is</a></li>
-                               <li><a href="sub0102.html">마이스토리 이용안내</a></li>
-                               <li><a href="sub0103_list.html">가까운센터 둘러보기</a></li>
-                               <li><a href="sub0104.html">마이스토리 사람들</a></li>
-                               <li><a href="sub0105_list.html">마이스토리 방송이야기</a></li>
-                               <li><a href="sub0106.html">센터 운영 문의</a></li>
-                           </ul>
-                         </div>
-                       </li>
-                       <li class="li02"><a href="../sub02/sub0201_list.html">예약/커뮤니티</a>
-                         <div class="subWrap sub02">
-                           <ul>
-                               <li><a href="../sub02/sub0201_list.html">온라인상담</a></li>
-                               <li><a href="../sub02/sub0202_01.html">온라인 실시간 예약</a></li>
-                               <li><a href="../sub02/sub0203_list.html">마이스토리 공지사항</a></li>
-                               <li><a href="../sub02/sub0204_list.html">TODAY 심리컬럼</a></li>
-                               <li><a href="../sub02/sub0205_list.html">책으로 만나는 심리산책</a></li>
-                               <li><a href="../sub02/sub0206_list.html">자주하는 질문</a></li>
-                           </ul>
-                         </div>
-                       </li>
-                       <li class="li03"><a href="../sub03/sub0301.html">아이심리상담</a>
-                         <div class="subWrap sub03">
-                           <ul>
-                               <li><a href="../sub03/sub0301.html">ADHD</a></li>
-                               <li><a href="../sub03/sub0302.html">아동청소년우울</a></li>
-                               <li><a href="../sub03/sub0303.html">문제행동</a></li>
-                               <li><a href="../sub03/sub0304.html">불안</a></li>
-                               <li><a href="../sub03/sub0305.html">스마트 폰 게임 중독</a></li>
-                               <li><a href="../sub03/sub0306.html">학교 부적응, 따돌림</a></li>
-                              <li><a href="../sub03/sub0307.html">학급부진, 학습장애</a></li>
-                              <li><a href="../sub03/sub0308.html">틱장애</a></li>
-                           </ul>
-                         </div>
-                       </li>
-                       <li class="li04"><a href="../sub04/sub0401.html">성인심리상담</a>
-                         <div class="subWrap sub04">
-                           <ul>
-                               <li><a href="../sub04/sub0401.html">우울증상</a></li>
-                               <li><a href="../sub04/sub0402.html">불안증상</a></li>
-                               <li><a href="../sub04/sub0403.html">성경문제행동</a></li>
-                               <li><a href="../sub04/sub0404.html">중독</a></li>
-                               <li><a href="../sub04/sub0405.html">정신분열</a></li>
-                               <li><a href="../sub04/sub0406.html">부부상담</a></li>
-                               <li><a href="../sub04/sub0407.html">가족상담</a></li>
-                           </ul>
-                         </div>
-                       </li>
-                       <li class="li05"><a href="../sub05/sub0501.html" class="last">심리치료프로그램</a>
-                         <div class="subWrap sub05">
-                           <ul>
-                               <li><a href="../sub05/sub0501.html">개인상담치료</a></li>
-                               <li><a href="../sub05/sub0502.html">미술심리치료</a></li>
-                               <li><a href="../sub05/sub0503.html">놀이심리치료</a></li>
-                               <li><a href="../sub05/sub0504.html">연극심리치료</a></li>
-                               <li><a href="../sub05/sub0505.html">독서심리치료</a></li>
-                               <li><a href="../sub05/sub0506.html">음악심리치료</a></li>
-                               <li><a href="../sub05/sub0507.html">언어치료</a></li>
-                               <li><a href="../sub05/sub0508.html">학습치료-진로상담</a></li>
-                           </ul>
-                         </div>
-                       </li>
-                       <li class="li06"><a href="../sub06/sub0601.html" class="last">심리검사프로그램</a>
-                         <div class="subWrap sub06">
-                           <ul>
-                              <li><a href="../sub06/sub0601.html">종합심리평가</a></li>
-                               <li><a href="../sub06/sub0602.html">종합정서평가</a></li>
-                               <li><a href="../sub06/sub0603.html">영유아 발달검사</a></li>
-                               <li><a href="../sub06/sub0604.html">학슴 및 진로 종합평가</a></li>
-                               <li><a href="../sub06/sub0605.html">영유아 놀이평가</a></li>
-                               <li><a href="../sub06/sub0606.html">언어평가</a></li>
-                           </ul>
-                         </div>
-                       </li>
-                       <li class="li07"><a href="../sub07/sub0701.html" class="last">기업상담프로그램</a>
-                         <div class="subWrap sub07">
-                           <ul>
-                               <li><a href="../sub07/sub0701.html">마이스토리 기업상담</a></li>
-                               <li><a href="../sub07/sub0702.html">기업상담진행절차</a></li>
-                               <li><a href="../sub07/sub0703_01.html">실시간 기업상담예약</a></li>
-                               <li><a href="../sub07/sub0704.html">기업상담사례모음</a></li>
-                               <li><a href="../sub07/sub0705.html">심리 강의 교육</a></li>
-                           </ul>
-                         </div>
-                       </li>
-                     </ul>
-                   </div>
-
-               <!-- //gnb 끝 -->
-               </div>
-            </div>
-         </div>
-         <div class="sub-content">
+         
             <div class="sub-content-inbox">
                
                <div class="sub-top">
@@ -198,9 +17,9 @@
             <img src="../../images/sub/step-line2.gif">
          </div>
          <div class="join-check-inbox">
-            <div class="join-check">
+            <!-- <div class="join-check">
                <input type="checkbox" id="allChk"onclick="all_check(this, 'agreement[]')" value="Y "> <label for="allChk">이용약관, 개인정보처리방침에 모두 동의합니다.</label>
-            </div>
+            </div> -->
             <div class="clause-box">
                <p class="clause-title1">이용약관</p>
                <p class="clause-sub-title">이용약관을 반드시 읽어보신 후 동의해주시면 회원가입을 하실 수 있습니다.</p>
@@ -619,33 +438,8 @@
                </div>
                
             </div>
-         </div>
+       
          </form>
-         <div class="footer">
-            <div class="footer-top">
-               <div class="footer-top-inbox">
-                  <ul>
-                     <li>회사소개</li>
-                     <li>사이트이용약관</li>
-                     <li>개인정보처리방침</li>
-                     <li>임직원서비스</li>
-                  </ul>
-               </div>
-            </div>
-            <div class="footer-bottom">
-               <div class="footer-bottom-inbox">
-                  <h2><img src="../../images/common/b_logo.gif"></h2>
-                  <p>
-                     고객서비스센터 080-3243-2312<br>
-                     (주)마이스토리 서울특별시 강남구 테헤란로길 52길 17 역삼동 이에스타워 10층 사업자등록번호:505-88-00158 홈페이지 관리책임자:안영미<br>
-                     <br/>
-                     Copyright ⓒ MYSTORY All Rights Reserved
-                  </p>
-               </div>
-            </div>
-         </div>
-      </div>
+       
 
  </body>
-
-</html>
