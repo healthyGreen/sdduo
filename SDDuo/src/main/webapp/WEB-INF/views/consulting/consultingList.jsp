@@ -44,6 +44,7 @@
 							<c:forEach var="list" items="${consultinglist }">
 							<c:url var="passURL" value="consultingPassForm.do">
 								<c:param name="c_number" value="${list.c_number }"/>
+							<%-- 	<c:param name="c_ref" value="${list.c_ref }"/> --%>
 							</c:url>	
 							<c:url var="viewURL" value="consultingView.do">
 								<c:param name="c_number" value="${list.c_number }"/>

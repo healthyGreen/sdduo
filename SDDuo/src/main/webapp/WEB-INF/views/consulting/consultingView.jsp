@@ -72,13 +72,13 @@ ${consultingmodel.c_content }
 					</c:if> 
  			<%-- 	</c:if> --%>
 						<p ><input type="button" value="목록" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingList.do'" class="btn01 list"></p>
-						<c:if test="${isReply.equals('reply') }">
+						<%-- <c:if test="${isReply.equals('reply') }"> --%>
 						<div class="area">
 							<p class="btn01"><input type="button" value="수정" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingModify.do?c_number=${consultingmodel.c_number }'"></p>
 						<%-- 	<p class="btn02"><input type="button" value="삭제" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingDeletePro.do?c_number=${consultingmodel.c_number }'"></p> --%>
 							<p class="btn02"><input type="button" value="삭제" onclick="javascript:deletOk();"></p>
 						</div>
-						</c:if>
+						<%-- </c:if> --%>
 					</div>
 				</div>
 			

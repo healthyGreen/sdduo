@@ -57,7 +57,7 @@ public class MemberController {
 			session.setAttribute("session_admin", result.getM_admin());
 			session.setAttribute("session_member_coupon", result.getM_r_coupon());
 
-			mav.setViewName("myInfoView");
+			mav.setViewName("main");
 			return mav;
 		}
 
@@ -166,7 +166,7 @@ public class MemberController {
 		memberModel.getM_id();
 		// mav.addObject("member",memberModel);
 
-		mav.setViewName("myInfoView");
+		mav.setViewName("redirect:/member/myInfoView.do");
 		return mav;
 	}
 
@@ -307,9 +307,9 @@ public class MemberController {
 	public ModelAndView myInfoView(@ModelAttribute("member") MemberModel member, HttpServletRequest request,
 			HttpSession session) {
 		String id;
-		/*List<String> coupon = new ArrayList<String>();
 		id = session.getAttribute("session_member_id").toString();
 		member = memberService.getMember(id);
+		/*List<String> coupon = new ArrayList<String>();
 		coupon.add(0, "È¸¿ø°¡ÀÔ ±â³ä ÄíÆù");
 		if(member.getM_r_coupon()=="2"){
 			coupon.add(1, "¿Â¶óÀÎ ¿¹¾à ±â³ä ÄíÆù");
@@ -324,15 +324,16 @@ public class MemberController {
 	@RequestMapping("/myCoupon.do")
 	public ModelAndView myCoupon(MemberModel member, HttpSession session){
 		String id;
-		List<String> coupon = new ArrayList<String>();
+		//List<MemberModel> memberCoupon = new ArrayList<MemberModel>();
+		//List<String> coupon = new ArrayList<String>();
 		id = session.getAttribute("session_member_id").toString();
 		member = memberService.getMember(id);
-		coupon.add(0, "È¸¿ø°¡ÀÔ ±â³ä ÄíÆù");
-		if(member.getM_r_coupon()=="2"){
+		/*memberCoupon.s
+		if(member.getM_r_coupon().equals("2")){
 			coupon.add(1, "¿Â¶óÀÎ ¿¹¾à ±â³ä ÄíÆù");
-		}
+		}*/
 		mav.addObject("member", member);
-		mav.addObject("coupon", coupon);
+	//	mav.addObject("coupon", coupon);
 		mav.setViewName("myCoupon");
 		return mav;
 	}

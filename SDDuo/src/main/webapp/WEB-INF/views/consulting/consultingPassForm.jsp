@@ -41,18 +41,26 @@
 			<a href="./sub0202_01.html"><p class="reserv-btn">실시간예약 바로가기</p></a> 
 
 <script type="text/javascript">
-function checkLockPwd(form){
+ function checkLockPwd(form){
 	if(form.c_pass.value.trim().length != 4){
 		alert("비밀번호를 정확히 입력해주세요.");
 		form.c_pass.focus();
 		return;
 	}
-	form.c_pass.value = form.lock_pwd.value.trim()
+	form.c_pass.value = form.c_pass.value.trim()
 	form.action = "consultingPassPro.do";
 	form.submit();
-}
+} 
+/* function checkLockPwd(){
+	if(document.LockPwd.c_pass.value.trim().length != 4){
+		alert("비밀번호를 정확히 입력해주세요.");
+		form.c_pass.focus();
+		return false;
+	}else return;} */
+
 </script>
-			<form name="LockPwd" method="post">
+<%-- <form name="LockPwd" method="post" action="consultingPassPro.do" onsubmit="return checkLockPwd()"> --%>
+<form name="LockPwd" method="post">
 			<table class="write-board01">
 				<caption>비밀번호 확인</caption>
 				<tbody>
@@ -60,38 +68,19 @@ function checkLockPwd(form){
 						<th >비밀번호 확인 (4자리)</th>
 						<td >
 							<input type="hidden" value="${c_number}" name="c_number">
+							<%--  <input type="hidden" value="${c_ref}" name="c_ref"> --%>
 							<input type="password" name="c_pass" id="lock_pwd"  maxlength="4" style="IME-MODE: disabled;" class="writetxt03">
 						</td>
 					</tr>
 				</tbody>
 			</table>
-			</form>
-			
+				<!-- <input type="submit" value="확인"> -->
 			<div class="btn-area">
-				<input type="button" value="확인" class="submit" onclick="checkLockPwd(document.LockPwd);">
+		<!-- <input type="button" value="확인" class="submit" onclick="checkLockPwd(document.LockPwd);"> -->
+				<!-- <input type="button" value="확인" class="submit" onclick="checkLockPwd(document.LockPwd);"> -->
+				 <input type="button" value="확인" class="submit" onclick="checkLockPwd(document.LockPwd);">
 				<input type="button" value="취소" class="cancel" onclick="javascript:history.back(-1);">
 			</div>
-
-		</div>
-	</div>
-
-	
-<!-- </body> -->
-<!--  CPCGUARD SCRIPT V6.0 -->
-<script type="text/javascript">
-	(function(){
-		var _script = document.createElement("script"); _script.id= "include_cpc_script"; _script.type = "text/javascript"; _script.charset = "utf-8"; _script.async = true; _script.src = (document.location.protocol || "http:") + "//nsc1.cpcguard.com/new/cpc_script.js";
-		var _node = document.getElementsByTagName("script")[0]; _node.parentNode.insertBefore(_script, _node);
-	})();
-</script>
-<!-- CPCGUARD SCRIPT END -->
-<!-- 공통 적용 스크립트 , 모든 페이지에 노출되도록 설치. 단 전환페이지 설정값보다 항상 하단에 위치해야함 -->  
-<!-- <script type="text/javascript" src="http://wcs.naver.net/wcslog.js"></script> 
-<script type="text/javascript"> 
-	if (!wcs_add) var wcs_add={};
-	wcs_add["wa"] = "s_396e682114f3";
-	if (!_nasa) var _nasa={};
-	wcs.inflow("mystoryis.kr");
-	wcs_do(_nasa);
-</script> -->
+</form>
+			
 </html>

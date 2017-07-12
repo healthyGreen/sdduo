@@ -15,12 +15,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import sd.duo.common.Paging;
+import sd.duo.member.MemberModel;
+import sd.duo.member.MemberService;
 
 @Controller
 @RequestMapping(value = "/consulting")
 public class consultingController {
 	@Resource
 	public consultingService service;
+	@Resource
+	public MemberService memberService;
 	ModelAndView mv = new ModelAndView();
 
 	@RequestMapping(value = "/consultingForm.do")
@@ -34,15 +38,16 @@ public class consultingController {
 	@RequestMapping(value = "/consultingPassPro.do")
 	public ModelAndView consultingPassPro(HttpServletRequest request, consultingModel consultingmodel) {
 		consultingModel resultConsultingModel = new consultingModel();
-		// System.out.println(request.getParameter("c_number"));
-		// System.out.println(request.getParameter("c_pass"));
+		/*System.out.println(request.getParameter("c_number"));
+		System.out.println(request.getParameter("c_pass"));*/
 		consultingmodel.setC_number(Integer.parseInt(request.getParameter("c_number")));
+		//consultingmodel.setC_ref(Integer.parseInt(request.getParameter("c_ref")));
 		consultingmodel.setC_pass(request.getParameter("c_pass"));
 
 		resultConsultingModel = service.consultingPass(consultingmodel);
 		if (resultConsultingModel != null) {
 			int c_number = resultConsultingModel.getC_number();
-			mv.setViewName("redirect:/consulting/consultingView.do?c_number=" + c_number);
+			mv.setViewName("redirect:/consulting/consultingView.do?c_number="+ c_number);
 		} else {
 			mv.setViewName("consultingPassError");
 		}
@@ -52,7 +57,7 @@ public class consultingController {
 	@RequestMapping(value = "/consultingPassForm.do")
 	public ModelAndView consultingPassForm(HttpServletRequest request) {
 		int c_number = Integer.parseInt(request.getParameter("c_number"));
-		System.out.println(c_number);
+		//System.out.println(c_number);
 		mv.addObject("c_number", c_number);
 		mv.setViewName("consultingPassForm");
 		return mv;
@@ -232,15 +237,15 @@ public class consultingController {
 	@RequestMapping(value = "/consultingView.do")
 	public ModelAndView consultingView(HttpServletRequest request, consultingModel consultingmodel) {
 		int c_number = Integer.parseInt(request.getParameter("c_number"));
-		int c_ref = Integer.parseInt(request.getParameter("c_ref"));
+		//int c_ref = Integer.parseInt(request.getParameter("c_ref"));
 		
 		String isReply = null;
-		
+		/*if()
 		if(c_number!=c_ref) isReply = "reply"; 
-		else isReply = "noReply";
+		else isReply = "noReply";*/
 		
 		consultingmodel = service.consultingView(c_number);
-		mv.addObject("isReply", isReply);
+		//mv.addObject("isReply", isReply);
 		mv.addObject("consultingmodel", consultingmodel);
 		mv.setViewName("consultingView");
 		return mv;
@@ -253,7 +258,8 @@ public class consultingController {
 		String m_id = session.getAttribute("session_member_id").toString();
 		int currentPage = 0;
 		int totalCount = service.myTotalConsultingNum(m_id);
-		System.out.println(totalCount);
+		/*System.out.println(totalCount);
+		System.out.println("1");*/
 		int blockCount = 10;
 		int blockPage = 5;
 		int lastCount = totalCount;
@@ -271,10 +277,12 @@ public class consultingController {
 		String pagingHtml = page.getPagingHtml().toString();
 		totalPage = page.getTotalPage();
 		List<consultingModel> myConsultinglist = service.myConsultingList(m_id);
+		MemberModel m = memberService.getMember(m_id);
 		if (page.getEndCount() < totalCount) {
 			lastCount = page.getEndCount() + 1;
 		}
 		myConsultinglist = myConsultinglist.subList(page.getStartCount(), lastCount);
+		mv.addObject("member", m);
 		mv.addObject("totalCount", totalCount);
 		mv.addObject("totalPage", totalPage);
 		mv.addObject("myConsultinglist", myConsultinglist);
