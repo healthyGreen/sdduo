@@ -49,7 +49,7 @@
 								<li class="has-sub g5"><a href="/sub/sub05/sub0501.html">커뮤니티</a>
 									<div class="dropdown dropdown2">
 										<ul>
-											<li><a href="<%=request.getContextPath() %>/admin/adminNoticeList.do">공지사항</a></li>											
+											<li><a href="<%=request.getContextPath() %>/notice/NoticeList.do">공지사항</a></li>											
 										</ul>
 									</div>
 								</li>

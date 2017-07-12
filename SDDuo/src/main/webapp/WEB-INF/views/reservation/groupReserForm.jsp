@@ -47,8 +47,127 @@
 
 
  <body>
+ <div class="sub-content">
+            <div class="bg02area">
+               <p class="tit">예약/커뮤니티</p>
+            </div>
+            <div class="sub-content-inbox">
+               <ul class="sub-menu2">
+                  <li><a href="sub0201_list.html">온라인상담</a></li>
+                  <li class="act act2"><a href="sub0202_01.html">온라인 실시간예약</a></li>
+                  <li><a href="sub0203_list.html">마이스토리 공지사항</a></li>
+                  <li><a href=" sub0204_list.html">마이스토리 심리 컬럼</a></li>
+                  <li><a href="sub0205_list.html">책으로 만나는 심리이야기</a></li>
+                  <li class="last"><a href="sub0206_list.html">자주하는 질문</a></li>
+               </ul>
+               <h3>온라인 실시간예약</h3>
+               <p class="sub02_txt">
+                  마이스토리 심리상담센터는 예약상담으로만 운영되고 있으며 상담을 희망하시는 경우 반드시 예약 및 상담규정을 준수해야 합니다.<br />
+                  <span>온라인 예약을 하시면 상담 직원이 전화를 드리며 상담문의 내용 등을 확인 한 후 정확한 예약이 확정 됩니다.    </span><br />
+               </p>
 
 							<form name="reserAgree" action="GroupReserveForm.do" method="post">
+							<div class="step"><img src="/SDDuo/resources/images/sub/step1.gif"></div>
+               <div class="calarea">
+                  <div class="calleft">
+                     <p class="tit">원하시는 희망 예약날짜를 선택해 주세요</p>
+                     <script src="/SDDuo/resources/js/jquery.supercal.js"></script>
+                     <div class="example1" style="margin:0 auto"></div>
+                     <script>
+                        $('.example1').supercal({
+                           
+                        });
+                     </script>
+                     <tr>
+                                    <td colspan="3" height="15"></td>
+                                   </tr>
+                                   <tr>
+                                    <td valign="top" class="formtit"  style="color: #4f4f4f; font-size: 16px; line-height: 120%; padding-top: 10px;">예약일 선택&nbsp;</td>
+                                    <td align="center" width="4" ></td>
+                                    <td>
+                                       <select name="gr_year" class="form-control" style="width: 20%; display: inline-block;">
+                                       		<option value="">-선택하세요-</option>
+                                             <option value="2017">2017</option>
+                                             <option value="2018">2018</option>
+                                             <option value="2019">2019</option>
+                                             <option value="2020">2020</option>
+                                             <option value="2021">2021</option>
+                                             <option value="2022">2022</option>
+                                             <option value="2023">2023</option>
+                                             <option value="2024">2024</option>
+                                             <option value="2025">2025</option>
+                                             <option value="2026">2026</option>
+                                             <option value="2027">2027</option>
+                                             <option value="2028">2028</option>
+                                             <option value="2029">2029</option>
+                                             <option value="2030">2030</option>
+                                             <option value="2031">2031</option>
+                                             <option value="2032">2032</option>
+                                             <option value="2033">2033</option>
+                                             <option value="2034">2034</option>
+                                             <option value="2035">2035</option>
+                                          </select>
+                                          년&nbsp;&nbsp;
+
+                                          <select name="gr_month" class="form-control"  style="width: 20%; display: inline-block;">
+                                          	<option value="">-선택하세요-</option>
+                                             <option value="01">01</option>
+                                             <option value="02">02</option>
+                                             <option value="03">03</option>
+                                             <option value="04">04</option>
+                                             <option value="05">05</option>
+                                             <option value="06">06</option>
+                                             <option value="07">07</option>
+                                             <option value="08">08</option>
+                                             <option value="09">09</option>
+                                             <option value="10">10</option>
+                                             <option value="11">11</option>
+                                             <option value="12">12</option>
+                                          </select>
+                                          월&nbsp;&nbsp;
+                                          
+                                          <select name="gr_day" class="form-control"  style="width: 20%; display: inline-block;">
+                                          	<option value="">-선택하세요-</option>
+                                             <option value="01">01</option>
+                                             <option value="02">02</option>
+                                             <option value="03">03</option>
+                                             <option value="04">04</option>
+                                             <option value="05">05</option>
+                                             <option value="06">06</option>
+                                             <option value="07">07</option>
+                                             <option value="08">08</option>
+                                             <option value="09">09</option>
+                                             <option value="10">10</option>
+                                             <option value="11">11</option>
+                                             <option value="12">12</option>
+                                             <option value="13">13</option>
+                                             <option value="14">14</option>
+                                             <option value="15">15</option>
+                                             <option value="16">16</option>
+                                             <option value="17">17</option>
+                                             <option value="18">18</option>
+                                             <option value="19">19</option>
+                                             <option value="20">20</option>
+                                             <option value="21">21</option>
+                                             <option value="22">22</option>
+                                             <option value="23">23</option>
+                                             <option value="24">24</option>
+                                             <option value="25">25</option>
+                                             <option value="26">26</option>
+                                             <option value="27">27</option>
+                                             <option value="28">28</option>
+                                             <option value="29">29</option>
+                                             <option value="30">30</option>
+                                             <option value="31">31</option>
+                                             
+                                          </select>
+                                          일&nbsp;&nbsp;
+                                    </td>
+                                   </tr>
+                  </div>
+                  <div class="calright">
+                     <p class="tit">예약정보를 입력해 주세요</p>
+                     <p class="txt">왼쪽 달력에서 먼저 원하는 날짜를 선택 후 예약해주세요</p>
 							<div>
 									<table width="100%" border="0" cellspacing="0" cellpadding="0">
 									  <tr>

@@ -98,6 +98,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		order by pr_number DESC 
 	</select>
 	
+	<select id="myGroupReserList" parameterType="String" resultMap="GroupReserRes">
+		<include refid="grSelect_All" />
+		where m_id = #{m_id}
+		order by gr_number DESC 
+	</select>
+	
 	<!-- 개인예약 수정 -->
 	<update id="OneReserModify" parameterType="OneReserModel">
 		update f_reservation
