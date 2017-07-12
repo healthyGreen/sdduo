@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -11,14 +11,14 @@
 </head>
 <body>
 
-<p class="onlinetit">¿Â¶óÀÎ ½Ç½Ã°£ ¿¹¾àÇöÈ²
+<p class="onlinetit">ì˜¨ë¼ì¸ ì‹¤ì‹œê°„ ì˜ˆì•½í˜„í™©
 			</p>
 <div class="resev-box">
-				<p class="listnum">ÃÑ <span>${ list.size() }</span>°Ç 1/57</p>
+				<p class="listnum">ì´ <span>${ list.size() }</span>ê±´ 1/57</p>
 			</div>
 <div class="onlinetb">
 				<table class="list-board01">
-					<caption>»ó´ã¹®ÀÇ ¸®½ºÆ®</caption>
+					<caption>ìƒë‹´ë¬¸ì˜ ë¦¬ìŠ¤íŠ¸</caption>
 					<colgroup>
 						<col width="113px">
 						<col width="225px">
@@ -29,12 +29,12 @@
 					</colgroup>
 					<thead>
 						<tr>
-							<th>¹øÈ£</th>
-							<th>µî·ÏÀÏ</th>
-							<th>½ÅÃ»ÀÚ</th>
-							<th>°í°´Èñ¸ÁÀÏÀÚ</th>
-							<th>Èñ¸Á¼¾ÅÍ</th>
-							<th>´äº¯»óÅÂ</th>
+							<th>ë²ˆí˜¸</th>
+							<th>ë“±ë¡ì¼</th>
+							<th>ì‹ ì²­ìž</th>
+							<th>ê³ ê°í¬ë§ì¼ìž</th>
+							<th>í¬ë§ì„¼í„°</th>
+							<th>ë‹µë³€ìƒíƒœ</th>
 						</tr>
 					</thead>
 					
@@ -51,15 +51,15 @@
                      				<c:choose>
 
                            				<c:when test="${list.pr_center eq '1'}">
-                                			 ¼­¿ï¼¾ÅÍ
+                                			 ì„œìš¸ì„¼í„°
                            				</c:when>
                            
                           			 	<c:when test="${list.pr_center eq '2'}">
-                               				  ´ë±¸¼¾ÅÍ
+                               				  ëŒ€êµ¬ì„¼í„°
                            				</c:when>
                            				
                            				<c:when test="${list.pr_center eq '3'}">
-                                			 ºÎ»ê¼¾ÅÍ
+                                			 ë¶€ì‚°ì„¼í„°
                            				</c:when>
                            			</c:choose>
 
@@ -69,11 +69,11 @@
                      				<c:choose>
 
                            				<c:when test="${list.pr_status eq '0'}">
-                                			 ¿¹¾à´ë±â
+                                			 ì˜ˆì•½ëŒ€ê¸°
                            				</c:when>
                            
                           			 <c:when test="${list.pr_status ne '0'}">
-                               				  ¿¹¾à¿Ï·á
+                               				  ì˜ˆì•½ì™„ë£Œ
                            				</c:when>
                            			</c:choose>
 
@@ -90,7 +90,7 @@
 			
 			<c:if test="${fn:length(list) le 0}">
 				<br />
-				<center>µî·ÏµÈ °Ô½Ã¹°ÀÌ ¾ø½À´Ï´Ù</center>
+				<center>ë“±ë¡ëœ ê²Œì‹œë¬¼ì´ ì—†ìŠµë‹ˆë‹¤</center>
 				<br />
 			</c:if>
 
