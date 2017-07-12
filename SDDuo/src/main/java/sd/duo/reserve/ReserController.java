@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import sd.duo.member.MemberModel;
 import sd.duo.member.MemberService;
 import sd.duo.common.Paging;
 import javax.servlet.http.HttpSession;
@@ -183,6 +185,8 @@ public class ReserController {
 			public ModelAndView myReserList(OneReserModel oneReserMoedel, HttpServletRequest request,
 					HttpSession session) {
 				String m_id = session.getAttribute("session_member_id").toString();
+				MemberModel m = new MemberModel();//단
+	            m=memberService.getMember(m_id);//단
 				int currentPage = 0;
 				int totalCount = reserService.myTotalReserNum(m_id);
 				int blockCount = 10;
@@ -202,17 +206,21 @@ public class ReserController {
 				String pagingHtml = page.getPagingHtml().toString();
 				totalPage = page.getTotalPage();
 				List<OneReserModel> myOneReserlist = reserService.myOneReserList(m_id);
+				List<GroupReserModel> myGroupReserlist = reserService.myGroupReserList(m_id);
 				if (page.getEndCount() < totalCount) {
 					lastCount = page.getEndCount() + 1;
 				}
 				myOneReserlist = myOneReserlist.subList(page.getStartCount(), lastCount);
+				myGroupReserlist = myGroupReserlist.subList(page.getStartCount(), lastCount);
 				mv.addObject("totalCount", totalCount);
 				mv.addObject("totalPage", totalPage);
 				mv.addObject("list", myOneReserlist);
+				mv.addObject("list2", myGroupReserlist);
 				mv.addObject("currentPage", currentPage);
 				mv.addObject("blockPage", blockPage);
 				mv.addObject("listOrder", listOrder);
 				mv.addObject("html", pagingHtml);
+				mv.addObject("member", m); //단
 				mv.setViewName("myReserList");
 				return mv;
 			}

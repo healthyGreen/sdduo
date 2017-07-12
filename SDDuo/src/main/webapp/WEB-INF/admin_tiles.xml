@@ -33,6 +33,31 @@
       <put-attribute name="adminContainer" value="/WEB-INF/views/admin/adminOneReserView.jsp" />
    </definition>
    
+    <!-- 관리자 입장 온라인상담 목록보기 -->
+    <!--   <definition name="adminConsultingList"  template="/WEB-INF/views/common/adminLayout.jsp">
+      <put-attribute name="adminLeft" value="/WEB-INF/views/common/adminLeft.jsp" />
+      <put-attribute name="adminContainer" value="/WEB-INF/views/admin/adminConsultingList.jsp" />
+   </definition> -->
+<definition name="adminConsultingList"  extends="adminMemberList">
+      <put-attribute name="adminContainer" value="/WEB-INF/views/admin/adminConsultingList.jsp" />
+   </definition>
+   <definition name="adminConsultingNoReplyList"  extends="adminMemberList">
+      <put-attribute name="adminContainer" value="/WEB-INF/views/admin/adminConsultingNoReplyList.jsp" />
+   </definition>
+   <definition name="adminConsultingReplyOkList"  extends="adminMemberList">
+      <put-attribute name="adminContainer" value="/WEB-INF/views/admin/adminConsultingReplyOkList.jsp" />
+   </definition>
+   
+   <!-- 관리자 입장 온라인상담 상세보기 -->
+   <definition name="adminConsultingView"  extends="adminMemberList">
+      <put-attribute name="adminContainer" value="/WEB-INF/views/admin/adminConsultingView.jsp" />
+   </definition>
+   
+   <!-- 관리자 입장 온라인상담 글쓰기 -->
+   <definition name="adminConsultingReForm"  extends="adminMemberList">
+      <put-attribute name="adminContainer" value="/WEB-INF/views/admin/adminConsultingReForm.jsp" />
+   </definition>
+   
    <!-- 관리자 입장 그룹예약 상세보기 -->
    <definition name="adminGroupReserView"  template="/WEB-INF/views/common/adminLayout.jsp">
       <put-attribute name="adminLeft" value="/WEB-INF/views/common/adminLeft.jsp" />

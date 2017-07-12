@@ -7,7 +7,7 @@
 <script type="text/javascript">
 	function deletOk() {
 		if(confirm("삭제하시겠습니까?")){
-			window.location.href='consultingDeletePro.do?c_number=${consultingmodel.c_number}';
+			window.location.href='consultingDeletePro.do?c_number=${consultingmodel.c_number}&c_ref=${consultingmodel.c_ref}';
 		}else{
 			alert("취소되었습니다.");
 		}
@@ -23,7 +23,7 @@
 						답변 순서는 각 센터별 전문가 선생님들의 여건에 따라 달라질 수 있음을 양해해 주시기 바랍니다.</span><br />
 					</p>
 					<div class="resev-box">
-						<p class="listnum">총 <span>88</span>건 1/9</p>
+					<!-- 	<p class="listnum">총 <span>88</span>건 1/9</p> -->
 						<p class="reserv-btn">실시간예약 바로가기</p>
 					</div>
 					<table width="100%" class="view-board01">
@@ -67,7 +67,7 @@ ${consultingmodel.c_content }
 								<c:param name="c_ref" value="${consultingmodel.c_ref }"/>
 								<c:param name="c_number" value="${consultingmodel.c_number }"/>
 							</c:url>
-					<c:if test="${session_admin==1 }"> 
+					<c:if test="${!consultingmodel.m_id.equals('admin') }"> 
 							<a href="${replyURL}" class="storywrite1">답변달기</a> 
 					</c:if> 
  			<%-- 	</c:if> --%>
@@ -83,5 +83,4 @@ ${consultingmodel.c_content }
 				</div>
 			
 
- </body>
 

@@ -7,9 +7,9 @@ public class GroupReserModel {
 	int gr_number;
 	String gr_hour;
 	String gr_minute;
-	String gr_year="2017";
-	String gr_month="07";
-	String gr_day="04";
+	String gr_year;
+	String gr_month;
+	String gr_day;
 	String gr_center;
 	String m_id;
 	String gr_group;

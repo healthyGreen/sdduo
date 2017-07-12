@@ -12,14 +12,14 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
+                           <!--  <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" placeholder="Search...">
                                 <span class="input-group-btn">
                                 <button class="btn btn-default" type="button">
                                     <i class="fa fa-search"></i>
                                 </button>
                             </span>
-                            </div>
+                            </div> -->
                             <!-- /input-group -->
                         </li>
                         <li>
@@ -38,8 +38,18 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>&nbsp온라인상담 관리</a>
-                            
+                            <a href="<%=request.getContextPath()%>/admin/adminConsultingNoReplyList.do"><i class="fa fa-bar-chart-o fa-fw"></i>&nbsp온라인상담 관리</a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<%=request.getContextPath()%>/admin/adminConsultingNoReplyList.do">답글 대기중 글들</a>
+                                </li>
+                                <li>
+                                    <a href="<%=request.getContextPath()%>/admin/adminConsultingReplyOkList.do">답글 확인된 글들</a>
+                                </li>
+								<li>
+                                    <a href="<%=request.getContextPath()%>/admin/adminConsultingList.do">전체 글들</a>
+                                </li>
+							</ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>

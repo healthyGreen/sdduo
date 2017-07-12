@@ -129,6 +129,9 @@ public class consultingController {
 	@RequestMapping(value = "/consultingReply.do")
 	public ModelAndView consultingReply(@ModelAttribute("consulting") consultingModel consultingmodel,
 			HttpServletRequest request) {
+		/*if(request.getParameter("c_re_status").equals('2')){
+			mv.setViewName(viewName);
+		}*/
 		// int c_ref = Integer.parseInt(request.getParameter("c_ref"));
 		int c_number = Integer.parseInt(request.getParameter("c_number"));
 		String state = "reply";
@@ -229,7 +232,9 @@ public class consultingController {
 	@RequestMapping(value = "/consultingDeletePro.do")
 	public ModelAndView consultingDeletePro(HttpServletRequest request, consultingModel consultingmodel) {
 		int c_number = Integer.parseInt(request.getParameter("c_number"));
+		int c_ref = Integer.parseInt(request.getParameter("c_ref"));
 		service.deleteConsulting(c_number);
+		service.changeState(c_ref);
 		mv.setViewName("redirect:/consulting/consultingList.do");
 		return mv;
 	}
@@ -255,7 +260,7 @@ public class consultingController {
 	@RequestMapping(value = "/myConsultingList.do")
 	public ModelAndView myConsultingList(consultingModel consultingmodel, HttpServletRequest request,
 			HttpSession session) {
-		String m_id = session.getAttribute("session_member_id").toString();
+		String m_id = (String)session.getAttribute("session_member_id");
 		int currentPage = 0;
 		int totalCount = service.myTotalConsultingNum(m_id);
 		/*System.out.println(totalCount);

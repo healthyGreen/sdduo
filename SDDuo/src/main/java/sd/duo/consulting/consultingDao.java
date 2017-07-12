@@ -14,4 +14,5 @@ public interface consultingDao {
 	int totalConsultingNum();
 	List<consultingModel> myConsultingList(String m_id);
 	int myTotalConsultingNum(String m_id);
+	int changeState(int c_ref);
 }

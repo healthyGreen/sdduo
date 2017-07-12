@@ -36,8 +36,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update f_consulting set c_title=#{c_title}, c_content=#{c_content} where c_number=#{c_number}
 	</update>
 	
+	<update id="changeState" parameterType="int">
+		update f_consulting set c_re_status=1 where c_ref=#{c_ref}
+	</update>
+	
 	<select id="consultingList" resultType="consultingModel">
 		select * from f_consulting order by c_ref desc, c_re_status asc
+	</select>
+	
+	<select id="ReplyOkList" resultType="consultingModel">
+		select * from f_consulting where c_re_status=2 or c_re_status=3 order by c_ref desc, c_re_status asc
+	</select>
+	
+	<select id="noReplyList" resultType="consultingModel">
+		select * from f_consulting where c_re_status=1 order by c_ref desc
 	</select>
 	
 	<select id="consultingPass" resultType="consultingModel" parameterType="consultingModel">
@@ -51,6 +63,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="totalConsultingNum" resultType="int">
 		select count(*) from f_consulting
 	</select>
+	<select id="totalNoReply" resultType="int">
+		select count(*) from f_consulting where c_re_status=1
+	</select>
+	<select id="totalReplyOk" resultType="int">
+		select count(*) from f_consulting where c_re_status=2 or c_re_status=3
+	</select>
 	
 	<select id="myConsultingList" parameterType="string" resultType="consultingModel">
 		select * from f_consulting where m_id = #{m_id} order by c_ref desc, c_re_status asc
@@ -63,4 +81,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="deleteConsulting" parameterType="int">
 		delete f_consulting where c_number = #{c_number}
 	</delete>
+	
 </mapper>

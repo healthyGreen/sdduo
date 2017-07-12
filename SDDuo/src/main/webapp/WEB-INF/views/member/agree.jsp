@@ -1,10 +1,43 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <% String cp = request.getContextPath(); %>
 
+<script>
+function check_agreement(){
+	var joinCheck = document.getElementById("joinCheck");
+
+	if(joinCheck.elements["agreement[]"][0].checked == false){
+		alert("이용약관의 동의하셔야 합니다.");
+		frm.elements["agreement[]"][0].focus();
+		return;
+	}else if(joinCheck.elements["agreement[]"][1].checked == false){
+		alert("개인정보취급방침에 동의하셔야 합니다.");
+		joinCheck.elements["agreement[]"][1].focus();
+		return;
+	}
+
+	joinCheck.method = "post";
+	joinCheck.action = "joinForm.do";
+	joinCheck.submit();
+}
+
+function all_check(_this, chk_name){
+	var chks = document.getElementsByName(chk_name);
+
+	for(var i=0; i<chks.length; i+2){
+		chks[i].checked = _this.checked;
+	}
+}
+
+function cancel(){
+	alert("약관의 동의하셔야 회원가입이 가능합니다.");
+	document.joinCheck.action = "/main.do";
+	document.joinCheck.submit();
+}
+</script>
 
 
  <body>
-<form name='joinCheck' action="joinForm.do">
+<form id= "joinCheck" name='joinCheck' action="joinForm.do">
          
             <div class="sub-content-inbox">
                
@@ -361,8 +394,8 @@
 (시행일) 이 약관은 2015년 11월 12일부터 시행합니다.<br>
                </div>
                <ul class="clause-radio">
-                  <li><input type="radio" class="radioCheck" title="" value="Y" id="agree1_ok" name="agreement[]"><label for="agree1_ok">동의함</label></li>
-                  <li><input type="radio" class="radioCheck" title="" value="N" id="agree1_no" name="agreement[]"><label for="agree1_no">동의하지 않음</label></li>
+                  <li><input type="radio" class="checkbox" title="" value="Y" id="agree1_ok" name="agreement[]"><label for="agree1_ok">동의함</label></li>
+                  <li><input type="radio" class="checkbox" title="" value="N" id="agree1_no" name="agreement[]"><label for="agree1_no">동의하지 않음</label></li>
                </ul>
             </div>
             <div class="clause-box">
@@ -379,15 +412,33 @@
 필수항목 : 회사명, 사업자등록번호, 아이디, 비밀번호, 회사명, 담당자명, 담당자 이메일, 담당자 연락처<br>
 ο 서비스 이용과정에서 아래와 같은 정보들이 자동으로 생성되어 수집될 수 있습니다.<br>
 - IP ADRESS, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록<br>
-ο 개인정보 수집방법 : 홈페이지 회원가입
+ο 개인정보 수집방법 : 홈페이지 회원가입<br>
+<br>
+[개인정보의 수집 및 이용목적]<br><br>
+                              회사는 수집한 개인정보를 다음의 목적을 위해 활용합니다.<br>
+ο 서비스 제공에 관한 계약 이행 및 서비스 제공에 따른 요금정산 <br>
+콘텐츠 제공 , 구매 및 요금 결제 , 물품배송 또는 청구지 등 발송 , 금융거래 본인 인증 및 금융 서비스 , 요금추심<br>
+ο 회원 관리 <br>
+회원제 서비스 이용에 따른 본인확인 , 불량회원의 부정 이용 방지와 비인가 사용 방지 , 가입 의사 확인 , 연령확인, 불만처리 등 민원처리 <br>
+ο 마케팅 및 광고에 활용 <br>
+접속 빈도 파악 또는 회원의 서비스 이용에 대한 통계<br>
+<br>
+[개인정보의 보유 및 이용기간]<br><br>
+                              원칙적으로, 개인정보 수집 및 이용목적이 달성된 후에는 해당 정보를 지체 없이 파기합니다. 단, 상법, 전자상거래 등에서의 소비자보호에 관한 법률 등 관계법령의 규정에 의하여 보존할 필요가 있는 경우 회사는 관계법령에서 정한 일정한 기간 동안 회원정보를 보관합니다. 이 경우 회사는 보관하는 정보를 그 보관의 목적으로만 이용하며 보존기간은 아래와 같습니다.<br>
+- 계약 또는 청약철회 등에 관한 기록 : 5년 (전자상거래등에서의 소비자보호에 관한 법률) <br>
+- 대금결제 및 재화 등의 공급에 관한 기록 : 5년 (전자상거래등에서의 소비자보호에 관한 법률) <br>
+- 소비자의 불만 또는 분쟁처리에 관한 기록 : 3년 (전자상거래등에서의 소비자보호에 관한 법률) <br>
+- 신용정보의 수집/처리 및 이용 등에 관한 기록 : 3년 (신용정보의 이용 및 보호에 관한 법률) <br>
+- 본인확인에 관한 기록 : 6개월 (정보통신망 이용촉진 및 정보보호 등에 관한 법률) <br>
+- 웹사이트 방문 기록 : 3개월 (통신비밀보호법)
                            </div>
 
                <ul class="clause-radio">
-                  <li><input type="radio" class="radioCheck" title="" name="agreement[]" value="1" /><label for="agree2_yes">동의함</label></li>
-                  <li><input type="radio" class="radioCheck" title="" value="N" id="agree2_no" name="agreement[]"><label for="agree2_no">동의하지 않음</label></li>
+                  <li><input type="radio" class="checkbox" title="" name="agreement[]" value="Y" id="agree2_no" /><label for="agree2_yes">동의함</label></li>
+                  <li><input type="radio" class="checkbox" title="" value="N" id="agree2_no" name="agreement[]"><label for="agree2_no">동의하지 않음</label></li>
                </ul>
             </div>
-            <div class="clause-box">
+            <!-- <div class="clause-box">
                <p class="title2-sub">개인정보의 수집 및 이용목적</p>
                <div class="clause-txt-box">
                               회사는 수집한 개인정보를 다음의 목적을 위해 활용합니다.<br>
@@ -420,16 +471,16 @@
                   <li><input type="radio" class="radioCheck" title="" value="Y" id="agree4_ok" name="agreement[]"><label for="agree4_ok">동의함</label></li>
                   <li><input type="radio" class="radioCheck" title="" value="N" id="agree4_no" name="agreement[]"><label for="agree4_no">동의하지 않음</label></li>
                </ul>
-            </div>
+            </div> -->
             <div class="join-check-center">
             <span class="chk_grp">
-               <input type="checkbox" id="allChk1" onclick="all_check(this, 'joinCheck')" value="Y "> <label for="allChk1">이용약관, 개인정보처리방침에 모두 동의합니다.</label>
+               <input type="checkbox" id="allChk1" onclick="all_check(this, 'agreement[]')" value="Y "> <label for="allChk1">이용약관, 개인정보처리방침에 모두 동의합니다.</label>
             </div>
             <div class="join-conf-btn">
                <ul>
-               <button type="button" onclick="this.form.submit();" class="btn btn-primary">확인</button>
+               <button type="button" onclick="check_agreement()" class="btn btn-primary">확인</button>
                   <!-- <li><input type="button" class="submit" title="" value="확인" name="" onclick="joinCheck"></li> -->
-                  <li><input type="button" class="cancel" title="" value="취소" name="" onclick="jQuery.cancel();"></li>
+                  <li><input type="button" class="cancel" title="" value="취소" name="" onclick="cancel()"></li>
                </ul>
             </div>
          </div>

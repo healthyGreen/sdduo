@@ -43,7 +43,7 @@ public class ReserService implements ReserDAO{
 	}
 	
 	@Override
-	public List<OneReserModel> myGroupReserList(String m_id) {
+	public List<GroupReserModel> myGroupReserList(String m_id) {
 	   // TODO Auto-generated method stub
 	   return sqlSessionTemplate.selectList("reserve.myGroupReserList", m_id);
 	}
