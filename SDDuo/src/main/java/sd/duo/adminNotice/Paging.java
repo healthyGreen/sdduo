@@ -51,11 +51,11 @@ public class Paging {
 
 		// 이전 block 페이지
 		pagingHtml = new StringBuffer();
-		if (currentPage > blockPage) {
-			pagingHtml.append("<a class='page prv' href=" + name + ".do?currentPage=" + (startPage - 1) + ">");
-			pagingHtml.append("&lt;");
-			pagingHtml.append("</a>");
-		}
+			if (currentPage > blockPage) {
+				pagingHtml.append("<a class='page prv' href=" + name + ".do?currentPage=" + (startPage - 1) + ">");
+				pagingHtml.append("&lt;");
+				pagingHtml.append("</a>");
+			}
 
 		//페이지 번호.현재 페이지는 빨간색으로 강조하고 링크를 제거.
 		for (int i = startPage; i <= endPage; i++) {
@@ -63,7 +63,7 @@ public class Paging {
 				break;
 			}
 			if (i == currentPage) {
-				pagingHtml.append("<strong>");
+				pagingHtml.append("<strong class='current'>");
 				pagingHtml.append(i);
 				pagingHtml.append("</strong>");
 			} else {
@@ -127,7 +127,7 @@ public class Paging {
 				break;
 			}
 			if(i == currentPage){
-				pagingHtml.append("<strong>");
+				pagingHtml.append("<strong class='current'>");
 				pagingHtml.append(i);
 				pagingHtml.append("</strong>");
 			}
