@@ -70,7 +70,8 @@ public class consultingController {
 		// consultingmodel.setC_re_status(1); // 답변상태 아직 안달린 상태
 
 		//new consultingValidator22().validate(consultingmodel, result);
-
+		String who = request.getParameter("who");
+		
 		int c_ref = consultingmodel.getC_ref();
 		int c_number = consultingmodel.getC_number();
 		consultingModel c = new consultingModel();
@@ -110,7 +111,11 @@ public class consultingController {
 				//consultingmodel.setM_id("Asd"); // 차후에 로그인 되면 session값으로 바꿀고임
 				service.insertConsulting(consultingmodel);
 			}
+			if(who != null){
+				mv.setViewName("redirect:/admin/adminConsultingList.do");
+			}else{
 			mv.setViewName("redirect:/consulting/consultingList.do");
+			}
 			return mv;
 		}
 

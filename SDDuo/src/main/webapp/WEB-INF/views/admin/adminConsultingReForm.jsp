@@ -11,7 +11,7 @@
 				</caption>
 			<spring:hasBindErrors name="consulting" />
 			<form:errors path="consulting" /> 
-				<form:form commandName="consulting" action="consultingPro.do">
+				<form:form commandName="consulting" action="/consulting/consultingPro.do">
 					<table class="write-board01">
 						<tbody>
 							<tr>
@@ -22,7 +22,7 @@
 								<%-- 	<c:if test="${state.equals('reply')}"> --%>
 										<input type="text" class="writetxt01" name="c_title" size="20"
 											value="[´äº¯]${consultingmodel.c_title }">
-											<!-- <input type="hidden" value="admin"> -->
+											<input type="hidden" value="Admin" name="who">
 										<form:errors path="c_title" />
 									<%-- </c:if>  --%>
 									<%-- <c:if test="${state.equals('noting')}"> --%>
