@@ -74,15 +74,15 @@
                                           년&nbsp;&nbsp;
 
                                           <select id="pr_month" name="pr_month" class="form-control"  style="width: 20%; display: inline-block;">
-                                             <option value="1" ${OneReserModel.pr_month eq "1" ? "selected" :""}>1</option>
-                                             <option value="2" ${OneReserModel.pr_month eq "2" ? "selected" :""}>2</option>
-                                             <option value="3" ${OneReserModel.pr_month eq "3" ? "selected" :""}>3</option>
-                                             <option value="4" ${OneReserModel.pr_month eq "4" ? "selected" :""}>4</option>
-                                             <option value="5" ${OneReserModel.pr_month eq "5" ? "selected" :""}>5</option>
-                                             <option value="6" ${OneReserModel.pr_month eq "6" ? "selected" :""}>6</option>
-                                             <option value="7" ${OneReserModel.pr_month eq "7" ? "selected" :""}>7</option>
-                                             <option value="8" ${OneReserModel.pr_month eq "8" ? "selected" :""}>8</option>
-                                             <option value="9" ${OneReserModel.pr_month eq "9" ? "selected" :""}>9</option>
+                                             <option value="01" ${OneReserModel.pr_month eq "01" ? "selected" :""}>01</option>
+                                             <option value="02" ${OneReserModel.pr_month eq "02" ? "selected" :""}>02</option>
+                                             <option value="03" ${OneReserModel.pr_month eq "03" ? "selected" :""}>03</option>
+                                             <option value="04" ${OneReserModel.pr_month eq "04" ? "selected" :""}>04</option>
+                                             <option value="05" ${OneReserModel.pr_month eq "05" ? "selected" :""}>05</option>
+                                             <option value="06" ${OneReserModel.pr_month eq "06" ? "selected" :""}>06</option>
+                                             <option value="07" ${OneReserModel.pr_month eq "07" ? "selected" :""}>07</option>
+                                             <option value="08" ${OneReserModel.pr_month eq "08" ? "selected" :""}>08</option>
+                                             <option value="09" ${OneReserModel.pr_month eq "09" ? "selected" :""}>09</option>
                                              <option value="10" ${OneReserModel.pr_month eq "10" ? "selected" :""}>10</option>
                                              <option value="11" ${OneReserModel.pr_month eq "11" ? "selected" :""}>11</option>
                                              <option value="12" ${OneReserModel.pr_month eq "12" ? "selected" :""}>12</option>
@@ -90,15 +90,15 @@
                                           월&nbsp;&nbsp;
                                           
                                           <select id="pr_day" name="pr_day" class="form-control"  style="width: 20%; display: inline-block;">
-                                             <option value="1" ${OneReserModel.pr_day eq "1" ? "selected" :""}>1</option>
-                                             <option value="2" ${OneReserModel.pr_day eq "2" ? "selected" :""}>2</option>
-                                             <option value="3" ${OneReserModel.pr_day eq "3" ? "selected" :""}>3</option>
-                                             <option value="4" ${OneReserModel.pr_day eq "4" ? "selected" :""}>4</option>
-                                             <option value="5" ${OneReserModel.pr_day eq "5" ? "selected" :""}>5</option>
-                                             <option value="6" ${OneReserModel.pr_day eq "6" ? "selected" :""}>6</option>
-                                             <option value="7" ${OneReserModel.pr_day eq "7" ? "selected" :""}>7</option>
-                                             <option value="8" ${OneReserModel.pr_day eq "8" ? "selected" :""}>8</option>
-                                             <option value="9" ${OneReserModel.pr_day eq "9" ? "selected" :""}>9</option>
+                                             <option value="01" ${OneReserModel.pr_day eq "01" ? "selected" :""}>01</option>
+                                             <option value="02" ${OneReserModel.pr_day eq "02" ? "selected" :""}>02</option>
+                                             <option value="03" ${OneReserModel.pr_day eq "03" ? "selected" :""}>03</option>
+                                             <option value="04" ${OneReserModel.pr_day eq "04" ? "selected" :""}>04</option>
+                                             <option value="05" ${OneReserModel.pr_day eq "05" ? "selected" :""}>05</option>
+                                             <option value="06" ${OneReserModel.pr_day eq "06" ? "selected" :""}>06</option>
+                                             <option value="07" ${OneReserModel.pr_day eq "07" ? "selected" :""}>07</option>
+                                             <option value="08" ${OneReserModel.pr_day eq "08" ? "selected" :""}>08</option>
+                                             <option value="09" ${OneReserModel.pr_day eq "09" ? "selected" :""}>09</option>
                                              <option value="10" ${OneReserModel.pr_day eq "10" ? "selected" :""}>10</option>
                                              <option value="11" ${OneReserModel.pr_day eq "11" ? "selected" :""}>11</option>
                                              <option value="12" ${OneReserModel.pr_day eq "12" ? "selected" :""}>12</option>
