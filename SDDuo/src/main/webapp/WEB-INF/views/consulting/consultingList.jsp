@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 
@@ -16,7 +16,8 @@
 					</p>
 					<div class="resev-box">
 				<p class="listnum">총 <span>${totalCount }</span>건</p>
-						<p class="reserv-btn">실시간예약 바로가기</p>
+						<p class="reserv-btn" onclick="location.href='<%=request.getContextPath()%>/Reserve/OneReserveForm.do'">
+						<%-- <input type="button" onclick="location.href='<%=request.getContextPath()%>/Reserve/OneReserveForm.do'"> --%>실시간예약 바로가기</p>
 					</div>
 					
 					<table class="list-board01">
@@ -24,6 +25,7 @@
 							<col width="110px">
 							<col width="">
 							<col width="100px">
+					 		<col width="250px"> 
 							<col width="200px">
 						</colgroup>
 						<tbody>
@@ -36,6 +38,7 @@
 								<th>번호</th>
 								<th>제목</th>
 								<th>작성자</th>
+								<th>작성일</th> 
 								<th>답변상태</th>
 								
 							</tr>
@@ -74,12 +77,14 @@
 								
 								</td>
 								<th>${list.m_id }</th>
+								<th><fmt:formatDate value="${list.c_date }" pattern="yyyy.MM.dd"/></th> 
+							
 								<th><p class="finish">
 								<c:if test="${list.c_re_status==1}">
 								답변 대기중
 								</c:if>
 								<c:if test="${list.c_re_status==2 }">
-								상담글 확인
+								★확인★
 								</c:if>
 								<c:if test="${list.c_re_status==3 }">
 								<font color="red">답변글</font>

@@ -9,22 +9,25 @@
 <title>나의 상담 내역</title>
 </head>
 <body>
+<div class="sub-content">
+				<div class="sub-content-inbox">
 <div class="sub-top">
 	<h2>나의 상담 내역</h2>
-</div>
-<div class="leftbox">
-	<div class="tit"><span>MY</span> PAGE</div>
-	<dl class="mlist">
-		<dt><a href="<%=request.getContextPath() %>/member/myInfoView.do">나의 정보 수정/탈퇴</a></dt>
-		<dt><a href="<%=request.getContextPath() %>/Reserve/myReserList.do">예약 현황</a></dt>
-		<dt><a href="<%=request.getContextPath() %>/consulting/myConsultingList.do">상담 내역</a></dt>
-		<dt>나의 자가 진단</dt>
-		<dt><a href="<%=request.getContextPath() %>/member/myCoupon.do">쿠폰함(${member.m_r_coupon}개)</a></dt>
-	</dl>
-</div>
-<div class="sub-content">
-			
-				<div class="sub-content-inbox">
+</div><br>
+
+<div class="sub-cont clear">
+						<div class="sub-cont-inbox">
+							<div class="leftbox">
+								<div class="tit"><span>MY</span> PAGE</div>
+									<dl class="mlist">
+										<dt><a href="<%=request.getContextPath() %>/member/myInfoView.do">나의 정보 수정/탈퇴</a></dt>
+										<dt><a href="<%=request.getContextPath() %>/Reserve/myReserList.do">예약 현황</a></dt>
+										<dt><a>온라인 상담 내역</a></dt>
+										<dt>나의 자가 진단</dt>
+										<dt><a href="<%=request.getContextPath() %>/member/myCoupon.do">쿠폰함(${member.m_r_coupon}개)</a></dt>
+									</dl>
+								</div>
+							</div>
 					
 					<!-- <h3>온라인 상담</h3>
 					<p class="sub02_txt">
@@ -42,9 +45,7 @@
 							<col width="110px">
 							<col width="">
 							<col width="100px">
-							<col width="120px">
-							<col width="85px">
-							<col width="135px">
+							<col width="200px">
 						</colgroup>
 						<tbody>
 							<tr>
@@ -59,22 +60,27 @@
 							<c:url var="passURL" value="consultingPassForm.do">
 								<c:param name="c_number" value="${list.c_number }"/>
 							</c:url>	
-							<c:url var="viewURL" value="consultingView.do">
+						<%-- 	<c:url var="viewURL" value="consultingView.do">
 								<c:param name="c_number" value="${list.c_number }"/>
-			<%-- 				<%— 	<c:param name="c_ref" value="${list.c_ref }"/> —%> --%>
-							</c:url>
+								<c:param name="c_ref" value="${list.c_ref }"/>
+							</c:url> --%>
 							<tr>
 								<th><%= number++%></th>
 								<th class="subject">
-								<c:if test="${session_member_id != 1 }">
-									<a href="${passURL}"><img src="../../images/sub/lock.gif" alt="자물쇠" class="lock">${list.c_title }</a>
-								</c:if>
-								<c:if test="${session_member_id == 1 }">
-									<a href="${viewURL}">${list.c_title }</a>
-								</c:if>
+									<a href="${passURL}"><!-- <img src="../../images/sub/lock.gif" alt="자물쇠" class="lock"> --><b>↘[♨비밀글]</b> ${list.c_title }</a>
 								</th>
 								<th>${list.m_id }</th>
-								<th><p class="finish">${list.c_re_status }</p></th>
+								<th><p class="finish">
+								<c:if test="${list.c_re_status==1}">
+								답변 대기중
+								</c:if>
+								<c:if test="${list.c_re_status==2 }">
+								상담글 확인
+								</c:if>
+								<c:if test="${list.c_re_status==3 }">
+								<font color="red">답변글</font>
+								</c:if> 
+								</p></th>
 							</tr>
 							</c:forEach>
 						</tbody>
@@ -82,13 +88,14 @@
 					<c:if test="${fn:length(myConsultinglist) le 0}">
 							<br><center>등록된 게시물이 없습니다.</center>
 					</c:if>
-				<!— 언니 위에 요거 button으로 하고싶은데 버튼으로하면 jstl이 안머거영 ㅠㅠ —>
+<!-- 				<!— 언니 위에 요거 button으로 하고싶은데 버튼으로하면 jstl이 안머거영 ㅠㅠ —> -->
 			<%-- 	<%— 	<input type="button" onclick="${replyURL}" value="관리자 답변달기" class="storywrite"> —%>  --%>
 					<p class="btn01"><input type="button" value="이야기 쓰기" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingForm.do'"></p>
 					<div class="pageing">
 						${html}
 						</div>
 				</div>
+			</div>
 			</div>
 </body>
 </html>

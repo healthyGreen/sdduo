@@ -49,8 +49,12 @@ public class AdminReserController {
                  } else {
                      currentPage = Integer.parseInt(request.getParameter("currentPage"));
                  }
+               if(request.getParameter("pr_center") == null || request.getParameter("pr_center").trim().isEmpty() || request.getParameter("pr_center").equals("0")){
+            	   pr_center = "1";
+               }else{
+            	   pr_center = request.getParameter("pr_center");
+               }
                
-               pr_center = request.getParameter("pr_center");
                
                List<OneReserModel> oneReserList = adminReserService.OneReserList(pr_center);
               

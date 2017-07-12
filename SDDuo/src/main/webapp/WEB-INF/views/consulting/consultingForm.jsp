@@ -109,7 +109,6 @@
 			</c:otherwise>
 		</c:choose>
 	</div>
-</div>
 
 </body>
 </html>
