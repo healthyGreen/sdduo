@@ -83,6 +83,9 @@
                                     
                                  </tbody>
                               </table>
+                              <div class="pageing">
+						${pagingHtml}
+					</div>
                               <c:if test="${fn:length(groupReserList) le 0}">
 							<br />
 							<center>예약내역이 존재하지 않습니다.</center>

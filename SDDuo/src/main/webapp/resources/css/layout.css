@@ -145,10 +145,10 @@
 .content02 .box2 .baner04  .btnArea .btn02{width: 68px; height: 25px; box-sizing: border-box; border: none; color: #fff; background: #a8a8a8; font-size: 14px; font-family: 'NanumGothic'; cursor: pointer;}
 
 .tmenu {width:100%; position:relative;}
-.tmenu li {float:left; text-align:center; width: 50%; height: 30px; border-bottom: 1px solid #7394b8; }
+.tmenu li {  text-align: center;    height: 30px;    border-bottom: 3px solid #7394b8;    padding-top: 20px; }
 .tmenu li.last {margin-right:0 !important;}
 .tmenu li a {color:#566e87;display:block;font-size:16px; font-family: 'NanumGothicBold';}
-.tmenu li.active { background: url(../images/main/active.gif) no-repeat bottom;}
+
 .tmenu li.active a {}
 .tab-area {width:100%; position:relative;padding-top:20px;}
 
