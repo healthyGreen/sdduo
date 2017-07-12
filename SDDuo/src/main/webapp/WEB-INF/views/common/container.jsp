@@ -1,47 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <body>
 	
 	<div class="content">
 				
 				<div class="content-inbox">
-					<ul class="content01">
-						<li class="box01" onclick="window.open('sub/sub03/sub0301.html')">
-							<img src="./resources/images/main/icon01.gif" alt="">
-							<h3>¾ÆÀÌ½É¸®»ó´ã</h3>
-							<p class="title01">¿ì¸®¾ÆÀÌÀÇ <br/> ÀÌ»óÇàµ¿¿¡ ´ëÇÑ ÀÌÇØ</p>
-						</li>
-						<li class="box02" onclick="window.open('sub/sub04/sub0401.html')">
-							<img src="./resources/images/main/icon02.gif" alt="">
-							<h3>¼ºÀÎ½É¸®»ó´ã</h3>
-							<p class="title01">Áõ»óÀ¸·Î Ç¥ÇöµÇ¾îÁö´Â<br/>³ªÀÇ ¸¶À½ ¹Ù·Î¾Ë±â</p>
-						</li>
-						<li class="box03" onclick="window.open('sub/sub06/sub0601.html')">
-							<img src="./resources/images/main/icon03.gif" alt="">
-							<h3>½É¸®°Ë»çÇÁ·Î±×·¥</h3>
-							<p class="title01">½É¸®°Ë»ç°¡ ¾Æ´Ñ Á¤È®ÇÑ ½É¸®Æò°¡¸¦<br/>À§ÇÑ ¸¶ÀÌ½ºÅä¸®ÀÇ ³ë·Â</p>
-						</li>
-						<li class="box04" onclick="window.open('sub/sub05/sub0501.html')">
-							<img src="./resources/images/main/icon04.gif" alt="">
-							<h3>½É¸®Ä¡·áÇÁ·Î±×·¥</h3>
-							<p class="title01">¸¶À½ÀÇ º¯È­¸¦ ¸¸µé±â À§ÇÑ<br/> ¸¶ÀÌ½ºÅä¸®ÀÇ ´Ù¾çÇÑ ½É¸®Ä¡·á±â¹ý</p>
-						</li>
-						<li class="box05" onclick="window.open('sub/sub07/sub0701.html')">
-							<img src="./resources/images/main/icon05.gif" alt="">
-							<h3>±â¾÷»ó´ãÇÁ·Î±×·¥</h3>
-							<p class="title01">±â¾÷»ó´ãÀÇ ¼±ÁøÀû º¯È­¸¦ <br/> ¼±µµÇØ°¡´Â ¸¶ÀÌ½ºÅä¸®</p>
-						</li>
-					</ul>
-					<div class="content02">
+					
+					<div class="content02" style="margin-top: 60px; ">
 						<div class="box1">
 							<div class="container2">
 							    <div class="flexslider2">
 								   <ul class="slides ">
-									  <li><img src="./resources/images/main/banner01.jpg" onclick="window.open('sub/sub06/sub0601.html')" alt="º£³ÊÀÌ¹ÌÁö"></li>
-									  <li><img src="./resources/images/main/banner02.jpg" onclick="window.open('sub/sub03/sub0303.html')" alt="º£³ÊÀÌ¹ÌÁö"></li>
-									  <li ><img src="./resources/images/main/banner03.jpg" onclick="window.open('sub/sub05/sub0501.html')" alt="º£³ÊÀÌ¹ÌÁö"></li>
+									  <li><img src="./resources/images/main/banner01.jpg" onclick="window.open('sub/sub06/sub0601.html')" alt="ë² ë„ˆì´ë¯¸ì§€"></li>
+									  <li><img src="./resources/images/main/banner02.jpg" onclick="window.open('sub/sub03/sub0303.html')" alt="ë² ë„ˆì´ë¯¸ì§€"></li>
+									  <li ><img src="./resources/images/main/banner03.jpg" onclick="window.open('sub/sub05/sub0501.html')" alt="ë² ë„ˆì´ë¯¸ì§€"></li>
 								   </ul>
 							    </div>
 							</div>
@@ -49,49 +24,51 @@
 						<div class="box2">
 							<ul>
 								<li class="baner01">
-									<p class="txt01"><a href="sub/sub02/sub0205_list.html"><img src="./resources/images/main/txt01.png" alt="Ã¥À¸·Î ¸¸³ª´Â ½É¸® »êÃ¥"></a></p>
-									<p class="txt02">[³ª´Â ´Ü¼øÇÏ°Ô »ì±â·Î Çß´Ù]</p>
-									<p class="txt03">´Ü¼øÇÏ°Ô »ê´Ù´Â °ÍÀÌ ¹«¾ùÀÎÁö <br/>º¸¿©ÁÖ´Â ÁÁÀº °æÇèÀ» À§ÇÑ ÁöÄ§¼­</p>
+									<p class="txt01"><a href="sub/sub02/sub0205_list.html"><img src="./resources/images/main/txt01.png" alt="ì±…ìœ¼ë¡œ ë§Œë‚˜ëŠ” ì‹¬ë¦¬ ì‚°ì±…"></a></p>
+									<p class="txt02">[ë‚˜ëŠ” ë‹¨ìˆœí•˜ê²Œ ì‚´ê¸°ë¡œ í–ˆë‹¤]</p>
+									<p class="txt03">ë‹¨ìˆœí•˜ê²Œ ì‚°ë‹¤ëŠ” ê²ƒì´ ë¬´ì—‡ì¸ì§€ <br/>ë³´ì—¬ì£¼ëŠ” ì¢‹ì€ ê²½í—˜ì„ ìœ„í•œ ì§€ì¹¨ì„œ</p>
 								</li>
 								<li class="baner02" onclick="window.open('sub/sub01/sub0102.html')" >
-									<p class="txt01"><img src="./resources/images/main/txt02.png" alt="»ó´ãÀýÂ÷¾È³»"></p>
-									<p class="txt02"><img src="./resources/images/main/txt03.png" alt="¸¶ÀÌ½ºÅä¸®´Â »ó´ãÀ» ¿øÇÏ½Ã´Â °æ¿ì¿¹¾à ±ÔÁ¤°ú »ó´ã±ÔÁ¤À» ÁØ¼öÇÏ¿©¾ß ÇÕ´Ï´Ù."></p>
+									<p class="txt01"><img src="./resources/images/main/txt02.png" alt="ìƒë‹´ì ˆì°¨ì•ˆë‚´"></p>
+									<p class="txt02"><img src="./resources/images/main/txt03.png" alt="ë§ˆì´ìŠ¤í† ë¦¬ëŠ” ìƒë‹´ì„ ì›í•˜ì‹œëŠ” ê²½ìš°ì˜ˆì•½ ê·œì •ê³¼ ìƒë‹´ê·œì •ì„ ì¤€ìˆ˜í•˜ì—¬ì•¼ í•©ë‹ˆë‹¤."></p>
 								</li>
 								<li class="baner03" onclick="window.open('sub/sub02/sub0204_list.html')">
-									<p class="txt01"><img src="./resources/images/main/txt05.gif" alt="TODAY ½É¸®Ä®·´"></p>
-									<p class="txt02">ÇÐ±³Æø·ÂÀÌ¶ó´Â Ä¿´Ù¶õ ºÒ±æÀº Á»Ã³·³ <br/> »ç±×·¯µé ±â¹Ì¸¦ º¸ÀÌÁö ¾Ê´Â´Ù. <br/> SNS(Social Network Service)¿¡´Â <br/> Àü±¹ °¢Áö¿¡¼­ ÇÐ±³Æø·Â...</p>
-									<p class="txt03">Ä®·³¸®½ºÆ® | ±è¼ºÃ¶ ½É¸®»ó´ã»ç</p>
+									<p class="txt01"><img src="./resources/images/main/txt05.gif" alt="TODAY ì‹¬ë¦¬ì¹¼ëŸ½"></p>
+									<p class="txt02">í•™êµí­ë ¥ì´ë¼ëŠ” ì»¤ë‹¤ëž€ ë¶ˆê¸¸ì€ ì¢€ì²˜ëŸ¼ <br/> ì‚¬ê·¸ëŸ¬ë“¤ ê¸°ë¯¸ë¥¼ ë³´ì´ì§€ ì•ŠëŠ”ë‹¤. <br/> SNS(Social Network Service)ì—ëŠ” <br/> ì „êµ­ ê°ì§€ì—ì„œ í•™êµí­ë ¥...</p>
+									<p class="txt03">ì¹¼ëŸ¼ë¦¬ìŠ¤íŠ¸ | ê¹€ì„±ì²  ì‹¬ë¦¬ìƒë‹´ì‚¬</p>
 								</li>
 								<li class="baner04">
-									<p class="txt01"><img src="./resources/images/main/txt04.png" alt="¿Â¶óÀÎ »ó´ã"></p>
+									<p class="txt01"><img src="./resources/images/main/txt04.png" alt="ì˜¨ë¼ì¸ ìƒë‹´"></p>
 									<table>
-										<caption>¿Â¶óÀÎ »ó´ã Å×ÀÌºí</caption>
+										<caption>ì˜¨ë¼ì¸ ìƒë‹´ í…Œì´ë¸”</caption>
 										<colgroup>
 											<col width="" class="tb01">
 											<col width="" class="tb02">
 										</colgroup>
 										<tbody>
-											<tr>
-												<td><p class="txt">¹æ¹®»ó´ãÀü ¹®ÀÇµå¸³´Ï´Ù.</p></td>
-												<td class="date">2016.01.12</td>
-											</tr>
-											<tr>
-												<td ><p class="txt">26°³¿ù ¾ÆÀÌ »ó´ãÀ» ¹Þ¾Æ¾ß ÇÒÁö ¸»¾Æ¾ß ÇÒÁö °í¹ÎµË´Ï´Ù.</p></td>
-												<td class="date">2016.01.12</td>
-											</tr>
-											<tr>
-												<td><p class="txt">¹æ¹®»ó´ãÀü ¹®ÀÇµå¸³´Ï´Ù.</p></td>
-												<td class="date">2016.01.12</td>
-											</tr>
-											<tr>
-												<td><p class="txt">¹æ¹®»ó´ãÀü ¹®ÀÇµå¸³´Ï´Ù.</p></td>
-												<td class="date">2016.01.12</td>
-											</tr>
+											<c:choose>
+												<c:when test="${fn:length(consultinglist) le 0}">
+													<tr>
+														<td>ë“±ë¡ëœ ê²Œì‹œë¬¼ì´ ì—†ìŠµë‹ˆë‹¤.</td>
+													<tr>
+												</c:when>
+												<c:otherwise>
+													<c:forEach var="list" items="${consultinglist}" begin="0" end="5">
+														<tr>
+															<td>
+																<p class="txt">
+																	${list.c_title}
+																</p>
+															</td>
+														</tr>
+													</c:forEach>
+												</c:otherwise>
+											</c:choose>
 										</tbody>
 									</table>
 									<div class="btnArea">
-										<input type="button" value="´õº¸±â" class="btn01" onclick="window.open('sub/sub02/sub0201_list.html')">
-										<input type="button" value="±Û¾²±â" class="btn02" onclick="window.open('sub/sub02/sub0201_write.html')">
+										<input type="button" value="ë”ë³´ê¸°" class="btn01" onclick="location.href='consulting/consultingList.do'">
+										<input type="button" value="ê¸€ì“°ê¸°" class="btn02" onclick="location.href='consulting/consultingForm.do'">
 									</div>
 								</li>
 							</ul>
@@ -99,79 +76,64 @@
 					</div>
 					<div class="content03">
 						<div class="box01">
-							<h4><img src="./resources/images/main/tab_icon.gif" alt="¸¶ÀÌ½ºÅä¸®"></h4>
 							<ul id="tab" class="tmenu clear">
-								<li class="active"><a href="#tb01-tab">°øÁö»çÇ×</a></li>
-								<li class="last"><a href="#tb02-tab">¹æ¼ÛÀÌ¾ß±â</a></li>
+								<li class="active"><a href="#tb01-tab">ê³µì§€ì‚¬í•­</a></li>
 							</ul>
 							<div id="tb01-tab" class="tab-area tab-arrow01">
 								<table>
-									<caption>¿Â¶óÀÎ »ó´ã Å×ÀÌºí</caption>
+									<caption>ì˜¨ë¼ì¸ ìƒë‹´ í…Œì´ë¸”</caption>
 									<colgroup>
 										<col width="" class="tb01">
 										<col width="" class="tb02">
 									</colgroup>
 									<tbody>
-										<tr>
-											<td><p class="txt">¹æ¹®»ó´ãÀü ¹®ÀÇµå¸³´Ï´Ù.</p></td>
-											<td class="date">2016.01.12</td>
-										</tr>
-										<tr>
-											<td ><p class="txt">26°³¿ù ¾ÆÀÌ »ó´ãÀ» ¹Þ¾Æ¾ß ÇÒÁö ¸»¾Æ¾ß ÇÒÁö °í¹ÎµË´Ï´Ù.</p></td>
-											<td class="date">2016.01.12</td>
-										</tr>
-										<tr>
-											<td><p class="txt">¹æ¹®»ó´ãÀü ¹®ÀÇµå¸³´Ï´Ù.</p></td>
-											<td class="date">2016.01.12</td>
-										</tr>
-
+										<c:choose>
+											<c:when  test="${fn:length(adminNoticeList) le 0}">
+												<tr>
+													<td>ê³µì§€ì‚¬í•­ì´ ì—†ìŠµë‹ˆë‹¤.</td>
+												</tr>
+											</c:when>
+											<c:otherwise>
+												<c:forEach var="list"  items="${adminNoticeList}" begin="0" end="5">
+													<c:url var="viewURL" value="adminNoticeView.do">
+														<c:param name="n_number" value="${list.n_number}"/>
+													</c:url>
+													<tr>
+														<td><p class="txt"><a href="${viewURL}">${list.n_title}</a></p></td>
+														<td class="date" ><fmt:formatDate value="${list.n_date }" pattern="yyyy-MM-dd" /></td>
+													</tr>
+													<tr>
+														<td colspan="2" height="12px"><td>
+													</tr>
+												</c:forEach>
+											</c:otherwise>
+										</c:choose>
 									</tbody>
 								</table>
 							</div>
-							<div id="tb02-tab" class="tab-area tab-arrow02" style="display: none;">
-								<table>
-									<caption>¿Â¶óÀÎ »ó´ã Å×ÀÌºí</caption>
-									<colgroup>
-										<col width="" class="tb01">
-										<col width="" class="tb02">
-									</colgroup>
-									<tbody>
-										<tr>
-											<td><p class="txt">¹æ¹®»ó´ãÀü ¹®ÀÇµå¸³´Ï´Ù.</p></td>
-											<td class="date">2016.01.12</td>
-										</tr>
-										<tr>
-											<td ><p class="txt">26°³¿ù ¾ÆÀÌ »ó´ãÀ» ¹Þ¾Æ¾ß ÇÒÁö ¸»¾Æ¾ß ÇÒÁö °í¹ÎµË´Ï´Ù.</p></td>
-											<td class="date">2016.01.12</td>
-										</tr>
-										<tr>
-											<td><p class="txt">¹æ¹®»ó´ãÀü ¹®ÀÇµå¸³´Ï´Ù.</p></td>
-											<td class="date">2016.01.12</td>
-										</tr>
-
-									</tbody>
-								</table>
-							</div>
+							
 						</div>
 						<div class="box02">
 							<div class="container3">
 							    <div class="flexslider3">
 								   <ul class="slides" id="slides">
-									  <li><a href="sub/sub01/sub010305_view.html"><img src="./resources/images/main/slide01.gif" alt="º£³ÊÀÌ¹ÌÁö"></a></li>
-									  <li><a href="sub/sub01/sub010305_view.html"><img src="./resources/images/main/slide01.gif" alt="º£³ÊÀÌ¹ÌÁö"></a></li>
-									  <li><a href="sub/sub01/sub010305_view.html"><img src="./resources/images/main/slide01.gif" alt="º£³ÊÀÌ¹ÌÁö"></a></li>
-									  <li><a href="sub/sub01/sub010305_view.html"><img src="./resources/images/main/slide01.gif" alt="º£³ÊÀÌ¹ÌÁö"></a></li>
+									  <li><a href="sub/sub01/sub010305_view.html"><img src="./resources/images/main/slide01.gif" alt="ë² ë„ˆì´ë¯¸ì§€"></a></li>
+									  <li><a href="sub/sub01/sub010305_view.html"><img src="./resources/images/main/slide01.gif" alt="ë² ë„ˆì´ë¯¸ì§€"></a></li>
+									  <li><a href="sub/sub01/sub010305_view.html"><img src="./resources/images/main/slide01.gif" alt="ë² ë„ˆì´ë¯¸ì§€"></a></li>
+									  <li><a href="sub/sub01/sub010305_view.html"><img src="./resources/images/main/slide01.gif" alt="ë² ë„ˆì´ë¯¸ì§€"></a></li>
 								   </u>
 							    </div>
 							</div>
 						</div>
+						
+						
 					</div>
 					<div class="content04">
 						<div class="box01">
-							<h5><img src="./resources/images/main/txt05.png" alt="¸¶ÀÌ½ºÅä¸® ÁöÁ¡ ¾È³»"></h5>
+							<h5><img src="./resources/images/main/txt05.png" alt="ë§ˆì´ìŠ¤í† ë¦¬ ì§€ì  ì•ˆë‚´"></h5>
 							<div class="allarea">
-								<p class="txt01">¸¶ÀÌ½ºÅä¸®ÀÇ Àü±¹Áö¿ª¼¾ÅÍ´Â »ó´ãÀ±¸®±ÔÁ¤À» ÁØ¼öÇÕ´Ï´Ù</p>
-								<p class="allview" onclick="window.open('sub/sub01/sub0103_list.html')">ÀüÃ¼º¸±â</p>
+								<p class="txt01">ë§ˆì´ìŠ¤í† ë¦¬ì˜ ì „êµ­ì§€ì—­ì„¼í„°ëŠ” ìƒë‹´ìœ¤ë¦¬ê·œì •ì„ ì¤€ìˆ˜í•©ë‹ˆë‹¤</p>
+								<p class="allview" onclick="window.open('sub/sub01/sub0103_list.html')">ì „ì²´ë³´ê¸°</p>
 							</div>
 							<div class="gallery_rolling">
 							  <span class="arrow_prev"><img src="./resources/images/main/prev.gif"></span>
@@ -181,19 +143,19 @@
 							    <li>
 								 <div class="img_box" onclick="window.open('sub/sub01/sub0103_view.html')">
 									<img src="./resources/images/main/img01.gif"  >
-									<p class="imgtxt">°­³²¼¾ÅÍ</p>
+									<p class="imgtxt">ê°•ë‚¨ì„¼í„°</p>
 								</div>
 							   </li>
 							    <li>
 								  <div class="img_box" onclick="window.open('sub/sub01/sub0103_view.html')">
 									<img src="./resources/images/main/img02.gif"  >
-									<p class="imgtxt">ºÎ»ê¼¾ÅÍ</p>
+									<p class="imgtxt">ë¶€ì‚°ì„¼í„°</p>
 								</div>
 							   </li>
 							    <li>
 								  <div class="img_box" onclick="window.open('sub/sub01/sub0103_view.html')">
 									<img src="./resources/images/main/img03.gif"  >
-									<p class="imgtxt">´ë±¸¼¾ÅÍ</p>
+									<p class="imgtxt">ëŒ€êµ¬ì„¼í„°</p>
 								</div>
 							   </li>
 							  
@@ -202,8 +164,8 @@
 							 </div>
 						</div>
 						<div class="box02" onclick="window.open('sub/sub07/sub0701.html')">
-							<h6>±â¾÷¿¹¾à</h6>
-							<p class="txt">¸¶ÀÌ½ºÅä¸®¿Í Çù¾àµÈ ±â¾÷ÀÇ ÀÓÁ÷¿øÀº <br> ½Ç½Ã°£ »ó´ã¿¹¾àÀÌ °¡´ÉÇÕ´Ï´Ù.</p>
+							<h6>ê¸°ì—…ì˜ˆì•½</h6>
+							<p class="txt">ë§ˆì´ìŠ¤í† ë¦¬ì™€ í˜‘ì•½ëœ ê¸°ì—…ì˜ ìž„ì§ì›ì€ <br> ì‹¤ì‹œê°„ ìƒë‹´ì˜ˆì•½ì´ ê°€ëŠ¥í•©ë‹ˆë‹¤.</p>
 						</div>
 					</div>
 				</div>

@@ -23,7 +23,7 @@
                            <li><a href="/<%=request.getContextPath() %>/member/logout.do" >로그아웃</a>
                         </c:when>
                         <c:otherwise>
-                           <li><a href="<%=request.getContextPath() %>/member/joinForm.do" >회원가입</a>
+                           <li><a href="<%=request.getContextPath() %>/member/agree.do" >회원가입</a>
                            <li><a href="<%=request.getContextPath() %>/member/loginForm.do" >로그인</a>
                         </c:otherwise>
                      </c:choose>
@@ -49,15 +49,7 @@
 								<li class="has-sub g5"><a href="/sub/sub05/sub0501.html">커뮤니티</a>
 									<div class="dropdown dropdown2">
 										<ul>
-											<c:choose>
-												<c:when test="${session_admin == 1}">
-													<li><a href="<%=request.getContextPath() %>/admin/adminNoticeList.do">공지사항</a></li>
-												</c:when>
-												<c:otherwise>
-													<li><a href="<%=request.getContextPath() %>/admin/NoticeList.do">공지사항</a></li>
-												</c:otherwise>
-											</c:choose>
-											
+											<li><a href="<%=request.getContextPath() %>/admin/adminNoticeList.do">공지사항</a></li>											
 										</ul>
 									</div>
 								</li>

@@ -16,15 +16,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import sd.duo.consulting.consultingDao;
+import sd.duo.consulting.consultingService;
+import sd.duo.consulting.consultingModel;
+
+import sd.duo.adminNotice.AdminNoticeDAO;
+import sd.duo.adminNotice.AdminNoticeModel;
+import sd.duo.adminNotice.AdminNoticeService;
+
+
 @Controller
 
 public class MainController {
 	
+	@Resource
+	public consultingService service1;
+	@Resource
+	public AdminNoticeService service2;
 	ModelAndView mav = new ModelAndView();
 	
 	@RequestMapping(value="/main.do")
-	   public ModelAndView about(){
+	   public ModelAndView main(HttpServletRequest request) {
+		
+		  List<consultingModel> consultinglist = service1.consultingList();
+		  
+		  List<AdminNoticeModel> adminNoticeList = service2.noticeList();
+		  
+		  mav.addObject("adminNoticeList", adminNoticeList);
+		  mav.addObject("consultinglist", consultinglist); 
 	      mav.setViewName("main");
 	      return mav;
+	      
+	      
 	   }
 }
