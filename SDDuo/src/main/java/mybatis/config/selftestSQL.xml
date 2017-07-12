@@ -8,77 +8,229 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				<!-- F_SELFTEST - 테이블 이름 -->	
 
 	<resultMap type="selfModel" id="selfModelRes">
-		<result property="t_category" column="t_category" />		<!-- 진단유형 -->
 		<result property="m_id" column="m_id" />			<!-- 사용자아이디 -->
 		<result property="t_score" column="t_score" />			<!-- 진단점수 -->
-		<result property="t_grade" column="t_grade" />			<!-- 진단등급 -->
 	</resultMap>
 	
 	<!-- 글목록  -->
-	<select id="selfList" resultMap="selfModelRes">
-			SELECT * FROM F_SELFTEST 
+	<select id="selfList1" resultMap="selfModelRes">
+			SELECT * FROM F_SELFTEST1
+			where m_id = #{m_id}
 	</select>
 	
 	<!-- 값 체크 -->
-	<select id="check" parameterType="String" resultMap="selfModelRes">
-		select * from F_SELFTEST
+	<select id="check1" parameterType="String" resultType="int">
+		select count(*) as count from F_SELFTEST1
 		where m_id = #{m_id}
 	</select>	
 	
 	<!-- 글쓰기 -->
-	<insert id="selfWrite" parameterType="selfModel">
-			INSERT INTO F_SELFTEST
+	<insert id="selfWrite1" parameterType="selfModel">
+			INSERT INTO F_SELFTEST1
 			(
-			t_category,
 			m_id,
-			t_score,
-			t_grade
+			t_score
 			)
 			VALUES
 			(
-			 #{t_category},
 			 #{m_id},
-			 #{t_score},
-			 #{t_grade}
+			 #{t_score}
 			)
 	</insert>
 	
 	<!-- 값변경 -->
-	<update id="selfModify1" parameterType="String">
-			UPDATE F_SELFTEST
+	<update id="selfModify1" parameterType="selfModel">
+			UPDATE F_SELFTEST1
 			SET
-				t_score = #{t_score},
-				t_grade = #{t_grade}
+				t_score = #{t_score}
 			WHERE
-				m_id = #{m_id} and t_category = '1'	
+				m_id = #{m_id}
 	</update>
 	
+
+	<!-- 글삭제 -->
+	<delete id="selfDelete" parameterType="String">
+			DELETE FROM F_SELFTEST
+			WHERE t_category = #{t_category}
+	</delete>
+	
+	
+	<insert id="newtechnology1" parameterType="selfModel">
+	MERGE INTO F_SELFTEST1
+            USING DUAL
+            ON (m_id = #{m_id})
+            WHEN MATCHED THEN
+                      UPDATE SET
+                            t_score = #{t_score}
+            WHEN NOT MATCHED THEN
+                      INSERT (m_id, t_score) 
+                                 VALUES (#{m_id}, #{t_score});
+	</insert>
+	
+	
+	
+	
+	
+	<!-- 글목록  -->
+	<select id="selfList2" resultMap="selfModelRes">
+			SELECT * FROM F_SELFTEST2
+			where m_id = #{m_id}
+	</select>
+	
+	<!-- 값 체크 -->
+	<select id="check2" parameterType="String" resultMap="selfModelRes">
+		select count(*) as count from F_SELFTEST2
+		where m_id = #{m_id}
+	</select>	
+	
+	<!-- 글쓰기 -->
+	<insert id="selfWrite2" parameterType="selfModel">
+			INSERT INTO F_SELFTEST2
+			(
+			m_id,
+			t_score
+			)
+			VALUES
+			(
+			 #{m_id},
+			 #{t_score}
+			)
+	</insert>
+	
+	<!-- 값변경 -->
 	<update id="selfModify2" parameterType="String">
-			UPDATE F_SELFTEST
+			UPDATE F_SELFTEST2
 			SET
-				t_score = #{t_score},
-				t_grade = #{t_grade}
+				t_score = #{t_score}
 			WHERE
-				m_id = #{m_id} and t_category = '2'	
+				m_id = #{m_id}
 	</update>
 	
+	<insert id="newtechnology2" parameterType="selfModel">
+	MERGE INTO F_SELFTEST2
+            USING DUAL
+            ON (m_id = #{m_id})
+            WHEN MATCHED THEN
+                      UPDATE SET
+                            t_score = #{t_score}
+            WHEN NOT MATCHED THEN
+                      INSERT (m_id, t_score) 
+                                 VALUES (#{m_id}, #{t_score});
+	</insert>
+	
+	
+	
+	
+	
+	
+	
+	<!-- 글목록  -->
+	<select id="selfList3" resultMap="selfModelRes">
+			SELECT * FROM F_SELFTEST3
+			where m_id = #{m_id}
+	</select>
+	
+	<!-- 값 체크 -->
+	<select id="check3" parameterType="String" resultMap="selfModelRes">
+		select * from F_SELFTEST3
+		where m_id = #{m_id}
+	</select>	
+	
+	<!-- 글쓰기 -->
+	<insert id="selfWrite3" parameterType="selfModel">
+			INSERT INTO F_SELFTEST3
+			(
+			m_id,
+			t_score
+			)
+			VALUES
+			(
+			 #{m_id},
+			 #{t_score}
+			)
+	</insert>
+	
+	<!-- 값변경 -->
 	<update id="selfModify3" parameterType="String">
-			UPDATE F_SELFTEST
+			UPDATE F_SELFTEST3
 			SET
-				t_score = #{t_score},
-				t_grade = #{t_grade}
+				t_score = #{t_score}
 			WHERE
-				m_id = #{m_id} and t_category = '3'	
+				m_id = #{m_id}
 	</update>
 	
+	
+	<insert id="newtechnology3" parameterType="selfModel">
+	MERGE INTO F_SELFTEST3
+            USING DUAL
+            ON (m_id = #{m_id})
+            WHEN MATCHED THEN
+                      UPDATE SET
+                            t_score = #{t_score}
+            WHEN NOT MATCHED THEN
+                      INSERT (m_id, t_score) 
+                                 VALUES (#{m_id}, #{t_score});
+	</insert>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- 글목록  -->
+	<select id="selfList4" resultMap="selfModelRes">
+			SELECT * FROM F_SELFTEST4
+			where m_id = #{m_id}
+	</select>
+	
+	<!-- 값 체크 -->
+	<select id="check4" parameterType="String" resultMap="selfModelRes">
+		select * from F_SELFTEST4
+		where m_id = #{m_id}
+	</select>	
+	
+	<!-- 글쓰기 -->
+	<insert id="selfWrite4" parameterType="selfModel">
+			INSERT INTO F_SELFTEST4
+			(
+			m_id,
+			t_score
+			)
+			VALUES
+			(
+			 #{m_id},
+			 #{t_score}
+			)
+	</insert>
+	
+	<!-- 값변경 -->
 	<update id="selfModify4" parameterType="String">
-			UPDATE F_SELFTEST
+			UPDATE F_SELFTEST4
 			SET
-				t_score = #{t_score},
-				t_grade = #{t_grade}
+				t_score = #{t_score}
 			WHERE
-				m_id = #{m_id} and t_category = '4'	
+				m_id = #{m_id}
 	</update>
+	
+	
+	<insert id="newtechnology4" parameterType="selfModel">
+	MERGE INTO F_SELFTEST4
+            USING DUAL
+            ON (m_id = #{m_id})
+            WHEN MATCHED THEN
+                      UPDATE SET
+                            t_score = #{t_score}
+            WHEN NOT MATCHED THEN
+                      INSERT (m_id, t_score) 
+                                 VALUES (#{m_id}, #{t_score});
+
+	</insert>
+	
+
 
 
 

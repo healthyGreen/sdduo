@@ -551,11 +551,10 @@
 							<a href="#" id="submit1" class="btn color">결과저장</a>
 							<div id="total_div" class="result">
 								총점 : <span id="result1">0</span> 점
-								<input type="hidden" name="t_category" value="1">
 								<input type="hidden" name="m_id" value="1">
+								<input type="hidden" name="category" value="1">
 								<input type="hidden" name="t_score" id="t_score1" value="">
-								<input type="hidden" name="t_grade" value="1">
-							</div>
+							</div>						
 						</td>
 					</tr>
 					</tbody>
@@ -686,10 +685,9 @@
 							<a href="#" id="submit2" class="btn color">결과저장</a>
 							<div id="total_div" class="result">
 								총점 : <span id="result3">0</span> 점
-								<input type="hidden" name="t_category" value="2">
 								<input type="hidden" name="m_id" value="1">
+								<input type="hidden" name="category" value="2">
 								<input type="hidden" name="t_score" id="t_score3" value="">
-								<input type="hidden" name="t_grade" value="1">
 							</div>
 						</td>
 					</tr>
@@ -974,10 +972,9 @@
 							<a href="#" id="submit3" class="btn color">결과저장</a>
 							<div id="total_div" class="result">
 								총점 : <span id="result4">0</span> 점
-								<input type="hidden" name="t_category" value="3">
 								<input type="hidden" name="m_id" value="1">
+								<input type="hidden" name="category" value="3">
 								<input type="hidden" name="t_score" id="t_score4" value="">
-								<input type="hidden" name="t_grade" value="1">
 							</div>
 						</td>
 					</tr>
@@ -1205,10 +1202,9 @@
 							<a href="#" id="submit4" class="btn color">결과저장</a>
 							<div id="total_div" class="result">
 								총점 : <span id="result5">0</span> 점
-								<input type="hidden" name="t_category" value="4">
 								<input type="hidden" name="m_id" value="1">
+								<input type="hidden" name="category" value="4">
 								<input type="hidden" name="t_score" id="t_score5" value="">
-								<input type="hidden" name="t_grade" value="1">
 							</div>
 						</td>
 					</tr> 
