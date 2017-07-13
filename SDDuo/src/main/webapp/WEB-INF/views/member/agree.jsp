@@ -9,7 +9,7 @@ function check_agreement(){
 		alert("이용약관의 동의하셔야 합니다.");
 		frm.elements["agreement[]"][0].focus();
 		return;
-	}else if(joinCheck.elements["agreement[]"][1].checked == false){
+	}else if(joinCheck.elements["agreement1[]"][1].checked == false){
 		alert("개인정보취급방침에 동의하셔야 합니다.");
 		joinCheck.elements["agreement[]"][1].focus();
 		return;
@@ -20,17 +20,26 @@ function check_agreement(){
 	joinCheck.submit();
 }
 
-function all_check(_this, chk_name){
-	var chks = document.getElementsByName(chk_name);
+function check_only(chk){
 
-	for(var i=0; i<chks.length; i+2){
-		chks[i].checked = _this.checked;
+	   var obj = document.getElementById("joinCheck");
+
+	   if(obj.id == 'agree1_ok')
+		   obj.id.checked = false;
+}
+
+function all_check(_this, chk_name){
+	var chks = document.getElementsByName("agreement[]");
+
+	for(var i=0; i<chks.length; i++){
+		if(joinCheck.elements[i].value == 'Y')
+			chks[i].checked = _this.checked;
 	}
 }
 
 function cancel(){
 	alert("약관의 동의하셔야 회원가입이 가능합니다.");
-	document.joinCheck.action = "/main.do";
+	document.joinCheck.action = "../main.do";
 	document.joinCheck.submit();
 }
 </script>
@@ -394,8 +403,8 @@ function cancel(){
 (시행일) 이 약관은 2015년 11월 12일부터 시행합니다.<br>
                </div>
                <ul class="clause-radio">
-                  <li><input type="radio" class="checkbox" title="" value="Y" id="agree1_ok" name="agreement[]"><label for="agree1_ok">동의함</label></li>
-                  <li><input type="radio" class="checkbox" title="" value="N" id="agree1_no" name="agreement[]"><label for="agree1_no">동의하지 않음</label></li>
+                  <li><input type="checkbox" class="checkbox" title="" value="Y" id="agree1_ok" name="agreement[]" onclick="check_only(this)">동의함</label></li>
+                  <li><input type="checkbox" class="checkbox" title="" value="N" id="agree1_no" name="agreement[]" onclick="check_only(this)"><label for="agree1_no">동의하지 않음</label></li>
                </ul>
             </div>
             <div class="clause-box">
@@ -434,8 +443,8 @@ function cancel(){
                            </div>
 
                <ul class="clause-radio">
-                  <li><input type="radio" class="checkbox" title="" name="agreement[]" value="Y" id="agree2_no" /><label for="agree2_yes">동의함</label></li>
-                  <li><input type="radio" class="checkbox" title="" value="N" id="agree2_no" name="agreement[]"><label for="agree2_no">동의하지 않음</label></li>
+                  <li><input type="checkbox" class="checkbox" title="" name="agreement[]" value="Y" id="agree2_ok" onclick="check_only(this)" /><label for="agree2_yes">동의함</label></li>
+                  <li><input type="checkbox" class="checkbox" title="" value="N" id="agree2_no" name="agreement[]" onclick="check_only(this)" ><label for="agree2_no">동의하지 않음</label></li>
                </ul>
             </div>
             <!-- <div class="clause-box">
