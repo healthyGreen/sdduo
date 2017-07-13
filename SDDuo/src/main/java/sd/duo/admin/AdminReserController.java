@@ -36,6 +36,7 @@ public class AdminReserController {
          private String pr_center;
          private String gr_center;
          private int pr_number;
+         private String isSearch;
          
          
          // 개인예약 리스트
@@ -54,16 +55,29 @@ public class AdminReserController {
                }else{
             	   pr_center = request.getParameter("pr_center");
                }
+               if(request.getParameter("isSearch") == null || request.getParameter("isSearch").trim().isEmpty() || request.getParameter("isSearch").equals("0")){
+            	   isSearch = "0";
+               }else{
+            	   isSearch = request.getParameter("isSearch");
+               }
                
                
                List<OneReserModel> oneReserList = adminReserService.OneReserList(pr_center);
-              
-             
-                  
                
+               if(isSearch.equals("0")){
+            	   oneReserList = adminReserService.OneReserListRenew(pr_center);
+               }
+               if(isSearch.equals("1")){
+            	   oneReserList = adminReserService.OneReserListNew(pr_center);
+               }
+               if(isSearch.equals("2")){
+            	   oneReserList = adminReserService.OneReserListWait(pr_center);
+               }
+               
+              
                
                   totalCount = oneReserList.size();
-                  OnePaging = new AdminOneReserPaging(currentPage, totalCount, blockCount, blockPage, "OneReserList", pr_center );
+                  OnePaging = new AdminOneReserPaging(currentPage, totalCount, blockCount, blockPage, "OneReserList", pr_center, isSearch );
                   pagingHtml = OnePaging.getPagingHtml().toString();
                
                   int lastCount = totalCount;
@@ -74,6 +88,7 @@ public class AdminReserController {
                   oneReserList = oneReserList.subList(OnePaging.getStartCount(), lastCount);
                
                  
+                  mav.addObject("isSearch", isSearch);
                   mav.addObject("pr_center", pr_center);
                   mav.addObject("totalCount", totalCount);
                   mav.addObject("pagingHtml", pagingHtml);
@@ -95,17 +110,36 @@ public class AdminReserController {
                  } else {
                      currentPage = Integer.parseInt(request.getParameter("currentPage"));
                  }
+               if(request.getParameter("gr_center") == null || request.getParameter("gr_center").trim().isEmpty() || request.getParameter("gr_center").equals("0")){
+            	   gr_center = "1";
+               }else{
+            	   gr_center = request.getParameter("gr_center");
+               }
+               if(request.getParameter("isSearch") == null || request.getParameter("isSearch").trim().isEmpty() || request.getParameter("isSearch").equals("0")){
+            	   isSearch = "0";
+               }else{
+            	   isSearch = request.getParameter("isSearch");
+               }
                
-               gr_center = request.getParameter("gr_center");
                
                List<GroupReserModel> groupReserList = adminReserService.GroupReserList(gr_center);
+               
+               if(isSearch.equals("0")){
+            	   groupReserList = adminReserService.GroupReserListRenew(gr_center);
+               }
+               if(isSearch.equals("1")){
+            	   groupReserList = adminReserService.GroupReserListNew(gr_center);
+               }
+               if(isSearch.equals("2")){
+            	   groupReserList = adminReserService.GroupReserListWait(gr_center);
+               }
               
              
                   
                
                
                   totalCount = groupReserList.size();
-                  GrPaging = new AdminGrReserPaging(currentPage, totalCount, blockCount, blockPage, "GrReserList", gr_center );
+                  GrPaging = new AdminGrReserPaging(currentPage, totalCount, blockCount, blockPage, "GrReserList", gr_center, isSearch );
                   pagingHtml = GrPaging.getPagingHtml().toString();
                
                   int lastCount = totalCount;

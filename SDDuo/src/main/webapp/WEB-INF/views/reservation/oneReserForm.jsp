@@ -21,12 +21,23 @@
 
   </script>
 <script type="text/javascript">
-function output(){
-var pr_year = document.getElementById("pr_year");
-
-var year=getElementById("year");
-year.innerHTML=pr_year.options[pr_year.selectedIndex].text;
-}
+$(document).ready(function () {
+    // 초기 값 지정
+    $('#year').text($("#pr_year option:selected").val());
+    $('#month').text($("#pr_month option:selected").val());
+    $('#day').text($("#pr_day option:selected").val());
+   
+    // select 선택이 변경 됐을 때 호출 되는 함수
+    $('#pr_year').change(function() {
+    $('#year').text($("#pr_year option:selected").val());
+  });
+    $('#pr_month').change(function() {
+	    $('#month').text($("#pr_month option:selected").val());
+	  });
+    $('#pr_day').change(function() {
+	    $('#day').text($("#pr_day option:selected").val());
+	  });
+});
 </script>
 </head>
 <body>
@@ -67,80 +78,42 @@ year.innerHTML=pr_year.options[pr_year.selectedIndex].text;
                                     <td valign="top" class="formtit"  style="color: #4f4f4f; font-size: 16px; line-height: 120%; padding-top: 10px;">예약일 선택&nbsp;</td>
                                     <td align="center" width="4" ></td>
                                     <td>
-                                       <select onchange="output()" id="pr_year" name="pr_year" class="form-control" style="width: 20%; display: inline-block;">
+                                       <select id="pr_year" name="pr_year" class="form-control" style="width: 20%; display: inline-block;">
                                        		<option value="">-선택하세요-</option>
-                                             <option value="2017">2017</option>
-                                             <option value="2018">2018</option>
-                                             <option value="2019">2019</option>
-                                             <option value="2020">2020</option>
-                                             <option value="2021">2021</option>
-                                             <option value="2022">2022</option>
-                                             <option value="2023">2023</option>
-                                             <option value="2024">2024</option>
-                                             <option value="2025">2025</option>
-                                             <option value="2026">2026</option>
-                                             <option value="2027">2027</option>
-                                             <option value="2028">2028</option>
-                                             <option value="2029">2029</option>
-                                             <option value="2030">2030</option>
-                                             <option value="2031">2031</option>
-                                             <option value="2032">2032</option>
-                                             <option value="2033">2033</option>
-                                             <option value="2034">2034</option>
-                                             <option value="2035">2035</option>
+                                             <%for(int i=2017; i<=2027; i++){ %>
+                                             <%int from = 'i';
+                                             String to = Integer.toString(from); %>
+                                             
+                                             <option value="<%=i%>"><%=i %></option>
+                                             <%} %>
                                           </select>
                                           년&nbsp;&nbsp;
 
-                                          <select name="pr_month" class="form-control"  style="width: 20%; display: inline-block;">
+                                          <select id="pr_month" name="pr_month" class="form-control"  style="width: 20%; display: inline-block;">
                                           	<option value="">-선택하세요-</option>
-                                             <option value="01">01</option>
-                                             <option value="02">02</option>
-                                             <option value="03">03</option>
-                                             <option value="04">04</option>
-                                             <option value="05">05</option>
-                                             <option value="06">06</option>
-                                             <option value="07">07</option>
-                                             <option value="08">08</option>
-                                             <option value="09">09</option>
-                                             <option value="10">10</option>
-                                             <option value="11">11</option>
-                                             <option value="12">12</option>
+                                             <%for(int i=1; i<=12; i++){ %>
+                                             <%
+                                             String s = Integer.toString(i); 
+												if(s.length() == 1){
+													s = "0"+s;
+												}
+                                             %>
+                                             <option value="<%=s%>"><%=s %></option>
+                                             <%} %>
                                           </select>
                                           월&nbsp;&nbsp;
                                           
-                                          <select name="pr_day" class="form-control"  style="width: 20%; display: inline-block;">
+                                          <select id="pr_day" name="pr_day" class="form-control"  style="width: 20%; display: inline-block;">
                                           	<option value="">-선택하세요-</option>
-                                             <option value="01">01</option>
-                                             <option value="02">02</option>
-                                             <option value="03">03</option>
-                                             <option value="04">04</option>
-                                             <option value="05">05</option>
-                                             <option value="06">06</option>
-                                             <option value="07">07</option>
-                                             <option value="08">08</option>
-                                             <option value="09">09</option>
-                                             <option value="10">10</option>
-                                             <option value="11">11</option>
-                                             <option value="12">12</option>
-                                             <option value="13">13</option>
-                                             <option value="14">14</option>
-                                             <option value="15">15</option>
-                                             <option value="16">16</option>
-                                             <option value="17">17</option>
-                                             <option value="18">18</option>
-                                             <option value="19">19</option>
-                                             <option value="20">20</option>
-                                             <option value="21">21</option>
-                                             <option value="22">22</option>
-                                             <option value="23">23</option>
-                                             <option value="24">24</option>
-                                             <option value="25">25</option>
-                                             <option value="26">26</option>
-                                             <option value="27">27</option>
-                                             <option value="28">28</option>
-                                             <option value="29">29</option>
-                                             <option value="30">30</option>
-                                             <option value="31">31</option>
+                                             <%for(int i=1; i<= 31; i++){ %>
+                                             <%
+                                             String s = Integer.toString(i); 
+												if(s.length() == 1){
+													s = "0"+s;
+												}
+                                             %>
+                                             <option value="<%=s%>"><%=s %></option>
+                                             <%} %>
                                              
                                           </select>
                                           일&nbsp;&nbsp;
@@ -284,7 +257,7 @@ year.innerHTML=pr_year.options[pr_year.selectedIndex].text;
                              </tr>
                            </table>
                            </div>
-               <p><span id="year">년</span>에 예약하시겠습니까?</p>
+               <p><span id="year"></span>년<span id="month"></span>월<span id="day">일</span>에 예약하시겠습니까?</p>
                <div>
                   <input type="button" onclick="return checkForm()" value="확인"   />
                   <input type="button" value="취소" class="cancel" />

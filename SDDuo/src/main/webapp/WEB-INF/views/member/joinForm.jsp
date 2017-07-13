@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html PUBliC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -14,6 +15,7 @@
    <link rel="stylesheet" href="../../css/default.css" />
 
    <!--JQUERY-->
+
 
    <script  type="text/javascript" src="../../js/jquery-1.9.1.js"></script>
    <script  type="text/javascript" src="../../js/common.js"></script>
@@ -29,6 +31,24 @@
          $('#tab').tabify();
        });
        // ]]>
+   </script>
+   
+   <script>
+   function IdConfirm(join) {
+   	var m_id = document.join.M_id.value;
+   	var url = "joinForm.do?m_id="+m_id;
+   	
+   	if(m_id ==""){
+      		alert("아이디를 입력해주세요!")
+      		document.join.M_id.focus();
+      		
+   	}else{
+   		open(url, "IdConfirm", "toolbar=no,location=no,status=no,menubar=no,"+
+         	"scrollbars=no,resizable=no,width=400,height=600");
+   		
+   		}
+}
+  
    </script>
    <script>
   /*** 롤링배너 ***/
@@ -105,7 +125,8 @@
             <p class="table-title">상세정보입력</p>
             <p class="table-sub-title"><span class="color">* </span>표시는 필수입력사항이며, 본인확인 및 서비스 이용을 위하여 기본정보를 정확히 입력해주세요.</p>
          </div>
-    <form:form commandName="MemberModel" action="joinSuccess.do" enctype="multipart/form-data"   method="post">
+          <spring:hasBindErrors name="member"/>
+    <form:form commandName="MemberModel" action="joinSuccess.do" enctype="multipart/form-data"  name="join" method="post">
          <div class="idpw_box">
          
             <table>
@@ -117,13 +138,14 @@
                       <p class="exp">4~8자의 영문+숫자만 사용가능</p>
                       <p class="errorpage errorpage2 mt-5" id="errUserId" style="display:none;">4~8자의 영문+숫자를 사용해 주세요.</p>
                       <p class="errorpage2 errorpage3  mt-5" id="useUserId" style="display:none;">사용이 가능한 아이디 입니다.</p>
+                  	  <input type="button" value="중복확인" class="double-chk" onclick="javascript:IdConfirm(join)">	
                    </td>
                </tr>
                <tr>
                  <th class=" "><label for="id"><span class="color">*</span>이름<!-- label--></label></th>
                  <td class=" ">
                    <input type="text" class="common-text-box box-left " id="m_name" name="m_name" maxlength="8">
-                   
+                  
                  </td>
                </tr>
                
@@ -146,16 +168,31 @@
                <tr>
                  <th class=" "><label for="id"><span class="color">*</span>성별<!-- label--></label></th>
                  <td class=" ">
-                   <input type="text" class="common-text-box box-left " id="m_sex" name="m_sex" maxlength="8">
+                    <input type="checkbox" name="m_sex" value="women" checked="checked">여자&nbsp;&nbsp;
+                   <input type="checkbox" name="m_sex" value="men">남자
                    
                  </td>
                </tr>
                <tr>
                   <th class=" "><label for="id"><span class="color">*</span>생년월일<!-- label--></label></th>
                   <td class="memberCols2">
-        <input type="text" name="m_year" value="1993" required="" label="생년월일" style="background:#FFF" size="4" maxlength="4">년
-        <input type="text" name="m_month" value="03" required="" label="생년월일" style="background:#FFF" size="2" maxlength="2">월
-        <input type="text" name="m_date" value="20" required="" label="생년월일" style="background:#FFF" size="2" maxlength="2">일
+                  <select name="m_year">
+        <c:forEach step="1" begin="1965" end="2016" var="i">
+        <option value="${i }"/>${i }
+        </c:forEach>
+             </select>년&nbsp;
+           
+       <!--  <input type="text" name="m_year" value="1993" required="" label="생년월일" style="background:#FFF" size="4" maxlength="4">년 -->
+       <select name="m_month">
+        <c:forEach step="1" begin="1" end="12" varStatus="i">
+        <option value="${i }">${i }
+        </c:forEach>
+             </select>월&nbsp;
+        <select name="m_date">
+        <c:forEach step="1" begin="1" end="31" var="i">
+        <option value="${i }"/>${i }
+        </c:forEach>
+             </select>일&nbsp;
     
     
         </td>
@@ -181,16 +218,16 @@
                   </th>
                   <td class="radio-txt-pt">
                      <p class="mt-5">
-                        <input type="text" id="m_email" name="m_email" class="common-text-box2 "/>
+                        <input type="text" id="m_email" name="m_email" class="common-text-box2 "/> 주소 직접입력
                    
-                        <select class="common-text-box2" id="selectEmailAddr" name="selectEmailAddr">
+                       <!--  <select class="common-text-box2" id="m_email" name="m_email">
                            <option value="etc">직접입력</option>
-                              <option value="naver.com">naver.com</option>
-                              <option value="nate.com">nate.com</option>
-                              <option value="daum.net">daum.net</option>
-                              <option value="gmail.com">gmail.com</option>
-                              </select>
-                           <input type="button" value="중복확인" class="double-chk" onclick="jQuery.emailCheck();">
+                              <option value="@naver.com">@naver.com</option>
+                              <option value="@nate.com">@nate.com</option>
+                              <option value="@daum.net">@daum.net</option>
+                              <option value="@gmail.com">@gmail.com</option>
+                              </select> -->
+                           
                      </p>
                      <p class="mt-5"><span class="color">* </span> 이메일은 결제내역 받기, 비밀번호 찾기 등에 사용되므로 정확하게 입력해 주세요.</p>
                      <p class="errorpage errorpage2 mt-5" id="errUserMail" style="display:none;">이미 사용중인 이메일 입니다.</p>

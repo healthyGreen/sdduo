@@ -24,7 +24,9 @@
 						<tbody>
 						<c:choose>
 							<c:when test="${fn:length(consultinglist) le 0}">
+							<tr><th>
 								등록된 게시물이 없습니다.
+								</th></tr>
 							</c:when>
 							<c:otherwise>
 							<tr>
