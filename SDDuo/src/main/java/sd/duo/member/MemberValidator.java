@@ -7,7 +7,7 @@ import org.springframework.validation.Validator;
 import sd.duo.member.MemberModel;
 
 public class MemberValidator implements Validator{
-
+	
    @Override
    public boolean supports(Class<?> clazz) {
       // 유효성검사하려는 model이 Validation가능한지 여부를 확인하고 가능하면 검사시작
