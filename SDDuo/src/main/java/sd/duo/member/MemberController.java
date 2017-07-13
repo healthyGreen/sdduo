@@ -26,28 +26,28 @@ public class MemberController {
 
 	ModelAndView mav = new ModelAndView();
 
-	// about������
+	// about占쏙옙占쏙옙占쏙옙
 	@RequestMapping(value = "/about.do")
 	public ModelAndView about() {
 		mav.setViewName("about");
 		return mav;
 	}
 
-	// �α��� ������
+	// 占싸깍옙占쏙옙 占쏙옙占쏙옙占쏙옙
 	@RequestMapping(value = "/loginForm.do", method = RequestMethod.GET)
 	public ModelAndView loginForm() {
 		mav.setViewName("loginForm");
 		return mav;
 	}
 
-	// �α��� ����
+	// 占싸깍옙占쏙옙 占쏙옙占쏙옙
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
 	public ModelAndView memberLogin(HttpServletRequest request, MemberModel mem) {
 
 		MemberModel result = memberService.memberLogin(mem);
 
 		if (result != null) {
-			System.out.println("�α��� ����");
+			System.out.println("占싸깍옙占쏙옙 占쏙옙占쏙옙");
 			HttpSession session = request.getSession();
 
 			session.setAttribute("mem", result);
@@ -61,19 +61,19 @@ public class MemberController {
 			return mav;
 		}
 
-		// �α��� ����
-		System.out.println("�α��� ����");
+		// 占싸깍옙占쏙옙 占쏙옙占쏙옙
+		System.out.println("占싸깍옙占쏙옙 占쏙옙占쏙옙");
 		mav.setViewName("loginForm");
 		return mav;
 	}
 
-	// �α׾ƿ�
+	// 占싸그아울옙
 	@RequestMapping("/logout.do")
 	public ModelAndView memberLogout(HttpServletRequest request, MemberModel mem) {
 		HttpSession session = request.getSession(false);
 
 		if (session != null) {
-			// System.out.println("�α׾ƿ� ����");
+			// System.out.println("占싸그아울옙 占쏙옙占쏙옙");
 			session.invalidate();
 		}
 
@@ -82,50 +82,51 @@ public class MemberController {
 		return mav;
 	}
 
-	// ��ȿ�� �˻�� �����߻��� �Ѿ�� �ϴ� ���� ( joinStep2 �� commandName )
+	// 占쏙옙효占쏙옙 占싯삼옙占� 占쏙옙占쏙옙占쌩삼옙占쏙옙 占싼어가占쏙옙 占싹댐옙 占쏙옙占쏙옙 ( joinStep2 占쏙옙 commandName )
 	@ModelAttribute("member")
 	public MemberModel formBack() {
 		return new MemberModel();
 	}
 
-	// �̿��� , �������� ����
+	// 占싱울옙占쏙옙 , 占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙
 	@RequestMapping(value = "/agree.do", method = RequestMethod.GET)
 	public ModelAndView memberStep1(HttpServletRequest request) {
 		mav.setViewName("agree");
 		return mav;
 	}
 
-	// ȸ������ �Է�
+	// 회占쏙옙占쏙옙占쏙옙 占쌉뤄옙
 	@RequestMapping(value = "/joinForm.do")
 	public ModelAndView memberStep2(HttpServletRequest request) {
 		mav.setViewName("joinForm");
 		return mav;
 	}
 
-	// ȸ�����ԿϷ�
+	// 회占쏙옙占쏙옙占쌉완뤄옙
 	@RequestMapping(value = "/joinSuccess.do")
 	public ModelAndView memberStep3(@ModelAttribute("member") MemberModel member, BindingResult result,
 			HttpServletRequest request) {
 
 		ModelAndView mav = new ModelAndView();
 
-		new MemberValidator().validate(member, result);
-
+		/*new MemberValidator().validate(member, result);
+		if(result.hasErrors()){
+			mav.setViewName("joinForm");
+			return mav;
+		}*/
 		memberService.insertMember(member);
-
-		mav.setViewName("/member/joinSuccess");
-
+		mav.setViewName("joinSuccess");
 		return mav;
 	}
 
-	// ȸ�� ���� ���� ��� ��
+	// 회占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占� 占쏙옙
 	@RequestMapping("/checkPassForm.do")
 	public ModelAndView checkPassForm() {
 		mav.setViewName("checkPassForm");
 		return mav;
 	}
 
-	// ȸ�� ���� ���� ��� Ȯ��
+	// 회占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占� 확占쏙옙
 	@RequestMapping("/checkPass.do")
 	public ModelAndView checkPassPro(MemberModel member, HttpServletRequest requeset,
 			HttpSession session) {
@@ -148,14 +149,14 @@ public class MemberController {
 		}
 	}
 
-	// ȸ�� ���� ��
+	// 회占쏙옙 占쏙옙占쏙옙 占쏙옙
 	@RequestMapping("/myInfoModifyForm.do") // myInfoModifyForm.jsp
 	public ModelAndView myInfoModifyForm() {
 		mav.setViewName("myInfoModifyForm");
 		return mav;
 	}
 
-	// ȸ�� ���� ����
+	// 회占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙
 	@RequestMapping("/myInfoModify.do")
 	public ModelAndView myInfoModifyPro(@ModelAttribute("member") MemberModel member, BindingResult result,
 			HttpSession session) {
@@ -170,14 +171,14 @@ public class MemberController {
 		return mav;
 	}
 
-	// ȸ�� Ż�� ��� ��
+	// 회占쏙옙 탈占쏙옙 占쏙옙占� 占쏙옙
 	/*@RequestMapping("/existPassForm.do")
 	public ModelAndView existPassForm() {
 		mav.setViewName("existPassForm");
 		return mav;
 	}*/
 
-	// ȸ�� Ż�� ��� Ȯ��
+	// 회占쏙옙 탈占쏙옙 占쏙옙占� 확占쏙옙
 	@RequestMapping("/existPass.do")
 	public ModelAndView existPassPro(MemberModel member, HttpServletRequest requeset,
 			HttpSession session) {
@@ -201,7 +202,7 @@ public class MemberController {
 		}
 	}
 
-	// ȸ�� Ż��
+	// 회占쏙옙 탈占쏙옙
 	@RequestMapping("/exist.do")
 	public ModelAndView exist(@ModelAttribute("member") MemberModel member, BindingResult result,
 			HttpServletRequest requeset, HttpSession session) {
@@ -218,14 +219,14 @@ public class MemberController {
 		return mav;
 	}
 
-	// ���̵� ã�� ��
+	// 占쏙옙占싱듸옙 찾占쏙옙 占쏙옙
 	@RequestMapping("/findIdForm.do")
 	public ModelAndView FindIdForm() {
 		mav.setViewName("findIdForm");
 		return mav;
 	}
 
-	// ���̵� ã�� ó��
+	// 占쏙옙占싱듸옙 찾占쏙옙 처占쏙옙
 	@RequestMapping("/findIdResult.do")
 	public ModelAndView findId(@ModelAttribute("member") MemberModel member, HttpServletRequest request) {
 
@@ -245,28 +246,28 @@ public class MemberController {
 		member = memberService.idFind(member);
 
 		if (member != null) {
-			findIdChk = 1; // findIdChk=1 : ã�� ����.
+			findIdChk = 1; // findIdChk=1 : 찾占쏙옙 占쏙옙占쏙옙.
 			mav.addObject("member", member);
 			mav.addObject("memberFindIdChk", findIdChk);
 			mav.setViewName("findIdResult");
 			return mav;
 
 		} else {
-			findIdChk = -1; // findIdChk=-1 : �Է��Ͻ� ������ ��ġ���� �ʽ��ϴ�.
+			findIdChk = -1; // findIdChk=-1 : 占쌉뤄옙占싹쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙치占쏙옙占쏙옙 占십쏙옙占싹댐옙.
 			mav.addObject("memberFindIdChk", findIdChk);
 			mav.setViewName("findIdResult");
 			return mav;
 		}
 	}
 
-	// ��й�ȣ ã�� ��
+	// 占쏙옙橘占싫� 찾占쏙옙 占쏙옙
 	@RequestMapping("/findPwForm.do")
 	public ModelAndView FindPwForm() {
 		mav.setViewName("findPwForm");
 		return mav;
 	}
 
-	// ��й�ȣ ã�� ó��
+	// 占쏙옙橘占싫� 찾占쏙옙 처占쏙옙
 	@RequestMapping("/findPwResult.do")
 	public ModelAndView findPw(@ModelAttribute("member") MemberModel member, HttpServletRequest request) {
 
@@ -288,7 +289,7 @@ public class MemberController {
 		member = memberService.pwFind(member);
 
 		if (member != null) {
-			findPwChk = 1; // findPwChk=1 : ã�� ����.
+			findPwChk = 1; // findPwChk=1 : 찾占쏙옙 占쏙옙占쏙옙.
 			mav.addObject("member", member);
 			mav.addObject("findPwChk", findPwChk);
 			mav.setViewName("findPwResult");
@@ -302,7 +303,7 @@ public class MemberController {
 		}
 	}
 
-	// ȸ�� ���� ����
+	// 회占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙
 	@RequestMapping("/myInfoView.do")
 	public ModelAndView myInfoView(@ModelAttribute("member") MemberModel member, HttpServletRequest request,
 			HttpSession session) {
@@ -310,13 +311,13 @@ public class MemberController {
 		id = session.getAttribute("session_member_id").toString();
 		member = memberService.getMember(id);
 		/*List<String> coupon = new ArrayList<String>();
-		coupon.add(0, "ȸ������ ��� ����");
+		coupon.add(0, "회占쏙옙占쏙옙占쏙옙 占쏙옙占� 占쏙옙占쏙옙");
 		if(member.getM_r_coupon()=="2"){
-			coupon.add(1, "�¶��� ���� ��� ����");
+			coupon.add(1, "占승띰옙占쏙옙 占쏙옙占쏙옙 占쏙옙占� 占쏙옙占쏙옙");
 		}*/
 		mav.addObject("member", member);
 		//mav.addObject("coupon", coupon);
-		System.out.println("�̸�" + member.getM_name());
+		System.out.println("占싱몌옙" + member.getM_name());
 		mav.setViewName("myInfoView");
 		return mav;
 	}
@@ -330,7 +331,7 @@ public class MemberController {
 		member = memberService.getMember(id);
 		/*memberCoupon.s
 		if(member.getM_r_coupon().equals("2")){
-			coupon.add(1, "�¶��� ���� ��� ����");
+			coupon.add(1, "占승띰옙占쏙옙 占쏙옙占쏙옙 占쏙옙占� 占쏙옙占쏙옙");
 		}*/
 		mav.addObject("member", member);
 	//	mav.addObject("coupon", coupon);

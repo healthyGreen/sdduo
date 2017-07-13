@@ -21,12 +21,35 @@ public class AdminReserService implements AdminReserDAO{
 	@Resource(name="sqlSessionTemplate")
 	   private SqlSessionTemplate sqlSessionTemplate;
 
+	//기본리스트
 	@Override
 	public List<OneReserModel> OneReserList(String pr_center) {
 		// TODO Auto-generated method stub
 		return sqlSessionTemplate.selectList("reserve.OneCenterList", pr_center);
 	}
 	
+	//예약일순
+		@Override
+		public List<OneReserModel> OneReserListRenew(String pr_center) {
+			// TODO Auto-generated method stub
+			return sqlSessionTemplate.selectList("reserve.OneCenterList", pr_center);
+		}
+	
+	//등록일순(최신순)
+	@Override
+	public List<OneReserModel> OneReserListNew(String pr_center) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectList("reserve.OneCenterList_New", pr_center);
+	}
+	
+	//예약대기
+	@Override
+	public List<OneReserModel> OneReserListWait(String pr_center) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectList("reserve.OneCenterList_Wait", pr_center);
+	}
+	
+	//기본리스트
 	@Override
 	public List<GroupReserModel> GroupReserList(String gr_center) {
 		// TODO Auto-generated method stub
@@ -69,6 +92,27 @@ public class AdminReserService implements AdminReserDAO{
 	public int GrReserDelete(int gr_number) {
 		// TODO Auto-generated method stub
 		return sqlSessionTemplate.delete("reserve.GrReserDelete", gr_number);
+	}
+
+	//예약일순
+	@Override
+	public List<GroupReserModel> GroupReserListRenew(String gr_center) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectList("reserve.GrCenterList", gr_center);
+	}
+
+	//등록일순(최신순)
+	@Override
+	public List<GroupReserModel> GroupReserListNew(String gr_center) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectList("reserve.GrCenterList_New", gr_center);
+	}
+
+	//예약대기
+	@Override
+	public List<GroupReserModel> GroupReserListWait(String gr_center) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectList("reserve.GrCenterList_Wait", gr_center);
 	}
 
 

@@ -57,21 +57,21 @@
 								<th><%= number++%></th>
 								<td class="subject">
 								
-								<c:if test="${list.c_ref != list.c_number }">
+								<c:if test="${list.c_ref != list.c_number }"> <!-- // 답변글일 경우 -->
 								  <c:if test="${session_admin!=1}"> 
-								 	<a href="${passURL}"><!-- <img src="../../images/sub/lock.gif" alt="자물쇠" class="lock"> --><b>↘[♨비밀글] </b>${list.c_title }</a>
+								 	<a href="${passURL}"><!-- <img src="../../images/sub/lock.gif" alt="자물쇠" class="lock"> --><b>↘</b>${list.c_title }</a>
 							 	 </c:if> 
 								 <c:if test="${session_admin==1}">
-								 	<a href="${viewURL}"><b>↘[♨비밀글]</b>${list.c_title }</a>
+								 	<a href="${viewURL}"><b>↘</b>${list.c_title }</a>
 								 </c:if> 
 								</c:if>
 								
-								<c:if test="${list.c_ref == list.c_number }">
+								<c:if test="${list.c_ref == list.c_number }"> <!-- // 답변글이 아닐경우 -->
 							 <c:if test="${session_admin!=1 }">
-								 	<a href="${passURL}"><!-- <img src="../../images/sub/lock.gif" alt="자물쇠" class="lock"> -->${list.c_title }</a>
+								 	<a href="${passURL}"><!-- <img src="../../images/sub/lock.gif" alt="자물쇠" class="lock"> --><b>[♨비밀글]</b>${list.c_title }</a>
 								  </c:if> 
 								   <c:if test="${session_admin==1 }">
-								 	<a href="${viewURL}">${list.c_title }</a>
+								 	<a href="${viewURL}"><b>[♨비밀글]</b>${list.c_title }</a>
 								  </c:if> 
 								</c:if>
 								

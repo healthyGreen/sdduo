@@ -60,25 +60,24 @@ ${consultingmodel.c_content }
 				</table>
 					<div class="viewbtn">
 				<%-- 	<c:if test="${session_admin!=1}"> --%>
-					<c:url var="replyURL" value="adminConsultingReply.do">
+							<c:url var="replyURL" value="adminConsultingReply.do">
 								<c:param name="c_ref" value="${consultingmodel.c_ref }"/>
 								<c:param name="c_number" value="${consultingmodel.c_number }"/>
 								<%-- <c:param name="c_re_status" value="${consultingmodel.c_re_status }"/> --%>
 							</c:url>
-					<c:if test="${!consultingmodel.m_id.equals('admin') }"> 
 						 <c:if test="${consultingmodel.c_re_status=='1' }"> 
 							<a href="${replyURL}" class="storywrite1">답변달기</a> 	
 						</c:if>				
-					</c:if> 
+
  			<%-- 	</c:if> --%>
 						<p ><input type="button" value="목록" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingList.do'" class="btn01 list"></p>
-						<%-- <c:if test="${isReply.equals('reply') }"> --%>
+						 <c:if test="${consultingmodel.m_id=='admin' }">
 						<div class="area">
 							<p class="btn01"><input type="button" value="수정" onclick="location.href='<%=request.getContextPath() %>/admin/adminConsultingModify.do?c_number=${consultingmodel.c_number }'"></p>
 						<%-- 	<p class="btn02"><input type="button" value="삭제" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingDeletePro.do?c_number=${consultingmodel.c_number }'"></p> --%>
-							<p class="btn02"><input type="button" value="삭제" onclick="javascript:deletOk();"></p>
 						</div>
-						<%-- </c:if> --%>
+						 </c:if>
+							<p class="btn02"><input type="button" value="삭제" onclick="javascript:deletOk();"></p>
 					</div>
 				</div>
 				</body>

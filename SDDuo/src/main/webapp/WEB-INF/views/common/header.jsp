@@ -19,8 +19,8 @@
                         </c:when>
                         <c:when test="${session_admin == 1}"> 
                            <li>${session_member_name} (관리자)님 환영합니다!
-                           <li><a href="/<%=request.getContextPath() %>/AdminReserve/adminOneReserList.do" >관리자페이지</a>
-                           <li><a href="/<%=request.getContextPath() %>/member/logout.do" >로그아웃</a>
+                           <li><a href="<%=request.getContextPath() %>/AdminReserve/OneReserList.do" >관리자페이지</a>
+                           <li><a href="<%=request.getContextPath() %>/member/logout.do" >로그아웃</a>
                         </c:when>
                         <c:otherwise>
                            <li><a href="<%=request.getContextPath() %>/member/agree.do" >회원가입</a>
