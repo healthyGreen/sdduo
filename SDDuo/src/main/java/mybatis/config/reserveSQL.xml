@@ -59,11 +59,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		order by pr_number DESC 
 	</select>
 	
-	<!-- 개인 센터별 리스트 -->
+	<!-- 개인 센터별 리스트(예약날짜순) -->
 	<select id="OneCenterList" resultMap="OneReserRes">
 		<include refid="oneSelect_All" />
 		where pr_center = #{pr_center}
+		ORDER BY pr_year DESC, pr_month DESC, pr_day DESC, pr_hour DESC, pr_minute DESC
+	</select>
+	
+	<!-- 개인 센터별 리스트(최신순) -->
+	<select id="OneCenterList_New" resultMap="OneReserRes">
+		<include refid="oneSelect_All" />
+		where pr_center = #{pr_center}
 		ORDER BY pr_number DESC
+	</select>
+	
+	<!-- 개인 센터별 리스트(예약대기 뽑아오기) -->
+	<select id="OneCenterList_Wait" resultMap="OneReserRes">
+		<include refid="oneSelect_All" />
+		where pr_center = #{pr_center} AND pr_status = '0' ORDER BY pr_number DESC
 	</select>
 	
 	<!-- 그룹 예약 리스트 -->
@@ -72,11 +85,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ORDER BY gr_number DESC
 	</select>
 	
-	<!-- 그룹 센터별 리스트 -->
+	<!-- 그룹 센터별 리스트(예약날짜순) -->
 	<select id="GrCenterList" resultMap="GroupReserRes">
 		<include refid="grSelect_All" />
 		where gr_center = #{gr_center}
+		ORDER BY gr_year DESC, gr_month DESC, gr_day DESC, gr_hour DESC, gr_minute DESC
+	</select>
+	
+	<!-- 그룹 센터별 리스트(최신순) -->
+	<select id="GrCenterList_New" resultMap="GroupReserRes">
+		<include refid="grSelect_All" />
+		where gr_center = #{gr_center}
 		ORDER BY gr_number DESC
+	</select>
+	
+	<!-- 그룹 센터별 리스트(예약대기 뽑아오기) -->
+	<select id="GrCenterList_Wait" resultMap="GroupReserRes">
+		<include refid="grSelect_All" />
+		where gr_center = #{gr_center} AND gr_status = '0' ORDER BY gr_number DESC
 	</select>
 	
 	<!-- 개인 예약 상세보기 -->

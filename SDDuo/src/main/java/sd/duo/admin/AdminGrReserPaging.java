@@ -13,10 +13,11 @@ public class AdminGrReserPaging {
 	private int endPage;
 	private String viewName;
 	private String gr_center;
+	private String isSearch;
 	
 	private StringBuffer pagingHtml;
 	
-	public AdminGrReserPaging(int currentPage, int totalCount, int blockCount, int blockPage, String viewName, String gr_center){
+	public AdminGrReserPaging(int currentPage, int totalCount, int blockCount, int blockPage, String viewName, String gr_center, String isSearch){
 		
 		this.blockCount = blockCount;
 		this.blockPage = blockPage;
@@ -24,6 +25,7 @@ public class AdminGrReserPaging {
 		this.totalCount = totalCount;
 		this.viewName = viewName;
 		this.gr_center = gr_center;
+		this.isSearch = isSearch;
 		
 		totalPage = (int) Math.ceil((double) totalCount / blockCount);
 		if(totalPage == 0){
@@ -46,7 +48,7 @@ public class AdminGrReserPaging {
 		
 		pagingHtml = new StringBuffer();
 		if(currentPage > blockPage){
-			pagingHtml.append("<a class='page prv' href=" + viewName + ".do?currentPage=" + (startPage - 1) + "&gr_center=" +gr_center + ">");
+			pagingHtml.append("<a class='page prv' href=" + viewName + ".do?currentPage=" + (startPage - 1) + "&gr_center=" +gr_center + "&isSearch=" + isSearch + ">");
 			pagingHtml.append("&lt;");
 			pagingHtml.append("</a>");
 		}
@@ -60,7 +62,7 @@ public class AdminGrReserPaging {
 				pagingHtml.append(i);
 				pagingHtml.append("</strong>");
 			} else{
-				pagingHtml.append("<a class='page' href=" + viewName + ".do?currentPage=" + i + "&gr_center=" + gr_center);
+				pagingHtml.append("<a class='page' href=" + viewName + ".do?currentPage=" + i + "&gr_center=" + gr_center + "&isSearch=" + isSearch);
 				//pagingHtml.append(i);
 				pagingHtml.append(">");
 				pagingHtml.append(i);
@@ -69,7 +71,7 @@ public class AdminGrReserPaging {
 		}
 		
 		if(totalPage - startPage >= blockPage){
-			pagingHtml.append("<a class='page next' href=" + viewName + ".do?currentPage=" + (endPage + 1) + "&gr_center=" + gr_center + ">");
+			pagingHtml.append("<a class='page next' href=" + viewName + ".do?currentPage=" + (endPage + 1) + "&gr_center=" + gr_center + "&isSearch=" + isSearch + ">");
 			pagingHtml.append("&gt;");
 			pagingHtml.append("</a>");
 		}
@@ -171,6 +173,14 @@ public class AdminGrReserPaging {
 
 	public void setPagingHtml(StringBuffer pagingHtml) {
 		this.pagingHtml = pagingHtml;
+	}
+
+	public String getIsSearch() {
+		return isSearch;
+	}
+
+	public void setIsSearch(String isSearch) {
+		this.isSearch = isSearch;
 	}
 
 }

@@ -26,6 +26,18 @@ public interface AdminReserDAO {
    int OneReserDelete(int pr_number);
    
    int GrReserDelete(int gr_number);
+
+   List<OneReserModel> OneReserListNew(String pr_center);
+
+   List<OneReserModel> OneReserListWait(String pr_center);
+
+   List<OneReserModel> OneReserListRenew(String pr_center);
+
+   List<GroupReserModel> GroupReserListRenew(String gr_center);
+
+   List<GroupReserModel> GroupReserListNew(String gr_center);
+
+   List<GroupReserModel> GroupReserListWait(String gr_center);
    
 
 }
