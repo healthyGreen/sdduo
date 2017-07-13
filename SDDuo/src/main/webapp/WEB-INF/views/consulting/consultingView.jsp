@@ -67,8 +67,10 @@ ${consultingmodel.c_content }
 								<c:param name="c_ref" value="${consultingmodel.c_ref }"/>
 								<c:param name="c_number" value="${consultingmodel.c_number }"/>
 							</c:url>
-					<c:if test="${!consultingmodel.m_id.equals('admin') }"> 
-							<a href="${replyURL}" class="storywrite1">답변달기</a> 
+					<c:if test="${session_admin.equals('1') }"> 
+							<c:if test="${consultingmodel.c_re_status=='1' }"> 
+							<a href="${replyURL}" class="storywrite1">답변달기</a> 	
+						</c:if>		
 					</c:if> 
  			<%-- 	</c:if> --%>
 						<p ><input type="button" value="목록" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingList.do'" class="btn01 list"></p>

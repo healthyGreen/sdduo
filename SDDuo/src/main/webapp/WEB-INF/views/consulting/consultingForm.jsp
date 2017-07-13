@@ -27,9 +27,9 @@
 						<tbody>
 							<tr>
 								<th>이야기 제목</th>
-								<td colspan="3"><input type="hidden" name="c_ref"
-									value="${consultingmodel.c_ref }" /> 
-									<input type="hidden" name="c_number" value="${consultingmodel.c_number }"> 
+								<td colspan="3"><%-- <input type="hidden" name="c_ref"
+									value="${consultingmodel.c_ref }" / --%>
+									<input type="hidden" name="c_number" value="${consultingModmodel.c_number }"> 
 									<input type="text" class="writetxt01" name="c_title" value="${consultingModmodel.c_title }" size="20"> 
 									<form:errors path="c_title" /></td>
 							</tr>
@@ -71,9 +71,9 @@
 						<tbody>
 							<tr>
 								<th>이야기 제목</th>
-								<td colspan="3"><input type="hidden" name="c_ref"
-									value="${consultingmodel.c_ref }" /> 
-									<input type="hidden" name="c_number" value="${consultingmodel.c_number }"> 
+								<td colspan="3">
+								 <input type="hidden" name="c_ref" value="${consultingmodel.c_ref }"> 
+								 <input type="hidden" name="c_number" value="${consultingmodel.c_number }"> 
 									<c:if test="${state.equals('reply')}">
 										<input type="text" class="writetxt01" name="c_title" size="20"
 											value="[답변]${consultingmodel.c_title }">
@@ -88,7 +88,8 @@
 												name="c_pass"> (비밀번호4자리 입력) 
 												<form:errors path="c_pass" /></td>
 										</tr>
-									</c:if></td>
+									</c:if>	
+								</td>
 							</tr>
 
 							<tr>

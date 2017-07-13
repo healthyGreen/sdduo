@@ -69,8 +69,12 @@ public class consultingController {
 		// consultingmodel.setM_id(id);
 		// consultingmodel.setC_re_status(1); // 답변상태 아직 안달린 상태
 
-		//new consultingValidator22().validate(consultingmodel, result);
-		String who = request.getParameter("who");
+		/*new consultingValidator22().validate(consultingmodel, result);
+		if (result.hasErrors()) {
+			mv.setViewName("consultingForm");
+			return mv;
+		}*/
+		//String who = request.getParameter("who");
 		
 		int c_ref = consultingmodel.getC_ref();
 		int c_number = consultingmodel.getC_number();
@@ -79,11 +83,7 @@ public class consultingController {
 		
 			consultingmodel.setM_id((String)session.getAttribute("session_member_id"));
 			if (c_ref != 0) {
-				/*new consultingModValidator().validate(consultingmodel, result);
-				if (result.hasErrors()) {
-					mv.setViewName("consultingForm");
-					return mv;
-				}*/
+			//new consultingModValidator().validate(consultingmodel, result);
 				c = service.consultingView(c_number);
 				// consultingmodel.setC_re_status(2);
 				// System.out.println(consultingmodel);
@@ -111,11 +111,11 @@ public class consultingController {
 				//consultingmodel.setM_id("Asd"); // 차후에 로그인 되면 session값으로 바꿀고임
 				service.insertConsulting(consultingmodel);
 			}
-			if(who != null){
+			/*if(who != null){
 				mv.setViewName("redirect:/admin/adminConsultingList.do");
-			}else{
+			}else{*/
 			mv.setViewName("redirect:/consulting/consultingList.do");
-			}
+		/*	}*/
 			return mv;
 		}
 
