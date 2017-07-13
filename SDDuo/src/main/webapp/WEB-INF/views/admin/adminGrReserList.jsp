@@ -6,7 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <body>
-
+<form action="GrReserList.do">
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
@@ -42,6 +42,20 @@
                                     <div class="panel-body">
                               <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                  <thead>
+                                 
+                                 <tr>
+                                 		<td>
+                                 		<input type="hidden" name="gr_center" value="${gr_center }">
+                                 			<select name="isSearch">
+                                 				<option value="0">예약일순</option>
+                                 				<option value="1">최신순</option>
+                                 				<option value="2">예약대기</option>
+                                 			</select>
+                                 			<input name="submit" type="submit" value="검색"/>
+                                 			
+                                 		</td>
+                                 	</tr>
+                                 
                                     <tr>
                                        <th>번호</th>
                                        <th>그룹명</th>
@@ -152,5 +166,5 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
-
+</form>
 </body>

@@ -4,9 +4,8 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <body>
-
+<form action="OneReserList.do">
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
@@ -43,6 +42,20 @@
                                     <div class="panel-body">
                               <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                  <thead>
+                               
+                                 	<tr>
+                                 		<td>
+                                 		<input type="hidden" name="pr_center" value="${pr_center }">
+                                 			<select name="isSearch">
+                                 				<option value="0">예약일순</option>
+                                 				<option value="1">최신순</option>
+                                 				<option value="2">예약대기</option>
+                                 			</select>
+                                 			<input name="submit" type="submit" value="검색"/>
+                                 			
+                                 		</td>
+                                 	</tr>
+                                 
                                     <tr>
                                        <th>번호</th>
                                        <th>예약자</th>
@@ -182,6 +195,6 @@
     <script src="../dist/js/sb-admin-2.js"></script>
     
    
-
+</form>
 </body>
 </html>
