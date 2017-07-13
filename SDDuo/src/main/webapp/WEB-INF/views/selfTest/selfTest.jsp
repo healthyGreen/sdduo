@@ -131,7 +131,7 @@
 	
 		<div class="sub-content-inbox ">
 			<ul class="tabCon tabStyle">
-				<li class="current" data-tab="tab1" ><a href="#">우울증상</a></li>
+				<li class="current" data-tab="tab1"> <a href="#">우울증상</a></li>
 				<li data-tab="tab2"><a href="#">불안증상</a></li>
 				<li data-tab="tab3"><a href="#">스트레스</a></li>
 				<li data-tab="tab4"><a href="#">분노조절</a></li>
@@ -141,7 +141,7 @@
 				
 			<div id="tab1" class="tabcontent tab_content current">
 			<form:form commandName="selfModel" id="form1" action="selfWrite.do" enctype="multipart/form-data" method="post">
-	
+		
 				
 				<h4>1. 청소년 우울 자가진단</h4>
 					<h5>문항</h5>
@@ -551,8 +551,7 @@
 							<a href="#" id="submit1" class="btn color">결과저장</a>
 							<div id="total_div" class="result">
 								총점 : <span id="result1">0</span> 점
-								<input type="hidden" name="m_id" value="1">
-								<input type="hidden" name="category" value="1">
+								<input type="hidden" name="t_category" value="1">
 								<input type="hidden" name="t_score" id="t_score1" value="">
 							</div>						
 						</td>
@@ -685,8 +684,7 @@
 							<a href="#" id="submit2" class="btn color">결과저장</a>
 							<div id="total_div" class="result">
 								총점 : <span id="result3">0</span> 점
-								<input type="hidden" name="m_id" value="1">
-								<input type="hidden" name="category" value="2">
+								<input type="hidden" name="t_category" value="2">
 								<input type="hidden" name="t_score" id="t_score3" value="">
 							</div>
 						</td>
@@ -972,8 +970,8 @@
 							<a href="#" id="submit3" class="btn color">결과저장</a>
 							<div id="total_div" class="result">
 								총점 : <span id="result4">0</span> 점
-								<input type="hidden" name="m_id" value="1">
-								<input type="hidden" name="category" value="3">
+	
+								<input type="hidden" name="t_category" value="3">
 								<input type="hidden" name="t_score" id="t_score4" value="">
 							</div>
 						</td>
@@ -1202,8 +1200,7 @@
 							<a href="#" id="submit4" class="btn color">결과저장</a>
 							<div id="total_div" class="result">
 								총점 : <span id="result5">0</span> 점
-								<input type="hidden" name="m_id" value="1">
-								<input type="hidden" name="category" value="4">
+								<input type="hidden" name="t_category" value="4">
 								<input type="hidden" name="t_score" id="t_score5" value="">
 							</div>
 						</td>

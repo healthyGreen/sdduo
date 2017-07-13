@@ -4,6 +4,8 @@ public class SelfTestModel {
 	
 	private String m_id=""; 	//사용자아이디
 	private int t_score=0;	//점수
+	private String t_category;
+	private String t_grade;
 	
 	private int count;
 	
@@ -25,6 +27,19 @@ public class SelfTestModel {
 	public void setCount(int count) {
 		this.count = count;
 	}
+	public String getT_category() {
+		return t_category;
+	}
+	public void setT_category(String t_category) {
+		this.t_category = t_category;
+	}
+	public String getT_grade() {
+		return t_grade;
+	}
+	public void setT_grade(String t_grade) {
+		this.t_grade = t_grade;
+	}
+	
 	
 	
 }

@@ -30,6 +30,10 @@
 		<put-attribute name="body" value="/WEB-INF/views/selfTest/selfTest.jsp" />
 	</definition>
 	
+	<definition name="selfTestList" extends="notice">
+		<put-attribute name="body" value="/WEB-INF/views/selfTest/selfTestList.jsp" />
+	</definition>
+	
 	
 	
 
