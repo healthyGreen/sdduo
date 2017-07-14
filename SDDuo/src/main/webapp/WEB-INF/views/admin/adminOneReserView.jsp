@@ -60,7 +60,14 @@
                                        <th>예약날짜</th>
                                        <td>
                                           <select id="pr_year" name="pr_year" class="form-control" style="width: 20%; display: inline-block;">
-                                             <option value="2017" ${OneReserModel.pr_year eq "2017" ? "selected" :""}>2017</option>
+                                          <option value="${OneReserModel.pr_year}">${OneReserModel.pr_year}</option>
+                                             <%for(int i=2017; i<=2027; i++){ %>
+                                             <%int from = 'i';
+                                             String to = Integer.toString(from); %>
+                                             
+                                             <option value="<%=i%>"><%=i %></option>
+                                             <%} %>
+                                             <%-- <option value="2017" ${OneReserModel.pr_year eq "2017" ? "selected" :""}>2017</option>
                                              <option value="2018" ${OneReserModel.pr_year eq "2018" ? "selected" :""}>2018</option>
                                              <option value="2019" ${OneReserModel.pr_year eq "2019" ? "selected" :""}>2019</option>
                                              <option value="2020" ${OneReserModel.pr_year eq "2020" ? "selected" :""}>2020</option>
@@ -70,11 +77,22 @@
                                              <option value="2024" ${OneReserModel.pr_year eq "2024" ? "selected" :""}>2024</option>
                                              <option value="2025" ${OneReserModel.pr_year eq "2025" ? "selected" :""}>2025</option>
                                              <option value="2026" ${OneReserModel.pr_year eq "2026" ? "selected" :""}>2026</option>
+                                             <option value="2027" ${OneReserModel.pr_year eq "2027" ? "selected" :""}>2027</option> --%>
                                           </select>
                                           년&nbsp;&nbsp;
 
                                           <select id="pr_month" name="pr_month" class="form-control"  style="width: 20%; display: inline-block;">
-                                             <option value="01" ${OneReserModel.pr_month eq "01" ? "selected" :""}>01</option>
+                                          <option value="${OneReserModel.pr_month}">${OneReserModel.pr_month}</option>
+                                             <%for(int i=1; i<=12; i++){ %>
+                                             <%
+                                             String s = Integer.toString(i); 
+												if(s.length() == 1){
+													s = "0"+s;
+												}
+                                             %>
+                                             <option value="<%=s%>"><%=s %></option>
+                                             <%} %>
+                                             <%-- <option value="01" ${OneReserModel.pr_month eq "01" ? "selected" :""}>01</option>
                                              <option value="02" ${OneReserModel.pr_month eq "02" ? "selected" :""}>02</option>
                                              <option value="03" ${OneReserModel.pr_month eq "03" ? "selected" :""}>03</option>
                                              <option value="04" ${OneReserModel.pr_month eq "04" ? "selected" :""}>04</option>
@@ -85,12 +103,22 @@
                                              <option value="09" ${OneReserModel.pr_month eq "09" ? "selected" :""}>09</option>
                                              <option value="10" ${OneReserModel.pr_month eq "10" ? "selected" :""}>10</option>
                                              <option value="11" ${OneReserModel.pr_month eq "11" ? "selected" :""}>11</option>
-                                             <option value="12" ${OneReserModel.pr_month eq "12" ? "selected" :""}>12</option>
+                                             <option value="12" ${OneReserModel.pr_month eq "12" ? "selected" :""}>12</option> --%>
                                           </select>
                                           월&nbsp;&nbsp;
                                           
                                           <select id="pr_day" name="pr_day" class="form-control"  style="width: 20%; display: inline-block;">
-                                             <option value="01" ${OneReserModel.pr_day eq "01" ? "selected" :""}>01</option>
+                                          <option value="${OneReserModel.pr_day}">${OneReserModel.pr_day}</option>
+                                             <%for(int i=1; i<= 31; i++){ %>
+                                             <%
+                                             String s = Integer.toString(i); 
+												if(s.length() == 1){
+													s = "0"+s;
+												}
+                                             %>
+                                             <option value="<%=s%>"><%=s %></option>
+                                             <%} %>
+                                             <%-- <option value="01" ${OneReserModel.pr_day eq "01" ? "selected" :""}>01</option>
                                              <option value="02" ${OneReserModel.pr_day eq "02" ? "selected" :""}>02</option>
                                              <option value="03" ${OneReserModel.pr_day eq "03" ? "selected" :""}>03</option>
                                              <option value="04" ${OneReserModel.pr_day eq "04" ? "selected" :""}>04</option>
@@ -120,7 +148,7 @@
                                              <option value="28" ${OneReserModel.pr_day eq "28" ? "selected" :""}>28</option>
                                              <option value="29" ${OneReserModel.pr_day eq "29" ? "selected" :""}>29</option>
                                              <option value="30" ${OneReserModel.pr_day eq "30" ? "selected" :""}>30</option>
-                                             <option value="31" ${OneReserModel.pr_day eq "31" ? "selected" :""}>31</option>
+                                             <option value="31" ${OneReserModel.pr_day eq "31" ? "selected" :""}>31</option> --%>
                                              
                                           </select>
                                           일&nbsp;&nbsp;
