@@ -42,18 +42,9 @@ $(document).ready(function () {
 </head>
 <body>
 <div class="sub-content">
-            <div class="bg02area">
-               <p class="tit">예약/커뮤니티</p>
-            </div>
+           
             <div class="sub-content-inbox">
-               <ul class="sub-menu2">
-                  <li><a href="sub0201_list.html">온라인상담</a></li>
-                  <li class="act act2"><a href="sub0202_01.html">온라인 실시간예약</a></li>
-                  <li><a href="sub0203_list.html">마이스토리 공지사항</a></li>
-                  <li><a href=" sub0204_list.html">마이스토리 심리 컬럼</a></li>
-                  <li><a href="sub0205_list.html">책으로 만나는 심리이야기</a></li>
-                  <li class="last"><a href="sub0206_list.html">자주하는 질문</a></li>
-               </ul>
+              
                <h3>온라인 실시간예약</h3>
                <p class="sub02_txt">
                   마이스토리 심리상담센터는 예약상담으로만 운영되고 있으며 상담을 희망하시는 경우 반드시 예약 및 상담규정을 준수해야 합니다.<br />
@@ -71,60 +62,56 @@ $(document).ready(function () {
                            
                         });
                      </script> -->
-                     <tr>
-                                    <td colspan="3" height="15"></td>
-                                   </tr>
-                                   <tr>
-                                    <td valign="top" class="formtit"  style="color: #4f4f4f; font-size: 16px; line-height: 120%; padding-top: 10px;">예약일 선택&nbsp;</td>
-                                    <td align="center" width="4" ></td>
-                                    <td>
-                                       <select id="pr_year" name="pr_year" class="form-control" style="width: 20%; display: inline-block;">
-                                       		<option value="">-선택하세요-</option>
-                                             <%for(int i=2017; i<=2027; i++){ %>
-                                             <%int from = 'i';
-                                             String to = Integer.toString(from); %>
-                                             
-                                             <option value="<%=i%>"><%=i %></option>
-                                             <%} %>
-                                          </select>
-                                          년&nbsp;&nbsp;
+                     
+                           
+                  <select id="pr_year" name="pr_year" class="form-control" style="width: 20%; display: inline-block;">
+                  		<option value="">-선택하세요-</option>
+                        <%for(int i=2017; i<=2027; i++){ %>
+                        <%int from = 'i';
+                        String to = Integer.toString(from); %>
+                        
+                        <option value="<%=i%>"><%=i %></option>
+                        <%} %>
+                     </select>
+                     년&nbsp;&nbsp;
 
-                                          <select id="pr_month" name="pr_month" class="form-control"  style="width: 20%; display: inline-block;">
-                                          	<option value="">-선택하세요-</option>
-                                             <%for(int i=1; i<=12; i++){ %>
-                                             <%
-                                             String s = Integer.toString(i); 
-												if(s.length() == 1){
-													s = "0"+s;
-												}
-                                             %>
-                                             <option value="<%=s%>"><%=s %></option>
-                                             <%} %>
-                                          </select>
-                                          월&nbsp;&nbsp;
-                                          
-                                          <select id="pr_day" name="pr_day" class="form-control"  style="width: 20%; display: inline-block;">
-                                          	<option value="">-선택하세요-</option>
-                                             <%for(int i=1; i<= 31; i++){ %>
-                                             <%
-                                             String s = Integer.toString(i); 
-												if(s.length() == 1){
-													s = "0"+s;
-												}
-                                             %>
-                                             <option value="<%=s%>"><%=s %></option>
-                                             <%} %>
-                                             
-                                          </select>
+                     <select id="pr_month" name="pr_month" class="form-control"  style="width: 20%; display: inline-block;">
+                     	<option value="">-선택하세요-</option>
+                        <%for(int i=1; i<=12; i++){ %>
+                        <%
+                                 String s = Integer.toString(i); 
+								if(s.length() == 1){
+									s = "0"+s;
+								}
+                                 %>
+                        <option value="<%=s%>"><%=s %></option>
+                        <%} %>
+                     </select>
+                     월&nbsp;&nbsp;
+                     
+                     <select id="pr_day" name="pr_day" class="form-control"  style="width: 20%; display: inline-block;">
+                     	<option value="">-선택하세요-</option>
+                        <%for(int i=1; i<= 31; i++){ %>
+                        <%
+                                 String s = Integer.toString(i); 
+								if(s.length() == 1){
+									s = "0"+s;
+								}
+                                 %>
+                        <option value="<%=s%>"><%=s %></option>
+                        <%} %>
+                        
+                     </select>
                                           일&nbsp;&nbsp;
-                                    </td>
-                                   </tr>
+                     <p style="font-size: 20px; text-align: center; "><span id="year" style="color: red;"></span>년<span id="month" style="color: red;"></span>월<span id="day" style="color: red;">일</span>에 예약하시겠습니까?</p>
+                     
+                                  
                   </div>
                   <div class="calright">
                      <p class="tit">예약정보를 입력해 주세요</p>
                      <p class="txt">왼쪽 달력에서 먼저 원하는 날짜를 선택 후 예약해주세요</p>
                      
-                     <div>
+                     <div style="width: 295px; margin: 0 auto;">
                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
                              <tr>
                               <td>
@@ -257,7 +244,7 @@ $(document).ready(function () {
                              </tr>
                            </table>
                            </div>
-               <p><span id="year"></span>년<span id="month"></span>월<span id="day">일</span>에 예약하시겠습니까?</p>
+               
                <div>
                   <input type="button" onclick="return checkForm()" value="확인"   />
                   <input type="button" value="취소" class="cancel" />
