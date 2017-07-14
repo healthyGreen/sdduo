@@ -59,16 +59,17 @@
 				<form class="viewForm" method="post">
 				<input type="hidden" name="${noticeModel.n_number }" />
 				<%-- <input type="hidden" name="seq" value="${item.seq }" /> --%>
-					
-					<%-- <c:if test="${session_member_id == 'admin' }">	
+					<c:choose>
+					<c:when test="${session_member_id == 'admin' }">
 					<button type="button" onclick="onModify(${noticeModel.n_number })" class="btn btn-outline btn-primary" style="margin-right: 10px; ">수정</button>
 					<button type="button" onclick="noticeDelete(${noticeModel.n_number })" class="btn btn-outline btn-primary" style="margin-right: 10px; ">삭제</button>
-					</c:if> --%>
+					<button type="button" onclick="adminOnList()" class="btn btn-outline btn-default">목록</button>
+					</c:when>
 					
-					<button type="button" onclick="onModify(${noticeModel.n_number })" class="btn btn-outline btn-primary" style="margin-right: 10px; ">수정</button>
-					<button type="button" onclick="noticeDelete(${noticeModel.n_number })" class="btn btn-outline btn-primary" style="margin-right: 10px; ">삭제</button>
-					
+					<c:otherwise>
 					<button type="button" onclick="onList()" class="btn btn-outline btn-default">목록</button>
+					</c:otherwise>
+					</c:choose>
 				</form>	
 			</div>
 							
@@ -113,6 +114,11 @@ var onModify = function(n_number){
 };
 
 var onList = function(){
+	location.href='NoticeList.do';
+};
+
+
+var adminOnList = function(){
 	location.href='adminNoticeList.do';
 };
 

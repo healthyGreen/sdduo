@@ -26,7 +26,6 @@
 					<p class="search-area">
 						<select name="searchNum" id="searchNum">
 							<option value="0">제목</option>
-							<option value="1">내용</option>
 						</select>
 						<input type="text" name="isSearch" id="isSearch" maxlength="20" value="" class="noticebox">
 						<input type="submit" value="검색"  class="noticebtn">
