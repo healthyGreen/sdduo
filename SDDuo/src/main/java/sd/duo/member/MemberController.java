@@ -25,7 +25,8 @@ public class MemberController {
 	private MemberService memberService;
 
 	ModelAndView mav = new ModelAndView();
-
+	String aboutLogin = null;
+	
 	// about占쏙옙占쏙옙占쏙옙
 	@RequestMapping(value = "/about.do")
 	public ModelAndView about() {
@@ -36,6 +37,8 @@ public class MemberController {
 	// 占싸깍옙占쏙옙 占쏙옙占쏙옙占쏙옙
 	@RequestMapping(value = "/loginForm.do", method = RequestMethod.GET)
 	public ModelAndView loginForm() {
+		aboutLogin = "justlogin";
+		mav.addObject("aboutLogin", aboutLogin);
 		mav.setViewName("loginForm");
 		return mav;
 	}
@@ -45,7 +48,7 @@ public class MemberController {
 	public ModelAndView memberLogin(HttpServletRequest request, MemberModel mem) {
 
 		MemberModel result = memberService.memberLogin(mem);
-
+		
 		if (result != null) {
 			System.out.println("占싸깍옙占쏙옙 占쏙옙占쏙옙");
 			HttpSession session = request.getSession();
@@ -60,9 +63,9 @@ public class MemberController {
 			mav.setViewName("main");
 			return mav;
 		}
-
+		aboutLogin = "loginError";
 		// 占싸깍옙占쏙옙 占쏙옙占쏙옙
-		System.out.println("占싸깍옙占쏙옙 占쏙옙占쏙옙");
+		mav.addObject("aboutLogin", aboutLogin);
 		mav.setViewName("loginForm");
 		return mav;
 	}
