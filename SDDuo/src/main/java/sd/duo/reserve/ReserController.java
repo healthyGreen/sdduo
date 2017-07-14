@@ -38,7 +38,7 @@ public class ReserController {
 	private Paging paging;
 	ModelAndView mv = new ModelAndView();
 	
-	   // ���ο��� ����Ʈ
+	   // 占쏙옙占싸울옙占쏙옙 占쏙옙占쏙옙트
 	   @RequestMapping(value="/OneReserList.do", method = RequestMethod.GET)
 	   public ModelAndView oneReserList(HttpServletRequest request){
 	      
@@ -78,7 +78,7 @@ public class ReserController {
 	      
 	   }
 	
-	//�׷쿹�� ����Ʈ
+	//占쌓룹예占쏙옙 占쏙옙占쏙옙트
 	@RequestMapping(value="/GrReserList.do",method = RequestMethod.GET)
 	public ModelAndView GrReserList(HttpServletRequest request){
 		ModelAndView mv = new ModelAndView();
@@ -122,14 +122,14 @@ public class ReserController {
 		return mv;
 	}
 	
-	// ���ο��� ��
+	// 占쏙옙占싸울옙占쏙옙 占쏙옙
 	@RequestMapping(value="/OneReserveForm.do", method = RequestMethod.GET)
 	public String oneReserForm() {
 		
 		return "oneReserForm";
 	}
 	
-	// ���ο��� ó��
+	// 占쏙옙占싸울옙占쏙옙 처占쏙옙
 	@RequestMapping(value="/OneReserveForm.do", method = RequestMethod.POST)
 	public ModelAndView oneReserPro(@ModelAttribute("oneReserModel") OneReserModel oneReserModel, BindingResult result,
 			HttpSession session){
@@ -141,7 +141,11 @@ public class ReserController {
 		}*/
 		
 		String m_id = (String) session.getAttribute("session_member_id");
-		System.out.println(m_id);
+		//System.out.println(m_id);
+		if(m_id==null){
+			mv.setViewName("loginForm");
+			return mv;
+		}
 		
 		String pr_reason = oneReserModel.getPr_reason().replaceAll("\r\n", "<br />");
 		oneReserModel.setPr_reason(pr_reason);
@@ -152,14 +156,14 @@ public class ReserController {
 		return mv;
 	}
 	
-	// �׷쿹�� ��
+	// 占쌓룹예占쏙옙 占쏙옙
 	@RequestMapping(value="/GroupReserveForm.do", method = RequestMethod.GET)
 	public String groupReserForm(){
 		
 		return "groupReserForm";
 	}
 	
-	// �׷쿹�� ó��
+	// 占쌓룹예占쏙옙 처占쏙옙
 		@RequestMapping(value="/GroupReserveForm.do", method = RequestMethod.POST)
 		public ModelAndView groupReserPro(@ModelAttribute("groupReserModel") GroupReserModel groupReserModel, BindingResult result,
 				HttpSession session){
@@ -173,8 +177,12 @@ public class ReserController {
 			
 			String m_id = (String) session.getAttribute("session_member_id");
 			
-			System.out.println(m_id);
+			//System.out.println(m_id);
 			
+			if(m_id==null){
+				mv.setViewName("loginForm");
+				return mv;
+			}
 			reserService.insertGroupReser(groupReserModel);
 			memberService.couponSet(m_id);
 			mv.setViewName("redirect:/Reserve/GrReserList.do");
@@ -185,8 +193,8 @@ public class ReserController {
 			public ModelAndView myReserList(OneReserModel oneReserMoedel, HttpServletRequest request,
 					HttpSession session) {
 				String m_id = session.getAttribute("session_member_id").toString();
-				MemberModel m = new MemberModel();//단
-	            m=memberService.getMember(m_id);//단
+				MemberModel m = new MemberModel();//�떒
+	            m=memberService.getMember(m_id);//�떒
 				int currentPage = 0;
 				int totalCount = reserService.myTotalReserNum(m_id);
 				int blockCount = 10;
@@ -220,7 +228,7 @@ public class ReserController {
 				mv.addObject("blockPage", blockPage);
 				mv.addObject("listOrder", listOrder);
 				mv.addObject("html", pagingHtml);
-				mv.addObject("member", m); //단
+				mv.addObject("member", m); //�떒
 				mv.setViewName("myReserList");
 				return mv;
 			}

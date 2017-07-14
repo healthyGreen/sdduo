@@ -80,8 +80,12 @@ public class consultingController {
 		int c_number = consultingmodel.getC_number();
 		consultingModel c = new consultingModel();
 		HttpSession session = request.getSession();
-		
-			consultingmodel.setM_id((String)session.getAttribute("session_member_id"));
+		String id = (String)session.getAttribute("session_member_id");
+		if(id==null){
+			mv.setViewName("loginForm");
+			return mv;
+		}
+			consultingmodel.setM_id(id);
 			if (c_ref != 0) {
 			//new consultingModValidator().validate(consultingmodel, result);
 				c = service.consultingView(c_number);
@@ -226,10 +230,7 @@ public class consultingController {
 		 */
 
 		service.modConsulting(consultingmodel);
-		mv.setViewName("redirect:/consulting/consultingView.do?c_number=" + c_number); // ?ã§?ù¥?†â?ä∏?ïòÍ∏?
-																						// ÏΩòÏÑ§?åÖ?úºÎ°?(Î≤àÌò∏
-																						// ?ÑòÍ≤®Ï£ºÎ©¥ÏÑú
-																						// )
+		mv.setViewName("redirect:/consulting/consultingView.do?c_number=" + c_number); // ?ã§?ù¥?†â?ä∏?ïòÍ∏?																// )
 		return mv;
 
 	}

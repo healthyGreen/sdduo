@@ -26,13 +26,14 @@
 	</definition>
 	
 	<!-- 자가진단 -->
-	<definition name="self" extends="notice">
+<definition name="self" extends="notice">
 		<put-attribute name="body" value="/WEB-INF/views/selfTest/selfTest.jsp" />
-	</definition>
-	
-	<definition name="selfTestList" extends="notice">
+	</definition> 
+<!-- <definition name="self" template="/WEB-INF/views/selfTest/selfTest.jsp"/> -->
+		<!--  <definition name="selfTestList" template="/WEB-INF/views/selfTest/selfTestList.jsp"/> -->
+	 <definition name="selfTestList" extends="notice">
 		<put-attribute name="body" value="/WEB-INF/views/selfTest/selfTestList.jsp" />
-	</definition>
+	</definition> 
 	
 	
 	

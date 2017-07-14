@@ -29,7 +29,7 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="sd.duo.reserve.GroupReserModel" alias="groupReserModel" />
 		
 	<!-- selftest -->	
-		<typeAlias type="sd.duo.selfTest.SelfTestModel" alias="selfModel"/>
+		<typeAlias type="sd.duo.selfTest.SelfTestModel" alias="selfTestModel"/>
 		
 	</typeAliases>
 	
