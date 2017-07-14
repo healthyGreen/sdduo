@@ -14,13 +14,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@RequestMapping(value = "/self")
 public class SelfTestController {
 	
 	@Resource
 	private SelfTestService selfService;
 
+	ModelAndView mav = new ModelAndView();
+	
+	String m_id;
+	String t_category;
+	int t_score; 
 	//폼
-	@RequestMapping(value="/self/selfWrite.do", method=RequestMethod.GET)
+	@RequestMapping(value="/selfWrite.do", method=RequestMethod.GET)
 	public ModelAndView selfTestForm(HttpServletRequest request) {
 		
 		ModelAndView mav = new ModelAndView();
@@ -29,68 +35,70 @@ public class SelfTestController {
 		return mav;
 	}
 	
-	
-	
 	// 자가진단 점수 입력
-	@RequestMapping(value="/self/selfWrite.do", method=RequestMethod.POST)
+	@RequestMapping(value="/selfWrite.do", method=RequestMethod.POST)
 	public ModelAndView selfTestPro(SelfTestModel selfModel, HttpServletRequest requeset,
 			HttpSession session)throws Exception{
-		//System.out.println("111");
 		
-		ModelAndView mav = new ModelAndView();
-		
-		String id;
-		String t_category;
-		
-		id = (String)session.getAttribute("session_member_id");
-
-		
-		id = requeset.getParameter("m_id").toString(); // 세션아이디로 안하면 널 포인트 오류가 뜨기때문에 나중에 세션아이디로 바꿀것
-		t_category = (String)requeset.getParameter("category");
-		
-		//System.out.println("222"+cg+id);
-	//System.out.println("3333"+selfModel.getT_score());
-		
-/*		String sc = requeset.getParameter("t_score");
-		
-		int score = Integer.parseInt(sc);*/
-
-		
-		/*if(t_category.equals("1")){
-		
-			//System.out.println("111111"+selfModel.getCount());
-			//System.out.println("3333333"+selfModel.getT_score());
-			
-			int count = selfService.check1(id);
-			
-		
-			
-			System.out.println("카운트"+count);
-			
-			if(count != 0){
-			selfService.selfModify1(selfModel);
-			
-			mav.setViewName("self");
-		
+		SelfTestModel check = new SelfTestModel();
+		t_category = selfModel.getT_category();
+		t_score = selfModel.getT_score();
+		m_id = (String)session.getAttribute("session_member_id");
+		String id = (String)session.getAttribute("session_member_id");
+		if(id==null){
+			mav.setViewName("loginForm");
 			return mav;
-			
-			}else{
-				
-				
-				selfService.selfWrite1(selfModel);
-				
-				mav.setViewName("self");
-			
-				return mav;
-				
+		}
+		selfModel.setM_id(m_id);
+		check=selfService.selfList(selfModel);
+		
+		if(t_score>=0 && t_score<10){
+			selfModel.setT_grade("비우울");
+		}else if(t_score>=10 && t_score<16){
+			selfModel.setT_grade("경한 우울증");
+		}else if(t_score>=16 && t_score<24){
+			selfModel.setT_grade("중증도 우울증");
+		}else{
+			selfModel.setT_grade("중증 우울증");
+		}
+		
+		if(check!=null){
+			selfService.selfModify(selfModel);
+		}else{
+			selfService.selfWrite(selfModel);
 			}
-			
-			
-		}*/
-		mav.setViewName("self");
-		
+		mav.setViewName("redirect:/self/selfTestList.do?t_category=" + t_category);
 		return mav;
-		
 	}	
-		
+
+
+	@RequestMapping(value="/selfTestList.do")
+	public ModelAndView selfTestList(SelfTestModel selfTestModel, HttpServletRequest requeset,
+			HttpSession session)throws Exception{
+			
+			String category = null;
+			SelfTestModel result = new SelfTestModel();
+			m_id=(String)session.getAttribute("session_member_id");
+			t_category = requeset.getParameter("t_category");
+			selfTestModel.setM_id(m_id);
+			selfTestModel.setT_category(t_category);
+			result = selfService.selfList(selfTestModel);
+			if(result==null){
+				category=null;
+			}else{
+			if(result.getT_category().equals("1")){
+				category="우울증상";
+			}else if(result.getT_category().equals("2")){
+				category="불안증상";
+			}else if(result.getT_category().equals("3")){
+				category="스트레스";
+			}else{
+				category="분노조절";
+			}
+			}
+			mav.addObject("category", category);	
+			mav.addObject("result", result);
+			mav.setViewName("selfTestList");
+			return mav;
+		}	
 	}

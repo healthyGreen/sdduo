@@ -27,7 +27,7 @@
                             <a href="http://localhost:8080/SDDuo/AdminReserve/OneReserList.do?pr_center=1"><i class="fa fa-dashboard fa-fw"></i>&nbsp예약 관리<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level">
                                 <li>
-                                    <a href="http://localhost:8080/SDDuo/AdminReserve/OneReserList.do?pr_center=1">강남지점</a>
+                                    <a href="http://localhost:8080/SDDuo/AdminReserve/OneReserList.do?pr_center=1">서울지점</a>
                                 </li>
                                 <li>
                                     <a href="http://localhost:8080/SDDuo/AdminReserve/OneReserList.do?pr_center=2">대구지점</a>

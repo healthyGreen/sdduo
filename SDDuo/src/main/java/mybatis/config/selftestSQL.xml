@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="self">
 				<!-- F_SELFTEST - 테이블 이름 -->	
-	<resultMap type="selfModel" id="selfModelRes">
+	<resultMap type="selfTestModel" id="selfTestModelRes">
 		<result property="m_id" column="m_id" />			<!-- 사용자아이디 -->
 		<result property="t_score" column="t_score" />	
 		<result property="t_category" column="t_category" />
@@ -13,38 +13,38 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 	
 	<!-- 글목록  -->
-	<select id="selfList1" resultMap="selfModelRes">
-			SELECT * FROM F_SELFTEST1
-			where m_id = #{m_id}
+	<select id="selfList" resultMap="selfTestModelRes" parameterType="selfTestModel">
+			SELECT * FROM F_SELFTEST
+			where m_id = #{m_id} and t_category = #{t_category}
 	</select>
 	
-	<!-- 값 체크 -->
-	<select id="check1" parameterType="String" resultType="int">
+<!-- 값 체크 -->
+	<!-- <select id="check" parameterType="String" resultType="int">
 		select count(*) as count from F_SELFTEST1
 		where m_id = #{m_id}
-	</select>	
+	</select>	 -->
 	
 	<!-- 글쓰기 -->
-	<insert id="selfWrite1" parameterType="selfModel">
-			INSERT INTO F_SELFTEST1
+	<insert id="selfWrite" parameterType="selfTestModel">
+			INSERT INTO F_SELFTEST
 			(
 			m_id,
-			t_score
+			t_score,
+			t_category,
+			t_grade
 			)
 			VALUES
 			(
 			 #{m_id},
-			 #{t_score}
+			 #{t_score},
+			  #{t_category},
+			   #{t_grade}
 			)
 	</insert>
 	
 	<!-- 값변경 -->
-	<update id="selfModify1" parameterType="selfModel">
-			UPDATE F_SELFTEST1
-			SET
-				t_score = #{t_score}
-			WHERE
-				m_id = #{m_id}
+	<update id="selfModify" parameterType="selfTestModel">
+			UPDATE F_SELFTEST SET t_score = #{t_score} WHERE m_id = #{m_id}
 	</update>
 	
 
