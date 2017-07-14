@@ -16,8 +16,10 @@
 					</p>
 					<div class="resev-box">
 				<p class="listnum">총 <span>${totalCount }</span>건</p>
+				<c:if test="${session_member_id !=null }">
 						<p class="reserv-btn" onclick="location.href='<%=request.getContextPath()%>/Reserve/OneReserveForm.do'">
 						<%-- <input type="button" onclick="location.href='<%=request.getContextPath()%>/Reserve/OneReserveForm.do'"> --%>실시간예약 바로가기</p>
+						</c:if>
 					</div>
 					
 					<table class="list-board01">
@@ -99,8 +101,10 @@
 					
 				<!-- 언니 위에 요거 button으로 하고싶은데 버튼으로하면 jstl이 안머거영 ㅠㅠ -->
 				<%-- 	<input type="button" onclick="${replyURL}" value="관리자 답변달기" class="storywrite"> --%> 
+				<c:if test="${session_member_id !=null }">
 				<c:if test="${session_admin!=1 }">
 					<p class="btn01"><input type="button" value="이야기 쓰기" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingForm.do'"  class="storywrite"></p>
+				</c:if>
 				</c:if>
 					<div class="pageing">
 						${html}

@@ -35,10 +35,12 @@
    
    <script>
    function IdConfirm(join) {
-   	var m_id = document.join.M_id.value;
-   	var url = "joinForm.do?m_id="+m_id;
+
+   	var M_id = document.join.m_id.value;
+   	var url = "/member/idCheck.jsp?M_id";
+	alert("111")
    	
-   	if(m_id ==""){
+   	if(M_id ==""){
       		alert("아이디를 입력해주세요!")
       		document.join.M_id.focus();
       		
@@ -184,7 +186,7 @@
            
        <!--  <input type="text" name="m_year" value="1993" required="" label="생년월일" style="background:#FFF" size="4" maxlength="4">년 -->
        <select name="m_month">
-        <c:forEach step="1" begin="1" end="12" varStatus="i">
+        <c:forEach step="1" begin="1" end="12" var="i">
         <option value="${i }">${i }
         </c:forEach>
              </select>월&nbsp;

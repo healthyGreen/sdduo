@@ -35,18 +35,24 @@
 							<ul id="nav">
 								<li class="has-sub g1"><a href="<%=request.getContextPath() %>/member/about.do"><img src="/SDDuo/resources/images/common/gnb01.gif">상담해듀오소개</a>
 								</li>
-								<li class="has-sub g2"><a href="<%=request.getContextPath() %>/Reserve/oneReserForm.do">상담예약</a>
+								<li class="has-sub g2"><a>상담예약</a>
 									<div class="dropdown dropdown1">
 										<ul>
-											<li><a href="<%=request.getContextPath() %>/Reserve/oneReserForm.do">개인예약</a></li>
-			                                <li><a href="<%=request.getContextPath() %>/Reserve/groupReserForm.do">그룹예약</a></li>
-			                                <li><a href="<%=request.getContextPath() %>/Reserve/oneReserList.do">예약현황</a></li>
+											<li><a href="<%=request.getContextPath() %>/Reserve/OneReserveForm.do">개인예약</a></li>
+			                                <li><a href="<%=request.getContextPath() %>/Reserve/GroupReserveForm.do">그룹예약</a></li>
+			                                <li><a href="<%=request.getContextPath() %>/Reserve/OneReserList.do">예약현황</a></li>
 										</ul>
 									</div>
 								</li>
-								<li class="has-sub g3"><a href="<%=request.getContextPath() %>/consulting/consultingList.do">온라인상담</a></li>
-								<li class="has-sub g4"><a href="/sub/sub04/sub0401.html">심리검사</a></li>
-								<li class="has-sub g5"><a href="/sub/sub05/sub0501.html">커뮤니티</a>
+								<li class="has-sub g3"><a>온라인상담</a>
+									<div class="dropdown dropdown1">
+										<ul>
+											<li><a href="<%=request.getContextPath() %>/consulting/consultingList.do">온라인 상담 리스트</a></li>
+			                                <li><a href="<%=request.getContextPath() %>/consulting/consultingForm.do">온라인 상담</a></li>
+										</ul>
+									</div>
+								<li class="has-sub g4"><a href="<%=request.getContextPath() %>/self/selfWrite.do">심리검사</a></li>
+								<li class="has-sub g5"><a>커뮤니티</a>
 									<div class="dropdown dropdown2">
 										<ul>
 											<li><a href="<%=request.getContextPath() %>/notice/NoticeList.do">공지사항</a></li>											

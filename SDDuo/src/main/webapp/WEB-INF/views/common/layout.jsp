@@ -31,6 +31,13 @@
 	    $("div.gallery_rolling").gallery_rolling();
 	  });
 	</script>
+	
+
+   <!-- Bootstrap Core CSS -->
+    <link href="../resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+	
 
 </head>
 <body>

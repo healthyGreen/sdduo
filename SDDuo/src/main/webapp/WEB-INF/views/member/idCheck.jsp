@@ -18,7 +18,7 @@
 	         
 	      }else{
 	         var m_id = document.idChk.M_id.value;
-	         var url = "joinForm.do?m_id="+m_id;   
+	         var url = "/member/joinSuccess.do?M_id";
 	         open(url, "IdConfirm", "toolbar=no,location=no,status=no,menubar=no,"+
 	               "scrollbars=no,resizable=no,width=400,height=200");
 

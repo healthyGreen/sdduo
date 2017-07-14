@@ -16,7 +16,7 @@
 		<link rel="stylesheet" href="../resources/css/style.css" />
 	<link rel="stylesheet" href="../resources/css/default.css" />
 	<link rel="stylesheet" href="../resources/css/demo.css">
-	<script>
+<!-- 	<script>
 		$(function() {
 			$('ul.tabCon li').click(function() {
 				var activeTab = $(this).attr('data-tab');
@@ -54,39 +54,43 @@
 						
 
 	</script>
-	
+	 -->
 	
 
 <body>
-						
-	
-
 	<div class="sub-content">
 	
 		<div class="sub-content-inbox ">
 			<ul class="tabCon tabStyle">
 			
-				<li class="current" data-tab="tab1"><a href="#">우울증상</a>
-				</li>
-				<li data-tab="tab2" id="a2"><a href="#">불안증상</a></li>
-				<li data-tab="tab3" id="a3"><a href="#">스트레스</a></li>
-				<li data-tab="tab4" id="a4"><a href="#">분노조절</a></li>
+		<li><a href="<%=request.getContextPath()%>/self/selfTestList.do?t_category=1">우울증상</a></li>
+	
+				<li><a href="<%=request.getContextPath()%>/self/selfTestList.do?t_category=2">불안증상</a></li>
+				<li><a href="<%=request.getContextPath()%>/self/selfTestList.do?t_category=3">스트레스</a></li>
+				<li><a href="<%=request.getContextPath()%>/self/selfTestList.do?t_category=4">분노조절</a></li>
 			</ul>
 			
 				
 		
 		
-			<div id="tab1" class="tabcontent tab_content current">
-			
-			
-			<c:forEach var="selfList" items="${selfList}">
-			<td>${selfList.t_score }</td>
-			</c:forEach>
+			<div id="tab1" class="tabcontent tab_content current" align="center">
+			 <c:choose>
+			<c:when test="${result==null}">
+				테스트하신 자기진단 내역이 없습니다.<br>
 				
+			</c:when>
+			<c:otherwise>
+				 고객님의<b> ${category }</b> 유형 자가진단의 점수는<br>
+				<h4>${result.t_score }점 입니다.</h4>
+				등급 : ${result.t_grade } 
+			</c:otherwise>
+			</c:choose> 
+		
 			</div>
+			
 		
 			
-			<div id="tab2" class="tabcontent tab_content current">
+			<%-- <div id="tab2" class="tabcontent tab_content current">
 			
 			<form:form action="selfTestList1.do" id="form2" enctype="multipart/form-data" method="post">
 			<input type="hidden" name="category" value="2" />
@@ -118,16 +122,8 @@
 			<c:forEach var="selfList" items="${selfList}">
 			<td>${selfList.t_score }</td>
 			</c:forEach>
-			</form:form>
+			</form:form> --%>
 			
 			</div>
-			
-			
-			
-			
-			
-			
-
 		</div>
-	</div>
 </body>

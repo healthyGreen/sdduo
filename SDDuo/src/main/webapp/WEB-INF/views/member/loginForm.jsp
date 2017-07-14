@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
@@ -30,7 +30,12 @@
 										</tr>
 									</tbody></table>
 								</div>							
-								<p><a href="#"><input type="submit" class="login-btn" value="로그인" name="" ></a></p>
+								<p><a href="#"><input type="submit" class="login-btn" value="로그인" name="" ></a>
+								</p><br><br><c:if test="${aboutLogin.equals('loginError') }">
+								<div class="login-title" align="center">
+								입력한 아이디가 존재하지 않습니다. <br><br>아이디를 다시 한번 입력해 주세요.
+								</div>
+					</c:if>
 								<div class="save-check save-check2">
 									<input type="checkbox" class="checkbox " title="" value="Y" name="idSaveCheck" id="idSaveCheck">아이디저장
 								</div>
@@ -42,9 +47,9 @@
 								<li><input type="button" class="login-search-btn login-search-btn " title="" value="아이디 찾기" name="" onclick="location.href='http://localhost:8080/SDDuo/member/findIdForm.do'"></li>
 								<li><input type="button" class="login-search-btn login-search-btn2" title="" value="비밀번호 찾기" name="" onclick="location.href='http://localhost:8080/SDDuo/member/findPwForm.do'"></li>
 							</ul>
-						</div>
+						</div><br>
 						<div class="login-btn-box">
-							<p><span>아직 상담해듀오 회원가입을 하지 않으셨나요? </span><br> 상담해듀오 가입하시면 더 많은 혜택을 만나보실 수 있습니다.</p>
+							<p><span>아직 상담해듀오 회원가입을 하지 않으셨나요? </span><br><br> 상담해듀오 가입하시면 더 많은 혜택을 만나보실 수 있습니다.</p>
 							<ul>
 								<li><a href="#"><input type="button" value="신규 회원가입" class="new-join-btn" name="" onclick="location.href='http://localhost:8080/SDDuo/member/agree.do'"></a></li>
 							</ul>

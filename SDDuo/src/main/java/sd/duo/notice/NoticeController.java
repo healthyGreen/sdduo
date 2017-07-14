@@ -81,7 +81,7 @@ public class NoticeController {
 					adminNoticeList = noticeService.noticeSearch1(isSearch);
 			
 				totalCount = adminNoticeList.size();
-				page = new Paging(currentPage, totalCount, blockCount, blockPage, "adminNoticeList", searchNum, isSearch);
+				page = new Paging(currentPage, totalCount, blockCount, blockPage, "NoticeList", searchNum, isSearch);
 				pagingHtml = page.getPagingHtml().toString();
 				totalPage = page.getTotalPage();
 			
@@ -113,7 +113,7 @@ public class NoticeController {
 			
 			totalCount = adminNoticeList.size();
 			
-			page = new Paging(currentPage, totalCount, blockCount, blockPage, "adminNoticeList");
+			page = new Paging(currentPage, totalCount, blockCount, blockPage, "NoticeList");
 			pagingHtml=page.getPagingHtml().toString();  
 			totalPage = page.getTotalPage();
 			
