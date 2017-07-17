@@ -52,7 +52,49 @@
                                  				<option value="2">예약대기</option>
                                  			</select>
                                  			<input name="submit" type="submit" value="검색"/>
-                                 			
+                                 			</form>             			
+                                 		</td>
+                                 		
+                                 		<form action="GrReserListDay.do">
+                                 		<td>
+                                 		<input type="hidden" name="gr_center" value="${gr_center }">
+                                 		
+                                 			<select id="gr_year" name="gr_year">
+                                          	<option value="">-선택하세요-</option>
+                                             <%for(int i=2017; i<=2027; i++){ %>
+                                             <%int from = 'i';
+                                             String to = Integer.toString(from); %>
+                                             
+                                             <option value="<%=i%>"><%=i %></option>
+                                             <%} %>
+                                             </select>년&nbsp;&nbsp;
+                                             
+                                             <select id="gr_month" name="gr_month">
+                                          	<option value="">-선택하세요-</option>
+                                             <%for(int i=1; i<=12; i++){ %>
+                                             <%
+                                             String s = Integer.toString(i); 
+												if(s.length() == 1){
+													s = "0"+s;
+												}
+                                             %>
+                                             <option value="<%=s%>"><%=s %></option>
+                                             <%} %>
+                                             </select>월&nbsp;&nbsp;
+                                             
+                                             <select id="gr_day" name="gr_day">
+                                          	<option value="">-선택하세요-</option>
+                                             <%for(int i=1; i<= 31; i++){ %>
+                                             <%
+                                             String s = Integer.toString(i); 
+												if(s.length() == 1){
+													s = "0"+s;
+												}
+                                             %>
+                                             <option value="<%=s%>"><%=s %></option>
+                                             <%} %>
+                                             </select>일&nbsp;&nbsp;
+                                             <input name="submit" type="submit" value="검색"/>
                                  		</td>
                                  	</tr>
                                  

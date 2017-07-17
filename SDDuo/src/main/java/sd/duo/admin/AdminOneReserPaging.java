@@ -14,6 +14,9 @@ public class AdminOneReserPaging {
 	private String viewName;
 	private String pr_center;
 	private String isSearch;
+	private String pr_year;
+	private String pr_month;
+	private String pr_day;
 	
 	private StringBuffer pagingHtml;
 	
@@ -76,6 +79,68 @@ public class AdminOneReserPaging {
 			pagingHtml.append("</a>");
 		}
 		
+		
+	}
+	public AdminOneReserPaging(int currentPage, int totalCount, int blockCount, int blockPage, String viewName, String pr_center, String pr_year, String pr_month, String pr_day){
+		
+		this.blockCount = blockCount;
+		this.blockPage = blockPage;
+		this.currentPage = currentPage;
+		this.totalCount = totalCount;
+		this.viewName = viewName;
+		this.pr_center = pr_center;
+		this.pr_year = pr_year;
+		this.pr_month = pr_month;
+		this.pr_day = pr_day;
+		
+		totalPage = (int) Math.ceil((double) totalCount / blockCount);
+		if(totalPage == 0){
+			totalPage = 1;
+		}
+		
+		if(currentPage > totalPage){
+			currentPage = totalPage;
+		}
+		
+		startCount = (currentPage - 1) * blockCount;
+		endCount = startCount + blockCount - 1;
+		
+		startPage = (int) ((currentPage -1) / blockPage) * blockPage + 1;
+		endPage = startPage + blockPage - 1;
+		
+		if(endPage > totalPage){
+			endPage = totalPage;
+		}
+		
+		pagingHtml = new StringBuffer();
+		if(currentPage > blockPage){
+			pagingHtml.append("<a class='page prv' href=" + viewName + ".do?currentPage=" + (startPage - 1) + "&pr_center=" +pr_center + "&pr_year=" + pr_year + "&pr_month=" + pr_month + "&pr_day=" + pr_day + ">");
+			pagingHtml.append("&lt;");
+			pagingHtml.append("</a>");
+		}
+		
+		for(int i = startPage; i <= endPage; i++){
+			if(i > totalPage){
+				break;
+			}
+			if(i == currentPage){
+				pagingHtml.append("<strong class='current'>");
+				pagingHtml.append(i);
+				pagingHtml.append("</strong>");
+			} else{
+				pagingHtml.append("<a class='page' href=" + viewName + ".do?currentPage=" + i + "&pr_center=" + pr_center + "&pr_year=" + pr_year + "&pr_month=" + pr_month + "&pr_day=" + pr_day);
+				//pagingHtml.append(i);
+				pagingHtml.append(">");
+				pagingHtml.append(i);
+				pagingHtml.append("</a>");
+			}
+		}
+		
+		if(totalPage - startPage >= blockPage){
+			pagingHtml.append("<a class='page next' href=" + viewName + ".do?currentPage=" + (endPage + 1) + "&pr_center=" + pr_center + "&pr_year=" + pr_year + "&pr_month=" + pr_month + "&pr_day=" + pr_day + ">");
+			pagingHtml.append("&gt;");
+			pagingHtml.append("</a>");
+		}
 		
 	}
 
@@ -181,6 +246,24 @@ public class AdminOneReserPaging {
 
 	public void setIsSearch(String isSearch) {
 		this.isSearch = isSearch;
+	}
+	public String getPr_year() {
+		return pr_year;
+	}
+	public void setPr_year(String pr_year) {
+		this.pr_year = pr_year;
+	}
+	public String getPr_month() {
+		return pr_month;
+	}
+	public void setPr_month(String pr_month) {
+		this.pr_month = pr_month;
+	}
+	public String getPr_day() {
+		return pr_day;
+	}
+	public void setPr_day(String pr_day) {
+		this.pr_day = pr_day;
 	}
 
 }

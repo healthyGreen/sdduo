@@ -79,6 +79,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where pr_center = #{pr_center} AND pr_status = '0' ORDER BY pr_number DESC
 	</select>
 	
+	<!-- 개인 센터별 리스트(날짜검색) -->
+	<select id="OneCenterListDay" parameterType="OneReserModel" resultMap="OneReserRes">
+		<include refid="oneSelect_All" />
+		where pr_center = #{pr_center} AND pr_year = #{pr_year} AND pr_month = #{pr_month} AND pr_day = #{pr_day} ORDER BY pr_number DESC
+	</select>
+	
 	<!-- 그룹 예약 리스트 -->
 	<select id="grSelect" resultMap="GroupReserRes">
 		<include refid="grSelect_All" />
@@ -103,6 +109,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="GrCenterList_Wait" resultMap="GroupReserRes">
 		<include refid="grSelect_All" />
 		where gr_center = #{gr_center} AND gr_status = '0' ORDER BY gr_number DESC
+	</select>
+	
+	<!-- 그룹 센터별 리스트(날짜검색) -->
+	<select id="GrCenterListDay" parameterType="GroupReserModel" resultMap="GroupReserRes">
+		<include refid="grSelect_All" />
+		where gr_center = #{gr_center} AND gr_year = #{gr_year} AND gr_month = #{gr_month} AND gr_day = #{gr_day} ORDER BY gr_number DESC
 	</select>
 	
 	<!-- 개인 예약 상세보기 -->
