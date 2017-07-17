@@ -55,7 +55,14 @@
 								<li class="has-sub g5"><a>커뮤니티</a>
 									<div class="dropdown dropdown2">
 										<ul>
-											<li><a href="<%=request.getContextPath() %>/notice/NoticeList.do">공지사항</a></li>											
+										<c:choose>
+                       						 <c:when test="${session_admin == 1}"> 
+                       						 <li><a href="<%=request.getContextPath() %>/admin/adminNoticeList.do">공지사항</a></li>
+											</c:when>
+											<c:otherwise>
+											<li><a href="<%=request.getContextPath() %>/notice/NoticeList.do">공지사항</a></li>	
+                       						 </c:otherwise>
+										</c:choose>										
 										</ul>
 									</div>
 								</li>

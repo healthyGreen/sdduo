@@ -37,6 +37,12 @@ public class AdminReserController {
          private String gr_center;
          private int pr_number;
          private String isSearch;
+         private String pr_year;
+         private String pr_month;
+         private String pr_day;
+         private String gr_year;
+         private String gr_month;
+         private String gr_day;
          
          
          // 개인예약 리스트
@@ -64,12 +70,15 @@ public class AdminReserController {
                
                List<OneReserModel> oneReserList = adminReserService.OneReserList(pr_center);
                
+               // 예약날짜순
                if(isSearch.equals("0")){
             	   oneReserList = adminReserService.OneReserListRenew(pr_center);
                }
+               // 등록일순
                if(isSearch.equals("1")){
             	   oneReserList = adminReserService.OneReserListNew(pr_center);
                }
+               // 예약대기
                if(isSearch.equals("2")){
             	   oneReserList = adminReserService.OneReserListWait(pr_center);
                }
@@ -98,6 +107,65 @@ public class AdminReserController {
                   return mav;
                   }
             
+            // 개인예약 날짜 검색
+            @RequestMapping(value="/OneReserListDay.do", method = RequestMethod.GET)
+            public ModelAndView adminOneReserListDay(@ModelAttribute("oneReserModel") OneReserModel oneReserModel, HttpServletRequest request) throws Exception {
+                
+                ModelAndView mav = new ModelAndView();
+                
+                if(request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty() || request.getParameter("currentPage").equals("0")) {
+                      currentPage = 1;
+                  } else {
+                      currentPage = Integer.parseInt(request.getParameter("currentPage"));
+                  }
+                if(request.getParameter("pr_center") == null || request.getParameter("pr_center").trim().isEmpty() || request.getParameter("pr_center").equals("0")){
+             	   pr_center = "1";
+                }else{
+             	   pr_center = request.getParameter("pr_center");
+                }
+                if(request.getParameter("pr_year") == null || request.getParameter("pr_year").trim().isEmpty() || request.getParameter("pr_year").equals("0")){
+                	pr_year = "2017";
+                }else{
+                	pr_year = request.getParameter("pr_year");
+                }
+                if(request.getParameter("pr_month") == null || request.getParameter("pr_month").trim().isEmpty() || request.getParameter("pr_month").equals("0")){
+                	pr_month = "07";
+                }else{
+                	pr_month = request.getParameter("pr_month");
+                }
+                if(request.getParameter("pr_day") == null || request.getParameter("pr_day").trim().isEmpty() || request.getParameter("pr_day").equals("0")){
+                	pr_day = "04";
+                }else{
+                	pr_day = request.getParameter("pr_day");
+                }
+                
+                
+                List<OneReserModel> oneReserList = adminReserService.OneReserListDay(oneReserModel);
+                
+               
+                   totalCount = oneReserList.size();
+                   OnePaging = new AdminOneReserPaging(currentPage, totalCount, blockCount, blockPage, "OneReserListDay", pr_center, pr_year, pr_month, pr_day );
+                   pagingHtml = OnePaging.getPagingHtml().toString();
+                
+                   int lastCount = totalCount;
+                
+                   if(OnePaging.getEndCount() < totalCount)
+                      lastCount = OnePaging.getEndCount() + 1;
+                   
+                   oneReserList = oneReserList.subList(OnePaging.getStartCount(), lastCount);
+                
+                  
+                   mav.addObject("pr_year", pr_year);
+                   mav.addObject("pr_month", pr_month);
+                   mav.addObject("pr_day", pr_day);
+                   mav.addObject("pr_center", pr_center);
+                   mav.addObject("totalCount", totalCount);
+                   mav.addObject("pagingHtml", pagingHtml);
+                   mav.addObject("currentPage", currentPage);
+                   mav.addObject("oneReserList", oneReserList);
+                   mav.setViewName("adminOneReserList");
+                   return mav;
+                   }
             
          // 그룹예약 리스트
             @RequestMapping(value="/GrReserList.do", method = RequestMethod.GET)
@@ -158,6 +226,66 @@ public class AdminReserController {
                   mav.setViewName("adminGrReserList");
                   return mav;
                   }
+            
+         // 그룹예약 날짜 검색
+            @RequestMapping(value="/GrReserListDay.do", method = RequestMethod.GET)
+            public ModelAndView adminGrReserListDay(@ModelAttribute("groupReserModel") GroupReserModel groupReserModel, HttpServletRequest request) throws Exception {
+                
+                ModelAndView mav = new ModelAndView();
+                
+                if(request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty() || request.getParameter("currentPage").equals("0")) {
+                      currentPage = 1;
+                  } else {
+                      currentPage = Integer.parseInt(request.getParameter("currentPage"));
+                  }
+                if(request.getParameter("gr_center") == null || request.getParameter("gr_center").trim().isEmpty() || request.getParameter("gr_center").equals("0")){
+             	   gr_center = "1";
+                }else{
+             	   gr_center = request.getParameter("gr_center");
+                }
+                if(request.getParameter("gr_year") == null || request.getParameter("gr_year").trim().isEmpty() || request.getParameter("gr_year").equals("0")){
+                	gr_year = "2017";
+                }else{
+                	gr_year = request.getParameter("gr_year");
+                }
+                if(request.getParameter("gr_month") == null || request.getParameter("gr_month").trim().isEmpty() || request.getParameter("gr_month").equals("0")){
+                	gr_month = "07";
+                }else{
+                	gr_month = request.getParameter("gr_month");
+                }
+                if(request.getParameter("gr_day") == null || request.getParameter("gr_day").trim().isEmpty() || request.getParameter("gr_day").equals("0")){
+                	gr_day = "04";
+                }else{
+                	gr_day = request.getParameter("gr_day");
+                }
+                
+                
+                List<GroupReserModel> groupReserList = adminReserService.GroupReserListDay(groupReserModel);
+                
+               
+                   totalCount = groupReserList.size();
+                   GrPaging = new AdminGrReserPaging(currentPage, totalCount, blockCount, blockPage, "GrReserListDay", gr_center, gr_year, gr_month, gr_day );
+                   pagingHtml = OnePaging.getPagingHtml().toString();
+                
+                   int lastCount = totalCount;
+                
+                   if(GrPaging.getEndCount() < totalCount)
+                      lastCount = GrPaging.getEndCount() + 1;
+                   
+                   groupReserList = groupReserList.subList(GrPaging.getStartCount(), lastCount);
+                
+                  
+                   mav.addObject("gr_year", gr_year);
+                   mav.addObject("gr_month", gr_month);
+                   mav.addObject("gr_day", gr_day);
+                   mav.addObject("gr_center", gr_center);
+                   mav.addObject("totalCount", totalCount);
+                   mav.addObject("pagingHtml", pagingHtml);
+                   mav.addObject("currentPage", currentPage);
+                   mav.addObject("groupReserList", groupReserList);
+                   mav.setViewName("adminGrReserList");
+                   return mav;
+                   }
             
             /*개인예약 상세보기*/
             @RequestMapping(value="/OneReserView.do")

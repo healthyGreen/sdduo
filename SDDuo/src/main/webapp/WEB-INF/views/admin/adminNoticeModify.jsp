@@ -38,11 +38,11 @@
 							<th>사용자 ID</th>
 							
 							<td colspan=3>
-								<%-- <strong>
-									${session_member_name}
-								</strong>--%>
+								<strong>
+									${session_member_id}
+								</strong>
 								
-								<input type="textarea" name="n_name" value="${noticeModel.n_name}"/>
+								<input type="hidden" name="n_name" value="${session_member_id}"/>
 								
 							</td> 
 							
@@ -89,7 +89,7 @@
 				</table>
 					<!-- 취소 작성완료 버튼 -->
 						<div class="menu-wrap">
-							<button type="submit"  class="btn btn-primary">확인</button>
+							<button type="submit" class="btn btn-primary">확인</button>
 							<button type="button" onclick="reviewList();" class="btn btn-primary">목록</button>
 						</div>
             	</div>    

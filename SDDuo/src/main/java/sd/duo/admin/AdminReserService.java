@@ -49,12 +49,20 @@ public class AdminReserService implements AdminReserDAO{
 		return sqlSessionTemplate.selectList("reserve.OneCenterList_Wait", pr_center);
 	}
 	
+	// 날짜검색 리스트
+	@Override
+	public List<OneReserModel> OneReserListDay(OneReserModel oneReserModel) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectList("reserve.OneCenterListDay", oneReserModel);
+	}
+	
 	//기본리스트
 	@Override
 	public List<GroupReserModel> GroupReserList(String gr_center) {
 		// TODO Auto-generated method stub
 		return sqlSessionTemplate.selectList("reserve.GrCenterList", gr_center);
 	}
+	
 
 	@Override
 	public OneReserModel OneReserView(int pr_number) {
@@ -115,6 +123,14 @@ public class AdminReserService implements AdminReserDAO{
 		return sqlSessionTemplate.selectList("reserve.GrCenterList_Wait", gr_center);
 	}
 
+	//날짜 검색 리스트(그룹)
+	@Override
+	public List<GroupReserModel> GroupReserListDay(GroupReserModel groupReserModel) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectList("reserve.GrCenterListDay", groupReserModel);
+	}
+
+	
 
 
 }

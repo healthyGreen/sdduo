@@ -103,7 +103,7 @@ public class NoticeController {
 			
 				
 				
-					mav.setViewName("NoticeList");
+				mav.setViewName("NoticeList");
 				
 			
 				return mav;
@@ -131,7 +131,7 @@ public class NoticeController {
 			mav.addObject("adminNoticeList", adminNoticeList);
 		
 		
-				mav.setViewName("NoticeList");
+			mav.setViewName("NoticeList");
 			
 			return mav;
 		}

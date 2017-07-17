@@ -38,6 +38,10 @@ public interface AdminReserDAO {
    List<GroupReserModel> GroupReserListNew(String gr_center);
 
    List<GroupReserModel> GroupReserListWait(String gr_center);
+
+   List<OneReserModel> OneReserListDay(OneReserModel oneReserModel);
+
+   List<GroupReserModel> GroupReserListDay(GroupReserModel groupReserModel);
    
 
 }

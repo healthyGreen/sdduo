@@ -91,17 +91,12 @@
 			
 			
 			<div style="margin-top:40px; float: right;">
-				<c:choose>
+		
 								
-					<c:when test="${session_admin == 1}">
-						<button type="button" onclick="onWrite()" class="btn01">글쓰기</button>
-					</c:when>
-					<c:otherwise>
-					
-					</c:otherwise>
-					
-				</c:choose>
-			
+					 <c:if test="${session_admin == 1}"> 
+						<button type="button" onclick="onWrite()" class="btn btn-outline btn-primary" style="margin-right: 10px; ">글쓰기</button>
+					 </c:if> 
+				
 			
 			
 			</div>
@@ -126,10 +121,12 @@
 </body>
 <script type="text/javascript">
 
-$('.searchOption').val($('.searchOptionVal').val());
 var onWrite = function(){
 	location.href = 'adminNoticeWrite.do'; 
-};
+}
+
+$('.searchOption').val($('.searchOptionVal').val());
+
 </script>
 
 
