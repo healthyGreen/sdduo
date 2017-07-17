@@ -37,14 +37,12 @@
 						<tr><!-- 사용자 -->
 							<th>사용자 ID</th>
 							
-							<%-- <td colspan=3>
-								<strong>
-									${session_member_name}
-								</strong>
-							</td> --%>
-							
 							<td colspan=3>
-							<input type="textarea" name="n_name" value="${noticeModel.n_name}">
+								<strong>
+									${session_member_id}
+								</strong>
+						
+							<input type="hidden" name="n_name" value="${session_member_id}">
 							</td>
 						</tr>
 							
@@ -112,12 +110,10 @@ function checkIt() {
 	 if(document.form.n_title.value==""){ //제목값이 없을 경우
 		 alert("제목을 입력하세요");         //메세지 경고창을 띄운 후
 		 document.form.n_title.focus();     // 제목 텍스트박스에 커서를 위치
-		 exit;
 		 return false;
 	}else if(document.form.n_content.value==""){
 		 alert("내용을 입력하세요");
 		 document.form.n_content.focus();
-		 exit;
 		 return false;
 		 }
 }

@@ -57,7 +57,7 @@ public class AdminNoticeController {
 		public ModelAndView adminNoticeList(HttpServletRequest request,HttpSession session) throws UnsupportedEncodingException{
 			
 			
-			String id = "";
+		/*	String id = "";
 			System.out.println("1111"+session.getAttribute("session_member_id"));
 			
 
@@ -65,7 +65,7 @@ public class AdminNoticeController {
 				System.out.println("2222");
 				id = session.getAttribute("session_member_id").toString();
 				System.out.println("33");
-			}
+			}*/
 			ModelAndView mav = new ModelAndView();
 			
 			
@@ -113,10 +113,7 @@ public class AdminNoticeController {
 				mav.addObject("currentPage", currentPage);
 				mav.addObject("adminNoticeList", adminNoticeList);
 		         
-			
-				
-				
-					mav.setViewName("adminNoticeView");
+				mav.setViewName("adminNoticeList");
 				
 			
 				return mav;
@@ -144,7 +141,7 @@ public class AdminNoticeController {
 			mav.addObject("adminNoticeList", adminNoticeList);
 			
 		
-				mav.setViewName("adminNoticeList");
+			mav.setViewName("adminNoticeList");
 			
 			return mav;
 		}
@@ -155,7 +152,7 @@ public class AdminNoticeController {
 		   
 		ModelAndView mav = new ModelAndView();
 		
-		String id = "";
+		/*String id = "";
 		System.out.println("1111"+session.getAttribute("session_member_id"));
 		
 
@@ -163,7 +160,7 @@ public class AdminNoticeController {
 			System.out.println("2222");
 			id = session.getAttribute("session_member_id").toString();
 			System.out.println("33");
-		}
+		}*/
 		
 		
 		int n_number = Integer.parseInt(request.getParameter("n_number"));
@@ -175,7 +172,7 @@ public class AdminNoticeController {
 		mav.addObject("noticeModel", noticeModel);
 		
 	
-			mav.setViewName("adminNoticeView");
+		mav.setViewName("adminNoticeView");
 		
 		
 		return mav;
@@ -300,7 +297,7 @@ public class AdminNoticeController {
         noticeService.noticeModify(noticeModel);
 		
 		mav.addObject("n_number", noticeModel.getN_number());
-		mav.setViewName("redirect:/adminNoticeView.do");
+		mav.setViewName("redirect:adminNoticeView.do");
 		return mav;	
 	}
 	
