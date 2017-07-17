@@ -259,7 +259,7 @@
             <div class="join-conf-btn join-conf-btn2 ">
                <ul>
                   <button type="button" onclick="this.form.submit();" class="btn btn-primary">작성완료</button>
-                  <li><input type="button" class="cancel" title="" value="취소" ></li>
+                  <li><input type="button" onclick="location.href='http://localhost:8080/SDDuo/main.do'" value="취소" ></li>
                </ul>
             </div>
           
