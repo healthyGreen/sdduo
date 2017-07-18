@@ -11,7 +11,7 @@
 <div class="sub-content">
 				<div class="sub-content-inbox">
 					<div class="sub-top">
-						<h2>로그인</h2>
+						<h2 class="centerH2">로그인</h2>
 					</div>
 					<div class="login-title">
 						<p>회원님의 아이디와 비밀번호를 입력하신 후 로그인 버튼을 클릭하세요! <br>아이디저장에 체크를 하시면 다음에 로그인 하실 경우 새롭게 아이디를 입력하실 필요가 없습니다.</p>

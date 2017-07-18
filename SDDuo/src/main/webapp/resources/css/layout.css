@@ -331,7 +331,7 @@
 .bg07area .tit span{font-family: 'NanumBarunGothic';}
 
 .sub-content-inbox{width: 1100px; margin: 0 auto;}
-.sub-content h3{padding-top: 60px; color: #444444; font-size: 38px;  font-family: '留��� 怨���', malgun-gothic; font-weight: 600; text-align:center; margin-bottom: 20px; height:23px; clear:both;}
+.sub-content h3{padding-top: 60px; color: #444444; font-size: 38px;  font-family: '留��� 怨���', malgun-gothic; font-weight: 600; text-align:center; margin-bottom: 20px;clear:both;}
 .sub-content .sub02_txt{font-size: 14px; color: #535151; font-family: 'NanumBarunGothic' ;text-align:center; line-height: 160%; }
 .sub-content .sub02_txt span{color: #888888; }
 .sub-content .sub03_txt{font-size: 18px; color: #5c5c5c; font-family: 'NanumBarunGothic' ;text-align:center; line-height: 160%; margin-top: -5px; }
@@ -436,7 +436,7 @@
 .write-board01 .writetxt04{border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb;margin-left: 20px;  border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; width: 880px; height: 230px; box-sizing: border-box; margin-top: 18px; margin-bottom: 18px; }
 .write-board01 .writetxt05{border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb;margin-left: 20px;  border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; width: 200px; height: 30px; box-sizing: border-box;  border-radius: 0px !important;}
 .write-board01 .td01{width: 400px;} 
-.btn-area{width: 210px; margin: 0 auto; margin-top: 20px; margin-bottom: 175px;}
+.btn-area{width: 211px; margin: 0 auto; margin-top: 5px; margin-bottom: 175px;}
 .btn-area .submit{color: #fff; width: 100px; height: 40px; background: #6786bd; text-align:center; cursor: pointer; box-sizing:border-box; border: none;  font-family: '留��� 怨���', malgun-gothic; font-size: 14px; margin-right: 7px;}
 .btn-area .cancel{color: #4f4f4f; border-top: 1px solid #e8e8e8; border-left: 1px solid #e8e8e8;  border-bottom: 1px solid #c2c2c2; border-right: 1px solid #c2c2c2;  width: 100px; height: 40px; background: #fff ; text-align:center; cursor: pointer; box-sizing:border-box;   font-family: '留��� 怨���', malgun-gothic; font-size: 14px;}
 
@@ -577,16 +577,15 @@
 .calarea{clear: both;  margin-top: 30px;  background: url(../images/sub/calbg.gif) no-repeat; width: 1100px; height: 640px; position: relative;}
 .calarea .calleft {float: left; width: 570px;  }
 .calarea .calleft .tit{ letter-spacing: -1.5px;color: #242424; font-size: 20px;  font-family: '留��� 怨���', malgun-gothic; background: url(../images/sub/cal01.gif) no-repeat 80px 62px; height: 180px; width: 570px; padding-top: 75px; padding-left: 138px; box-sizing: border-box; }
-.supercal {width: 345px; height: 380px; border: 1px solid #9c9c9c; background: #fff; position: absolute; bottom: 75px;  left: 105px;}
-.supercal .supercal-header {display: block;line-height: 30px;text-align: center;position: relative; height: 100px; padding: 30px 10px; box-sizing: border-box;} 
+.supercal {width: 345px;    height: 242px;    border: 1px solid #9c9c9c;    background: #fff;    position: absolute;    top: 140px;    left: 117px;}
+.supercal .supercal-header {    display: block;    line-height: 45px;    text-align: center;    position: relative;    height: 49px;  box-sizing: border-box;} 
 .supercal .supercal-header .prev-month {float: left;}
 .supercal .supercal-header .next-month {float: right;}
 .supercal-month {position: relative;z-index: 0;overflow: hidden;     padding: 00px 20px;}
 .supercal table {width: 300px;table-layout: fixed;background: #fff; }
-.supercal th{height: 50px; color: #888888; text-align: center;  width: 42px; font-size: 20px;     padding-top: 6px;  box-sizing: border-box;}
-.supercal td {cursor: pointer; width: 42px; height: 42px; background: #e9ecf4; border-right: 1px solid #fff; border-bottom: 1px solid #fff; color: #888888; font-size: 20px; text-align: center; padding-top: 15px; box-sizing: border-box;}
+.supercal th{height: 31px; color: #888888; text-align: center;  width: 42px; font-size: 14px;     padding-top: 6px;  box-sizing: border-box;}
+.supercal td {     width: 20px;     border-right: 1px solid #fff;    border-bottom: 1px solid #fff;    color: #888888;    font-size: 12px;    text-align: center;    padding-top: 15px;    box-sizing: border-box;  }
 .supercal .month-prev{color: #888888 !important;}
-.supercal td:hover {background: #72a6ef !important;color: #fff;}
 .supercal td.month-prev, .supercal td.month-next {background: #e9ecf4;}
 .supercal td.selected {background: #72a6ef;color: #fff;}
 .supercal td.today {}
@@ -594,7 +593,7 @@
 .supercal .supercal-footer span.supercal-input {display: table-cell;width: 100%;cursor: default;}
 .prev-month{background: url(../images/sub/calprev.gif) no-repeat; width: 35px; height: 35px;  border: none; text-indent: -99999px;}
 .next-month{background: url(../images/sub/calnext.gif) no-repeat; width: 35px; height: 35px;  border: none; text-indent: -99999px;}
-.month{color: #444444; font-size: 35px;  font-family: '留��� 怨���', malgun-gothic; font-weight: 600; }
+.month{color: #444444; font-size: 26px;  font-family: '留��� 怨���', malgun-gothic; font-weight: 600; }
 
 .calarea .calright{float: left; width: 530px;  }
 .calarea .calright .tit{ color: #717171; font-size: 20px;  font-family: '留��� 怨���', malgun-gothic; background: url(../images/sub/cal02.gif) no-repeat 125px 60px; height: 120px; letter-spacing: -1.5px; width: 570px; padding-top: 75px; padding-left: 175px; box-sizing: border-box; }
@@ -1482,8 +1481,9 @@
 .aboutTit{color: #444444;   padding-top: 60px;  font-size: 38px;    font-family: '맑은 고딕';    font-weight: 600;    text-align: center;    margin-bottom: 20px;   height: 23px;    clear: both;}
 
 
-
-
+.page-header{display: none; }
+.centerH2{        color: #444444;    font-size: 38px !important;    font-family: '筌랃옙占쏙옙 �⑨옙占쏙옙', malgun-gothic;    font-weight: 600;    text-align: center;    margin-bottom: 20px;    clear: both;}
+.reserCenter{width: 400px;    margin: 0 auto;    margin-top: 270px;    padding-left: 17px;}
 
 
 
