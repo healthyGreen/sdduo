@@ -5,8 +5,11 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
-
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
 <div class="sub-top">
 	<h2>나의 예약 현황</h2>
 </div>
@@ -25,9 +28,8 @@
       <div class="sub-content-inbox">
       <p class="onlinetit">
 			</p>
-        
-			<div class="resev-box">
-				<p class="listnum">총 <span>${ list.size() }</span>건 ${currentPage }/${totalPage }&nbsp;&nbsp;&nbsp;&nbsp; <input type="button" onclick="location.href='myOneReserList.do'" value="개인 예약 현황"> 
+        	<div class="resev-box">
+				<p class="listnum">총 <span>${ totalCount }</span>건 ${currentPage }/${totalPage }&nbsp;&nbsp;&nbsp;&nbsp; <input type="button" onclick="location.href='myOneReserList.do'" value="개인 예약 현황"> 
             &nbsp;&nbsp; <input type="button" onclick="location.href='myGroupReserList.do'" value="그룹 예약 현황"> </p>
 			</div>
 			<div class="onlinetb">
@@ -53,27 +55,27 @@
 					</thead>
 					
 					<tbody>
-					<%int number = 1; %>
+					<%int numberN = 1; %>
 					
-						<c:forEach var="list" items="${list}">
+						<c:forEach var="list2" items="${list2}">
 							<tr>
-								<th><%= number++%></th>
-								<td><fmt:formatDate value="${list.pr_date}" pattern="yyyy.MM.dd"/></td>
-								<td>${ list.pr_name }</td> 
-                     			<td>${ list.pr_year }.${ list.pr_month }.${ list.pr_day }&nbsp;&nbsp;${ list.pr_hour }:${ list.pr_minute }</td>
+								<th><%= numberN++%></th>
+								<td><fmt:formatDate value="${list2.gr_date}" pattern="yyyy.MM.dd"/></td>
+								<td>${ list2.gr_group }</td> 
+                     			<td>${ list2.gr_year }.${ list2.gr_month }.${ list2.gr_day }&nbsp;&nbsp;${ list2.gr_hour }:${ list2.gr_minute }</td>
                      			<td>
                      
                      				<c:choose>
 
-                           				<c:when test="${list.pr_center eq '1'}">
+                           				<c:when test="${list2.gr_center eq '1'}">
                                 			 서울센터
                            				</c:when>
                            
-                          			 	<c:when test="${list.pr_center eq '2'}">
+                          			 	<c:when test="${list2.gr_center eq '2'}">
                                				  대구센터
                            				</c:when>
                            				
-                           				<c:when test="${list.pr_center eq '3'}">
+                           				<c:when test="${list2.gr_center eq '3'}">
                                 			 부산센터
                            				</c:when>
                            			</c:choose>
@@ -83,11 +85,11 @@
                      
                      				<c:choose>
 
-                           				<c:when test="${list.pr_status eq '0'}">
+                           				<c:when test="${list2.gr_status eq '0'}">
                                 			 예약대기
                            				</c:when>
                            
-                          			 <c:when test="${list.pr_status ne '0'}">
+                          			 <c:when test="${list2.gr_status ne '0'}">
                                				  예약완료
                            				</c:when>
                            			</c:choose>
@@ -103,12 +105,10 @@
 				</div>
 			</div>
 			
-			<c:if test="${fn:length(list) le 0}">
+			<c:if test="${fn:length(list2) le 0}">
 				<br />
 				<center>등록된 게시물이 없습니다</center>
 				<br />
 			</c:if>
-     </div>
- </div>
-
+</body>
 </html>

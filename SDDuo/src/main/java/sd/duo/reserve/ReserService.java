@@ -54,4 +54,22 @@ public class ReserService implements ReserDAO{
 		return sqlSessionTemplate.selectOne("reserve.myTotalReserNum", m_id);
 	}
 
+	@Override
+	public int myGroupTotalReserNum(String m_id) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectOne("reserve.myGroupTotalReserNum", m_id);
+	}
+
+	@Override
+	public OneReserModel timeCheck(OneReserModel oneReserModel) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectOne("reserve.timeCheck", oneReserModel);
+	}
+
+	@Override
+	public GroupReserModel timeCheck(GroupReserModel groupReserModel) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectOne("reserve.groupTimeCheck", groupReserModel);
+	}
+
 }

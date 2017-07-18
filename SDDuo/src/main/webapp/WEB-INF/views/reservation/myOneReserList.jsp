@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<p class="onlinetit">나의 예약현황(개인)
+<p class="centerH2">나의 예약현황(개인)
 			</p>
 <div class="resev-box">
 				<p class="listnum">총 <span>${ list.size() }</span>건 ${currentPage }/${totalPage }</p>

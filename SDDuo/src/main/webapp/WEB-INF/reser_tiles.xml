@@ -29,8 +29,12 @@
 		<put-attribute name="body" value="/WEB-INF/views/reservation/grReserList.jsp" />
 	</definition>
 	
-	<definition name="myReserList" extends="reser">
+	<definition name="myOneReserList" extends="reser">
 		<put-attribute name="body" value="/WEB-INF/views/reservation/myReserList.jsp" />
+	</definition>
+	
+	<definition name="myGroupReserList" extends="reser">
+		<put-attribute name="body" value="/WEB-INF/views/reservation/myGroupReserList.jsp" />
 	</definition>
 	
 </tiles-definitions>

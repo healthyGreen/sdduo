@@ -217,8 +217,10 @@ public class MemberController {
 		session.removeAttribute("session_member_id");
 		session.removeAttribute("session_member_name");
 		session.removeAttribute("session_member_no");
+		session.removeAttribute("session_admin");
+		session.removeAttribute("session_member_coupon");
 
-		mav.setViewName("main");
+		mav.setViewName("redirect:/main.do");
 		return mav;
 	}
 	

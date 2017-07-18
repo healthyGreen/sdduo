@@ -22,7 +22,7 @@
 								<div class="tit"><span>MY</span> PAGE</div>
 									<dl class="mlist">
 										<dt><a>나의 정보 수정/탈퇴</a></dt>
-										<dt><a href="<%=request.getContextPath() %>/Reserve/myReserList.do">예약 현황</a></dt>
+										<dt><a href="<%=request.getContextPath() %>/Reserve/myOneReserList.do">예약 현황</a></dt>
 										<dt><a href="<%=request.getContextPath() %>/consulting/myConsultingList.do">온라인 상담 내역</a></dt>
 										<dt><a href="<%= request.getContextPath()%>/Reserve/myReserList.do">나의 자가 진단</dt>
 										<dt><a href="<%=request.getContextPath() %>/member/myCoupon.do">쿠폰함(${member.m_r_coupon}개)</a></dt>

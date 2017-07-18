@@ -4,15 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>탈퇴 경고</title>
+<title>Insert title here</title>
 <script>
-	if(confirm('정말 탈퇴하시겠습까?')){
-		window.location.href="exist.do";
-	}
-	else{
-		alert('탈퇴취소');
-		history.back();
-	}
+	alert('이미 예약이 마감되었습니다. 다른 날짜 및 시간을 선택해 주세요.');
+		window.location.href="GroupReserveForm.do";
 </script>
 </head>
 <body>
