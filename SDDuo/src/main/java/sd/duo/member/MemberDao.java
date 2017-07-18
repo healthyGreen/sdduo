@@ -25,4 +25,6 @@ public interface MemberDao {
    public int MyTotCoupon(String m_id);
    
    public List<MemberModel> myCouponList(String m_id);
+   
+   public MemberModel idCheck(String m_id);
 }

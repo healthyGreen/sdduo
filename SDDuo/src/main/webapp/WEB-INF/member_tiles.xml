@@ -14,59 +14,45 @@
 	
 	<!-- Member -->
 	<definition name="joinOk" extends="mainTiles">
-		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/member/joinOk.jsp" />
 	</definition>
 	<definition name="agree" extends="mainTiles">
-		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/member/agree.jsp" />
 	</definition>
 	<definition name="joinForm" extends="mainTiles">
-		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/member/joinForm.jsp" />
 	</definition>
 	<definition name="joinSuccess" extends="mainTiles">
-		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/member/joinSuccess.jsp" />
 	</definition>
 	<definition name="joinSuccess" extends="mainTiles">
-		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/member/joinSuccess.jsp" />
 	</definition>
 	<definition name="loginForm" extends="mainTiles">
-		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/member/loginForm.jsp" />
 	</definition>
 	<definition name="findIdForm" extends="mainTiles">
-		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/member/findForm.jsp" />
 	</definition>
 	<definition name="findIdResult" extends="mainTiles">
-		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/member/findIdResult.jsp" />
 	</definition>
 	<definition name="findPwForm" extends="mainTiles">
-		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/member/findForm.jsp" />
 	</definition>
 	<definition name="findPwResult" extends="mainTiles">
-		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/member/findPwResult.jsp" />
 	</definition>
 	<definition name="myInfoView" extends="mainTiles">
-		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/member/myInfoView.jsp" />
 	</definition>
 	<definition name="myInfoModifyForm" extends="mainTiles">
-		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/member/myInfoModifyForm.jsp" />
 	</definition>
 	<definition name="checkPassForm" extends="mainTiles">
-		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/member/checkPassForm.jsp" />
 	</definition>
 	<definition name="memberPassError" extends="mainTiles">
-		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/member/memberPassError.jsp" />
 	</definition>
 <!-- 	<definition name="existPassForm" extends="main">
@@ -74,18 +60,15 @@
 		<put-attribute name="body" value="/WEB-INF/views/member/existPassForm.jsp" />
 	</definition> -->
 	<definition name="existWarning" extends="mainTiles">
-		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/member/existWarning.jsp" />
 	</definition>
 	<definition name="myConsultingList" extends="mainTiles">
-		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/consulting/myConsultingList.jsp" />
 	</definition>
 	<definition name="myCoupon" extends="mainTiles">
-		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/member/myCoupon.jsp" />
 	</definition>
-	
+
 	<!-- 상담해듀오 소개 페이지 -->
 	<definition name="about" extends="mainTiles">
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />

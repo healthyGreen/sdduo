@@ -33,20 +33,21 @@
        // ]]>
    </script>
    
-   <script>
+<script>
    function IdConfirm(join) {
-
+	   
    	var M_id = document.join.m_id.value;
-   	var url = "/member/idCheck.jsp?M_id";
-	alert("111")
+	var url = "idCheck.do?m_id="+M_id;
+	// var url = "/main.jsp";
+	//alert("111")
    	
    	if(M_id ==""){
       		alert("아이디를 입력해주세요!")
-      		document.join.M_id.focus();
+      		document.join.m_id.focus();
+      		return;
       		
    	}else{
-   		open(url, "IdConfirm", "toolbar=no,location=no,status=no,menubar=no,"+
-         	"scrollbars=no,resizable=no,width=400,height=600");
+   		open(url, "IdConfirm", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=400,height=600");
    		
    		}
 }
@@ -128,7 +129,7 @@
             <p class="table-sub-title"><span class="color">* </span>표시는 필수입력사항이며, 본인확인 및 서비스 이용을 위하여 기본정보를 정확히 입력해주세요.</p>
          </div>
           <spring:hasBindErrors name="member"/>
-    <form:form commandName="MemberModel" action="joinSuccess.do" enctype="multipart/form-data"  name="join" method="post">
+    <form:form commandName="MemberModel" action="joinSuccess.do" enctype="multipart/form-data" name="join" method="post">
          <div class="idpw_box">
          
             <table>
@@ -136,11 +137,11 @@
                <tr>
                   <th class=" "><label for="id"><span class="color">*</span>아이디<!-- label--></label></th>
                   <td class=" ">
-                      <input type="text" class="common-text-box box-left " id="m_id" name="m_id" maxlength="8">
-                      <p class="exp">4~8자의 영문+숫자만 사용가능</p>
-                      <p class="errorpage errorpage2 mt-5" id="errUserId" style="display:none;">4~8자의 영문+숫자를 사용해 주세요.</p>
-                      <p class="errorpage2 errorpage3  mt-5" id="useUserId" style="display:none;">사용이 가능한 아이디 입니다.</p>
+                      <input type="text" class="common-text-box box-left " id="m_id" name="m_id" maxlength="8"> &nbsp;
                   	  <input type="button" value="중복확인" class="double-chk" onclick="javascript:IdConfirm(join)">	
+                      <p class="exp">4~8자의 영문+숫자를 사용해 주세요.</p>
+ 						<form:errors path="m_id"/>
+                     <!--  <p class="errorpage2 errorpage3  mt-5" id="useUserId" style="display:none;">사용이 가능한 아이디 입니다.</p> -->
                    </td>
                </tr>
                <tr>
@@ -170,8 +171,8 @@
                <tr>
                  <th class=" "><label for="id"><span class="color">*</span>성별<!-- label--></label></th>
                  <td class=" ">
-                    <input type="checkbox" name="m_sex" value="women" checked="checked">여자&nbsp;&nbsp;
-                   <input type="checkbox" name="m_sex" value="men">남자
+                  <input type="radio" name="m_sex" value="여자" checked="checked"/><span class="up">여자</span>&nbsp;&nbsp;
+                   <input type="radio" name="m_sex" value="남자"/><span class="up">남자</span>
                    
                  </td>
                </tr>
@@ -208,8 +209,8 @@
                      <option>LG</option>
                   </select>
    <input type="text" name="m_phone1" id="m_phone1" value="010" size="4" maxlength="4" required=""  label="핸드폰"> -
-   <input type="text" name="m_phone2" id="m_phone2" value="4158" size="4" maxlength="4" required=""  label="핸드폰"> -
-   <input type="text" name="m_phone3" id="m_phone3" value="2290" size="4" maxlength="4" required=""  label="핸드폰">
+   <input type="text" name="m_phone2" id="m_phone2"  size="4" maxlength="4" required=""  label="핸드폰"> -
+   <input type="text" name="m_phone3" id="m_phone3"  size="4" maxlength="4" required=""  label="핸드폰">
    <span class="noline" style="padding-left:10px"><input type="checkbox" name="sms"><span style="font:8pt 돋움;color:#007FC8">광고성 정보,이벤트SMS수신</span></span>
    <div style="letter-spacing:-1;color:#FF6000">※ <span style="font-size:8pt;">주문 관련 정보 등 주요 안내 사항은 수신 동의 여부에 관계없이 자동 발송됩니다.</span></div>
    </td>

@@ -149,8 +149,16 @@ public class ReserController {
 		
 		String pr_reason = oneReserModel.getPr_reason().replaceAll("\r\n", "<br />");
 		oneReserModel.setPr_reason(pr_reason);
+		OneReserModel one=reserService.timeCheck(oneReserModel);
 
-		reserService.insertOneReser(oneReserModel);
+		if(one == null)
+		{
+			reserService.insertOneReser(oneReserModel);
+		}else
+		{
+			mv.setViewName("reservation/oneReserError");
+			return mv;
+		}
 		memberService.couponSet(m_id);
 		mv.setViewName("redirect:/Reserve/OneReserList.do");
 		return mv;
@@ -183,14 +191,23 @@ public class ReserController {
 				mv.setViewName("loginForm");
 				return mv;
 			}
-			reserService.insertGroupReser(groupReserModel);
+			GroupReserModel group=reserService.timeCheck(groupReserModel);
+
+			if(group == null)
+			{
+				reserService.insertGroupReser(groupReserModel);
+			}else
+			{
+				mv.setViewName("reservation/groupReserError");
+				return mv;
+			}
 			memberService.couponSet(m_id);
 			mv.setViewName("redirect:/Reserve/GrReserList.do");
 			return mv;
 		}
 		
-		 @RequestMapping(value = "/myReserList.do")
-			public ModelAndView myReserList(OneReserModel oneReserMoedel, HttpServletRequest request,
+		 @RequestMapping(value = "/myOneReserList.do")
+			public ModelAndView myOneReserList(OneReserModel oneReserMoedel, HttpServletRequest request,
 					HttpSession session) {
 				String m_id = session.getAttribute("session_member_id").toString();
 				MemberModel m = new MemberModel();//�떒
@@ -214,22 +231,69 @@ public class ReserController {
 				String pagingHtml = page.getPagingHtml().toString();
 				totalPage = page.getTotalPage();
 				List<OneReserModel> myOneReserlist = reserService.myOneReserList(m_id);
+				//List<GroupReserModel> myGroupReserlist = reserService.myGroupReserList(m_id);
+				if (page.getEndCount() < totalCount) {
+					lastCount = page.getEndCount() + 1;
+				}
+				System.out.println(page.getStartCount());
+				System.out.println(lastCount);
+				myOneReserlist = myOneReserlist.subList(page.getStartCount(), lastCount);
+				//myGroupReserlist = myGroupReserlist.subList(page.getStartCount(), lastCount);
+				mv.addObject("totalCount", totalCount);
+				mv.addObject("totalPage", totalPage);
+				mv.addObject("list", myOneReserlist);
+				//mv.addObject("list2", myGroupReserlist);
+				mv.addObject("currentPage", currentPage);
+				mv.addObject("blockPage", blockPage);
+				mv.addObject("listOrder", listOrder);
+				mv.addObject("html", pagingHtml);
+				mv.addObject("member", m); //�떒
+				mv.setViewName("myOneReserList");
+				return mv;
+			}
+		 @RequestMapping(value = "/myGroupReserList.do")
+			public ModelAndView myGroupReserList(OneReserModel oneReserMoedel, HttpServletRequest request,
+					HttpSession session) {
+				String m_id = session.getAttribute("session_member_id").toString();
+				MemberModel m = new MemberModel();//�떒
+	            m=memberService.getMember(m_id);//�떒
+				int currentPage = 0;
+				int totalCount = reserService.myGroupTotalReserNum(m_id);
+				int blockCount = 10;
+				int blockPage = 5;
+				int lastCount = totalCount;
+				int totalPage;
+
+				// String currentPage = request.getParameter("currentPage");
+				if (request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty()
+						|| request.getParameter("currentPage").equals("0"))
+					currentPage = 1;
+				else
+					currentPage = Integer.parseInt(request.getParameter("currentPage"));
+
+				int listOrder = (currentPage - 1) * blockCount;
+				Paging page = new Paging(currentPage, totalCount, blockCount, blockPage, "myReserList");
+				String pagingHtml = page.getPagingHtml().toString();
+				totalPage = page.getTotalPage();
+				//List<OneReserModel> myOneReserlist = reserService.myOneReserList(m_id);
 				List<GroupReserModel> myGroupReserlist = reserService.myGroupReserList(m_id);
 				if (page.getEndCount() < totalCount) {
 					lastCount = page.getEndCount() + 1;
 				}
-				myOneReserlist = myOneReserlist.subList(page.getStartCount(), lastCount);
+				System.out.println(page.getStartCount());
+				System.out.println(lastCount);
+				//myOneReserlist = myOneReserlist.subList(page.getStartCount(), lastCount);
 				myGroupReserlist = myGroupReserlist.subList(page.getStartCount(), lastCount);
 				mv.addObject("totalCount", totalCount);
 				mv.addObject("totalPage", totalPage);
-				mv.addObject("list", myOneReserlist);
+				//mv.addObject("list", myOneReserlist);
 				mv.addObject("list2", myGroupReserlist);
 				mv.addObject("currentPage", currentPage);
 				mv.addObject("blockPage", blockPage);
 				mv.addObject("listOrder", listOrder);
 				mv.addObject("html", pagingHtml);
 				mv.addObject("member", m); //�떒
-				mv.setViewName("myReserList");
+				mv.setViewName("myGroupReserList");
 				return mv;
 			}
 }

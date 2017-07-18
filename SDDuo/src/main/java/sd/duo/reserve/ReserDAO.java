@@ -29,4 +29,10 @@ public interface ReserDAO {
 	
 	public int myTotalReserNum(String m_id);
 
+	public int myGroupTotalReserNum(String m_id);
+
+	OneReserModel timeCheck(OneReserModel oneReserModel);
+
+	GroupReserModel timeCheck(GroupReserModel groupReserModel);
+
 }

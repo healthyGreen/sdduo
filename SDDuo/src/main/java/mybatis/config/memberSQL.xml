@@ -108,6 +108,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select*from f_member where m_id=#{m_id}
 	</select>
 	
+	<select id="idCheck" resultType="memberModel" parameterType="string">
+		select*from f_member where m_id=#{m_id}
+	</select>
 	
 	
 		

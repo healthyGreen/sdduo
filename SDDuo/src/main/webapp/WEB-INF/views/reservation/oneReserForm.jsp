@@ -55,17 +55,17 @@ $(document).ready(function () {
                <div class="calarea">
                   <div class="calleft">
                      <p class="tit">원하시는 희망 예약날짜를 선택해 주세요</p>
-                     <!-- <script src="/SDDuo/resources/js/jquery.supercal.js"></script> -->
-                     <div class="example1" style="margin:0 auto"></div>
-                     <!-- <script>
-                        $('.example1').supercal({
-                           
-                        });
-                     </script> -->
-                     
-                           
-                  <select id="pr_year" name="pr_year" class="form-control" style="width: 20%; display: inline-block;">
-                  		<option value="">-선택하세요-</option>
+                     <script src="/SDDuo/resources/js/jquery.supercal.js"></script>
+					 <div class="example1" style="margin:0 auto"></div>
+	                     <script>
+	                        $('.example1').supercal({
+	                           
+	                        });
+	                     </script> 
+                   
+                 	<div class="reserCenter">
+                 		 <select id="pr_year" name="pr_year" class="form-control" style="width: 100px; display: inline-block;">
+                  		<option value="">년</option>
                         <%for(int i=2017; i<=2027; i++){ %>
                         <%int from = 'i';
                         String to = Integer.toString(from); %>
@@ -75,8 +75,8 @@ $(document).ready(function () {
                      </select>
                      년&nbsp;&nbsp;
 
-                     <select id="pr_month" name="pr_month" class="form-control"  style="width: 20%; display: inline-block;">
-                     	<option value="">-선택하세요-</option>
+                     <select id="pr_month" name="pr_month" class="form-control"  style="width: 100px; display: inline-block;">
+                     	<option value="">월</option>
                         <%for(int i=1; i<=12; i++){ %>
                         <%
                                  String s = Integer.toString(i); 
@@ -89,8 +89,8 @@ $(document).ready(function () {
                      </select>
                      월&nbsp;&nbsp;
                      
-                     <select id="pr_day" name="pr_day" class="form-control"  style="width: 20%; display: inline-block;">
-                     	<option value="">-선택하세요-</option>
+                     <select id="pr_day" name="pr_day" class="form-control"  style="width: 100px; display: inline-block;">
+                     	<option value="">일</option>
                         <%for(int i=1; i<= 31; i++){ %>
                         <%
                                  String s = Integer.toString(i); 
@@ -103,7 +103,8 @@ $(document).ready(function () {
                         
                      </select>
                                           일&nbsp;&nbsp;
-                     <p style="font-size: 20px; text-align: center; "><span id="year" style="color: red;"></span>년<span id="month" style="color: red;"></span>월<span id="day" style="color: red;">일</span>에 예약하시겠습니까?</p>
+                 	</div>
+                     <p style="font-size: 20px; text-align: center;margin-top: 30px;"><span id="year" style="color: red;"></span>년<span id="month" style="color: red;"></span>월<span id="day" style="color: red;">일</span>에 예약하시겠습니까?</p>
                      
                                   
                   </div>
@@ -245,9 +246,9 @@ $(document).ready(function () {
                            </table>
                            </div>
                
-               <div>
-                  <input type="button" onclick="return checkForm()" value="확인"   />
-                  <input type="button" value="취소" class="cancel" />
+               <div class="btn-area">
+                  <input type="button" onclick="return checkForm()" value="확인"   class="submit" />
+                  <input type="button" value="취소" class="cancel" class="cancel"/>
                </div>
          </form>
          </div>
