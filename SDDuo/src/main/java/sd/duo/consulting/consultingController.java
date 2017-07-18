@@ -69,11 +69,11 @@ public class consultingController {
 		// consultingmodel.setM_id(id);
 		// consultingmodel.setC_re_status(1); // 답변상태 아직 안달린 상태
 
-		/*new consultingValidator22().validate(consultingmodel, result);
+		new consultingValidator22().validate(consultingmodel, result);
 		if (result.hasErrors()) {
 			mv.setViewName("consultingForm");
 			return mv;
-		}*/
+		}
 		//String who = request.getParameter("who");
 		
 		int c_ref = consultingmodel.getC_ref();

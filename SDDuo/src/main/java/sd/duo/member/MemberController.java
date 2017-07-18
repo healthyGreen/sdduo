@@ -20,7 +20,7 @@ import sd.duo.member.MemberValidator;
 @Controller
 @RequestMapping("/member")
 public class MemberController {
-
+	String m_id;
 	@Resource(name = "memberService")
 	private MemberService memberService;
 
@@ -112,11 +112,11 @@ public class MemberController {
 
 		ModelAndView mav = new ModelAndView();
 
-		/*new MemberValidator().validate(member, result);
+		new MemberValidator().validate(member, result);
 		if(result.hasErrors()){
 			mav.setViewName("joinForm");
 			return mav;
-		}*/
+		}
 		memberService.insertMember(member);
 		mav.setViewName("joinSuccess");
 		return mav;
@@ -219,6 +219,23 @@ public class MemberController {
 		session.removeAttribute("session_member_no");
 
 		mav.setViewName("main");
+		return mav;
+	}
+	
+	@RequestMapping("/idCheck.do")
+	public ModelAndView idCheck(HttpServletRequest request){
+		m_id = (String)request.getParameter("m_id");
+		MemberModel memberModel = new MemberModel();
+		memberModel = memberService.idCheck(m_id);
+		//boolean ckId;
+		//System.out.println(memberModel.getM_id());
+		/*//System.out.println("!");
+		if(memberModel!=null){
+			ckId = false;
+		}else ckId = true;*/
+		mav.addObject("m_id", m_id);
+		mav.addObject("member", memberModel);
+		mav.setViewName("member/idCheck");
 		return mav;
 	}
 

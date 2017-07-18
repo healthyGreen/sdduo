@@ -1,7 +1,49 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script type="text/javascript">
+  function setId() {
+    opener.document.join.m_id.value = "${m_id}";
+   
+    self.close();
+ }  
+ function idCheck() {
+	      var ck_id = document.idCk.ck_id.value;
+	         //var url = "idCheck.do?m_id="+m_id;
+	      if(ck_id == ""){
+	         alert("체크할 아이디를 입력해 주세요");
+	         document.idCk.ck_id.focus();
+	         return false;        
+	      }else{
+	    	 // alert(m_id);
+	    	 form.action = "idCheck.do?m_id="+ck_id;
+				form.submit();
+	        // open(url, "IdConfirm", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=400,height=600");
+	      }
+	   }
+ 
+ 
+</script>
 <html>
+<div align="center">
+	<c:if test="${member !=null}">
+			${member.m_id}는 이미 사용중인 아이디 입니다.<br>
+			다른 아이디를 이용해 주시기 바랍니다.	
+			 <br>
+			<form onsubmit="return idCheck();" name="idCk">
+			<input type="text" name="ck_id">&nbsp;<input type="submit" value="중복 확인">
+			</form>
+			<!-- <input type="button" value="확인" onclick="window.close();"> -->
+	</c:if>
+	<c:if test="${member == null }">
+		해당 아이디는 사용하실 수 있는 아이디 입니다.<br>
+		<input type="button" value="확인" onclick="javascript:setId();">
+	</c:if>
+		</div>
+</html>  
+
+<%-- <html>
 <head>
 <title>아이디 중복 확인</title>
 <script language="javascript">
@@ -168,4 +210,4 @@
       </table>
    </s:else>
 </body>
-</html>
+</html> --%>

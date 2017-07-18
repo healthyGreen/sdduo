@@ -18,16 +18,16 @@ public class MemberValidator implements Validator{
    public void validate(Object target, Errors errors) {
       MemberModel member = (MemberModel)target;
       
-      ValidationUtils.rejectIfEmptyOrWhitespace(errors, "m_id", "m_id");
-      ValidationUtils.rejectIfEmptyOrWhitespace(errors, "m_pass", "m_pass");
+      ValidationUtils.rejectIfEmptyOrWhitespace(errors, "m_id", "id");
+      ValidationUtils.rejectIfEmptyOrWhitespace(errors, "m_pass", "pass");
       
       // 비밀번호가 일치하지 않는다면
       if(equals(member.getM_pass()) == false){
-         errors.rejectValue("m_pass", "m_pass");
+         errors.rejectValue("m_pass", "pass2");
       }
       
-      ValidationUtils.rejectIfEmptyOrWhitespace(errors, "m_name", "m_name");
-      ValidationUtils.rejectIfEmpty(errors, "m_email", "m_email");
+      ValidationUtils.rejectIfEmptyOrWhitespace(errors, "m_name", "name");
+      ValidationUtils.rejectIfEmpty(errors, "m_email", "email");
    }
    
 }
