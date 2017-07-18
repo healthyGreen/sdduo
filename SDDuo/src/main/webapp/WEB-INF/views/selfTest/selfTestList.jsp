@@ -90,40 +90,6 @@
 			
 		
 			
-			<%-- <div id="tab2" class="tabcontent tab_content current">
-			
-			<form:form action="selfTestList1.do" id="form2" enctype="multipart/form-data" method="post">
-			<input type="hidden" name="category" value="2" />
-			
-			<c:forEach var="selfList" items="${selfList}">
-			<td>${selfList.t_score }</td>
-			</c:forEach>
-			</form:form>
-			
-			</div>
-			
-			<div id="tab3" class="tabcontent tab_content current">
-			
-			<form:form action="selfTestList1.do" id="form3" enctype="multipart/form-data" method="post">
-			<input type="hidden" name="category" value="3" />
-			
-			<c:forEach var="selfList" items="${selfList}">
-			<td>${selfList.t_score }</td>
-			</c:forEach>
-			</form:form>
-			
-			</div>
-			
-			<div id="tab4" class="tabcontent tab_content current">
-			
-			<form:form action="selfTestList1.do" id="form4" enctype="multipart/form-data" method="post">
-			<input type="hidden" name="category" value="4" />
-			
-			<c:forEach var="selfList" items="${selfList}">
-			<td>${selfList.t_score }</td>
-			</c:forEach>
-			</form:form> --%>
-			
 			</div>
 		</div>
 </body>

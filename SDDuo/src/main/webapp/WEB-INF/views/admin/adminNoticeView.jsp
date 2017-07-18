@@ -48,7 +48,9 @@
 					</tr>
 					<tr>
 						<td class="dmc_content content">
-						<img src="../resources/upload/${noticeModel.n_sav_image}" alt="이미지가 없습니다" /><br>
+						<c:if test="${noticeModel.n_sav_image != null}">
+						<img src="../resources/upload/${noticeModel.n_sav_image}" /><br>
+						</c:if>
 						${noticeModel.n_content }
 						</td>
 					</tr>
