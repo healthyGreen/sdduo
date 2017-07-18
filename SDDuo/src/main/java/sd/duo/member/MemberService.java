@@ -71,4 +71,10 @@ public class MemberService implements MemberDao {
 		return sqlSessionTemplate.selectList("member.myCouponList", m_id);
 	}
 
+	@Override
+	public MemberModel idCheck(String m_id) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectOne("member.idCheck", m_id);
+	}
+
 }
