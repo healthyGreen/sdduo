@@ -243,4 +243,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from f_reservation where m_id = #{m_id}
 	</select>
 	
+	<select id="myGroupTotalReserNum" parameterType="String" resultType="int">
+		select count(*) from f_gr_reservation where m_id = #{m_id}
+	</select>
+	
+	<!-- 개인 예약 날짜 및 시간 확인 -->
+	<select id="timeCheck" parameterType="OneReserModel" resultMap="OneReserRes">
+		select * from f_reservation
+		where pr_year = #{pr_year} and pr_month = #{pr_month} and pr_day = #{pr_day} and pr_hour = #{pr_hour} and pr_minute = #{pr_minute} and pr_center = #{pr_center}
+	</select>
+	
+	<!-- 그룹 예약 날짜 및 시간 확인 -->
+	<select id="groupTimeCheck" parameterType="GroupReserModel" resultMap="GroupReserRes">
+		select * from f_gr_reservation
+		where gr_year = #{gr_year} and gr_month = #{gr_month} and gr_day = #{gr_day} and gr_hour = #{gr_hour} and gr_minute = #{gr_minute} and gr_center = #{gr_center}
+	</select>
+	
 </mapper>
