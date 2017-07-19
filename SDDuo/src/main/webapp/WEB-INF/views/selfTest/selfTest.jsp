@@ -117,10 +117,7 @@
 
 	</script>
 	
-<body>
-<div id="wrapper">
 
-        <div id="page-wrapper">
             
 	<div class="sub-content">
 	
@@ -1233,5 +1230,3 @@
 
 		</div>
 	</div>
-
-</div></div></body>
