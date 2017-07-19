@@ -95,8 +95,9 @@
 											</c:when>
 											<c:otherwise>
 												<c:forEach var="list"  items="${adminNoticeList}" begin="0" end="5">
-													<c:url var="viewURL" value="adminNoticeView.do">
+													<c:url var="viewURL" value="/notice/NoticeView.do">
 														<c:param name="n_number" value="${list.n_number}"/>
+														<%-- <c:param name="currentPage" value="${currentPage}"/> --%>
 													</c:url>
 													<tr>
 														<td><p class="txt"><a href="${viewURL}">${list.n_title}</a></p></td>
