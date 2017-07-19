@@ -69,7 +69,8 @@ public class consultingController {
 		// consultingmodel.setM_id(id);
 		// consultingmodel.setC_re_status(1); // 답변상태 아직 안달린 상태
 
-		new consultingValidator22().validate(consultingmodel, result);
+		new consultingValidator().validate(consultingmodel, result);
+		
 		if (result.hasErrors()) {
 			mv.setViewName("consultingForm");
 			return mv;
@@ -211,7 +212,7 @@ public class consultingController {
 	public ModelAndView consultingModifyPro(@ModelAttribute("consulting") consultingModel consultingmodel,
 			BindingResult result) {
 
-		// new consultingModValidator().validate(consultingmodel, result);
+		 new consultingModValidator().validate(consultingmodel, result);
 
 		/*
 		 * //int c_number = Integer.parseInt(request.getParameter("c_number"));
@@ -222,12 +223,12 @@ public class consultingController {
 		int c_number = consultingmodel.getC_number();
 		// System.out.println(c_number);
 		// System.out.println("!");
-		/*
-		 * if(result.hasErrors()){ //mv.addObject("consultingNum",
-		 * consultingmodel.getC_number());
-		 * mv.setViewName("redirect:/consulting/consultingModify.do?c_number="+
-		 * c_number); return mv; }
-		 */
+		
+		if(result.hasErrors()){ //mv.addObject("consultingNum",
+		 consultingmodel.getC_number() ;
+		  mv.setViewName("redirect:/consulting/consultingModify.do?c_number="+
+		  c_number); return mv; }
+		
 
 		service.modConsulting(consultingmodel);
 		mv.setViewName("redirect:/consulting/consultingView.do?c_number=" + c_number); // ?떎?씠?젆?듃?븯湲?																// )

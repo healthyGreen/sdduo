@@ -57,7 +57,7 @@
                             <a href="<%=request.getContextPath()%>/admin/adminNoticeList.do"><i class="fa fa-table fa-fw"></i>&nbsp공지사항 관리</a>
                         </li>
                         <li>
-                            <a href=""><i class="fa fa-edit fa-fw"></i>&nbsp회원 관리</a>
+                            <a href="<%=request.getContextPath()%>/admin/adminMemberList.do"><i class="fa fa-edit fa-fw"></i>&nbsp회원 관리</a>
                         </li>
                        
                        
