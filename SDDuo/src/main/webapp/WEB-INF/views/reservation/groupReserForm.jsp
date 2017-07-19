@@ -1,32 +1,7 @@
 <%@page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<!DOCTYPE html PUBliC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<title>마이스토리</title>
-	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<link rel="stylesheet" href="SDDuo/src/main/webapp/WEB-INF/views/css/layout.css" />
-	<link rel="stylesheet" href="SDDuo/src/main/webapp/WEB-INF/views/css/default.css" />
 
-	<!--JQUERY-->
-
-	<script  type="text/javascript" src="../../js/jquery-1.9.1.js"></script>
-	<script  type="text/javascript" src="../../js/common.js"></script>
-	<script  type="text/javascript" src="../../js/jquery.flexslider.js"></script>
-	<script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-	<script src="../../js/jquery.rolling.js" type="text/javascript"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.js"></script>
-	<script type="text/javascript" src="../../js/tab.js"></script>
-	<script src="../../js/jquery.supercal.js"></script>
-	<script type="text/javascript">
-	    // <![CDATA[
-	    /* $(document).ready(function () {
-		   $('#tab').tabify();
-	    }); */
-	    // ]]>
-</script>
 <script type="text/javascript">
 $(document).ready(function () {
     // 초기 값 지정
@@ -62,23 +37,10 @@ $(document).ready(function () {
 
 
 
-</head>
-
 
  <body>
  <div class="sub-content">
-            <div class="bg02area">
-               <p class="tit">예약/커뮤니티</p>
-            </div>
-            <div class="sub-content-inbox">
-               <ul class="sub-menu2">
-                  <li><a href="sub0201_list.html">온라인상담</a></li>
-                  <li class="act act2"><a href="sub0202_01.html">온라인 실시간예약</a></li>
-                  <li><a href="sub0203_list.html">마이스토리 공지사항</a></li>
-                  <li><a href=" sub0204_list.html">마이스토리 심리 컬럼</a></li>
-                  <li><a href="sub0205_list.html">책으로 만나는 심리이야기</a></li>
-                  <li class="last"><a href="sub0206_list.html">자주하는 질문</a></li>
-               </ul>
+           
                <h3>온라인 실시간예약</h3>
                <p class="sub02_txt">
                   마이스토리 심리상담센터는 예약상담으로만 운영되고 있으며 상담을 희망하시는 경우 반드시 예약 및 상담규정을 준수해야 합니다.<br />
@@ -97,14 +59,8 @@ $(document).ready(function () {
                            
                         });
                      </script>
-                     <tr>
-                                    <td colspan="3" height="15"></td>
-                                   </tr>
-                                   <tr>
-                                    <td valign="top" class="formtit"  style="color: #4f4f4f; font-size: 16px; line-height: 120%; padding-top: 10px;">예약일 선택&nbsp;</td>
-                                    <td align="center" width="4" ></td>
-                                    <td>
-                                       <select id="gr_year" name="gr_year" class="form-control" style="width: 20%; display: inline-block;">
+                  		<div class="reserCenter">
+                                       <select id="gr_year" name="gr_year" class="form-control" style="width: 100px; display: inline-block;">
                                        		<option value="">-선택하세요-</option>
                                              <%for(int i=2017; i<=2027; i++){ %>
                                              <%int from = 'i';
@@ -116,7 +72,7 @@ $(document).ready(function () {
                                           </select>
                                           년&nbsp;&nbsp;
 
-                                          <select id="gr_month" name="gr_month" class="form-control"  style="width: 20%; display: inline-block;">
+                                          <select id="gr_month" name="gr_month" class="form-control"  style="width: 100px; display: inline-block;">
                                           	<option value="">-선택하세요-</option>
                                              <%for(int i=1; i<=12; i++){ %>
                                              <%
@@ -130,7 +86,7 @@ $(document).ready(function () {
                                           </select>
                                           월&nbsp;&nbsp;
                                           
-                                          <select id="gr_day" name="gr_day" class="form-control"  style="width: 20%; display: inline-block;">
+                                          <select id="gr_day" name="gr_day" class="form-control"  style="width: 100px; display: inline-block;">
                                           	<option value="">-선택하세요-</option>
                                              <%for(int i=1; i<=31; i++){ %>
                                              <%
@@ -145,21 +101,20 @@ $(document).ready(function () {
                                              
                                           
                                           일&nbsp;&nbsp;
-                                    </td>
-                                   </tr>
+                                          
+                                          <p style="font-size: 20px; text-align: center;margin-top: 30px;"><span id="year" style="color: red;"></span>년<span id="month" style="color: red;"></span>월<span id="day" style="color: red;">일</span>에 예약하시겠습니까?</p>
+                         </div>          
                   </div>
                   <div class="calright">
                      <p class="tit">예약정보를 입력해 주세요</p>
-                     <p class="txt">왼쪽 달력에서 먼저 원하는 날짜를 선택 후 예약해주세요</p>
-							<div>
+                     
+							<div  style="width: 295px; margin: 0 auto;">
 									<table width="100%" border="0" cellspacing="0" cellpadding="0">
 									  <tr>
 										<td>
 											<table width="100%" border="0" cellspacing="0" cellpadding="0">
 
-											  <tr>
-												<td colspan="3" height="20"></td>
-											  </tr>
+											
 											  <tr>
 												<td valign="top"  class="formtit" style="color: #4f4f4f; font-size: 16px; padding-top: 10px;">센&nbsp&nbsp&nbsp&nbsp터</td>
 												<td align="center" width="4" ></td>
@@ -287,17 +242,7 @@ $(document).ready(function () {
 
 										</td>
 									  </tr>
-									  <tr>
-										<td>
-											<table width="100%" border="0" cellspacing="0" cellpadding="0">
-											  <tr>
-
-												<td colspan="3 " style="font-family:맑은 고딕; font-size:14px; color:#ab9159;padding:10px 0; width: 290px; letter-spacing: -2.2px;">*&nbsp;연락처를 남기시지 않으면 예약이 확정 되지 않습니다. </td>
-											  </tr>
-
-											</table>
-										</td>
-									  </tr>
+									 
 									  <tr>
 										<td>
 											<table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -311,18 +256,16 @@ $(document).ready(function () {
 									  </tr>
 									</table>
 									</div>
-					<p><span id="year"></span>년<span id="month"></span>월<span id="day"></span>일 에 예약하시겠습니까?</p>
-					<div>
-						<input type="button" onclick="return checkForm()" value="확인" />
-						<input type="button" value="취소" class="cancel" />
-					</div>
+					
+					 <div class="btn-area">
+		                  <input type="button" onclick="return checkForm()" value="확인"   class="submit" />
+		                  <input type="button" value="취소" class="cancel" class="cancel" onclick="javascript:history.back()"/>
+		               </div>
 			</form>
 			
 			
 			
 					</div>
 				</div>
-
- </body>
-</html>
+				</div>
 

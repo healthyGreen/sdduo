@@ -13,7 +13,10 @@
 				바랍니다.
 			</span><br />
 		</p>
-		<p class="reserv-btn">실시간예약 바로가기</p>
+			<c:if test="${session_member_id !=null }">
+						<p class="reserv-btn" onclick="location.href='<%=request.getContextPath()%>/Reserve/OneReserveForm.do'">
+						<%-- <input type="button" onclick="location.href='<%=request.getContextPath()%>/Reserve/OneReserveForm.do'"> --%>실시간예약 바로가기</p>
+						</c:if>
 
 		<c:choose>
 			<c:when test="${state.equals('modify')}">
@@ -104,7 +107,7 @@
 
 					<div class="btn-area">
 						<input type="submit" value="확인" class="submit"> <input
-							type="button" value="취소" class="cancel">
+							type="button" value="취소" class="cancel" onclick="javascript:history.back();">
 					</div>
 				</form:form>
 			</c:otherwise>

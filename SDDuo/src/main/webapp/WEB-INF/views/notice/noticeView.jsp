@@ -68,7 +68,7 @@
 					<c:when test="${session_member_id == 'admin' }">
 					<button type="button" onclick="onModify(${noticeModel.n_number })" class="btn btn-outline btn-primary" style="margin-right: 10px; ">수정</button>
 					<button type="button" onclick="noticeDelete(${noticeModel.n_number })" class="btn btn-outline btn-primary" style="margin-right: 10px; ">삭제</button>
-					<button type="button" onclick="adminOnList()" class="btn btn-outline btn-default">목록</button>
+					<button type="button" onclick="onList()" class="btn btn-outline btn-default">목록</button>
 					</c:when>
 					
 					<c:otherwise>
@@ -109,12 +109,12 @@
 <script type="text/javascript">
 function noticeDelete() {
 	alert("삭제하겠습니까?");
-	location.href='adminNoticeDelete.do?n_number=${noticeModel.n_number}';
+	location.href='NoticeDelete.do?n_number=${noticeModel.n_number}';
 }
 
 var onModify = function(n_number){
 	var form = $('.viewForm')[0];
-	form.action = 'adminNoticeModify.do?n_number='+n_number;
+	form.action = 'NoticeModify.do?n_number='+n_number;
 	form.submit();
 };
 
@@ -123,8 +123,6 @@ var onList = function(){
 };
 
 
-var adminOnList = function(){
-	location.href='adminNoticeList.do';
-};
+
 
 </script>

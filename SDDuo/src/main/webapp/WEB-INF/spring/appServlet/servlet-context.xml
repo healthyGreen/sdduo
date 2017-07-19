@@ -16,6 +16,7 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
 		<mvc:mapping path="/admin/**"/>
+		<mvc:mapping path="/AdminReserve/**"/>
 			<beans:bean id="loginInterceptor" class="sd.duo.common.loginInterceptor"/>
 		</mvc:interceptor>
 	</mvc:interceptors>

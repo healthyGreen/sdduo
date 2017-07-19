@@ -248,7 +248,7 @@ $(document).ready(function () {
                
                <div class="btn-area">
                   <input type="button" onclick="return checkForm()" value="확인"   class="submit" />
-                  <input type="button" value="취소" class="cancel" class="cancel"/>
+                  <input type="button" value="취소" class="cancel" onclick="javascript:history.back();"/>
                </div>
          </form>
          </div>
