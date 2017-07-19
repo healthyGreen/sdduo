@@ -81,7 +81,7 @@ public class AdminNoticeController {
 			
 			
 			String isSearch = request.getParameter("isSearch");
-			if(isSearch != null) isSearch = new String(isSearch.getBytes("8859_1"), "UTF-8");
+			//if(isSearch != null) isSearch = new String(isSearch.getBytes("8859_1"), "UTF-8");
 			
 			
 			if(isSearch != null)
