@@ -16,14 +16,26 @@
 
 	
 	
-	<!--  notice   -->
-	<definition name="NoticeList" extends="notice">
-		<put-attribute name="body" value="/WEB-INF/views/admin/adminNoticeList.jsp"/>
-	</definition>
 	
- 	<definition name="NoticeView" extends="notice">
-		<put-attribute name="body" value="/WEB-INF/views/admin/adminNoticeView.jsp" />
-	</definition>
+	
+	
+	 <!--  사용자 입장 센터별 공지사항   -->
+   <definition name="NoticeList" extends="notice">
+      <put-attribute name="body" value="/WEB-INF/views/notice/noticeList.jsp"/>
+   </definition>
+   
+    <definition name="NoticeView" extends="notice">
+      <put-attribute name="body" value="/WEB-INF/views/notice/noticeView.jsp" />
+   </definition>
+
+   <definition name="NoticeForm" extends="notice">
+   <put-attribute name="body" value="/WEB-INF/views/notice/noticeWriteForm.jsp" />
+   </definition>
+
+   <definition name="NoticeModify" extends="notice">
+      <put-attribute name="body" value="/WEB-INF/views/notice/noticeModify.jsp" />
+   </definition>
+	
 	
 	<!-- 자가진단 -->
 <definition name="self" extends="notice">
