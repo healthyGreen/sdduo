@@ -34,6 +34,7 @@ public class ReserController {
 	private int totalCount;
 	private int blockCount = 10;
 	private int blockPage = 5;
+	int totalPage;
 	private String pagingHtml;
 	private Paging paging;
 	ModelAndView mv = new ModelAndView();
@@ -58,6 +59,7 @@ public class ReserController {
 	      
 	      paging = new Paging(currentPage, totalCount, blockCount, blockPage, "OneReserList");
 	      pagingHtml = paging.getPagingHtml().toString();
+	      totalPage = paging.getTotalPage();
 	      
 	      int lastCount = totalCount;
 	      if(paging.getEndCount() < totalCount){
@@ -71,6 +73,7 @@ public class ReserController {
 	      mv.addObject("currentPage", currentPage);
 	      mv.addObject("pagingHtml", pagingHtml);
 	      mv.addObject("totalCount", totalCount);
+	      mv.addObject("totalPage", totalPage);
 	      
 	      mv.setViewName("oneReserList");
 	      
@@ -97,6 +100,7 @@ public class ReserController {
 		
 		paging = new Paging(currentPage, totalCount, blockCount, blockPage, "GrReserList");
 		pagingHtml = paging.getPagingHtml().toString();
+		totalPage = paging.getTotalPage();
 		
 		int lastCount = totalCount;
 		if (paging.getEndCount() < totalCount) {
@@ -112,6 +116,7 @@ public class ReserController {
 		mv.addObject("currentPage", currentPage);
 		mv.addObject("pagingHtml", pagingHtml);
 		mv.addObject("totalCount", totalCount);
+		mv.addObject("totalPage", totalPage);
 		
 		System.out.println(GrReserList.size());
 		
