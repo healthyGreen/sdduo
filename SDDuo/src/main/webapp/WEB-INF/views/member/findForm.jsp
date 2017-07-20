@@ -48,9 +48,9 @@
 											<th>핸드폰</th>
 											<td>
 												<select name="m_tongsinsa">
-													<option>skt</option>
-													<option>kt</option>
-													<option>lg</option>
+													<option>SKT</option>
+													<option>KT</option>
+													<option>LG</option>
 												</select>
 												<input type="text" name="m_phone1" class="common-text-box wdp50p">-
 												<input type="text" name="m_phone2" class="common-text-box wdp50p">-
@@ -93,9 +93,9 @@
 											<th>핸드폰</th>
 											<td>
 												<select name="m_tongsinsa">
-													<option>skt</option>
-													<option>kt</option>
-													<option>lg</option>
+													<option>SKT</option>
+													<option>KT</option>
+													<option>LG</option>
 												</select>
 												<input type="text" name="m_phone1" class="common-text-box wdp50p">-
 												<input type="text" name="m_phone2" class="common-text-box wdp50p">-
