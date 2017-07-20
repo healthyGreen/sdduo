@@ -229,21 +229,7 @@ public class NoticeController {
 			return mav;	
 		}
 		
-		//공지사항 삭제
-				@RequestMapping("/NoticeDeleteAll.do")
-				public ModelAndView noticeDeleteAll(HttpServletRequest request,Map requestMap){
-					
-					ModelAndView mav = new ModelAndView();
-					
-					String[] arrIdx = requestMap.get("idx").toString().split(",");
-					for (int i=0; i<arrIdx.length; i++) {
-						noticeService.noticeDelete(Integer.parseInt(arrIdx[i]));
-					}
-					
-					mav.setViewName("redirect:NoticeList.do");
-					
-					return mav;	
-				}
+	
 		
 		//공지사항 수정폼
 		@RequestMapping("/NoticeModify.do")
@@ -303,7 +289,23 @@ public class NoticeController {
 		}
 		
 		
+		@RequestMapping("/Delete.do")
+		public ModelAndView userDel(HttpServletRequest request) throws Exception {
 		
+		ModelAndView mav = new ModelAndView();
+		
+		String[] strArry= request.getParameterValues("checkRow");
+			
+		
+		for (int i=0; i<strArry.length; i++) {
+			noticeService.noticeDelete(Integer.parseInt(strArry[i]));
+		}
+		
+		mav.setViewName("redirect:NoticeList.do");
+		
+		return mav;	
+		
+		}
 		
 		
 		

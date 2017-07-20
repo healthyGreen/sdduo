@@ -5,6 +5,27 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 
+<script type="text/javascript">
+
+var onWrite = function(){
+	location.href = 'NoticeWrite.do'; 
+}
+
+$('.searchOption').val($('.searchOptionVal').val());
+
+
+/* 체크박스 전체선택, 전체해제 */
+function checkAll(){
+      if( $("#th_checkAll").is(':checked')){
+        $("input[name=checkRow]").prop("checked", true);
+      }else{
+        $("input[name=checkRow]").prop("checked", false);
+      }
+}
+
+
+
+</script>
 
 
 <body>
@@ -32,6 +53,7 @@
 					</p>
 					</form>
 				</div>
+		 	 	<form action="Delete.do">  
 				<table class="list-board01">
 				<colgroup>
 					<col width="5px">
@@ -41,17 +63,16 @@
 					<col width="137px">
 					<col width="150px">
 				</colgroup>
-				<thead>
-					<tr>
-						<th><input type="checkbox" name="checkAll" id="th_checkAll" onclick="checkAll();"/></th>
-						<th>번호</th>
-						<th>제목</th>
-						<th>작성자</th>
-						<th>작성일</th>
-						<th>조회수</th>
-					</tr>
-
-				</thead>
+			<thead>
+               <tr>
+                  <th><input type="checkbox" name="checkAll" id="th_checkAll" onclick="checkAll();"/></th>
+                  <th>번호</th>
+                  <th>제목</th>
+                  <th>작성자</th>
+                  <th>작성일</th>
+                  <th>조회수</th>
+               </tr>
+            </thead>
 				<tbody>
 					<c:forEach var="list" items="${adminNoticeList}">
 						<c:url var="viewURL" value="/notice/NoticeView.do" >
@@ -59,9 +80,8 @@
 						    <c:param name="currentPage" value="${currentPage }" />
 						</c:url>
 					<tr>
-					
-						<td class="center"><input type="checkbox" name="checkRow" value="${content.IDX}" /></td>
-						
+						<td class="center"><input type="checkbox" id="checkRow" name="checkRow" value="${list.n_number}" /></td>
+
 						<td>${list.n_number}</td>
 						
 						<td style="text-align:left;">
@@ -79,6 +99,7 @@
 				</tbody>
 			</table>
 			
+		
 			<div class="pageing">
 				${pagingHtml}
 			</div>
@@ -89,12 +110,13 @@
 								
 					 <c:if test="${session_admin == 1}"> 
 						<button type="button" onclick="onWrite()" class="btn btn-outline btn-primary" style="margin-right: 10px; ">글쓰기</button>
-						<button type="button" onclick="deleteAction()" class="btn btn-outline btn-primary" style="margin-right: 10px; ">삭제</button>
+						<button type="submit" class="btn btn-outline btn-primary" style="margin-right: 10px; ">삭제</button>
 					 </c:if> 
-				
+			
 			
 			
 			</div>
+			 </form>  
             </div>
             <!-- /.row -->
             
@@ -114,54 +136,6 @@
 
 
 </body>
-<script type="text/javascript">
-
-var onWrite = function(){
-	location.href = 'NoticeWrite.do'; 
-}
-
-$('.searchOption').val($('.searchOptionVal').val());
-
-/* 체크박스 전체선택, 전체해제 */
-function checkAll(){
-      if( $("#th_checkAll").is(':checked') ){
-        $("input[name=checkRow]").prop("checked", true);
-      }else{
-        $("input[name=checkRow]").prop("checked", false);
-      }
-}
-
-/* 삭제(체크박스된 것 전부) */
-function deleteAction(){
-  var checkRow = "";
-  $( "input[name='checkRow']:checked" ).each (function (){
-    checkRow = checkRow + $(this).val()+"," ;
-  });
-  checkRow = checkRow.substring(0,checkRow.lastIndexOf( ",")); //맨끝 콤마 지우기
- 
-  if(checkRow == ''){
-    alert("삭제할 대상을 선택하세요.");
-    return false;
-  }
-  console.log("### checkRow => {}"+checkRow);
- 
-  if(confirm("정보를 삭제 하시겠습니까?")){
-      
-      //삭제처리 후 다시 불러올 리스트 url      
-      var url = document.location.href;
-      var page = $("#page").val();
-      var saleType = $("#saleType").val();
-      var schtype = $("#schtype").val();
-      var schval = $("#schval").val();
-      location.href="${rc.contextPath}/NoticeDeleteAll.do?idx="+checkRow+"&goUrl="+url+"&page="+page+"&saleType="+saleType+"schtype="+schtype+"schval="+schval;      
-  }
-}
-
-
-
-
-
-</script>
 
 
 

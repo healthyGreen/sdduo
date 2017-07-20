@@ -14,8 +14,6 @@ public class AdminNoticeModel {
 	private String n_sav_image="";
 	
 	
-	
-	
 	public int getN_number() {
 		return n_number;
 	}

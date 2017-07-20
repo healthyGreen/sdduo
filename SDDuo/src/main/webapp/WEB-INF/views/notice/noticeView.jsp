@@ -108,8 +108,11 @@
 
 <script type="text/javascript">
 function noticeDelete() {
-	alert("삭제하겠습니까?");
+	if(confirm("삭제하시겠습니까?")){
 	location.href='NoticeDelete.do?n_number=${noticeModel.n_number}';
+	}else{
+		return;
+	}
 }
 
 var onModify = function(n_number){
