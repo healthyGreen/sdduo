@@ -49,4 +49,10 @@ public class MainController {
 	      
 	      
 	   }
+	
+	@RequestMapping(value = "/interceptor.do")
+	public ModelAndView interceptor() {
+		mav.setViewName("memberInterceptor");
+		return mav;
+	}
 }

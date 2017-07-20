@@ -129,13 +129,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where gr_number = #{gr_number}
 	</select>
 	
-	<!-- 마이페이지 예약내역 리스트 가져오기 -->
+	<!-- 마이페이지 개인예약내역 리스트 가져오기 -->
 	<select id="myOneReserList" parameterType="String" resultMap="OneReserRes">
 		<include refid="oneSelect_All" />
 		where m_id = #{m_id}
 		order by pr_number DESC 
 	</select>
 	
+	<!-- 마이페이지 그룹예약내역 리스트 가져오기 -->
 	<select id="myGroupReserList" parameterType="String" resultMap="GroupReserRes">
 		<include refid="grSelect_All" />
 		where m_id = #{m_id}
@@ -239,10 +240,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		gr_number = #{gr_number}
 	</delete>
 
+	<!-- 내가 예약한 개인예약의 총 갯수 -->
 	<select id="myTotalReserNum" parameterType="String" resultType="int">
 		select count(*) from f_reservation where m_id = #{m_id}
 	</select>
 	
+	<!-- 내가 예약한 그룹예약의 총 갯수 -->
 	<select id="myGroupTotalReserNum" parameterType="String" resultType="int">
 		select count(*) from f_gr_reservation where m_id = #{m_id}
 	</select>

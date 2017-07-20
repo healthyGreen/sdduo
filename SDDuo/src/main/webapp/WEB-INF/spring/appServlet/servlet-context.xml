@@ -19,6 +19,22 @@
 		<mvc:mapping path="/AdminReserve/**"/>
 			<beans:bean id="loginInterceptor" class="sd.duo.common.loginInterceptor"/>
 		</mvc:interceptor>
+
+		<mvc:interceptor>
+		<mvc:mapping path="/Reserve/OneReserveForm.do"/>
+		<mvc:mapping path="/Reserve/GroupReserveForm.do"/>
+		<mvc:mapping path="/Reserve/myOneReserList.do"/>
+		<mvc:mapping path="/Reserve/myGroupReserList.do"/>
+		<mvc:mapping path="/member/myInfoModifyForm.do"/>
+		<mvc:mapping path="/member/myInfoModify.do"/>
+		<mvc:mapping path="/member/existPass.do"/>
+		<mvc:mapping path="/member/exist.do"/>
+		<mvc:mapping path="/member/myInfoView.do"/>
+		<mvc:mapping path="/member/myCoupon.do"/>
+		<mvc:mapping path="/member/myCoupon.do"/>
+		<mvc:mapping path="/self/**"/>
+			<beans:bean id="memberInterceptor" class="sd.duo.common.memberInterceptor"/>
+		</mvc:interceptor>
 	</mvc:interceptors>
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />

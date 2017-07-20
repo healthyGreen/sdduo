@@ -11,7 +11,7 @@
 		<put-attribute name="body" value="/WEB-INF/views/common/container.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
 	</definition>
-	
+
 	<!-- Member -->
 	<definition name="joinOk" extends="mainTiles">
 		<put-attribute name="body" value="/WEB-INF/views/member/joinOk.jsp" />
@@ -67,6 +67,9 @@
 	</definition>
 	<definition name="myCoupon" extends="mainTiles">
 		<put-attribute name="body" value="/WEB-INF/views/member/myCoupon.jsp" />
+	</definition>
+	<definition name="memberInterceptor" extends="mainTiles">
+		<put-attribute name="body" value="/WEB-INF/views/memberInterceptor.jsp" />
 	</definition>
 
 	<!-- 상담해듀오 소개 페이지 -->
