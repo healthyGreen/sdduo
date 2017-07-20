@@ -267,7 +267,10 @@
 	}
 } */
 function OneReserDelete() {
-	alert("삭제하겠습니까?");
-	location.href='AdminOneReserDelete.do?pr_number=${OneReserModel.pr_number}';
+	if (confirm("삭제하시겠습니까?")) {
+		window.location.href = 'AdminOneReserDelete.do?pr_number=${OneReserModel.pr_number}';
+	} else {
+		alert("취소되었습니다");
+	}
 }
 </script>

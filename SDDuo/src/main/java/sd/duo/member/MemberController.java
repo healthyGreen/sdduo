@@ -27,14 +27,14 @@ public class MemberController {
 	ModelAndView mav = new ModelAndView();
 	String aboutLogin = null;
 	
-	// about�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕
+	// about 상담해듀오 소개 페이지
 	@RequestMapping(value = "/about.do")
 	public ModelAndView about() {
 		mav.setViewName("about");
 		return mav;
 	}
 
-	// �뜝�떥源띿삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕
+	// 로그인 폼 처리 
 	@RequestMapping(value = "/loginForm.do", method = RequestMethod.GET)
 	public ModelAndView loginForm() {
 		aboutLogin = "justlogin";
@@ -43,7 +43,7 @@ public class MemberController {
 		return mav;
 	}
 
-	// �뜝�떥源띿삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕
+	// 로그인 처리
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
 	public ModelAndView memberLogin(HttpServletRequest request, MemberModel mem) {
 
@@ -63,48 +63,44 @@ public class MemberController {
 			return mav;
 		}
 		aboutLogin = "loginError";
-		// �뜝�떥源띿삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕
 		mav.addObject("aboutLogin", aboutLogin);
 		mav.setViewName("loginForm");
 		return mav;
 	}
 
-	// �뜝�떥洹몄븘�슱�삕
+	// 로그아웃 처리 
 	@RequestMapping("/logout.do")
 	public ModelAndView memberLogout(HttpServletRequest request, MemberModel mem) {
 		HttpSession session = request.getSession(false);
 
 		if (session != null) {
-			// System.out.println("�뜝�떥洹몄븘�슱�삕 �뜝�룞�삕�뜝�룞�삕");
 			session.invalidate();
 		}
-
-		// mav.setViewName("member/logout");
 		mav.setViewName("loginForm");
 		return mav;
 	}
 
-	// �뜝�룞�삕�슚�뜝�룞�삕 �뜝�떙�궪�삕�뜝占� �뜝�룞�삕�뜝�룞�삕�뜝�뙥�궪�삕�뜝�룞�삕 �뜝�떬�뼱媛��뜝�룞�삕 �뜝�떦�뙋�삕 �뜝�룞�삕�뜝�룞�삕 ( joinStep2 �뜝�룞�삕 commandName )
+	// MemberModel 초기화
 	@ModelAttribute("member")
 	public MemberModel formBack() {
 		return new MemberModel();
 	}
 
-	// �뜝�떛�슱�삕�뜝�룞�삕 , �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕
+	// 회원 약관 동의 폼
 	@RequestMapping(value = "/agree.do", method = RequestMethod.GET)
 	public ModelAndView memberStep1(HttpServletRequest request) {
 		mav.setViewName("agree");
 		return mav;
 	}
 
-	// �쉶�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�뙃琉꾩삕
+	// 회원 가입 폼
 	@RequestMapping(value = "/joinForm.do")
 	public ModelAndView memberStep2(HttpServletRequest request) {
 		mav.setViewName("joinForm");
 		return mav;
 	}
 
-	// �쉶�뜝�룞�삕�뜝�룞�삕�뜝�뙃�셿琉꾩삕
+	// 회원 가입 성공 처리
 	@RequestMapping(value = "/joinSuccess.do")
 	public ModelAndView memberStep3(@ModelAttribute("member") MemberModel member, BindingResult result,
 			HttpServletRequest request) {
@@ -121,14 +117,14 @@ public class MemberController {
 		return mav;
 	}
 
-	// �쉶�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝占� �뜝�룞�삕
+	// 비밀번호 확인 폼(정보수정/탈퇴)
 	@RequestMapping("/checkPassForm.do")
 	public ModelAndView checkPassForm() {
 		mav.setViewName("checkPassForm");
 		return mav;
 	}
 
-	// �쉶�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝占� �솗�뜝�룞�삕
+	// 비밀번호 확인 처리(정보수정용)
 	@RequestMapping("/checkPass.do")
 	public ModelAndView checkPassPro(MemberModel member, HttpServletRequest requeset,
 			HttpSession session) {
@@ -151,14 +147,14 @@ public class MemberController {
 		}
 	}
 
-	// �쉶�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕
-	@RequestMapping("/myInfoModifyForm.do") // myInfoModifyForm.jsp
+	// 회원 정보 수정 폼
+	@RequestMapping("/myInfoModifyForm.do") 
 	public ModelAndView myInfoModifyForm() {
 		mav.setViewName("myInfoModifyForm");
 		return mav;
 	}
 
-	// �쉶�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕
+	// 회원 정보 수정 처리
 	@RequestMapping("/myInfoModify.do")
 	public ModelAndView myInfoModifyPro(@ModelAttribute("member") MemberModel member, BindingResult result,
 			HttpSession session) {
@@ -173,14 +169,7 @@ public class MemberController {
 		return mav;
 	}
 
-	// �쉶�뜝�룞�삕 �깉�뜝�룞�삕 �뜝�룞�삕�뜝占� �뜝�룞�삕
-	/*@RequestMapping("/existPassForm.do")
-	public ModelAndView existPassForm() {
-		mav.setViewName("existPassForm");
-		return mav;
-	}*/
-
-	// �쉶�뜝�룞�삕 �깉�뜝�룞�삕 �뜝�룞�삕�뜝占� �솗�뜝�룞�삕
+	// 비밀번호 확인 처리(탈퇴용)
 	@RequestMapping("/existPass.do")
 	public ModelAndView existPassPro(MemberModel member, HttpServletRequest requeset,
 			HttpSession session) {
@@ -204,11 +193,10 @@ public class MemberController {
 		}
 	}
 
-	// �쉶�뜝�룞�삕 �깉�뜝�룞�삕
+	// 탈퇴 처리
 	@RequestMapping("/exist.do")
 	public ModelAndView exist(@ModelAttribute("member") MemberModel member, BindingResult result,
 			HttpServletRequest requeset, HttpSession session) {
-		MemberModel memberModel;
 		String id;
 
 		id = session.getAttribute("session_member_id").toString();
@@ -223,6 +211,7 @@ public class MemberController {
 		return mav;
 	}
 	
+	// id 중복 확인
 	@RequestMapping("/idCheck.do")
 	public ModelAndView idCheck(HttpServletRequest request){
 		m_id = (String)request.getParameter("m_id");
@@ -240,15 +229,15 @@ public class MemberController {
 		return mav;
 	}
 
-	// �뜝�룞�삕�뜝�떛�벝�삕 李얍뜝�룞�삕 �뜝�룞�삕
+	// id 찾기 폼
 	@RequestMapping("/findIdForm.do")
 	public ModelAndView FindIdForm() {
 		mav.setViewName("findIdForm");
 		return mav;
 	}
 
-	// �뜝�룞�삕�뜝�떛�벝�삕 李얍뜝�룞�삕 泥섇뜝�룞�삕
-	@RequestMapping("/findIdResult.do")
+	// id 찾기 처리
+	@RequestMapping(value="/findIdResult.do", method = RequestMethod.POST)
 	public ModelAndView findId(@ModelAttribute("member") MemberModel member, HttpServletRequest request) {
 
 		int findIdChk;
@@ -266,29 +255,38 @@ public class MemberController {
 
 		member = memberService.idFind(member);
 
-		if (member != null) {
-			findIdChk = 1; // findIdChk=1 : 李얍뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕.
-			mav.addObject("member", member);
-			mav.addObject("memberFindIdChk", findIdChk);
-			mav.setViewName("findIdResult");
+		if(member == null)
+		{
+			findIdChk = 0;	//findIdChk=0 : 등록되어있지 않은 이름 
+			mav.addObject("memberFindChk",findIdChk);
+			mav.setViewName("member/findError");
 			return mav;
-
-		} else {
-			findIdChk = -1; // findIdChk=-1 : �뜝�뙃琉꾩삕�뜝�떦�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕移섇뜝�룞�삕�뜝�룞�삕 �뜝�떗�룞�삕�뜝�떦�뙋�삕.
-			mav.addObject("memberFindIdChk", findIdChk);
-			mav.setViewName("findIdResult");
-			return mav;
+		}else
+		{
+			if(member.getM_name().equals(name) && member.getM_tongsinsa().equals(tongsinsa) && member.getM_phone1().equals(phone1) && member.getM_phone2().equals(phone2) && member.getM_phone3().equals(phone3))
+			{
+				findIdChk = 1;	//findIdChk=1 : id 찾기 성공 
+				mav.addObject("member", member);
+				mav.addObject("memberFindChk", findIdChk);
+				mav.setViewName("findIdResult");
+				return mav;
+			}else {
+				findIdChk = -1; // findIdChk=-1 : 이름/핸드폰 번호 틀림
+				mav.addObject("memberFindChk", findIdChk);
+				mav.setViewName("member/findError");
+				return mav;
+			}
 		}
 	}
 
-	// �뜝�룞�삕艅섇뜝�떕占� 李얍뜝�룞�삕 �뜝�룞�삕
+	// 비밀번호 찾기 폼 
 	@RequestMapping("/findPwForm.do")
 	public ModelAndView FindPwForm() {
 		mav.setViewName("findPwForm");
 		return mav;
 	}
 
-	// �뜝�룞�삕艅섇뜝�떕占� 李얍뜝�룞�삕 泥섇뜝�룞�삕
+	// 비밀번호 찾기 처리
 	@RequestMapping("/findPwResult.do")
 	public ModelAndView findPw(@ModelAttribute("member") MemberModel member, HttpServletRequest request) {
 
@@ -309,22 +307,31 @@ public class MemberController {
 
 		member = memberService.pwFind(member);
 
-		if (member != null) {
-			findPwChk = 1; // findPwChk=1 : 李얍뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕.
-			mav.addObject("member", member);
-			mav.addObject("findPwChk", findPwChk);
-			mav.setViewName("findPwResult");
+		if(member == null)
+		{
+			findPwChk = 0;	//findIdChk=0 : 등록되어있지 않은 이름 
+			mav.addObject("memberFindChk",findPwChk);
+			mav.setViewName("member/findError");
 			return mav;
-
-		} else {
-			findPwChk = -1; //
-			mav.addObject("findPwChk", findPwChk);
-			mav.setViewName("findPwResult");
-			return mav;
+		}else
+		{
+			if(member.getM_id().equals(id) && member.getM_name().equals(name) && member.getM_tongsinsa().equals(tongsinsa) && member.getM_phone1().equals(phone1) && member.getM_phone2().equals(phone2) && member.getM_phone3().equals(phone3))
+			{
+				findPwChk = 1;	//findIdChk=1 : id 찾기 성공 
+				mav.addObject("member", member);
+				mav.addObject("memberFindChk", findPwChk);
+				mav.setViewName("findPwResult");
+				return mav;
+			}else {
+				findPwChk = -1; // findIdChk=-1 : 이름/핸드폰 번호 틀림
+				mav.addObject("memberFindChk", findPwChk);
+				mav.setViewName("member/findError");
+				return mav;
+			}
 		}
 	}
 
-	// �쉶�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕
+	// 회원 정보 보기
 	@RequestMapping("/myInfoView.do")
 	public ModelAndView myInfoView(@ModelAttribute("member") MemberModel member, HttpServletRequest request,
 			HttpSession session) {
@@ -343,6 +350,7 @@ public class MemberController {
 		return mav;
 	}
 	
+	// 나의 쿠폰 
 	@RequestMapping("/myCoupon.do")
 	public ModelAndView myCoupon(MemberModel member, HttpSession session){
 		String id;

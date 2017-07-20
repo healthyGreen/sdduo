@@ -34,11 +34,12 @@ public class ReserController {
 	private int totalCount;
 	private int blockCount = 10;
 	private int blockPage = 5;
+	int totalPage;
 	private String pagingHtml;
 	private Paging paging;
 	ModelAndView mv = new ModelAndView();
 	
-	   // 占쏙옙占싸울옙占쏙옙 占쏙옙占쏙옙트
+	   //개인예약 리스트
 	   @RequestMapping(value="/OneReserList.do", method = RequestMethod.GET)
 	   public ModelAndView oneReserList(HttpServletRequest request){
 	      
@@ -58,6 +59,7 @@ public class ReserController {
 	      
 	      paging = new Paging(currentPage, totalCount, blockCount, blockPage, "OneReserList");
 	      pagingHtml = paging.getPagingHtml().toString();
+	      totalPage = paging.getTotalPage();
 	      
 	      int lastCount = totalCount;
 	      if(paging.getEndCount() < totalCount){
@@ -71,6 +73,7 @@ public class ReserController {
 	      mv.addObject("currentPage", currentPage);
 	      mv.addObject("pagingHtml", pagingHtml);
 	      mv.addObject("totalCount", totalCount);
+	      mv.addObject("totalPage", totalPage);
 	      
 	      mv.setViewName("oneReserList");
 	      
@@ -78,7 +81,7 @@ public class ReserController {
 	      
 	   }
 	
-	//占쌓룹예占쏙옙 占쏙옙占쏙옙트
+	//그룹예약 리스트
 	@RequestMapping(value="/GrReserList.do",method = RequestMethod.GET)
 	public ModelAndView GrReserList(HttpServletRequest request){
 		ModelAndView mv = new ModelAndView();
@@ -97,10 +100,9 @@ public class ReserController {
 		
 		paging = new Paging(currentPage, totalCount, blockCount, blockPage, "GrReserList");
 		pagingHtml = paging.getPagingHtml().toString();
+		totalPage = paging.getTotalPage();
 		
 		int lastCount = totalCount;
-		//System.out.println(paging.getEndCount());
-		//System.out.println(totalCount);
 		if (paging.getEndCount() < totalCount) {
 			lastCount = paging.getEndCount() + 1;
 		}
@@ -114,6 +116,7 @@ public class ReserController {
 		mv.addObject("currentPage", currentPage);
 		mv.addObject("pagingHtml", pagingHtml);
 		mv.addObject("totalCount", totalCount);
+		mv.addObject("totalPage", totalPage);
 		
 		System.out.println(GrReserList.size());
 		
@@ -122,14 +125,14 @@ public class ReserController {
 		return mv;
 	}
 	
-	// 占쏙옙占싸울옙占쏙옙 占쏙옙
+	//개인예약 폼 출력
 	@RequestMapping(value="/OneReserveForm.do", method = RequestMethod.GET)
 	public String oneReserForm() {
 		
 		return "oneReserForm";
 	}
 	
-	// 占쏙옙占싸울옙占쏙옙 처占쏙옙
+	//개인예약 처리
 	@RequestMapping(value="/OneReserveForm.do", method = RequestMethod.POST)
 	public ModelAndView oneReserPro(@ModelAttribute("oneReserModel") OneReserModel oneReserModel, BindingResult result,
 			HttpSession session){
@@ -141,7 +144,6 @@ public class ReserController {
 		}*/
 		
 		String m_id = (String) session.getAttribute("session_member_id");
-		//System.out.println(m_id);
 		if(m_id==null){
 			mv.setViewName("loginForm");
 			return mv;
@@ -164,14 +166,14 @@ public class ReserController {
 		return mv;
 	}
 	
-	// 占쌓룹예占쏙옙 占쏙옙
+	//그룹예약 폼 출력
 	@RequestMapping(value="/GroupReserveForm.do", method = RequestMethod.GET)
 	public String groupReserForm(){
 		
 		return "groupReserForm";
 	}
 	
-	// 占쌓룹예占쏙옙 처占쏙옙
+	//그륩예약 처리
 		@RequestMapping(value="/GroupReserveForm.do", method = RequestMethod.POST)
 		public ModelAndView groupReserPro(@ModelAttribute("groupReserModel") GroupReserModel groupReserModel, BindingResult result,
 				HttpSession session){
@@ -184,8 +186,6 @@ public class ReserController {
 			}*/
 			
 			String m_id = (String) session.getAttribute("session_member_id");
-			
-			//System.out.println(m_id);
 			
 			if(m_id==null){
 				mv.setViewName("loginForm");
@@ -205,13 +205,13 @@ public class ReserController {
 			mv.setViewName("redirect:/Reserve/GrReserList.do");
 			return mv;
 		}
-		
+		//마이페이지 개인예약 리스트
 		 @RequestMapping(value = "/myOneReserList.do")
 			public ModelAndView myOneReserList(OneReserModel oneReserMoedel, HttpServletRequest request,
 					HttpSession session) {
 				String m_id = session.getAttribute("session_member_id").toString();
-				MemberModel m = new MemberModel();//�떒
-	            m=memberService.getMember(m_id);//�떒
+				MemberModel m = new MemberModel();//占쎈뼊
+	            m=memberService.getMember(m_id);//占쎈뼊
 				int currentPage = 0;
 				int totalCount = reserService.myTotalReserNum(m_id);
 				int blockCount = 10;
@@ -231,32 +231,30 @@ public class ReserController {
 				String pagingHtml = page.getPagingHtml().toString();
 				totalPage = page.getTotalPage();
 				List<OneReserModel> myOneReserlist = reserService.myOneReserList(m_id);
-				//List<GroupReserModel> myGroupReserlist = reserService.myGroupReserList(m_id);
 				if (page.getEndCount() < totalCount) {
 					lastCount = page.getEndCount() + 1;
 				}
 				System.out.println(page.getStartCount());
 				System.out.println(lastCount);
 				myOneReserlist = myOneReserlist.subList(page.getStartCount(), lastCount);
-				//myGroupReserlist = myGroupReserlist.subList(page.getStartCount(), lastCount);
 				mv.addObject("totalCount", totalCount);
 				mv.addObject("totalPage", totalPage);
 				mv.addObject("list", myOneReserlist);
-				//mv.addObject("list2", myGroupReserlist);
 				mv.addObject("currentPage", currentPage);
 				mv.addObject("blockPage", blockPage);
 				mv.addObject("listOrder", listOrder);
 				mv.addObject("html", pagingHtml);
-				mv.addObject("member", m); //�떒
+				mv.addObject("member", m); 
 				mv.setViewName("myOneReserList");
 				return mv;
 			}
+		 //마이페이지 그룹예약 리스트
 		 @RequestMapping(value = "/myGroupReserList.do")
 			public ModelAndView myGroupReserList(OneReserModel oneReserMoedel, HttpServletRequest request,
 					HttpSession session) {
 				String m_id = session.getAttribute("session_member_id").toString();
-				MemberModel m = new MemberModel();//�떒
-	            m=memberService.getMember(m_id);//�떒
+				MemberModel m = new MemberModel();
+	            m=memberService.getMember(m_id);
 				int currentPage = 0;
 				int totalCount = reserService.myGroupTotalReserNum(m_id);
 				int blockCount = 10;
@@ -275,24 +273,21 @@ public class ReserController {
 				Paging page = new Paging(currentPage, totalCount, blockCount, blockPage, "myReserList");
 				String pagingHtml = page.getPagingHtml().toString();
 				totalPage = page.getTotalPage();
-				//List<OneReserModel> myOneReserlist = reserService.myOneReserList(m_id);
 				List<GroupReserModel> myGroupReserlist = reserService.myGroupReserList(m_id);
 				if (page.getEndCount() < totalCount) {
 					lastCount = page.getEndCount() + 1;
 				}
 				System.out.println(page.getStartCount());
 				System.out.println(lastCount);
-				//myOneReserlist = myOneReserlist.subList(page.getStartCount(), lastCount);
 				myGroupReserlist = myGroupReserlist.subList(page.getStartCount(), lastCount);
 				mv.addObject("totalCount", totalCount);
 				mv.addObject("totalPage", totalPage);
-				//mv.addObject("list", myOneReserlist);
 				mv.addObject("list2", myGroupReserlist);
 				mv.addObject("currentPage", currentPage);
 				mv.addObject("blockPage", blockPage);
 				mv.addObject("listOrder", listOrder);
 				mv.addObject("html", pagingHtml);
-				mv.addObject("member", m); //�떒
+				mv.addObject("member", m);
 				mv.setViewName("myGroupReserList");
 				return mv;
 			}

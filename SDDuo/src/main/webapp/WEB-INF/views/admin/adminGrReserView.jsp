@@ -252,7 +252,10 @@
 	}
 } */
 function GrReserDelete() {
-	alert("삭제하겠습니까?");
-	location.href='AdminGrReserDelete.do?gr_number=${GroupReserModel.gr_number}';
+	if (confirm("삭제하시겠습니까?")) {
+		window.location.href = 'AdminGrReserDelete.do?gr_number=${GroupReserModel.gr_number}';
+	} else {
+		alert("취소되었습니다");
+	}
 }
 </script>

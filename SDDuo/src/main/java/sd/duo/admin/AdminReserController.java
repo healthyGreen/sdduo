@@ -45,7 +45,7 @@ public class AdminReserController {
          private String gr_day;
          
          
-         // ���ο��� ����Ʈ
+         // 관리자 페이지에서 개인예약 리스트 불러오기
             @RequestMapping(value="/OneReserList.do", method = RequestMethod.GET)
             public ModelAndView adminOneReserList(HttpServletRequest request) throws Exception {
                
@@ -70,15 +70,15 @@ public class AdminReserController {
                
                List<OneReserModel> oneReserList = adminReserService.OneReserList(pr_center);
                
-               // ���೯¥��
+               // 개인예약 예약일순 정렬
                if(isSearch.equals("0")){
             	   oneReserList = adminReserService.OneReserListRenew(pr_center);
                }
-               // ����ϼ�
+               // 개인예약 최신순 정렬
                if(isSearch.equals("1")){
             	   oneReserList = adminReserService.OneReserListNew(pr_center);
                }
-               // ������
+               // 개인예약 예약대기 정렬(순서는 예약번호순)
                if(isSearch.equals("2")){
             	   oneReserList = adminReserService.OneReserListWait(pr_center);
                }
@@ -107,7 +107,7 @@ public class AdminReserController {
                   return mav;
                   }
             
-            // ���ο��� ��¥ �˻�
+            // 관리자 페이지 개인예약 날짜 검색
             @RequestMapping(value="/OneReserListDay.do", method = RequestMethod.GET)
             public ModelAndView adminOneReserListDay(@ModelAttribute("oneReserModel") OneReserModel oneReserModel, HttpServletRequest request) throws Exception {
                 
@@ -124,17 +124,17 @@ public class AdminReserController {
              	   pr_center = request.getParameter("pr_center");
                 }
                 if(request.getParameter("pr_year") == null || request.getParameter("pr_year").trim().isEmpty() || request.getParameter("pr_year").equals("0")){
-                	pr_year = "2017";
+                	pr_year = "2017"; // 그냥 값 넣은 것
                 }else{
                 	pr_year = request.getParameter("pr_year");
                 }
                 if(request.getParameter("pr_month") == null || request.getParameter("pr_month").trim().isEmpty() || request.getParameter("pr_month").equals("0")){
-                	pr_month = "07";
+                	pr_month = "07"; // 그냥 값 넣은 것
                 }else{
                 	pr_month = request.getParameter("pr_month");
                 }
                 if(request.getParameter("pr_day") == null || request.getParameter("pr_day").trim().isEmpty() || request.getParameter("pr_day").equals("0")){
-                	pr_day = "04";
+                	pr_day = "04"; // 그냥 값 넣은 것
                 }else{
                 	pr_day = request.getParameter("pr_day");
                 }
@@ -167,7 +167,7 @@ public class AdminReserController {
                    return mav;
                    }
             
-         // �׷쿹�� ����Ʈ
+            // 관리자 페이지 그룹예약 리스트 불러오기
             @RequestMapping(value="/GrReserList.do", method = RequestMethod.GET)
             public ModelAndView adminGrReserList(HttpServletRequest request) throws Exception {
                
@@ -192,12 +192,15 @@ public class AdminReserController {
                
                List<GroupReserModel> groupReserList = adminReserService.GroupReserList(gr_center);
                
+               // 그룹예약 예약일순 정렬
                if(isSearch.equals("0")){
             	   groupReserList = adminReserService.GroupReserListRenew(gr_center);
                }
+               // 그룹예약 최신순 정렬
                if(isSearch.equals("1")){
             	   groupReserList = adminReserService.GroupReserListNew(gr_center);
                }
+               // 그룹예약 예약대기 정렬
                if(isSearch.equals("2")){
             	   groupReserList = adminReserService.GroupReserListWait(gr_center);
                }
@@ -227,7 +230,7 @@ public class AdminReserController {
                   return mav;
                   }
             
-         // �׷쿹�� ��¥ �˻�
+            // 그룹예약 날짜별 검색
             @RequestMapping(value="/GrReserListDay.do", method = RequestMethod.GET)
             public ModelAndView adminGrReserListDay(@ModelAttribute("groupReserModel") GroupReserModel groupReserModel, HttpServletRequest request) throws Exception {
                 
@@ -244,17 +247,17 @@ public class AdminReserController {
              	   gr_center = request.getParameter("gr_center");
                 }
                 if(request.getParameter("gr_year") == null || request.getParameter("gr_year").trim().isEmpty() || request.getParameter("gr_year").equals("0")){
-                	gr_year = "2017";
+                	gr_year = "2017";  // 그냥 값 넣은것
                 }else{
                 	gr_year = request.getParameter("gr_year");
                 }
                 if(request.getParameter("gr_month") == null || request.getParameter("gr_month").trim().isEmpty() || request.getParameter("gr_month").equals("0")){
-                	gr_month = "07";
+                	gr_month = "07"; // 그냥 값 넣은것
                 }else{
                 	gr_month = request.getParameter("gr_month");
                 }
                 if(request.getParameter("gr_day") == null || request.getParameter("gr_day").trim().isEmpty() || request.getParameter("gr_day").equals("0")){
-                	gr_day = "04";
+                	gr_day = "04"; // 그냥 값 넣은것
                 }else{
                 	gr_day = request.getParameter("gr_day");
                 }
@@ -287,7 +290,7 @@ public class AdminReserController {
                    return mav;
                    }
             
-            /*���ο��� �󼼺���*/
+            // 개인예약 상세보기(수정페이지)
             @RequestMapping(value="/OneReserView.do")
             public ModelAndView adminOneReserView(HttpServletRequest request){
             	
@@ -295,17 +298,14 @@ public class AdminReserController {
             	
             	int pr_number = Integer.parseInt(request.getParameter("pr_number"));
             	String pr_center = request.getParameter("pr_center");
-            	System.out.println("pr_number : "+pr_number);
             	OneReserModel OneReserModel = adminReserService.OneReserView(pr_number);
 
             	mav.addObject("OneReserModel", OneReserModel);
-            	//mav.addObject("pr_number", pr_number);
-            	//mav.addObject("pr_center", pr_center);
             	mav.setViewName("adminOneReserView");
             	return mav;
             }
             
-            /*�׷쿹�� �󼼺���*/
+            // 그룹예약 상세보기(수정페이지)
             @RequestMapping(value="/GroupReserView.do")
             public ModelAndView adminGrReserView(HttpServletRequest request){
             	
@@ -313,69 +313,58 @@ public class AdminReserController {
             	
             	int gr_number = Integer.parseInt(request.getParameter("gr_number"));
             	String gr_center = request.getParameter("gr_center");
-            	System.out.println("gr_number : "+gr_number);
             	GroupReserModel GroupReserModel = adminReserService.GroupReserView(gr_number);
 
             	mav.addObject("GroupReserModel", GroupReserModel);
-            	//mav.addObject("pr_number", pr_number);
-            	//mav.addObject("pr_center", pr_center);
             	mav.setViewName("adminGroupReserView");
             	return mav;
             }
             
-            // ���ο��� ����ó��
+            // 개인예약 수정 처리
             @RequestMapping(value="/OneReserModifyPro.do")
             public ModelAndView adminOneReserModifyPro(@ModelAttribute("OneReserModel") OneReserModel OneReserModel, BindingResult result){
             	
             	ModelAndView mav = new ModelAndView();
             	OneReserModel o = new OneReserModel();
             	int pr_number = OneReserModel.getPr_number();
-            	/*String pr_center = OneReserModel.getPr_center();*/
             	
             	adminReserService.OneReserModify(OneReserModel);
-            	//System.out.println(n);
             	o = adminReserService.OneReserView(pr_number);
             	pr_center = o.getPr_center();
-            	/*mav.addObject(pr_ceeserView(pr_number);
-            	//mav.addObject("pr_number",nter, pr_center);*/
             	mav.setViewName("redirect:/AdminReserve/OneReserList.do?pr_center="+pr_center);
             	
             	return mav;
             }
             
-         // �׷쿹�� ����ó��
+            // 그룹예약 수정처리
             @RequestMapping(value="/GrReserModifyPro.do")
             public ModelAndView adminGrReserModifyPro(@ModelAttribute("GroupReserModel") GroupReserModel GroupReserModel, BindingResult result){
             	
             	ModelAndView mav = new ModelAndView();
             	GroupReserModel g = new GroupReserModel();
             	int gr_number = GroupReserModel.getGr_number();
-            	/*String pr_center = OneReserModel.getPr_center();*/
             	
             	adminReserService.GroupReserModify(GroupReserModel);
-            	//System.out.println(n);
             	g = adminReserService.GroupReserView(gr_number);
             	gr_center = g.getGr_center();
-            	/*mav.addObject(pr_ceeserView(pr_number);
-            	//mav.addObject("pr_number",nter, pr_center);*/
             	mav.setViewName("redirect:/AdminReserve/GrReserList.do?gr_center="+gr_center);
             	
             	return mav;
             }
             
-           //���ο��� ���
+           // 개인예약 삭제
             @RequestMapping("AdminOneReserDelete.do")
         	public ModelAndView OnewReserDelete(HttpServletRequest request){
         		
         		ModelAndView mav = new ModelAndView();
         		int pr_number = Integer.parseInt(request.getParameter("pr_number"));
         		adminReserService.OneReserDelete(pr_number);
-        		//System.out.println(pr_number);
         		mav.setViewName("redirect:/AdminReserve/OneReserList.do?pr_center="+pr_center);
         		
         		return mav;	
             }
-            //�׷쿹�� ���
+            
+            // 그룹예약 삭제
             @RequestMapping("AdminGrReserDelete.do")
         	public ModelAndView GrReserDelete(HttpServletRequest request){
         		
