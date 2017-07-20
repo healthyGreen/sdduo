@@ -14,7 +14,7 @@
 <p class="centerH2">온라인 실시간 예약현황
 			</p>
 <div class="resev-box">
-				<p class="listnum">총 <span>${ list.size() }</span>건 1/57</p>
+				<p class="listnum">총  <span>${ totalCount}</span>건 ${currentPage}/${totalPage }</p>
 			</div>
 <div class="onlinetb">
 				<table class="list-board01">
