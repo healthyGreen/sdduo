@@ -39,7 +39,6 @@
    <div class="container">
 	    <div class="flexslider">
 		   <ul class="slides">
-			  <li class="visual01"></li>
 			  <li class="visual02"></li>
 			  <li class="visual03"></li>
 			  <li class="visual04"></li>

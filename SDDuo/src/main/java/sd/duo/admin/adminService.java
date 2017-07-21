@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Service;
 
+import sd.duo.adminNotice.AdminNoticeModel;
 import sd.duo.consulting.consultingModel;
 import sd.duo.member.MemberModel;
 
@@ -48,6 +49,15 @@ public class adminService implements adminDao{
 		// TODO Auto-generated method stub
 		return sqlSessionTemplate.selectOne("consulting.totalReplyOk");
 	}
-		
+
+
+	@Override
+	public List<MemberModel> memberSearch0(String search) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectList("member.memberSearch0", "%"+search+"%"); 
+	}
+
+
+
 
 }

@@ -40,12 +40,17 @@ public class adminController{
 	int blockPage = 5;
 	private String pagingHtml;  
 	private Paging page;
+	private int searchNum;
+	private String isSearch;
 	
 	ModelAndView mav = new ModelAndView();
 	
 	//회원목록코드
-	@RequestMapping("adminMemberList.do")
-	public ModelAndView memberList(HttpServletRequest request) throws Exception{
+	@RequestMapping(value="/adminMemberList.do", method=RequestMethod.GET)
+	public ModelAndView memberList(HttpServletRequest request,HttpSession session) throws Exception{
+		
+		
+		
 		if(request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty() || request.getParameter("currentPage").equals("0")) {
             currentPage = 1;
         } else {
@@ -53,7 +58,37 @@ public class adminController{
         }
 		List<MemberModel> memberList=adminService.memberList();
 		
-		System.out.println(memberList);
+		String isSearch = request.getParameter("isSearch");
+		
+		if(isSearch != null){
+			
+			searchNum = Integer.parseInt(request.getParameter("searchNum"));
+			
+			if(searchNum==0)
+				memberList = adminService.memberSearch0(isSearch);
+		
+			
+			totalCount = memberList.size();
+			System.out.println("size"+memberList.size());
+			page = new Paging(currentPage, totalCount, blockCount, blockPage, "adminMemberList");
+			pagingHtml = page.getPagingHtml().toString();
+		
+			int lastCount = totalCount;
+		
+			if(page.getEndCount() < totalCount)
+				lastCount = page.getEndCount() + 1;
+			
+			memberList = memberList.subList(page.getStartCount(), lastCount);
+		
+			mav.addObject("totalCount", totalCount);
+			mav.addObject("pagingHtml", pagingHtml);
+			mav.addObject("currentPage", currentPage);
+			mav.addObject("memberList", memberList);
+			mav.setViewName("adminMemberList");
+			return mav;
+		}
+		
+		memberList = adminService.memberList();
 		
 		totalCount = memberList.size();
 		System.out.println("size"+memberList.size());
@@ -73,6 +108,11 @@ public class adminController{
 		mav.addObject("memberList", memberList);
 		mav.setViewName("adminMemberList");
 		return mav;
+		
+		
+		
+		
+		
 	}
 	@RequestMapping("adminConsultingList.do")
 	public ModelAndView adminConsultingList(HttpServletRequest request) {

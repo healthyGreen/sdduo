@@ -12,13 +12,13 @@
                 <div class="col-lg-12">
                 	<c:choose>
 						<c:when test="${gr_center eq '1'}">
-                    		<h1 class="page-header">강남지점</h1>
+                    		<h1 class="">강남지점</h1>
                     	</c:when>
                     	<c:when test="${gr_center eq '2'}">
-                    		<h1 class="page-header">대구지점</h1>
+                    		<h1 class="">대구지점</h1>
                     	</c:when>
                     	<c:when test="${gr_center eq '3'}">
-                    		<h1 class="page-header">부산지점</h1>
+                    		<h1 class="">부산지점</h1>
                     	</c:when>
                     </c:choose>
                 </div>
@@ -41,6 +41,15 @@
                                 <div class="tab-pane fade in active" id="home">
                                     <div class="panel-body">
                               <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                              	<colgroup>
+                              		<col width="10%">
+                              		<col width="10%">
+                              		<col width="">
+                              		<col width="15%">
+                              		<col width="10%">
+                              		<col width="10%">
+                              		
+                              	</colgroup>
                                  <thead>
                                  
                                  <tr>
@@ -56,7 +65,7 @@
                                  		</td>
                                  		
                                  		<form action="GrReserListDay.do">
-                                 		<td>
+                                 		<td  colspan="5">
                                  		<input type="hidden" name="gr_center" value="${gr_center }">
                                  		
                                  			<select id="gr_year" name="gr_year">
@@ -115,7 +124,7 @@
                                        <tr>
                                           <td>${groupReserList.gr_number}</td>
                                           <td>${ groupReserList.gr_group}</td>
-                                          <td><a href="${viewURL}">${groupReserList.gr_reason}</a></td> 
+                                          <td><a href="${viewURL}" style="    text-overflow: ellipsis;    display: inline-block; white-space: nowrap;    word-wrap: normal;    width: 650px;    overflow: hidden;">${groupReserList.gr_reason}</a></td> 
                                           <td>${ groupReserList.gr_year }.${ groupReserList.gr_month }.${ groupReserList.gr_day }&nbsp;&nbsp;${ groupReserList.gr_hour }:${ groupReserList.gr_minute }</td>
                                           <td>${groupReserList.gr_p_number}</td> 
 
