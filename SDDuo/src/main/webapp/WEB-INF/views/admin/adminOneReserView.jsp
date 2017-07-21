@@ -183,7 +183,7 @@
                                     </tr>
                                     <tr class="odd gradeX">
                                        <th>핸드폰</th>
-                                       <td><div class="tit"><span> ${OneReserModel.pr_phone1 }</span>&nbsp;-<span> ${OneReserModel.pr_phone2 }</span>&nbsp;-<span> ${OneReserModel.pr_phone3 }</span></div></td>
+                                       <td><div class="tit"><span> ${OneReserModel.pr_phone1 }</span>&nbsp;-&nbsp;<span> ${OneReserModel.pr_phone2 }</span>&nbsp;-&nbsp;<span> ${OneReserModel.pr_phone3 }</span></div></td>
                                     </tr>
                                     <tr class="odd gradeX">
                                        <th>상담사유</th>
