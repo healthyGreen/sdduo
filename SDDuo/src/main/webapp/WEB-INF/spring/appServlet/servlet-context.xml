@@ -32,7 +32,7 @@
 		<mvc:mapping path="/member/myInfoView.do"/>
 		<mvc:mapping path="/member/myCoupon.do"/>
 		<mvc:mapping path="/member/myCoupon.do"/>
-		<mvc:mapping path="/self/**"/>
+		<mvc:mapping path="/consulting/consultingForm.do"/>
 			<beans:bean id="memberInterceptor" class="sd.duo.common.memberInterceptor"/>
 		</mvc:interceptor>
 	</mvc:interceptors>

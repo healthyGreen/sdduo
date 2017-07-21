@@ -11,13 +11,13 @@
                 <div class="col-lg-12">
                 	<c:choose>
 						<c:when test="${pr_center eq '1'}">
-                    		<h1 class="page-header">강남지점</h1>
+                    		<h1 class="">강남지점</h1>
                     	</c:when>
                     	<c:when test="${pr_center eq '2'}">
-                    		<h1 class="page-header">대구지점</h1>
+                    		<h1 class="">대구지점</h1>
                     	</c:when>
                     	<c:when test="${pr_center eq '3'}">
-                    		<h1 class="page-header">부산지점</h1>
+                    		<h1 class="">부산지점</h1>
                     	</c:when>
                     </c:choose>
                 </div>
@@ -41,73 +41,81 @@
                                 <div class="tab-pane fade in active" id="home">
                                     <div class="panel-body">
                               <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                              	<colgroup>
+                              		<col width="10%">
+                              		<col width="10%">
+                              		<col width="">
+                              		<col width="15%">
+                              		<col width="10%">
+                              		
+                              	</colgroup>
                                  <thead>
                                
                                  	<tr>
                                  		<td>
-                                 		<input type="hidden" name="pr_center" value="${pr_center }">
-                                 			<select name="isSearch">
-                                 				<option value="0">예약일순</option>
-                                 				<option value="1">최신순</option>
-                                 				<option value="2">예약대기</option>
-                                 			</select>
-                                 			<input name="submit" type="submit" value="검색"/>
-</form>
-                                 			
-                                 			
-                                 		</td>
-                                 		<form action="OneReserListDay.do">
-                                 		<td>
-                                 		<input type="hidden" name="pr_center" value="${pr_center }">
-                                 		<%-- <input type="hidden" name="pr_year" value="${pr_year }">
-                                 		<input type="hidden" name="pr_month" value="${pr_month }">
-                                 		<input type="hidden" name="pr_day" value="${pr_day }"> --%>
-                                 			<select id="pr_year" name="pr_year">
-                                          	<option value="">-선택하세요-</option>
-                                             <%for(int i=2017; i<=2027; i++){ %>
-                                             <%int from = 'i';
-                                             String to = Integer.toString(from); %>
-                                             
-                                             <option value="<%=i%>"><%=i %></option>
-                                             <%} %>
-                                             </select>년&nbsp;&nbsp;
-                                             
-                                             <select id="pr_month" name="pr_month">
-                                          	<option value="">-선택하세요-</option>
-                                             <%for(int i=1; i<=12; i++){ %>
-                                             <%
-                                             String s = Integer.toString(i); 
-												if(s.length() == 1){
-													s = "0"+s;
-												}
-                                             %>
-                                             <option value="<%=s%>"><%=s %></option>
-                                             <%} %>
-                                             </select>월&nbsp;&nbsp;
-                                             
-                                             <select id="pr_day" name="pr_day">
-                                          	<option value="">-선택하세요-</option>
-                                             <%for(int i=1; i<= 31; i++){ %>
-                                             <%
-                                             String s = Integer.toString(i); 
-												if(s.length() == 1){
-													s = "0"+s;
-												}
-                                             %>
-                                             <option value="<%=s%>"><%=s %></option>
-                                             <%} %>
-                                             </select>일&nbsp;&nbsp;
+	                                 		<input type="hidden" name="pr_center" value="${pr_center }">
+	                                 			<select name="isSearch">
+	                                 				<option value="0">예약일순</option>
+	                                 				<option value="1">최신순</option>
+	                                 				<option value="2">예약대기</option>
+	                                 			</select>
+	                                 			<input name="submit" type="submit" value="검색"/>
+										</form>
+	                                 			
+	                                 			
+	                                 	</td>
+	                                 		<form action="OneReserListDay.do">
+                                 		<td colspan="4">
+	                                 		<input type="hidden" name="pr_center" value="${pr_center }">
+	                                 		<%-- <input type="hidden" name="pr_year" value="${pr_year }">
+	                                 		<input type="hidden" name="pr_month" value="${pr_month }">
+	                                 		<input type="hidden" name="pr_day" value="${pr_day }"> --%>
+	                                 		<select id="pr_year" name="pr_year">
+	                                          	<option value="">-선택하세요-</option>
+	                                             <%for(int i=2017; i<=2027; i++){ %>
+	                                             <%int from = 'i';
+	                                             String to = Integer.toString(from); %>
+	                                             
+	                                             <option value="<%=i%>"><%=i %></option>
+	                                             <%} %>
+	                                             </select>년&nbsp;&nbsp;
+	                                             
+	                                             <select id="pr_month" name="pr_month">
+	                                          	<option value="">-선택하세요-</option>
+	                                             <%for(int i=1; i<=12; i++){ %>
+	                                             <%
+	                                             String s = Integer.toString(i); 
+													if(s.length() == 1){
+														s = "0"+s;
+													}
+	                                             %>
+	                                             <option value="<%=s%>"><%=s %></option>
+	                                             <%} %>
+	                                             </select>월&nbsp;&nbsp;
+	                                             
+	                                             <select id="pr_day" name="pr_day">
+	                                          	<option value="">-선택하세요-</option>
+	                                             <%for(int i=1; i<= 31; i++){ %>
+	                                             <%
+	                                             String s = Integer.toString(i); 
+													if(s.length() == 1){
+														s = "0"+s;
+													}
+	                                             %>
+	                                             <option value="<%=s%>"><%=s %></option>
+	                                             <%} %>
+	                                         </select>일&nbsp;&nbsp;
                                              <input name="submit" type="submit" value="검색"/>
                                  		</td>
                                  		
                                  	</tr>
                                  
                                     <tr>
-                                       <th>번호</th>
-                                       <th>예약자</th>
-                                       <th>상담내용</th>
-                                       <th>예약일</th>
-                                       <th>예약상태</th>
+                                       <th><center>번호</center></th>
+                                       <th><center>예약자</center></th>
+                                       <th><center>상담내용</center></th>
+                                       <th><center>예약일</center></th>
+                                       <th><center>예약상태</center></th>
                                     </tr>
                                  </thead>
                                  <tbody>
@@ -118,7 +126,7 @@
                                        <tr>
                                           <td>${oneReserList.pr_number}</td>
                                           <td>${ oneReserList.pr_name }</td>
-                                          <td><a href="${viewURL}">${oneReserList.pr_reason}</a></td> 
+                                          <td><a href="${viewURL}" style="    text-overflow: ellipsis;    display: inline-block; white-space: nowrap;    word-wrap: normal;    width: 750px;    overflow: hidden;">${oneReserList.pr_reason}</a></td> 
                                              <td>${ oneReserList.pr_year }.${ oneReserList.pr_month }.${ oneReserList.pr_day }&nbsp;&nbsp;${ oneReserList.pr_hour }:${ oneReserList.pr_minute }</td>
 
                                             <td>

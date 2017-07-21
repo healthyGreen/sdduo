@@ -48,6 +48,11 @@
 	</definition> 
 	
 	
+	<definition name="Faq" extends="notice">
+      <put-attribute name="body" value="/WEB-INF/views/notice/faq.jsp" />
+   </definition>
+	
+	
 	
 
 	

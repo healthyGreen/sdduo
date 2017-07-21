@@ -10,27 +10,28 @@
 <div class="sub-top">
 	<h2>나의 예약 현황</h2>
 </div>
-<div class="leftbox">
-	<div class="tit"><span>MY</span> PAGE</div>
-	<dl class="mlist">
-      <dt><a href="<%=request.getContextPath() %>/member/myInfoView.do">나의 정보 수정/탈퇴</a></dt>
-      <dt><a>예약 현황</a></dt>
-      <dt><a href="<%=request.getContextPath() %>/consulting/myConsultingList.do">온라인 상담 내역</a></dt>
-      <dt><a href="<%= request.getContextPath()%>/self/selfTestList.do?t_category=1">나의 자가 진단</a></dt>
-      <dt><a href="<%=request.getContextPath() %>/member/myCoupon.do">쿠폰함(${member.m_r_coupon}개)</a></dt>
-   </dl>
-</div>
+
 <div class="sub-content">
    
       <div class="sub-content-inbox">
       <p class="onlinetit">
 			</p>
-        
-			<div class="resev-box">
-				<p class="listnum">총 <span>${ list.size() }</span>건 ${currentPage }/${totalPage }&nbsp;&nbsp;&nbsp;&nbsp; <input type="button" onclick="location.href='myOneReserList.do'" value="개인 예약 현황"> 
-            &nbsp;&nbsp; <input type="button" onclick="location.href='myGroupReserList.do'" value="그룹 예약 현황"> </p>
+        	<div class="leftbox">
+				<div class="tit"><span>MY</span> PAGE</div>
+				<dl class="mlist">
+			      <dt><a href="<%=request.getContextPath() %>/member/myInfoView.do">나의 정보 수정/탈퇴</a></dt>
+			      <dt><a>예약 현황</a></dt>
+			      <dt><a href="<%=request.getContextPath() %>/consulting/myConsultingList.do">온라인 상담 내역</a></dt>
+			      <dt><a href="<%= request.getContextPath()%>/self/selfTestList.do?t_category=1">나의 자가 진단</a></dt>
+			      <dt><a href="<%=request.getContextPath() %>/member/myCoupon.do">쿠폰함(${member.m_r_coupon}개)</a></dt>
+			   </dl>
 			</div>
-			<div class="onlinetb">
+			
+			<div class="rightbox">
+				<div class="resev-box">
+					<p class="">총 <span>${ list.size() }</span>건 ${currentPage }/${totalPage }&nbsp;&nbsp;&nbsp;&nbsp; <input type="button" style="    background: #484647;    cursor: pointer;    border: none;    color: #Fff;    padding: 3px 7px;" onclick="location.href='myOneReserList.do'" value="개인 예약 현황"> 
+		           &nbsp;&nbsp; <input type="button" style="    background: #484647;    cursor: pointer;    border: none;    color: #Fff;    padding: 3px 7px;" onclick="location.href='myGroupReserList.do'" value="그룹 예약 현황"> </p>
+				</div>
 				<table class="list-board01">
 					<caption>상담문의 리스트</caption>
 					<colgroup>
