@@ -18,7 +18,7 @@
 <div id="page-wrapper">
             <div class="row">
              <div class="col-lg-12">
-             <h1 class="page-header">온라인 상담</h1>	
+             <h1 class="">온라인 상담</h1>	
              </div>
 			
 						

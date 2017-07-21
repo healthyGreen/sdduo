@@ -62,33 +62,49 @@
 	<div class="sub-content">
 	
 		<div class="sub-content-inbox ">
-			<ul class="tabCon tabStyle">
-			
-		<li><a href="<%=request.getContextPath()%>/self/selfTestList.do?t_category=1">우울증상</a></li>
-	
-				<li><a href="<%=request.getContextPath()%>/self/selfTestList.do?t_category=2">불안증상</a></li>
-				<li><a href="<%=request.getContextPath()%>/self/selfTestList.do?t_category=3">스트레스</a></li>
-				<li><a href="<%=request.getContextPath()%>/self/selfTestList.do?t_category=4">분노조절</a></li>
-			</ul>
-			
-				
-		
-		
-			<div id="tab1" class="tabcontent tab_content current" align="center">
-			 <c:choose>
-			<c:when test="${result==null}">
-				테스트하신 자기진단 내역이 없습니다.<br>
-				
-			</c:when>
-			<c:otherwise>
-				 고객님의<b> ${category }</b> 유형 자가진단의 점수는<br>
-				<h4>${result.t_score }점 입니다.</h4>
-				등급 : ${result.t_grade } 
-			</c:otherwise>
-			</c:choose> 
-		
+			<div class="sub-top">
+				<h2>나의 자가 진단</h2>
 			</div>
+			<div class="leftbox">
+				<div class="tit"><span>MY</span> PAGE</div>
+					<dl class="mlist">
+						<dt><a href="<%=request.getContextPath() %>/member/myInfoView.do">나의 정보 수정/탈퇴</a></dt>
+						<dt><a href="<%=request.getContextPath() %>/Reserve/myReserList.do">예약 현황</a></dt>
+						<dt><a>온라인 상담 내역</a></dt>
+						<dt><a href="<%=request.getContextPath() %>/self/selfTestList.do?t_category=1">나의 자가 진단</a></dt>
+						<dt><a href="<%=request.getContextPath() %>/member/myCoupon.do">쿠폰함(${member.m_r_coupon}개)</a></dt>
+					</dl>
+				</div>
+			</div>
+			<div class="rightbox">
+				<ul class="tabCon tabStyle">
 			
+					<li><a href="<%=request.getContextPath()%>/self/selfTestList.do?t_category=1">우울증상</a></li>
+		
+					<li><a href="<%=request.getContextPath()%>/self/selfTestList.do?t_category=2">불안증상</a></li>
+					<li><a href="<%=request.getContextPath()%>/self/selfTestList.do?t_category=3">스트레스</a></li>
+					<li><a href="<%=request.getContextPath()%>/self/selfTestList.do?t_category=4">분노조절</a></li>
+				</ul>
+			
+				
+		
+		
+				<div id="tab1" class="tabcontent tab_content current" align="center">
+					<c:choose>
+						<c:when test="${result==null}">
+							테스트하신 자기진단 내역이 없습니다.<br>
+							
+						</c:when>
+						<c:otherwise>
+							 고객님의<b> ${category }</b> 유형 자가진단의 점수는<br>
+							<h4>${result.t_score }점 입니다.</h4>
+							등급 : ${result.t_grade } 
+						</c:otherwise>
+					</c:choose> 
+			
+				</div>
+			
+			</div>
 		
 			
 			</div>

@@ -12,13 +12,13 @@
                 <div class="col-lg-12">
                     <c:choose>
 						<c:when test="${GroupReserModel.gr_center eq '1'}">
-                    		<h1 class="page-header">강남지점</h1>
+                    		<h1 class="">강남지점</h1>
                     	</c:when>
                     	<c:when test="${GroupReserModel.gr_center eq '2'}">
-                    		<h1 class="page-header">대구지점</h1>
+                    		<h1 class="">대구지점</h1>
                     	</c:when>
                     	<c:when test="${GroupReserModel.gr_center eq '3'}">
-                    		<h1 class="page-header">부산지점</h1>
+                    		<h1 class="">부산지점</h1>
                     	</c:when>
                     </c:choose>
                 </div>

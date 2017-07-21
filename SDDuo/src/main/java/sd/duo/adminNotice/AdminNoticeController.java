@@ -175,6 +175,7 @@ public class AdminNoticeController {
 			HttpServletRequest request, HttpSession session,MultipartHttpServletRequest multipartHttpServletRequest)throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
+		
 		new NoticeValidator().validate(noticeModel, result);
 		
 		if(result.hasErrors()) {
@@ -283,6 +284,23 @@ public class AdminNoticeController {
 	}
 	
 	
+	@RequestMapping("/adminNoticeDeleteAll.do")
+	public ModelAndView userDel(HttpServletRequest request) throws Exception {
+	
+	ModelAndView mav = new ModelAndView();
+	
+	String[] strArry= request.getParameterValues("checkRow");
+		
+	
+	for (int i=0; i<strArry.length; i++) {
+		noticeService.noticeDelete(Integer.parseInt(strArry[i]));
+	}
+	
+	mav.setViewName("redirect:adminNoticeList.do");
+	
+	return mav;	
+	
+	}
 	
 	
 	

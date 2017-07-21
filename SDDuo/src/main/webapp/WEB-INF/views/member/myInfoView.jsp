@@ -21,7 +21,7 @@
 							<div class="leftbox">
 								<div class="tit"><span>MY</span> PAGE</div>
 									<dl class="mlist">
-										<!-- <dt><a>나의 정보 수정/탈퇴</a></dt> -->
+								     	<dt><a>나의 정보 수정/탈퇴</a></dt> 
 										<dt><a href="<%=request.getContextPath() %>/Reserve/myOneReserList.do">예약 현황</a></dt>
 										<dt><a href="<%=request.getContextPath() %>/consulting/myConsultingList.do">온라인 상담 내역</a></dt>
 										<dt><a href="<%= request.getContextPath() %>/self/selfTestList.do?t_category=1">나의 자가 진단</a></dt>
@@ -29,7 +29,7 @@
 									</dl>
 								</div>
 							</div>
-							<div class="rightbox">
+							<div class="rightbox" >
 								
 								<table width="100%" cellpadding="0" cellspacing="0">
 									<tbody>
@@ -129,8 +129,8 @@
 							
 
 								</tbody></table>
-								<div style="width:100%" class="btnArea">
-									<input type="button" value="정보수정" onclick="location.href='<%=request.getContextPath() %>/member/checkPassForm.do?thing=modify'" style=" border: none; background: #333; color: #fff; padding: 10px 30px; ">
+								<div style="width:100%" class="btnArea clear">
+									<input type="button" value="정보수정" onclick="location.href='<%=request.getContextPath() %>/member/checkPassForm.do?thing=modify'" style=" border: none; background: #333; color: #fff; padding: 10px 30px; float: left;  ">
 									<!-- <input type="button" value="이전으로" onclick="window.history.go(-1); return false;" style="border: none;  background: #999; color: #fff; padding: 10px 30px; "> -->
 									<input type="button" value="회원탈퇴" onclick="location.href='<%=request.getContextPath() %>/member/checkPassForm.do?thing=delete'" style=" float: right!important;  border: none; background: #333; color: #fff; padding: 10px 30px; ">
 								</div>
