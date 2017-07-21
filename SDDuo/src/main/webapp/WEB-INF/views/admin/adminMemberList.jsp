@@ -9,7 +9,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">회원 관리</h1>
+                    <h1 class="">회원 관리</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -17,6 +17,7 @@
                 <div class="resev-box">
 					<p class="listnum">총 <span>3</span>건 1/1</p>
 				</div>
+				
 				<table class="list-board01">
 					<caption>상담문의 리스트</caption>
 					<colgroup>
@@ -43,7 +44,7 @@
 								<td>${memberList.m_name}</td>
 								<td>${memberList.m_phone1}-${memberList.m_phone2}-${memberList.m_phone3}</td>
 								<td>${memberList.m_sex}</td>
-								<td>${memberList.m_add1}<br/>${memberList.m_add1} </td>
+								<td>${memberList.m_add1}<br/>${memberList.m_add2} </td>
 							</tr>
 							
 						</c:forEach>
@@ -52,7 +53,17 @@
 						</c:if> 
 					</tbody>
 				</table>
-				<div class="paging">
+				<form name="frmCommonList">
+					<p class="search-area"style="width: 337px;    margin: 50px auto;">
+						<select name="searchNum" id="searchNum" style="border: 1px solid #ccc; border-radius: 0px;">
+							<option value="0">이름</option>
+						</select>
+						<input style="border: 1px solid #ccc;  height: 39px;    width: 215px;    padding-left: 10px;" type="text" name="isSearch" id="isSearch" maxlength="20" value="" class="noticebox">
+						<input type="submit" value="검색"  class="noticebtn" style=" height: 39px; background: #333; color:#fff; border: none; width: 60px; ">
+						
+					</p>
+				</form>
+				<div class="pageing">
 					${pagingHtml}
 				</div>
             </div>

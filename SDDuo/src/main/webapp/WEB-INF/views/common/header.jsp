@@ -33,7 +33,7 @@
 						<!-- gnb 시작 -->
 					    <div id="gnb" class="pc_gnb nav">
 							<ul id="nav">
-								<li class="has-sub g1"><a href="<%=request.getContextPath() %>/member/about.do"><img src="/SDDuo/resources/images/common/gnb01.gif">상담해듀오소개</a>
+								<li class="has-sub g1"><a href="<%=request.getContextPath() %>/member/about.do"><img src="/SDDuo/resources/images/common/gnb01.jpg">상담해듀오소개</a>
 								</li>
 								<li class="has-sub g2"><a>상담예약</a>
 									<div class="dropdown dropdown1">
@@ -45,13 +45,14 @@
 										</ul>
 									</div>
 								</li>
-								<li class="has-sub g3"><a>온라인상담</a>		
+								<li class="has-sub g3"><a href="<%=request.getContextPath() %>/consulting/consultingList.do">온라인상담</a>		
 								<li class="has-sub g4"><a href="<%=request.getContextPath() %>/self/selfWrite.do">심리검사</a></li>
 								<li class="has-sub g5"><a>커뮤니티</a>
 									<div class="dropdown dropdown2">
 										<ul>
 
-											<li><a href="<%=request.getContextPath() %>/notice/NoticeList.do">공지사항</a></li>	
+											<li><a href="<%=request.getContextPath() %>/notice/NoticeList.do">공지사항</a></li>
+											<li><a href="<%=request.getContextPath() %>/notice/Faq.do">자주하는 질문</a></li>	
 							
 										</ul>
 									</div>
