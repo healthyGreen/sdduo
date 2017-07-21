@@ -12,7 +12,7 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <div align="center">
-                        <h1><a href="/SDDuo/main.do"><img src="/SDDuo/resources/images/common/logo.gif" alt="로고"></a></h1></div>
+                        <h1><a href="/SDDuo/main.do"><img src="/SDDuo/resources/images/common/logo.jpg" alt="로고"></a></h1></div>
                            <!--  <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" placeholder="Search...">
                                 <span class="input-group-btn">
@@ -27,7 +27,7 @@
                             <a href="http://localhost:8080/SDDuo/AdminReserve/OneReserList.do?pr_center=1"><i class="fa fa-dashboard fa-fw"></i>&nbsp예약 관리<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level">
                                 <li>
-                                    <a href="http://localhost:8080/SDDuo/AdminReserve/OneReserList.do?pr_center=1">서울지점</a>
+                                    <a href="http://localhost:8080/SDDuo/AdminReserve/OneReserList.do?pr_center=1">강남지점</a>
                                 </li>
                                 <li>
                                     <a href="http://localhost:8080/SDDuo/AdminReserve/OneReserList.do?pr_center=2">대구지점</a>

@@ -81,7 +81,7 @@
 .loading .flex-viewport { max-height: 487px; }
 .flexslider .slides li{ zoom: 1; height: 487px !important;; }
 .flexslider .slides .visual01{background: #6dabdc url(../images/main/visual02.jpg) no-repeat center top; }
-.flexslider .slides .visual02{background: #fff url(../images/main/visual01.jpg) no-repeat center top; }
+.flexslider .slides .visual02{background: #81A9DA url(../images/main/visual01.jpg) no-repeat center top; }
 .flexslider .slides .visual03{background: #647b9d url(../images/main/visual03.jpg) no-repeat center top; }
 .flexslider .slides .visual04{background: #95d6ea url(../images/main/visual04.jpg) no-repeat center top; }
 .flexslider .slides img {width:100%; height: 100%;}
@@ -579,8 +579,8 @@
 .calarea .calleft .tit{ letter-spacing: -1.5px;color: #242424; font-size: 20px;  font-family: '留��� 怨���', malgun-gothic; background: url(../images/sub/cal01.gif) no-repeat 80px 62px; height: 180px; width: 570px; padding-top: 75px; padding-left: 138px; box-sizing: border-box; }
 .supercal {width: 345px;    height: 242px;    border: 1px solid #9c9c9c;    background: #fff;    position: absolute;    top: 140px;    left: 117px;}
 .supercal .supercal-header {    display: block;    line-height: 45px;    text-align: center;    position: relative;    height: 49px;  box-sizing: border-box;} 
-.supercal .supercal-header .prev-month {float: left;}
-.supercal .supercal-header .next-month {float: right;}
+.supercal .supercal-header .prev-month {float: left; background: url(../images/sub/calprev.gif) no-repeat;}
+.supercal .supercal-header .next-month {float: right;    background: url(../images/sub/calnext.gif) no-repeat !important;}
 .supercal-month {position: relative;z-index: 0;overflow: hidden;     padding: 00px 20px;}
 .supercal table {width: 300px;table-layout: fixed;background: #fff; }
 .supercal th{height: 31px; color: #888888; text-align: center;  width: 42px; font-size: 14px;     padding-top: 6px;  box-sizing: border-box;}
@@ -591,8 +591,8 @@
 .supercal td.today {}
 .supercal .supercal-footer {width: 100%;display: table; display:  none;}
 .supercal .supercal-footer span.supercal-input {display: table-cell;width: 100%;cursor: default;}
-.prev-month{background: url(../images/sub/calprev.gif) no-repeat; width: 35px; height: 35px;  border: none; text-indent: -99999px;}
-.next-month{background: url(../images/sub/calnext.gif) no-repeat; width: 35px; height: 35px;  border: none; text-indent: -99999px;}
+.prev-month{background: url(../images/sub/calprev.gif) no-repeat; width: 35px; height: 35px;  border: none; text-indent: -99999px;    margin: 6px;    box-sizing: border-box;}
+.next-month{background: url(../images/sub/calnext.gif) no-repeat; width: 35px; height: 35px;  border: none; text-indent: -99999px;    margin: 6px;    box-sizing: border-box;}
 .month{color: #444444; font-size: 26px;  font-family: '留��� 怨���', malgun-gothic; font-weight: 600; }
 
 .calarea .calright{float: left; width: 530px;  }
@@ -1345,7 +1345,7 @@
 
 
 
-.footer{width: 100%; height: 150px; background: #575757; clear:both;}
+.footer{width: 100%; height: 150px; background: #575757; clear:both; margin-top: 200px;}
 .footer-top{border-bottom: 1px solid #676767;height: 48px; }
 .footer-top-inbox{width: 1100px; margin: 0 auto; color: #dbdbdb; font-size: 12px; font-family: 'NanumBarunGothic'; padding-left: 30px; box-sizing: border-box; padding-top: 18px;}
 .footer-top ul li{float: left; background: url(../images/common/f_bar.gif) no-repeat center right; padding-right: 10px; padding-left: 10px;  }
@@ -1486,7 +1486,30 @@
 .reserCenter{width: 400px;    margin: 0 auto;    margin-top: 270px;    padding-left: 17px;}
 
 
-
+.leftbox{float:left; width:200px; margin-right:20px;    margin-top: 20px;}
+.leftbox .tit{width:100%; height:44px; line-height:44px; background-color:#4c4c4c; color:#fff; font-size:13pt; letter-spacing:-1px; text-align:center;}
+.leftbox .tit span{font-weight:bold;}
+.leftbox .mlist{width:198px; border:1px solid #cccccc; border-top:none;}
+.leftbox .mlist dt{ float:left;width:100%; text-align:center; height:35px; line-height:35px; border-bottom:1px solid #dddddd;  border-top:1px solid #dddddd; color:#4c4c4c; background-color:#f4f4f4; font-weight:bold;}
+.leftbox .mlist dt.n{border-top:none;font-weight:bold;}
+.leftbox .mlist dt b{color:#3c59a0;font-weight:bold;}
+.leftbox .mlist dt a{color:#4c4c4c;font-weight:bold; display:block;}
+.leftbox .mlist dd{padding:5px 0 5px 30px; float:left; clear:both; height:22px; line-height:22px; color:#4c4c4c; background:url(../../dsm/img/all/arr2.jpg) 20px center no-repeat;}
+.leftbox .mlist dd a{color:#4c4c4c;}
+.leftbox .mlist dd.box{padding:10px 0 10px 10px; background:none; height:auto;}
+.rightbox {float: left; width: 879px; margin-top: 20px;  }
+.sub_tit{width:100%; height:45px; line-height:45px; border-bottom:1px solid #4c4c4c; position:relative; margin:0 0 50px 0;}
+.sub_tit .tit{text-align:center; color:#4c4c4c; font-size:18pt; font-weight:bold; letter-spacing:-1px;}
+.sub_tit .tit span{ color:#b2b2b2; font-size:12pt; padding-left:5px;}
+.sub_tit .local{position:absolute; right:10px; bottom:10px; color:#6d6d6d; line-height:14px;}
+.sub_tit .local span{color:#4c4c4c;}
+.jogin_infotbl caption{display:none;}
+.jogin_infotbl {border-collapse:collapse;border-spacing:0;width:100%;}
+.jogin_infotbl th{ border-bottom:#e7e7e7 solid 1px;height:39px;text-indent:20px; color:#414141; font-weight:bold;}
+.jogin_infotbl td{ border-bottom:#e7e7e7 solid 1px;height:39px; vertical-align: middle;}
+.jogin_infotbl td input[type=text],.jogin_infotbl td input[type=password]{ min-width:50px;height:23px; line-height:23px; box-sizing:content-box; border:1px solid #dedede;}
+.jogin_infotbl td textarea { height:100px; line-height:18px;  box-sizing:content-box; border:1px solid #dedede;}
+.btnArea{text-align: center; margin: 20px 0px; }
 
 
 

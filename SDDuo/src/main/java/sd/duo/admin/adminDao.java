@@ -12,4 +12,5 @@ public interface adminDao {
 	List<consultingModel> ReplyOkList();
 	int totalNoReply();
 	int totalReplyOk();
+	List<MemberModel> memberSearch0(String search);
 }

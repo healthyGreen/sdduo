@@ -8,7 +8,7 @@
 <div id="page-wrapper">
             <div class="row">
              <div class="col-lg-12">
-             <h3 class="page-header">온라인 상담 전체글 목록</h3>	
+             <h3 class="">온라인 상담 전체글 목록</h3>	
              </div>
 			
 				<p class="listnum">총 <span>${totalCount }</span>건</p>

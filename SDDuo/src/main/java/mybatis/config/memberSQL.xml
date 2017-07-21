@@ -113,7 +113,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	
-		
+	<!-- 이름으로 검색 -->
+	<select id="memberSearch0" resultMap="memberRes" parameterType="String">
+		select * from F_MEMBER
+			where m_name like #{search}
+			order by m_number desc
+	</select>
 	
 
 
