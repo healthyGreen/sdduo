@@ -13,6 +13,8 @@
 저희 사이트에 가입해주셔서 갑사합니다. <br>
 항상 더 나은 서비스를 위해 노력하겠습니다♡♡</h4>
 <br><br>-----------------------------------------------------------------------
+
+<li><input type="button" onclick="location.href='http://localhost:8080/SDDuo/main.do'" value="메인으로" ></li>
 	</div>
 
 

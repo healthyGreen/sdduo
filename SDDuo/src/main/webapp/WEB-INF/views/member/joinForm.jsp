@@ -14,9 +14,6 @@
    <link rel="stylesheet" href="../../css/layout.css" />
    <link rel="stylesheet" href="../../css/default.css" />
 
-   <!--JQUERY-->
-
-
    <script  type="text/javascript" src="../../js/jquery-1.9.1.js"></script>
    <script  type="text/javascript" src="../../js/common.js"></script>
    <script  type="text/javascript" src="../../js/jquery.flexslider.js"></script>
@@ -33,13 +30,113 @@
        // ]]>
    </script>
    
+   <script>
+   function joinValidator(join){
+	   if(!document.join.m_id.value == ""){
+	      alert("Id를 입력해주세요.");
+	      document.join.m_id.focus();
+	      return false;
+	   }
+	   
+	   if(form.m_name.value.trim() == ""){
+	      alert("이름을 입력해주세요.");
+	      form.m_name.focus();
+	      return;
+	   }
+	   
+	   if(form.m_pass.value.trim() == ""){
+	      alert("비밀번호를 입력해주세요.");
+	      form.m_pass.focus();
+	      return;
+	   }
+	   if(form.m_pass.value.trim() == ""){
+		   alert("비밀번호 확인을 입력해주세요.")
+		   form.m_pass2.focus();
+		   return;
+	   }
+	   
+	   if(form.m_sex.value.trim() == ""){
+		   alert("성별을 선택해해주세요.")
+		   form.m_sex.focus();
+		   return;
+	   }
+	   
+	   if(form.m_year.value.trim() == ""){
+		      alert("연도를 선택해주세요.");
+		      form.m_year.focus();
+		      return;
+		   }
+	   
+	   if(form.m_month.value.trim() == ""){
+		      alert("월을 선택해주세요.");
+		      form.m_month.focus();
+		      return;
+		   }
+	   
+	   if(form.m_date.value.trim() == ""){
+		      alert("일자를 선택해주세요.");
+		      form.m_date.focus();
+		      return;
+		   }
+      
+	   if(form.m_tongsinsa.value.trim() == ""){
+	      alert("통신사를 선택해주세요.");
+	      form.m_tongsinsa.focus();
+	      return;
+	   }
+	   
+	   if(form.m_phone1.value.trim() == ""){
+	      alert("연락처를 입력해주세요.");
+	      form.m_phone1.focus();
+	      return;
+	   }
+	   
+	   if(form.m_phone2.value.trim() == ""){
+	      alert("연락처를 입력해주세요.");
+	      form.m_phone2.focus();
+	      return;
+	   }
+	   
+	   if(form.m_phone3.value.trim() == ""){
+	      alert("연락처를 입력해주세요.");
+	      form.m_phone3.focus();
+	      return;
+	   }
+	   
+	   var phone = form.m_tongsinsa.value.trim() + form.m_phone1.value.trim() + form.m_phone2.value.trim() + form.m_phone3.value.trim();
+	   if(phone.length < 10){
+	      alert("연락처를 정확히 입력해주세요.");
+	      return;
+	   }
+	   
+	   
+	   if(form.m_zipcode.value.trim() == ""){
+	      alert("우편번호를 입력해주세요.");
+	      form.m_zipcode.focus();
+	      return;
+	   }
+	   
+	   if(form.m_add1.value.trim() == ""){
+		      alert("주소1 을 입력해주세요.");
+		      form.m_add1.focus();
+		      return;
+		   }
+	   
+	   if(form.m_add2.value.trim() == ""){
+		      alert("주소2 를 입력해주세요.");
+		      form.m_add2.focus();
+		      return;
+		   }
+	
+   </script>
+   
+   
 <script>
+//Id 중복 체크//
    function IdConfirm(join) {
 	   
    	var M_id = document.join.m_id.value;
 	var url = "idCheck.do?m_id="+M_id;
-	// var url = "/main.jsp";
-	//alert("111")
    	
    	if(M_id ==""){
       		alert("아이디를 입력해주세요!")
@@ -105,10 +202,7 @@
     }
 </script>
 
-
-
 </head>
-
 
  <body>
       <?include "../../inc/quick.html"?>
@@ -129,25 +223,24 @@
             <p class="table-sub-title"><span class="color">* </span>표시는 필수입력사항이며, 본인확인 및 서비스 이용을 위하여 기본정보를 정확히 입력해주세요.</p>
          </div>
           <spring:hasBindErrors name="member"/>
-    <form:form commandName="MemberModel" action="joinSuccess.do" enctype="multipart/form-data" name="join" method="post">
+    <form:form commandName="MemberModel" action="joinSuccess.do" enctype="multipart/form-data" name="join" method="post" onsubmit="return joinValidator();">
          <div class="idpw_box">
          
             <table>
                <tbody>
                <tr>
-                  <th class=" "><label for="id"><span class="color">*</span>아이디<!-- label--></label></th>
+                  <th class=" "><label for="id"><span class="color">*</span>아이디</label></th>
                   <td class=" ">
-                      <input type="text" class="common-text-box box-left " id="m_id" name="m_id" maxlength="8"> &nbsp;
+                      <input type="text" required="" class="common-text-box box-left " id="m_id" name="m_id" maxlength="8"> &nbsp;
                   	  <input type="button" value="중복확인" class="double-chk" onclick="javascript:IdConfirm(join)">	
                       <p class="exp">4~8자의 영문+숫자를 사용해 주세요.</p>
  						<form:errors path="m_id"/>
-                     <!--  <p class="errorpage2 errorpage3  mt-5" id="useUserId" style="display:none;">사용이 가능한 아이디 입니다.</p> -->
                    </td>
                </tr>
                <tr>
-                 <th class=" "><label for="id"><span class="color">*</span>이름<!-- label--></label></th>
+                 <th class=" "><label for="id"><span class="color">*</span>이름</label></th>
                  <td class=" ">
-                   <input type="text" class="common-text-box box-left " id="m_name" name="m_name" maxlength="8">
+                   <input type="text"  required="" class="common-text-box box-left " id="m_name" name="m_name" maxlength="8">
                   
                  </td>
                </tr>
@@ -155,7 +248,7 @@
                <tr>
                  <th><label for="login_pw"><span class="color">*</span>비밀번호</label></th>
                  <td>
-                   <input type="password" id="m_pass" name="m_pass" maxlength="10" class="common-text-box box-left">
+                   <input type="password"  required="" id="m_pass" name="m_pass" maxlength="10" class="common-text-box box-left">
                    <p class="exp ">8~10자의 영문+숫자/특수문자(_!@#$%^&amp;*())만 사용가능</p>
                    <p class="errorpage errorpage2 mt-5" id="errUserPw" style="display:none;">8~10자의 영문+숫자/특수문자(_!@#$%^&amp;*())를 사용해주세요.</p>
                  </td>
@@ -163,7 +256,7 @@
                <tr>
                  <th><label for="login_pw_chk"><span class="color">*</span>비밀번호확인</label></th>
                  <td>
-                   <input type="password" id="m_pass" name="m_pass2" maxlength="10" class="common-text-box box-left">
+                   <input type="password"  required="" id="m_pass" name="m_pass2" maxlength="10" class="common-text-box box-left">
                    <p class="exp ">비밀번호 확인을 위해 다시 한번 입력바랍니다.</p>
                    <p class="errorpage errorpage2 mt-5" id="errUserRePw" style="display:none;">입력하신 비밀번호가 일치하지 않습니다.</p>
                  </td>
@@ -171,46 +264,43 @@
                <tr>
                  <th class=" "><label for="id"><span class="color">*</span>성별<!-- label--></label></th>
                  <td class=" ">
-                  <input type="radio" name="m_sex" value="여자" checked="checked"/><span class="up">여자</span>&nbsp;&nbsp;
-                   <input type="radio" name="m_sex" value="남자"/><span class="up">남자</span>
+                  <input type="radio"  required="" name="m_sex" value="여자" checked="checked"/><span class="up">여자</span>&nbsp;&nbsp;
+                   <input type="radio"  required="" name="m_sex" value="남자"/><span class="up">남자</span>
                    
                  </td>
                </tr>
                <tr>
                   <th class=" "><label for="id"><span class="color">*</span>생년월일<!-- label--></label></th>
                   <td class="memberCols2">
-                  <select name="m_year">
+                  <select name="m_year"  required="">
         <c:forEach step="1" begin="1965" end="2016" var="i">
         <option value="${i }"/>${i }
         </c:forEach>
              </select>년&nbsp;
            
-       <!--  <input type="text" name="m_year" value="1993" required="" label="생년월일" style="background:#FFF" size="4" maxlength="4">년 -->
-       <select name="m_month">
+       <select name="m_month"  required="">
         <c:forEach step="1" begin="1" end="12" var="i">
         <option value="${i }">${i }
         </c:forEach>
              </select>월&nbsp;
-        <select name="m_date">
+        <select name="m_date"  required="">
         <c:forEach step="1" begin="1" end="31" var="i">
         <option value="${i }"/>${i }
         </c:forEach>
              </select>일&nbsp;
-    
-    
         </td>
                </tr>
                <tr>
-                  <th class=" "><label for="id"><span class="color">*</span>전화번호<!-- label--></label></th>
+                  <th class=" "><label for="id"><span class="color">*</span>전화번호</label></th>
                   <td class="memberCols2">
-                  <select name="m_tongsinsa" id="m_tongsinsa">
+                  <select name="m_tongsinsa" id="m_tongsinsa"  required="">
                      <option>SKT</option>
                      <option>KT</option>
                      <option>LG</option>
                   </select>
-   <input type="text" name="m_phone1" id="m_phone1" value="010" size="4" maxlength="4" required=""  label="핸드폰"> -
-   <input type="text" name="m_phone2" id="m_phone2"  size="4" maxlength="4" required=""  label="핸드폰"> -
-   <input type="text" name="m_phone3" id="m_phone3"  size="4" maxlength="4" required=""  label="핸드폰">
+   <input type="text" name="m_phone1"  required="" id="m_phone1" value="010" size="4" maxlength="4" required=""  label="핸드폰"> -
+   <input type="text" name="m_phone2"  required="" id="m_phone2"  size="4" maxlength="4" required=""  label="핸드폰"> -
+   <input type="text" name="m_phone3"  required="" id="m_phone3"  size="4" maxlength="4" required=""  label="핸드폰">
    <span class="noline" style="padding-left:10px"><input type="checkbox" name="sms"><span style="font:8pt 돋움;color:#007FC8">광고성 정보,이벤트SMS수신</span></span>
    <div style="letter-spacing:-1;color:#FF6000">※ <span style="font-size:8pt;">주문 관련 정보 등 주요 안내 사항은 수신 동의 여부에 관계없이 자동 발송됩니다.</span></div>
    </td>
@@ -221,15 +311,7 @@
                   </th>
                   <td class="radio-txt-pt">
                      <p class="mt-5">
-                        <input type="text" id="m_email" name="m_email" class="common-text-box2 "/> 주소 직접입력
-                   
-                       <!--  <select class="common-text-box2" id="m_email" name="m_email">
-                           <option value="etc">직접입력</option>
-                              <option value="@naver.com">@naver.com</option>
-                              <option value="@nate.com">@nate.com</option>
-                              <option value="@daum.net">@daum.net</option>
-                              <option value="@gmail.com">@gmail.com</option>
-                              </select> -->
+                        <input type="text"  required="" id="m_email" name="m_email" class="common-text-box2 "/> 주소 직접입력
                            
                      </p>
                      <p class="mt-5"><span class="color">* </span> 이메일은 결제내역 받기, 비밀번호 찾기 등에 사용되므로 정확하게 입력해 주세요.</p>
@@ -240,15 +322,15 @@
                <th class="memberCols1" rowspan="2"><font color="FF6000">*</font> 주소</th>
                
                  <td>
-                 <input type="text" name="m_zipcode" id="sample6_postcode" size="5" class="line"  value="" label="우편번호">
+                 <input type="text"  required="" name="m_zipcode" id="sample6_postcode" size="5" class="line"  value="" label="우편번호">
                  <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" style="background:#484647;cursor: pointer; border: none; color: #Fff; padding: 3px 7px;"><br>
                  
                      </td>
             </tr>
             <tr>
            <td id="mmber1">
-           <input type="text" name="m_add1" id="sample6_address" value=""  size="30" required="" label="주소"/>
-           <input type="text" name=m_add2 id="sample6_address2" value="" size="30" onkeyup="SameAddressSub(this)" oninput="SameAddressSub(this)" label="상세주소"/><br>
+           <input type="text"  required="" name="m_add1" id="sample6_address" value=""  size="30" required="" label="주소"/>
+           <input type="text"  required="" name=m_add2 id="sample6_address2" value="" size="30" onkeyup="SameAddressSub(this)" oninput="SameAddressSub(this)" label="상세주소"/><br>
             <input type="hidden" name="m_admin" value="0"/> 
            <div style="padding:5px 5px 0 1px;font:12px dotum;color:#999;float:left;" id="div_road_address"></div>
            <div style="padding:5px 0 0 1px;font:12px dotum;color:#999;" id="div_road_address_sub"></div>
@@ -259,7 +341,7 @@
          </table>
             <div class="join-conf-btn join-conf-btn2 ">
                <ul>
-                  <button type="button" onclick="this.form.submit();" class="btn btn-primary">작성완료</button>
+                  <button type="submit" onclick="joinValidator()" class="btn btn-primary">작성완료</button>
                   <li><input type="button" onclick="location.href='http://localhost:8080/SDDuo/main.do'" value="취소" ></li>
                </ul>
             </div>
@@ -272,32 +354,7 @@
                
             </div>
          </div>
-         <div class="footer">
-            <div class="footer-top">
-               <div class="footer-top-inbox">
-                  <ul>
-                     <li>회사소개</li>
-                     <li>사이트이용약관</li>
-                     <li>개인정보처리방침</li>
-                     <li>임직원서비스</li>
-                  </ul>
-               </div>
-            </div>
-            <div class="footer-bottom">
-               <div class="footer-bottom-inbox">
-                  <h2><img src="../../images/common/b_logo.gif"></h2>
-                  <p>
-                     고객서비스센터 080-3243-2312<br>
-                     (주)마이스토리 서울특별시 강남구 테헤란로길 52길 17 역삼동 이에스타워 10층 사업자등록번호:505-88-00158 홈페이지 관리책임자:안영미<br>
-                     <br/>
-                     Copyright ⓒ MYSTORY All Rights Reserved
-                  </p>
-               </div>
-            </div>
-           
-         </div>
-        
-      </div>
-  
+         
+
  </body>
 </html>
