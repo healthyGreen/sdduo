@@ -110,7 +110,7 @@ $(document).ready(function () {
                   </div>
                   <div class="calright">
                      <p class="tit">예약정보를 입력해 주세요</p>
-                     <p class="txt">왼쪽 달력에서 먼저 원하는 날짜를 선택 후 예약해주세요</p>
+                     <p class="txt">왼쪽에서 먼저 원하는 날짜를 선택 후 예약해주세요</p>
                      
                      <div style="width: 295px; margin: 0 auto;">
                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -128,7 +128,7 @@ $(document).ready(function () {
                                        <input type="hidden" name="m_id" value="${session_member_id }">         
                                        
                                        
-                                       <select name="pr_center" class="form-control" style="width:220px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;" id='133_f4_0' name='fname[4][]'>
+                                       <select name="pr_center" class="form-control" style="width:220px; height:35px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;" id='133_f4_0' name='fname[4][]'>
                                           <option value="1">서울센터</option>
                                           <option value="2">대구센터</option>
                                           <option value="3">부산센터</option>
@@ -145,7 +145,7 @@ $(document).ready(function () {
                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" align="left">
                                          <tr>
                                           <td width="65">
-                                             <select name="pr_hour" class="form-control" style="width:100px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb;  font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;" id='133_f2_0' name='fname[2][]'>
+                                             <select name="pr_hour" class="form-control" style="width:100px; height:35px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb;  font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;" id='133_f2_0' name='fname[2][]'>
                                                 <option value="09">09시</option>
                                                 <option value="10">10시</option>
                                                 <option value="11">11시</option>
@@ -159,7 +159,7 @@ $(document).ready(function () {
                                           </td>
                                           <td align="center" width="18" style="vertical-align: middle;">&nbsp&nbsp:&nbsp&nbsp</td>
                                           <td width="65">
-                                             <select name="pr_minute" class="form-control" style="width:100px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;" id='133_f2_0' name='fname[2][]'>
+                                             <select name="pr_minute" class="form-control" style="width:100px; height:35px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;" id='133_f2_0' name='fname[2][]'>
                                                 <option value="00">00분</option>
                                                 <option value="30">30분</option>
                                              </select>
@@ -178,7 +178,7 @@ $(document).ready(function () {
                                     <td class="formtit"  style="color: #4f4f4f; font-size: 16px; padding-top: 10px;">이&nbsp;&nbsp;&nbsp;&nbsp;름</td>
                                     <td align="center" width="4" ></td>
                                     <td valign="top">
-                                       <input type="text" value="" name="pr_name" style="width:220px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;" id='133_f3_0' name='fname[3][]'>
+                                       <input type="text" value="" id="pr_name" name="pr_name" maxlength="5" onKeyUp="checkLength2(this);" style="width:220px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;" id='133_f3_0' name='fname[3][]'>
                                     </td>
                                    </tr>
                                    <tr>
@@ -191,12 +191,12 @@ $(document).ready(function () {
                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" align="left">
                                          <tr>
                                           <td width="63">
-                                             <input type="text" value="" name="pr_phone1" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;">
+                                             <input type="text" value="" name="pr_phone1" maxlength="3" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;">
                                           </td>
                                           <td align="center" width="13" style="vertical-align: middle;">-</td>
-                                          <td width="63"><input type="text" value="" name="pr_phone2" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;"></td>
+                                          <td width="63"><input type="text" value="" name="pr_phone2" maxlength="4" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;"></td>
                                           <td align="center" width="13" style="vertical-align: middle;">-</td>
-                                          <td width="63"><input type="text" value="" name="pr_phone3" style="width:65px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;"></td>
+                                          <td width="63"><input type="text" value="" name="pr_phone3" maxlength="4" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" style="width:65px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;"></td>
                                           <td>&nbsp;</td>
                                          </tr>
                                        </table>
@@ -209,10 +209,13 @@ $(document).ready(function () {
                                     <td colspan="3" height="15"></td>
                                    </tr>
                                    <tr>
+                                   
                                     <td valign="top" class="formtit"  style="color: #4f4f4f; font-size: 16px; line-height: 120%; padding-top: 10px;">상담신청<br>사유&nbsp;</td>
                                     <td align="center" width="4" ></td>
                                     <td>
-                                       <textarea value="" name="pr_reason" style="width:220px; height:110px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;" id='133_f5_0' name='fname[5][]'></textarea>
+                                   
+                                       <textarea value="" id="pr_reason" name="pr_reason" onKeyUp="checkLength(this);" style="width:220px; height:110px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;" id='133_f5_0' name='fname[5][]'></textarea>
+                                       </form>
                                     </td>
                                    </tr>
                                    
@@ -237,7 +240,7 @@ $(document).ready(function () {
                                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                    <tr>
 
-                                    <td colspan="3 " style="font-family:맑은 고딕;font-size:14px; color:#8b8b8b;padding:10px 0; letter-spacing: -1.5px;"><input type="checkbox" name="agree" value="yes" style="margin-top: -2px;"/> 개인정보 취급방침에 동의 <a href="#" style="color:#505050; font-family: 맑은 고딕; text-decoration:underline; " id="layer_open3">개인정보취급방침</a></td>
+                                    <td colspan="3 " style="font-family:맑은 고딕;font-size:14px; color:#8b8b8b;padding:10px 0; letter-spacing: -1.5px;"><input type="checkbox" name="agree" value="yes" style="margin-top: -2px;"/> 개인정보 취급방침에 동의 <a href="" onclick="javascript:popup()" style="color:#505050; font-family: 맑은 고딕; text-decoration:underline; " id="layer_open3">개인정보취급방침</a></td>
                                    </tr>
 
                                  </table>
@@ -257,4 +260,30 @@ $(document).ready(function () {
          </div>
          
 </body>
+<script type="text/javascript">
+
+function checkLength(pr_reason) {
+    if (pr_reason.value.length > 30 ) {
+    	pr_reason.blur();
+    	pr_reason.value = pr_reason.value.substring(0, 30);
+        alert('30자 이내로 입력해주세요.');
+        pr_reason.focus();
+        return false;
+    }
+}
+
+function checkLength2(pr_name) {
+    if (pr_name.value.length > 5 ) {
+    	pr_name.blur();
+    	pr_name.value = pr_name.value.substring(0, 5);
+        alert('5자 이내로 입력해주세요.');
+        pr_name.focus();
+        return false;
+    }
+}
+
+function popup(){ 
+    window.open('agree.do','agree', 'width=600, height=800,left=0,top=0,toolbar=no, location=no, directories=no, status=no, resizable=yes, scrollbars=yes, copyhistory=no'); 
+ } 
+</script>
 </html>

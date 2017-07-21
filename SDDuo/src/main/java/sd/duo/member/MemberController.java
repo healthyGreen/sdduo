@@ -109,7 +109,7 @@ public class MemberController {
 
 		new MemberValidator().validate(member, result);
 		if(result.hasErrors()){
-			mav.setViewName("joinForm");
+			mav.setViewName("redirect:/member/joinForm.do");
 			return mav;
 		}
 		memberService.insertMember(member);

@@ -6,7 +6,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 
 
-
 <body>
 
 
@@ -15,7 +14,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">공지사항 관리</h1>
+                    <h1 class="">공지사항 관리</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -32,16 +31,21 @@
 					</p>
 					</form>
 				</div>
+				
+				<form action="adminNoticeDeleteAll.do"> 
+				
 				<table class="list-board01">
 				<colgroup>
-					<col width="110px">
+					<col width="5px">
+					<col width="105px">
 					<col width="">
 					<col width="137px">
 					<col width="137px">
 					<col width="150px">
 				</colgroup>
-				<tbody>
+				<thead>
 					<tr>
+						<th><input type="checkbox" name="checkAll" id="th_checkAll"/></th>
 						<th>번호</th>
 						<th>제목</th>
 						<th>작성자</th>
@@ -49,7 +53,7 @@
 						<th>조회수</th>
 					</tr>
 
-				</tbody>
+				</thead>
 				<tbody>
 					<c:forEach var="list" items="${adminNoticeList}">
 						<c:url var="viewURL" value="/admin/adminNoticeView.do" >
@@ -58,6 +62,8 @@
 						</c:url>
 					
 					<tr>
+						<td class="center"><input type="checkbox" id="checkRow" name="checkRow" value="${list.n_number}" /></td>
+
 						<td>${list.n_number}</td>
 						<td style="text-align:left;">
 									<a href="${viewURL}">[공지사항]${list.n_title}</a>
@@ -84,11 +90,15 @@
 								
 					 <c:if test="${session_admin == 1}"> 
 						<button type="button" onclick="onWrite()" class="btn btn-outline btn-primary" style="margin-right: 10px; ">글쓰기</button>
+					 	<button type="submit" class="btn btn-outline btn-primary" style="margin-right: 10px; ">삭제</button>
 					 </c:if> 
 				
 			
 			
 			</div>
+			
+			</form>
+			
             </div>
             <!-- /.row -->
             
@@ -108,6 +118,7 @@
 
 
 </body>
+
 <script type="text/javascript">
 
 var onWrite = function(){
@@ -116,7 +127,21 @@ var onWrite = function(){
 
 $('.searchOption').val($('.searchOptionVal').val());
 
+
+
+$(function(){
+	$("#th_checkAll").click(function(){
+		if($("#th_checkAll").prop("checked")){
+			$("input[type=checkbox]").prop("checked",true);
+			} else { 
+				$("input[type=checkbox]").prop("checked",false);
+				}
+		})
+		})
+			
+
 </script>
+
 
 
 

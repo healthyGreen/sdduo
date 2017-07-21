@@ -5,27 +5,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 
-<script type="text/javascript">
-
-var onWrite = function(){
-	location.href = 'NoticeWrite.do'; 
-}
-
-$('.searchOption').val($('.searchOptionVal').val());
-
-
-/* 체크박스 전체선택, 전체해제 */
-function checkAll(){
-      if( $("#th_checkAll").is(':checked')){
-        $("input[name=checkRow]").prop("checked", true);
-      }else{
-        $("input[name=checkRow]").prop("checked", false);
-      }
-}
-
-
-
-</script>
 
 
 <body>
@@ -53,11 +32,18 @@ function checkAll(){
 					</p>
 					</form>
 				</div>
-		 	 	<form action="Delete.do">  
+		 	 	<form action="noticeDeleteAll.do">  
 				<table class="list-board01">
 				<colgroup>
+			<c:choose>
+				<c:when test="${session_admin == 1}"> 
 					<col width="5px">
 					<col width="105px">
+				</c:when>	
+				<c:otherwise>
+					<col width="110px">
+				</c:otherwise>
+			</c:choose>
 					<col width="">
 					<col width="137px">
 					<col width="137px">
@@ -65,7 +51,9 @@ function checkAll(){
 				</colgroup>
 			<thead>
                <tr>
-                  <th><input type="checkbox" name="checkAll" id="th_checkAll" onclick="checkAll();"/></th>
+               	<c:if test="${session_admin == 1}"> 
+                  <th><input type="checkbox" name="checkAll" id="th_checkAll"/></th>
+                </c:if>
                   <th>번호</th>
                   <th>제목</th>
                   <th>작성자</th>
@@ -80,8 +68,9 @@ function checkAll(){
 						    <c:param name="currentPage" value="${currentPage }" />
 						</c:url>
 					<tr>
+					<c:if test="${session_admin == 1}"> 
 						<td class="center"><input type="checkbox" id="checkRow" name="checkRow" value="${list.n_number}" /></td>
-
+					</c:if>
 						<td>${list.n_number}</td>
 						
 						<td style="text-align:left;">
@@ -137,7 +126,31 @@ function checkAll(){
 
 </body>
 
+<script type="text/javascript">
 
+var onWrite = function(){
+	location.href = 'NoticeWrite.do'; 
+}
+
+$('.searchOption').val($('.searchOptionVal').val());
+
+
+
+$(function(){
+	$("#th_checkAll").click(function(){
+		if($("#th_checkAll").prop("checked")){
+			$("input[type=checkbox]").prop("checked",true);
+			} else { 
+				$("input[type=checkbox]").prop("checked",false);
+				}
+		})
+		})
+			
+
+
+
+
+</script>
 
 
 
