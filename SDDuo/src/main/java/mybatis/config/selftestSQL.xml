@@ -44,7 +44,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 값변경 -->
 	<update id="selfModify" parameterType="selfTestModel">
-			UPDATE F_SELFTEST SET t_score = #{t_score}, t_grade = #{t_grade} WHERE m_id = #{m_id}
+			UPDATE F_SELFTEST SET t_score = #{t_score}, t_grade = #{t_grade} WHERE m_id = #{m_id} and t_category = #{t_category}
 	</update>
 	
 

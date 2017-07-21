@@ -25,9 +25,8 @@
 	<definition name="joinSuccess" extends="mainTiles">
 		<put-attribute name="body" value="/WEB-INF/views/member/joinSuccess.jsp" />
 	</definition>
-	<definition name="joinSuccess" extends="mainTiles">
-		<put-attribute name="body" value="/WEB-INF/views/member/joinSuccess.jsp" />
-	</definition>
+	
+	
 	<definition name="loginForm" extends="mainTiles">
 		<put-attribute name="body" value="/WEB-INF/views/member/loginForm.jsp" />
 	</definition>
