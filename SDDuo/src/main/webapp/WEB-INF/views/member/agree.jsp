@@ -418,7 +418,7 @@ function cancel(){
 (시행일) 이 약관은 2015년 11월 12일부터 시행합니다.<br>
                </div>
                <ul class="clause-radio">
-                  <li><input type="radio" class="checkbox" title="" value="Y" id="agree1_ok" name="agreement[]" onclick="check_only(this)">동의함</label></li>
+                  <li><input type="radio" class="checkbox" title="" value="Y" id="agree1_ok" name="agreement[]" onclick="check_only(this)"><label for="agree1_ok">동의함</label></li>
                   <li><input type="radio" class="checkbox" title="" value="N" id="agree1_no" name="agreement[]" onclick="check_only(this)"><label for="agree1_no">동의하지 않음</label></li>
                </ul>
             </div>
@@ -502,8 +502,8 @@ function cancel(){
             </div>
             <div class="join-conf-btn">
                <ul>
-               <button type="button" onclick="check_agreement()" class="btn btn-primary">확인</button>
-                  <!-- <li><input type="button" class="submit" title="" value="확인" name="" onclick="joinCheck"></li> -->
+               <!-- <button type="button" onclick="check_agreement()" class="btn btn-primary">확인</button> -->
+                  <li><input type="button" class="submit" title="" value="확인" name="" onclick="check_agreement()"></li> 
                   <li><input type="button" class="cancel" title="" value="취소" name="" onclick="cancel()"></li>
                </ul>
             </div>

@@ -9,6 +9,17 @@
 <body> -->
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
+function pwChk()
+{
+	if(document.modify.m_pass.value == ""){
+  		alert("비밀번호를 입력해주세요!")
+  		document.modify.m_pass.focus();
+  		return false;
+
+	}
+}
+
+
     function sample6_execDaumPostcode() {
         new daum.Postcode({
             oncomplete: function(data) {
@@ -71,7 +82,7 @@
 								</div>
 							</div>
 							<div class="rightbox">
-								<form action="/SDDuo/member/myInfoModify.do" method="post">
+								<form name="modify" action="myInfoModify.do" method="post" onSubmit="return pwChk();">
 								<input type="hidden" name="m_id" value="${sessionScope.session_member_id}" >
 								<table width="100%" cellpadding="0" cellspacing="0">
 									<tbody><tr>
@@ -126,7 +137,7 @@
 											<td class="memberCols1"><font color="FF6000">*</font> 이메일</td>
 											<td class="memberCols2">
 											<input type="text" name="m_email" value="${member.m_email }" size="30" required="" option="regEmail" label="이메일" style="background:#FFF">
-											<a href="javascript:void(0)" onclick="chkEmail()"><img src="/shop/data/skin/standard_C/dsm/img/mb/join_btn_mail.jpg" border="0" align="absmiddle"></a>
+											<a href="javascript:void(0)" onclick="chkEmail()"><input type="button" style="    background: #484647;    cursor: pointer;    border: none;    color: #Fff;    padding: 3px 7px;" value="중복확인"></a>
 											
 											
 											

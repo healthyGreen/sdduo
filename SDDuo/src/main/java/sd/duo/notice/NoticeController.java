@@ -37,7 +37,7 @@ public class NoticeController {
 	private AdminNoticeService noticeService;
 	private int searchNum;
 	private String isSearch;
-	//ÆäÀÌÂ¡À» À§ÇÑ º¯¼ö ¼³Á¤
+	//ï¿½ï¿½ï¿½ï¿½Â¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		private int currentPage = 1;	 
 		private int totalCount; 
 		private int totalPage;
@@ -48,7 +48,7 @@ public class NoticeController {
 	
 		private static final String uploadPath = "C:\\Java\\FINAL\\SDDuo\\src\\main\\webapp\\resources\\upload";
 		
-		//»ç¿ëÀÚ ¸®½ºÆ® Ã³¸®(°Ë»ö)
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® Ã³ï¿½ï¿½(ï¿½Ë»ï¿½)
 		@RequestMapping(value="/NoticeList.do", method=RequestMethod.GET)
 		public ModelAndView noticeList(HttpServletRequest request,HttpSession session) throws UnsupportedEncodingException{
 			
@@ -137,7 +137,7 @@ public class NoticeController {
 			return mav;
 		}
 		
-		// °øÁö»çÇ× »ó¼¼º¸±â
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ó¼¼ºï¿½ï¿½ï¿½
 		@RequestMapping("/NoticeView.do")
 		public ModelAndView noticeView(HttpServletRequest request, HttpSession session){
 			   
@@ -163,7 +163,7 @@ public class NoticeController {
 		
 		
 		
-		//°øÁö»çÇ× ±Û¾²±â Æû
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½
 		@RequestMapping(value="/NoticeWrite.do", method=RequestMethod.GET)
 		public ModelAndView noticeForm(HttpServletRequest request) {
 			
@@ -173,7 +173,7 @@ public class NoticeController {
 			return mav;
 		}
 		
-		// °øÁö»çÇ× ±Û¾²±â
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½
 		@RequestMapping(value="/NoticeWrite.do", method=RequestMethod.POST)
 		public ModelAndView noticeWrite(@ModelAttribute("noticeModel") AdminNoticeModel noticeModel, BindingResult result, 
 				HttpServletRequest request, HttpSession session,MultipartHttpServletRequest multipartHttpServletRequest)throws Exception{
@@ -185,14 +185,14 @@ public class NoticeController {
 				mav.setViewName("NoticeForm");
 				return mav;
 			}
-			/*ÁÙ¹Ù²Þ*/
+			/*ï¿½Ù¹Ù²ï¿½*/
 			
 			String n_content = noticeModel.getN_content().replaceAll("\r\n", "<br />");
 			noticeModel.setN_content(n_content);
 			
 			
 			
-			//¾÷·Îµå
+			//ï¿½ï¿½ï¿½Îµï¿½
 			MultipartFile multipartFile = multipartHttpServletRequest.getFile("file");
 			String filename = multipartFile.getOriginalFilename();
 			if (filename != ""){ 
@@ -217,7 +217,7 @@ public class NoticeController {
 		
 			
 		
-		//°øÁö»çÇ× »èÁ¦
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		@RequestMapping("/NoticeDelete.do")
 		public ModelAndView noticeDelete(HttpServletRequest request){
 			
@@ -231,7 +231,7 @@ public class NoticeController {
 		
 	
 		
-		//°øÁö»çÇ× ¼öÁ¤Æû
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		@RequestMapping("/NoticeModify.do")
 		public ModelAndView noticeModifyForm(@ModelAttribute("noticeModel") AdminNoticeModel noticeModel, BindingResult result, HttpServletRequest request){
 			
@@ -247,18 +247,18 @@ public class NoticeController {
 			return mav;	
 		}
 		
-		//°øÁö»çÇ× ¼öÁ¤
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		@RequestMapping("/NoticeModifySuccess.do")
 		public ModelAndView reviewModify(@ModelAttribute("noticeModel") AdminNoticeModel noticeModel, MultipartHttpServletRequest multipartHttpServletRequest){
 			
 			ModelAndView mav = new ModelAndView();
 	        
-	        /*ÁÙ¹Ù²Þ*/
+	        /*ï¿½Ù¹Ù²ï¿½*/
 			String n_content = noticeModel.getN_content().replaceAll("\r\n", "<br />");
 			noticeModel.setN_content(n_content);
 		    
 	        if (multipartHttpServletRequest.getFile("file") != null){
-	 		//¸ÞÀÎ »óÇ°ÀÌ¹ÌÁö
+	 		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°ï¿½Ì¹ï¿½ï¿½ï¿½
 	        	MultipartFile multipartFile = multipartHttpServletRequest.getFile("file");
 	        	String filename = multipartFile.getOriginalFilename();
 		        	if (filename != ""){ 
@@ -289,7 +289,7 @@ public class NoticeController {
 		}
 		
 		
-		@RequestMapping("/Delete.do")
+		@RequestMapping("/noticeDeleteAll.do")
 		public ModelAndView userDel(HttpServletRequest request) throws Exception {
 		
 		ModelAndView mav = new ModelAndView();
@@ -307,6 +307,12 @@ public class NoticeController {
 		
 		}
 		
+		
+		@RequestMapping(value="Faq.do", method = RequestMethod.GET)
+		public String oneReserForm() {
+			
+			return "Faq";
+		}
 		
 		
 		
