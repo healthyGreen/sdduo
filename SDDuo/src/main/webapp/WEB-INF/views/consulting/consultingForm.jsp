@@ -24,8 +24,8 @@
 					<font color="red">상담문의 글 수정</font></b>
 				</caption>
 				<spring:hasBindErrors name="consulting" />
-				<form:errors path="consulting" /> 
-				<form:form commandName="consulting" action="consultingModifyPro.do">
+				<form:errors path="consultingmodel" /> 
+				<form:form commandName="consultingmodel" action="consultingModifyPro.do">
 					<table class="write-board01">
 						<tbody>
 							<tr>

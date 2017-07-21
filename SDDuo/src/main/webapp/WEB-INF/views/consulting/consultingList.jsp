@@ -15,7 +15,7 @@
 						답변 순서는 각 센터별 전문가 선생님들의 여건에 따라 달라질 수 있음을 양해해 주시기 바랍니다.</span><br />
 					</p>
 					<div class="resev-box">
-				<p class="listnum">총 <span>${totalCount }</span>건&nbsp; <input type="button" value="글쓰기" onclick="location.href='<%=request.getContextPath()%>/consulting/consultingForm.do'"></p>
+				<p class="listnum">총 <span>${totalCount }</span>건</p>
 				
 				<c:if test="${session_member_id !=null }">
 						<p class="reserv-btn" onclick="location.href='<%=request.getContextPath()%>/Reserve/OneReserveForm.do'">

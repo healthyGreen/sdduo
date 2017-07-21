@@ -64,7 +64,7 @@ public class consultingController {
 	}
 
 	@RequestMapping(value = "/consultingPro.do")
-	public ModelAndView consultingPro(@ModelAttribute("consulting") consultingModel consultingmodel,
+	public ModelAndView consultingPro(@ModelAttribute("consultingmodel") consultingModel consultingmodel,
 			BindingResult result, HttpServletRequest request) {
 		// consultingmodel.setM_id(id);
 		// consultingmodel.setC_re_status(1); // 답변상태 아직 안달린 상태
