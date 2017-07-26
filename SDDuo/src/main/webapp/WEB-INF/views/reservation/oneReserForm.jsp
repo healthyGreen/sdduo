@@ -74,6 +74,14 @@
      }
 
   </script>
+  
+  <script type="text/javascript">
+  function onlyNumber(){
+      if((event.keyCode<48)||(event.keyCode>57))
+         event.returnValue=false;
+	}
+  </script>
+  
 <script type="text/javascript">
 $(document).ready(function () {
     // 초기 값 지정
@@ -245,12 +253,12 @@ $(document).ready(function () {
                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" align="left">
                                          <tr>
                                           <td width="63">
-                                             <input type="text" value="010" name="pr_phone1" required="" maxlength="3" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;">
+                                             <input type="text" value="010" name="pr_phone1" onkeypress="onlyNumber();" maxlength="3" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;">
                                           </td>
                                           <td align="center" width="13" style="vertical-align: middle;">-</td>
-                                          <td width="63"><input type="text" value="" name="pr_phone2" required="" maxlength="4" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;"></td>
+                                          <td width="63"><input type="text" value="" name="pr_phone2" onkeypress="onlyNumber();" maxlength="4" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;"></td>
                                           <td align="center" width="13" style="vertical-align: middle;">-</td>
-                                          <td width="63"><input type="text" value="" name="pr_phone3" required="" maxlength="4" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" style="width:65px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;"></td>
+                                          <td width="63"><input type="text" value="" name="pr_phone3" onkeypress="onlyNumber();" maxlength="4" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" style="width:65px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;"></td>
                                           <td>&nbsp;</td>
                                          </tr>
                                        </table>
