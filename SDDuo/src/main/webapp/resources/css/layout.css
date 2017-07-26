@@ -1403,10 +1403,10 @@
 .notice-bottom{clear:both; font-size: 13px; color: #626262; text-align: center;padding-top: 40px;  }
  
 /*챠큄�챙�봔�챗째��챙탑��*/
-.step-line{padding-top: 55px; background: url(../../common/images/icon/step-line.gif) no-repeat 0px 50px; height: 78px;  }
-.step-line2{padding-top: 55px; background: url(../../common/images/icon/step-line2.gif) no-repeat 0px 50px; height: 78px;  }
-.step-line3{padding-top: 55px; background: url(../../common/images/icon/step-line3.gif) no-repeat 0px 50px; height: 78px;  }
-.step-line4{padding-top: 55px; background: url(../../common/images/icon/step-line4.gif) no-repeat 0px 50px; height: 78px;  }
+.step-line{padding-top: 55px; background: url(../../common/images/icon/step-line.gif) no-repeat 0px 50px; }
+.step-line2{padding-top: 55px; background: url(../../common/images/icon/step-line2.gif) no-repeat 0px 50px;   }
+.step-line3{padding-top: 55px; background: url(../../common/images/icon/step-line3.gif) no-repeat 0px 50px;   }
+.step-line4{padding-top: 55px; background: url(../../common/images/icon/step-line4.gif) no-repeat 0px 50px;   }
 
 .join-select{text-align: center; width: 100%; margin: 0px auto;  height: 225px;border: 1px solid #ccc;  padding-top: 30px; box-sizing: border-box; margin-top: 55px;}
 .join-select01{height: 160px;   padding-top:30px; box-sizing: border-box; border-right: 1px solid #ccc;}
@@ -1421,7 +1421,7 @@
 .atten-txt{color: #7d7b7b; font-size: 12px; line-height: 20px; }
 .atten-sub-title {color:#626262; font-size: 15px; margin-bottom: 15px;     font-weight: bold;}
  
-.clause-txt-box{width: 100%; height: 150px;  overflow-x: hidden; overflow-y: scroll; border: 1px solid #ccc; }
+.clause-txt-box{width: 100%; height: 150px;  overflow-x: hidden; overflow-y: scroll; border: 1px solid #ccc;     font-size: 11px;    line-height: 17px;    padding: 10px;}
 .clause-txt-box span{font-weight: bold;}
 .clause-radio{float: right; margin-top: 10px;}
 .clause-radio li {float: left;margin-left: 10px;}
@@ -1435,8 +1435,8 @@
 .join-check-center{padding-top: 20px;height:49px; width: 100%;border-top: 2px solid #000;margin-top: 40px; text-align: center;margin-bottom: 30px; font-size: 16px; color: #666666;  }
 .join-check-center img{margin-right: 10px;}
 .join-conf-btn{padding-left: 320px; width: 100%; margin-bottom: 100px;}
-.join-conf-btn .submit{margin-right: 20px; float: left;width: 140px; height: 55px; background: #413e3d; color: #fff; cursor: pointer;}
-.join-conf-btn .cancel {float: left;width: 140px; height: 55px; background: #fff; color: #4f4f4f; cursor: pointer; border-left:1px solid #e9e9e9; border-top: 1px solid #e9e9e9; border-right:1px solid #a4a4a4; border-bottom: 1px solid #a4a4a4;}
+.join-conf-btn .submit{border: none; margin-right: 20px; float: left;width: 140px; height: 55px; background: #413e3d; color: #fff; cursor: pointer;}
+.join-conf-btn .cancel {border: none;float: left;width: 140px; height: 55px; background: #fff; color: #4f4f4f; cursor: pointer; border-left:1px solid #e9e9e9; border-top: 1px solid #e9e9e9; border-right:1px solid #a4a4a4; border-bottom: 1px solid #a4a4a4;}
  
 .table-sub-title{margin-top: 55px;color: #7d7b7b; font-size: 12px;      float: left;}
 .table-title{margin-top: 55px;margin-bottom: 15px;margin-right: 9px;font-size: 16px;font-weight: bold; width: 105px; color: #232323;   float: left;  background: url(../../common/images/icon/join-bar.gif) no-repeat right; }
@@ -1466,6 +1466,9 @@
 .suport-formbox2 {border-top:1px solid #d6d6d6;border-bottom:1px solid #d6d6d6;clear:both;margin-top:25px;height:190px;}
 .sub-content{clear: both; width: 1100px; margin: 0 auto;}
 .common-text-box {width: 215px; height: 30px; border-right:1px solid #e9e9e9; border-bottom: 1px solid #e9e9e9; border-left:1px solid #a4a4a4; border-top: 1px solid #a4a4a4;  box-sizing: border-box;}
+.common-text-box2 {width: 300px; height: 30px; border-right:1px solid #e9e9e9; border-bottom: 1px solid #e9e9e9; border-left:1px solid #a4a4a4; border-top: 1px solid #a4a4a4;  box-sizing: border-box;}
+.common-text-box3 {width: 100px; height: 30px; border-right:1px solid #e9e9e9; border-bottom: 1px solid #e9e9e9; border-left:1px solid #a4a4a4; border-top: 1px solid #a4a4a4;  box-sizing: border-box;}
+.common-text-box4 {width: 70px; height: 30px; border-right:1px solid #e9e9e9; border-bottom: 1px solid #e9e9e9; border-left:1px solid #a4a4a4; border-top: 1px solid #a4a4a4;  box-sizing: border-box;}
 .wdp50p { width: 25%;}
 .sub-top {    width: 100%;      padding-top: 47px;}
 .sub-top h2 {    color: #333333;    font-size: 28px;}
@@ -1474,8 +1477,8 @@
 
 .idpw_box{clear: both; border-top: 2px solid #444444; margin-top: 20px;}
 
-.idpw_box th{width: 170px;     background: #fbfbfb; height: 60px; border-bottom: 1px solid #ccc; text-align: left; padding-left:15px; box-sizing: border-box; }
-.idpw_box td{color: #7b7b7b;  font-size: 13px; width: 80%; height: 60px; border-bottom: 1px solid #ccc; text-align: left; padding-left:25px; box-sizing: border-box; }
+.idpw_box th{width: 170px;     background: #fbfbfb;     vertical-align: middle;height: 60px; border-bottom: 1px solid #ccc; text-align: left; padding-left:15px; box-sizing: border-box; }
+.idpw_box td{color: #7b7b7b;   vertical-align: middle; font-size: 13px; width: 80%; height: 60px; border-bottom: 1px solid #ccc; text-align: left; padding-left:25px; box-sizing: border-box; }
 
 
 .aboutTit{color: #444444;   padding-top: 60px;  font-size: 38px;    font-family: '맑은 고딕';    font-weight: 600;    text-align: center;    margin-bottom: 20px;   height: 23px;    clear: both;}

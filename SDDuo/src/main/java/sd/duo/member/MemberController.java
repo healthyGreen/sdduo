@@ -107,11 +107,11 @@ public class MemberController {
 
 		ModelAndView mav = new ModelAndView();
 
-		new MemberValidator().validate(member, result);
+		/*new MemberValidator().validate(member, result);
 		if(result.hasErrors()){
 			mav.setViewName("redirect:/member/joinForm.do");
 			return mav;
-		}
+		}*/
 		memberService.insertMember(member);
 		mav.setViewName("joinSuccess");
 		return mav;

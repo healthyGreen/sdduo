@@ -66,12 +66,12 @@ function cancel(){
             <div class="sub-content-inbox">
                
                <div class="sub-top">
-                  <h2>회원가입</h2>
+                  
                </div>
                <div class="sub-cont">
                   <div class="sub-cont-inbox clear login-cont ">
          <div class="step-line2">
-            <img src="../../images/sub/step-line2.gif">
+            <img src="/SDDuo/resources/images/sub/step-line2.gif" style=" width: 100%;">
          </div>
          <div class="join-check-inbox">
             <!-- <div class="join-check">
@@ -418,8 +418,8 @@ function cancel(){
 (시행일) 이 약관은 2015년 11월 12일부터 시행합니다.<br>
                </div>
                <ul class="clause-radio">
-                  <li><input type="radio" class="checkbox" title="" value="Y" id="agree1_ok" name="agreement[]" onclick="check_only(this)"><label for="agree1_ok">동의함</label></li>
-                  <li><input type="radio" class="checkbox" title="" value="N" id="agree1_no" name="agreement[]" onclick="check_only(this)"><label for="agree1_no">동의하지 않음</label></li>
+                  <li><input type="radio" class="checkbox" title="" value="Y" id="agree1_ok" name="agreement[]" style=" float: left;    margin-top: 4px;" onclick="check_only(this)"><label for="agree1_ok">동의함</label></li>
+                  <li><input type="radio" class="checkbox" title="" value="N" id="agree1_no" name="agreement[]" style=" float: left;    margin-top: 4px;" onclick="check_only(this)"><label for="agree1_no">동의하지 않음</label></li>
                </ul>
             </div>
             <div class="clause-box">
@@ -458,8 +458,8 @@ function cancel(){
                            </div>
 
                <ul class="clause-radio">
-                  <li><input type="radio" class="checkbox" title="" name="agreement1[]" value="Y" id="agree2_ok" onclick="check_only(this)" /><label for="agree2_yes">동의함</label></li>
-                  <li><input type="radio" class="checkbox" title="" value="N" id="agree2_no" name="agreement1[]" onclick="check_only(this)" ><label for="agree2_no">동의하지 않음</label></li>
+                  <li><input type="radio" class="checkbox" title="" name="agreement1[]" value="Y" id="agree2_ok"  style=" float: left;    margin-top: 4px;" onclick="check_only(this)" /><label for="agree2_yes">동의함</label></li>
+                  <li><input type="radio" class="checkbox" title="" value="N" id="agree2_no" name="agreement1[]"  style=" float: left;    margin-top: 4px;" onclick="check_only(this)" ><label for="agree2_no">동의하지 않음</label></li>
                </ul>
             </div>
             <!-- <div class="clause-box">
@@ -498,7 +498,7 @@ function cancel(){
             </div> -->
             <div class="join-check-center">
             <span class="chk_grp">
-               <input type="checkbox" id="allChk1" onclick="all_check(this, 'agreement[]')" value="Y "> <label for="allChk1">이용약관, 개인정보처리방침에 모두 동의합니다.</label>
+               <input type="checkbox" id="allChk1" onclick="all_check(this, 'agreement[]')" value="Y "> <label for="allChk1" style=" font-size: 13px;">이용약관, 개인정보처리방침에 모두 동의합니다.</label>
             </div>
             <div class="join-conf-btn">
                <ul>
