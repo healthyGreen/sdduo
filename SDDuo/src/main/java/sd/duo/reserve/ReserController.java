@@ -291,9 +291,15 @@ public class ReserController {
 				mv.setViewName("myGroupReserList");
 				return mv;
 			}
-		 	@RequestMapping(value="/agree.do")
+		 	@RequestMapping(value="/agree1.do")
 		 		public String agree() {
 				
 				return "/reservation/agree1";
+				
 			}
+		 	@RequestMapping(value="/agree2.do")
+	 		public String agree2() {
+			
+			return "/reservation/agree2";
+		}
 }
