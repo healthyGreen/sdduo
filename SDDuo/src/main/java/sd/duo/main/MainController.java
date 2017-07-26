@@ -55,4 +55,11 @@ public class MainController {
 		mav.setViewName("memberInterceptor");
 		return mav;
 	}
+	
+	@RequestMapping(value="Introduce.do", method = RequestMethod.GET)
+	public String oneReserForm() {
+		
+		return "introduce";
+	}
+	
 }
