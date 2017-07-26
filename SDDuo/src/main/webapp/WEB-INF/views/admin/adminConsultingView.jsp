@@ -70,7 +70,7 @@ ${consultingmodel.c_content }
 						</c:if>				
 
  			<%-- 	</c:if> --%>
-						<p ><input type="button" value="목록" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingList.do'" class="btn01 list"></p>
+						<%-- <p ><input type="button" value="목록" onclick="location.href='<%=request.getContextPath() %>/admin/adminConsultingList.do'" class="btn01 list"></p> --%>
 						 <c:if test="${consultingmodel.m_id=='admin' }">
 						<div class="area">
 							<p class="btn01"><input type="button" value="수정" onclick="location.href='<%=request.getContextPath() %>/admin/adminConsultingModify.do?c_number=${consultingmodel.c_number }'"></p>

@@ -248,7 +248,7 @@ public class adminController{
 		// service.modConsulting(consultingmodel);
 		return mav;
 	}
-	@RequestMapping("adminConsultingModifyPo")
+	@RequestMapping("adminConsultingModifyPo.do")
 	public ModelAndView adminConsultingModifyPo(@ModelAttribute("consulting") consultingModel consultingmodel,
 			BindingResult result) {
 
