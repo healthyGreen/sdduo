@@ -6,9 +6,9 @@
 				<div class="footer-top">
 					<div class="footer-top-inbox">
 						<ul>
-							<li onclick="location.href='/SDDuo/member/about.do'">회사소개</li>
-							<li>사이트이용약관</li>
-							<li href="" onclick="window.open('/SDDuo/Reserve/agree.do', width=600,height=800)">개인정보처리방침</li>
+							<li onclick="location.href='/SDDuo/member/about.do'" style="cursor:pointer">회사소개</li>
+							<li onclick="window.open('/SDDuo/Reserve/agree2.do', width=600,height=800)" style="cursor:pointer">사이트이용약관</li>
+							<li onclick="window.open('/SDDuo/Reserve/agree1.do', width=600,height=800)" style="cursor:pointer">개인정보처리방침</li>
 							<li>임직원서비스</li>
 						</ul>
 					</div>
