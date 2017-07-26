@@ -63,7 +63,7 @@
             </thead>
 				<tbody>
 					<c:forEach var="list" items="${adminNoticeList}">
-						<c:url var="viewURL" value="/notice/NoticeView.do" >
+						<c:url var="viewURL" value="/notice/noticeView.do" >
 							<c:param name="n_number" value="${list.n_number }" />
 						    <c:param name="currentPage" value="${currentPage }" />
 						</c:url>
@@ -129,7 +129,7 @@
 <script type="text/javascript">
 
 var onWrite = function(){
-	location.href = 'NoticeWrite.do'; 
+	location.href = 'noticeWrite.do'; 
 }
 
 $('.searchOption').val($('.searchOptionVal').val());

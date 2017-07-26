@@ -37,7 +37,7 @@ public class SelfTestController {
 	
 	// 자가진단 점수 입력
 	@RequestMapping(value="/selfWrite.do", method=RequestMethod.POST)
-	public ModelAndView selfTestPro(SelfTestModel selfModel, HttpServletRequest requeset,
+	public ModelAndView selfTest(SelfTestModel selfModel, HttpServletRequest requeset,
 			HttpSession session)throws Exception{
 		
 		SelfTestModel check = new SelfTestModel();

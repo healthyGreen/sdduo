@@ -10,7 +10,7 @@
 <body>
 
     <div id="wrapper">
-		<form:form commandName="noticeModel" name="form" action="adminNoticeModifySuccess.do" enctype="multipart/form-data" method="post" onSubmit="return checkIt()">
+		<form:form commandName="noticeModel" name="form" action="adminNoticeModifySuccess.do" enctype="multipart/form-data"  >
       	<input type="hidden" name="n_number" value="${noticeModel.n_number}" />
 
         <div id="page-wrapper">
@@ -28,6 +28,7 @@
 							<th width="100">글제목</th>
 							<td colspan=3>
 								<input type="textarea" name="n_title" id="n_title" value="${noticeModel.n_title}"/>
+								<font color="red"><form:errors path="n_title" /></font>
 							</td>
 						</tr>
 					</thead>
@@ -65,7 +66,8 @@
 							<th>글내용</th>
 							<td colspan=3 height=600 style="padding: 0px !important;">
 							   <textarea name="n_content" value="${noticeModel.n_content}"
-							   		style="margin: 3px; width: 100%; height: 100%;">${noticeModel.n_content}</textarea> 
+							   		style="margin: 3px; width: 100%; height: 100%;">${noticeModel.n_content}</textarea>
+							   	<font color="red"><form:errors path="n_content" /></font>
 							</td>
 						</tr>
 						
@@ -89,7 +91,7 @@
 				</table>
 					<!-- 취소 작성완료 버튼 -->
 						<div class="menu-wrap">
-							<button type="submit" class="btn btn-primary">확인</button>
+							<button type="submit" onclick="checkIt()" class="btn btn-outline btn-primary" style="margin-right: 10px; ">확인</button>
 							<button type="button" onclick="reviewList();" class="btn btn-primary">목록</button>
 						</div>
             	</div>    

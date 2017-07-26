@@ -51,7 +51,7 @@
 									<div class="dropdown dropdown2">
 										<ul>
 
-											<li><a href="<%=request.getContextPath() %>/notice/NoticeList.do">공지사항</a></li>
+											<li><a href="<%=request.getContextPath() %>/notice/noticeList.do">공지사항</a></li>
 											<li><a href="<%=request.getContextPath() %>/notice/Faq.do">자주하는 질문</a></li>	
 							
 										</ul>

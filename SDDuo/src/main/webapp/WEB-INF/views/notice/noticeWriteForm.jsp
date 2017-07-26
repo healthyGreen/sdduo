@@ -10,7 +10,7 @@
 <body>
 
     <div id="wrapper">
-		<form:form commandName="noticeModel" name="form" action="NoticeWrite.do" enctype="multipart/form-data"	method="post">
+		<form:form commandName="noticeModel" name="form" action="noticeWrite.do" enctype="multipart/form-data"	method="post">
         <!-- Navigation -->
        
         <div id="page-wrapper">
@@ -28,6 +28,7 @@
 							<th width="100">글제목</th>
 							<td colspan=3>
 								<input type="textarea" name="n_title" id="n_title" value="${noticeModel.n_title}"/>
+								<font color="red"><form:errors path="n_title" /></font>
 							</td>
 						</tr>
 					</thead>
@@ -50,6 +51,7 @@
 							<th>글내용</th>
 							<td colspan=3 height=600 style="padding: 0px !important;">
 							   <textarea  name="n_content" id="n_content" style=" padding:3px; margin: 1px; width: 100%; height: 98%;"></textarea>
+								<font color="red"><form:errors path="n_content" /></font>
 							</td>
 						</tr>
 							
@@ -99,7 +101,7 @@
 
 function reviewList() {
 	if(confirm("목록으로 가시겠습니까?") == true){
-		location.href='NoticeList.do';
+		location.href='noticeList.do';
 	}else {
 		return;
 	}
