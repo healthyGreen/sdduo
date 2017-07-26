@@ -75,9 +75,9 @@
 					
 				<!-- 언니 위에 요거 button으로 하고싶은데 버튼으로하면 jstl이 안머거영 ㅠㅠ -->
 				<%-- 	<input type="button" onclick="${replyURL}" value="관리자 답변달기" class="storywrite"> --%> 
-				<c:if test="${session_admin!=1 }">
+			<%-- 	<c:if test="${session_admin!=1 }">
 					<p class="btn01"><input type="button" value="이야기 쓰기" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingForm.do'"  class="storywrite"></p>
-				</c:if>
+				</c:if> --%>
 					<div class="pageing" align="center">
 						${html}
 					</div>

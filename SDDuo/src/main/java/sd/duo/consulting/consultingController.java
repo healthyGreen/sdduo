@@ -30,7 +30,10 @@ public class consultingController {
 	@RequestMapping(value = "/consultingForm.do")
 	public ModelAndView consultingForm(HttpServletRequest request) {
 		String state = "noting";
+		consultingModel consultingmodel = new consultingModel();
+		consultingmodel.setC_ref(0);
 		mv.addObject("state", state);
+		mv.addObject("consultingmodel", consultingmodel);
 		mv.setViewName("consultingForm");
 		return mv;
 	}
@@ -67,14 +70,14 @@ public class consultingController {
 	public ModelAndView consultingPro(@ModelAttribute("consultingmodel") consultingModel consultingmodel,
 			BindingResult result, HttpServletRequest request) {
 		// consultingmodel.setM_id(id);
-		// consultingmodel.setC_re_status(1); // ´äº¯»óÅÂ ¾ÆÁ÷ ¾È´Ş¸° »óÅÂ
+		// consultingmodel.setC_re_status(1); // ë‹µë³€ìƒíƒœ ì•„ì§ ì•ˆë‹¬ë¦° ìƒíƒœ
 
-		new consultingValidator().validate(consultingmodel, result);
+		/*new consultingValidator().validate(consultingmodel, result);
 		
 		if (result.hasErrors()) {
 			mv.setViewName("consultingForm");
 			return mv;
-		}
+		}*/
 		//String who = request.getParameter("who");
 		
 		int c_ref = consultingmodel.getC_ref();
@@ -86,6 +89,9 @@ public class consultingController {
 			mv.setViewName("loginForm");
 			return mv;
 		}
+		/*System.out.println("!");
+		System.out.println(c_ref);
+		System.out.println("!");*/
 			consultingmodel.setM_id(id);
 			if (c_ref != 0) {
 			//new consultingModValidator().validate(consultingmodel, result);
@@ -93,9 +99,9 @@ public class consultingController {
 				// consultingmodel.setC_re_status(2);
 				// System.out.println(consultingmodel);
 				consultingmodel.setC_pass(c.getC_pass());
-				// consultingmodel.setC_title("[´äº¯]"+consultingmodel.getC_title());
+				// consultingmodel.setC_title("[ë‹µë³€]"+consultingmodel.getC_title());
 				consultingmodel.setC_ref(c_ref);
-				//consultingmodel.setM_id("admin"); // Â÷ÈÄ¿¡ ·Î±×ÀÎ µÇ¸é session°ªÀ¸·Î ¹Ù²Ü°íÀÓ
+				//consultingmodel.setM_id("admin"); // ì°¨í›„ì— ë¡œê·¸ì¸ ë˜ë©´ sessionê°’ìœ¼ë¡œ ë°”ê¿€ê³ ì„
 				/*
 				 * System.out.println(consultingmodel.getC_title());
 				 * System.out.println(consultingmodel.getC_pass());
@@ -113,7 +119,7 @@ public class consultingController {
 					mv.setViewName("consultingForm");
 					return mv;
 				}*/
-				//consultingmodel.setM_id("Asd"); // Â÷ÈÄ¿¡ ·Î±×ÀÎ µÇ¸é session°ªÀ¸·Î ¹Ù²Ü°íÀÓ
+				//consultingmodel.setM_id("Asd"); // ì°¨í›„ì— ë¡œê·¸ì¸ ë˜ë©´ sessionê°’ìœ¼ë¡œ ë°”ê¿€ê³ ì„
 				service.insertConsulting(consultingmodel);
 			}
 			/*if(who != null){
@@ -148,7 +154,7 @@ public class consultingController {
 		// mv.setViewName("redirect:/consulting/consultingReply.do?c_number="+c_number);
 		// int c_number = Integer.parseInt(request.getParameter("c_number"));
 		consultingmodel = service.consultingView(c_number);
-		// consultingmodel.setC_title("[´äº¯] "+consultingmodel.getC_title());
+		// consultingmodel.setC_title("[ë‹µë³€] "+consultingmodel.getC_title());
 		mv.addObject("state", state);
 		mv.addObject("consultingmodel", consultingmodel);
 		mv.setViewName("consultingForm");
@@ -218,7 +224,7 @@ public class consultingController {
 		 * //int c_number = Integer.parseInt(request.getParameter("c_number"));
 		 * // int c_ref = Integer.parseInt(request.getParameter("c_ref"));
 		 * 
-		 * // if(c_ref == c_number) // °ü¸®ÀÚÀÇ ´ä±Û ¼öÁ¤ÀÎ °æ¿ì
+		 * // if(c_ref == c_number) // ê´€ë¦¬ìì˜ ë‹µê¸€ ìˆ˜ì •ì¸ ê²½ìš°
 		 */
 		int c_number = consultingmodel.getC_number();
 		// System.out.println(c_number);
@@ -231,7 +237,7 @@ public class consultingController {
 		
 
 		service.modConsulting(consultingmodel);
-		mv.setViewName("redirect:/consulting/consultingView.do?c_number=" + c_number); // ?‹¤?´? ‰?Š¸?•˜ê¸?																// )
+		mv.setViewName("redirect:/consulting/consultingView.do?c_number=" + c_number); // ?ë–?ì” ?ì †?ë“ƒ?ë¸¯æ¹²?																// )
 		return mv;
 
 	}
@@ -251,13 +257,16 @@ public class consultingController {
 		int c_number = Integer.parseInt(request.getParameter("c_number"));
 		//int c_ref = Integer.parseInt(request.getParameter("c_ref"));
 		
-		String isReply = null;
+		String isReply = "noReply";
 		/*if()
 		if(c_number!=c_ref) isReply = "reply"; 
 		else isReply = "noReply";*/
 		
 		consultingmodel = service.consultingView(c_number);
+		if(consultingmodel.getC_ref() != consultingmodel.getC_number())
+			isReply = "reply";
 		//mv.addObject("isReply", isReply);
+		mv.addObject("isReply", isReply);
 		mv.addObject("consultingmodel", consultingmodel);
 		mv.setViewName("consultingView");
 		return mv;
