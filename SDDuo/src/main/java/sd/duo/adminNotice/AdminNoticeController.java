@@ -139,7 +139,7 @@ public class AdminNoticeController {
 	
 	//관리자 공지사항 상세보기
 	@RequestMapping("/adminNoticeView.do")
-	public ModelAndView noticeView(HttpServletRequest request, HttpSession session){
+	public ModelAndView adminNoticeView(HttpServletRequest request, HttpSession session){
 		   
 		ModelAndView mav = new ModelAndView();
 		
@@ -161,7 +161,7 @@ public class AdminNoticeController {
 	
 	//관리자 공지사항 글쓰기 폼
 	@RequestMapping(value="/adminNoticeWrite.do", method=RequestMethod.GET)
-	public ModelAndView noticeForm(HttpServletRequest request) {
+	public ModelAndView adminNoticeWriteForm(HttpServletRequest request) {
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("noticeModel", new AdminNoticeModel());
@@ -171,7 +171,7 @@ public class AdminNoticeController {
 	
 	//관리자 공지사항 글쓰기
 	@RequestMapping(value="/adminNoticeWrite.do", method=RequestMethod.POST)
-	public ModelAndView noticeWrite(@ModelAttribute("noticeModel") AdminNoticeModel noticeModel, BindingResult result, 
+	public ModelAndView adminNoticeWrite(@ModelAttribute("noticeModel") AdminNoticeModel noticeModel, BindingResult result, 
 			HttpServletRequest request, HttpSession session,MultipartHttpServletRequest multipartHttpServletRequest)throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
@@ -216,7 +216,7 @@ public class AdminNoticeController {
 	
 	//관리자 공지사항 삭제
 	@RequestMapping("/adminNoticeDelete.do")
-	public ModelAndView noticeDelete(HttpServletRequest request){
+	public ModelAndView adminNoticeDelete(HttpServletRequest request){
 		
 		ModelAndView mav = new ModelAndView();
 		int n_number = Integer.parseInt(request.getParameter("n_number"));
@@ -228,7 +228,7 @@ public class AdminNoticeController {
 	
 	//관리자 공지사항 수정폼
 	@RequestMapping("/adminNoticeModify.do")
-	public ModelAndView noticeModifyForm(@ModelAttribute("noticeModel") AdminNoticeModel noticeModel, BindingResult result, HttpServletRequest request){
+	public ModelAndView adminNoticeModifyForm(@ModelAttribute("noticeModel") AdminNoticeModel noticeModel, BindingResult result, HttpServletRequest request)throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
 		noticeModel = noticeService.noticeView(noticeModel.getN_number());
@@ -244,9 +244,16 @@ public class AdminNoticeController {
 	
 	//관리자 공지사항 수정
 	@RequestMapping("/adminNoticeModifySuccess.do")
-	public ModelAndView reviewModify(@ModelAttribute("noticeModel") AdminNoticeModel noticeModel, MultipartHttpServletRequest multipartHttpServletRequest){
+	public ModelAndView adminNoticeModify(@ModelAttribute("noticeModel") AdminNoticeModel noticeModel, BindingResult result, MultipartHttpServletRequest multipartHttpServletRequest){
 		
 		ModelAndView mav = new ModelAndView();
+		
+		new NoticeValidator().validate(noticeModel, result);
+		
+		if(result.hasErrors()) {
+			mav.setViewName("adminNoticeModify");
+			return mav;
+		}
         
         /*줄바꿈*/
 		String n_content = noticeModel.getN_content().replaceAll("\r\n", "<br />");
@@ -284,8 +291,9 @@ public class AdminNoticeController {
 	}
 	
 	
+	//선택삭제
 	@RequestMapping("/adminNoticeDeleteAll.do")
-	public ModelAndView userDel(HttpServletRequest request) throws Exception {
+	public ModelAndView adminNoticeDeleteAll(HttpServletRequest request) throws Exception {
 	
 	ModelAndView mav = new ModelAndView();
 	

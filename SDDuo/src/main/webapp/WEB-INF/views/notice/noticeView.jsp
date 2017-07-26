@@ -109,7 +109,7 @@
 <script type="text/javascript">
 function noticeDelete() {
 	if(confirm("삭제하시겠습니까?")){
-	location.href='NoticeDelete.do?n_number=${noticeModel.n_number}';
+	location.href='noticeDelete.do?n_number=${noticeModel.n_number}';
 	}else{
 		return;
 	}
@@ -117,12 +117,12 @@ function noticeDelete() {
 
 var onModify = function(n_number){
 	var form = $('.viewForm')[0];
-	form.action = 'NoticeModify.do?n_number='+n_number;
+	form.action = 'noticeModify.do?n_number='+n_number;
 	form.submit();
 };
 
 var onList = function(){
-	location.href='NoticeList.do';
+	location.href='noticeList.do';
 };
 
 

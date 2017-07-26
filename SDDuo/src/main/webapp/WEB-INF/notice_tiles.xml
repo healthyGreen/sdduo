@@ -20,19 +20,19 @@
 	
 	
 	 <!--  사용자 입장 센터별 공지사항   -->
-   <definition name="NoticeList" extends="notice">
+   <definition name="noticeList" extends="notice">
       <put-attribute name="body" value="/WEB-INF/views/notice/noticeList.jsp"/>
    </definition>
    
-    <definition name="NoticeView" extends="notice">
+    <definition name="noticeView" extends="notice">
       <put-attribute name="body" value="/WEB-INF/views/notice/noticeView.jsp" />
    </definition>
 
-   <definition name="NoticeForm" extends="notice">
+   <definition name="noticeForm" extends="notice">
    <put-attribute name="body" value="/WEB-INF/views/notice/noticeWriteForm.jsp" />
    </definition>
 
-   <definition name="NoticeModify" extends="notice">
+   <definition name="noticeModify" extends="notice">
       <put-attribute name="body" value="/WEB-INF/views/notice/noticeModify.jsp" />
    </definition>
 	

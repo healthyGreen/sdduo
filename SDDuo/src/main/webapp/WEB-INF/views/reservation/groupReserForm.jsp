@@ -25,12 +25,97 @@ $(document).ready(function () {
 
 
   function checkForm(){
-     if(!document.reserAgree.agree.checked){
-        alert("개인정보 취급방침에 동의하셔야 됩니다");
-     }else{   
-        reserAgree.submit();
-     }
-     }
+	  
+	  if(reserve.gr_year.value.trim() == ""){
+			alert("예약년도를 선택해주세요.");
+			return;
+		}
+		if(reserve.gr_month.value.trim() == ""){
+			alert("예약월을 선택해주세요.");
+			return;
+		}
+		if(reserve.gr_day.value.trim() == ""){
+			alert("예약일을 선택해주세요.");
+			return;
+		}
+		if(reserve.gr_group.value.trim() == ""){
+			alert("그룹명을 입력해주세요.");
+			reserve.gr_group.focus();
+			return;
+		}
+		if(reserve.gr_phone2.value.trim() == ""){
+			alert("연락처를 입력해주세요.");
+			reserve.gr_phone2.focus();
+			return;
+		}
+		if(reserve.gr_phone2.value.trim().length != 3 && reserve.gr_phone2.value.trim().length != 4 ){
+			alert("연락처를 정확히 입력해주세요.");
+			reserve.gr_phone2.focus();
+			return;
+		}
+		if(reserve.gr_phone3.value.trim() == ""){
+			alert("연락처를 입력해주세요.");
+			reserve.gr_phone3.focus();
+			return;
+		}
+		if(reserve.gr_phone3.value.trim().length != 4){
+			alert("연락처를 정확히 입력해주세요.");
+			reserve.gr_phone3.focus();
+			return;
+		}
+		var phone = reserve.gr_phone1.value.trim() + reserve.gr_phone2.value.trim() + reserve.gr_phone3.value.trim();
+		if(phone.length < 10){
+			alert("연락처를 정확히 입력해주세요.");
+			return;
+		}
+		if(reserve.gr_rephone2.value.trim() == ""){
+			alert("대표연락처를 입력해주세요.");
+			reserve.gr_rephone2.focus();
+			return;
+		}
+		if(reserve.gr_rephone2.value.trim().length != 3 && reserve.gr_rephone2.value.trim().length != 4 ){
+			alert("대표연락처를 입력해주세요.");
+			reserve.gr_rephone2.focus();
+			return;
+		}
+		if(reserve.gr_rephone3.value.trim() == ""){
+			alert("대표연락처를 입력해주세요.");
+			reserve.gr_rephone3.focus();
+			return;
+		}
+		if(reserve.gr_rephone3.value.trim().length != 4){
+			alert("대표연락처를 입력해주세요.");
+			reserve.gr_rephone3.focus();
+			return;
+		}
+		var phone = reserve.gr_rephone1.value.trim() + reserve.gr_rephone2.value.trim() + reserve.gr_rephone3.value.trim();
+		if(phone.length < 10){
+			alert("대표번호를 정확히 입력해주세요.");
+			return;
+		}
+		if(reserve.gr_center.value.trim() == ""){
+			alert("센터를 선택해주세요.");
+			reserve.gr_center.focus();
+			return;
+		}
+		if(reserve.gr_reason.value.trim() == ""){
+			alert("상담신청사유를 입력해주세요.");
+			reserve.gr_reason.focus();
+			return;
+		}
+     	if(!document.reserve.agree.checked){
+        	alert("개인정보 취급방침에 동의하셔야 됩니다");
+     	}else{   
+     		reserve.submit();
+     	}
+     	}
+  </script>
+  
+  <script type="text/javascript">
+  function onlyNumber(){
+      if((event.keyCode<48)||(event.keyCode>57))
+         event.returnValue=false;
+	}
   </script>
 
 
@@ -47,7 +132,7 @@ $(document).ready(function () {
                   <span>온라인 예약을 하시면 상담 직원이 전화를 드리며 상담문의 내용 등을 확인 한 후 정확한 예약이 확정 됩니다.    </span><br />
                </p>
 
-							<form name="reserAgree" action="GroupReserveForm.do" method="post">
+							<form name="reserve" action="GroupReserveForm.do" method="post">
 							<div class="step"><img src="/SDDuo/resources/images/sub/step1.gif"></div>
                <div class="calarea">
                   <div class="calleft">
@@ -197,7 +282,7 @@ $(document).ready(function () {
 													<table width="100%" border="0" cellspacing="0" cellpadding="0" align="left">
 													  <tr>
 														<td width="63">
-															<input type="text" value="" name="gr_phone1" maxlength="3" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;">
+															<input type="text" value="010" name="gr_phone1" maxlength="3" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;">
 														</td>
 														<td align="center" width="13" style="vertical-align: middle;">-</td>
 														<td width="63"><input type="text" value="" name="gr_phone2" maxlength="4" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;"></td>
@@ -215,7 +300,7 @@ $(document).ready(function () {
 													<table width="100%" border="0" cellspacing="0" cellpadding="0" align="left">
 													  <tr>
 														<td width="63">
-															<input type="text" value="" name="gr_rephone1" maxlength="3" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;">
+															<input type="text" value="010" name="gr_rephone1" maxlength="3" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;">
 														</td>
 														<td align="center" width="13" style="vertical-align: middle;">-</td>
 														<td width="63"><input type="text" value="" name="gr_rephone2" maxlength="4" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;"></td>
