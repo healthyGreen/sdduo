@@ -107,7 +107,7 @@
 										<%-- <form:errors path="c_title" /> --%>
 										<tr>
 											<th>비밀설정</th>
-											<td><input type="password" class="writetxt03"
+											<td><input type="password" maxlength=4 class="writetxt03"
 												name="c_pass"> (비밀번호4자리 입력) 
 												<%-- <form:errors path="c_pass" /> --%></td>
 										</tr>
