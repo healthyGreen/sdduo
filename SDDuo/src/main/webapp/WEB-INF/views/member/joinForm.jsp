@@ -9,121 +9,160 @@
 
    <script>
    function joinValidator(join){
-	   if(!document.join.m_id.value == ""){
-	      alert("Id를 입력해주세요.");
-	      document.join.m_id.focus();
-	      return false;
-	   }
-	   
-	   if(form.m_name.value.trim() == ""){
-	      alert("이름을 입력해주세요.");
-	      form.m_name.focus();
-	      return;
-	   }
-	   
-	   if(form.m_pass.value.trim() == ""){
-	      alert("비밀번호를 입력해주세요.");
-	      form.m_pass.focus();
-	      return;
-	   }
-	   if(form.m_pass.value.trim() == ""){
-		   alert("비밀번호 확인을 입력해주세요.")
-		   form.m_pass2.focus();
-		   return;
-	   }
-	   
-	   if(form.m_sex.value.trim() == ""){
-		   alert("성별을 선택해해주세요.")
-		   form.m_sex.focus();
-		   return;
-	   }
-	   
-	   if(form.m_year.value.trim() == ""){
-		      alert("연도를 선택해주세요.");
-		      form.m_year.focus();
-		      return;
-		   }
-	   
-	   if(form.m_month.value.trim() == ""){
-		      alert("월을 선택해주세요.");
-		      form.m_month.focus();
-		      return;
-		   }
-	   
-	   if(form.m_date.value.trim() == ""){
-		      alert("일자를 선택해주세요.");
-		      form.m_date.focus();
-		      return;
-		   }
+      if(!document.join.m_id.value == ""){
+         alert("Id를 입력해주세요.");
+         document.join.m_id.focus();
+         return false;
+      }
       
-	   if(form.m_tongsinsa.value.trim() == ""){
-	      alert("통신사를 선택해주세요.");
-	      form.m_tongsinsa.focus();
-	      return;
+      if(form.m_name.value.trim() == ""){
+         alert("이름을 입력해주세요.");
+         form.m_name.focus();
+         return;
+      }
+      
+      if(form.m_pass.value.trim() == ""){
+         alert("비밀번호를 입력해주세요.");
+         form.m_pass.focus();
+         return;
+      }
+      if(form.m_pass.value.trim() == ""){
+         alert("비밀번호 확인을 입력해주세요.")
+         form.m_pass2.focus();
+         return;
+      }
+      
+      if(form.m_sex.value.trim() == ""){
+         alert("성별을 선택해해주세요.")
+         form.m_sex.focus();
+         return;
+      }
+      
+      if(form.m_year.value.trim() == ""){
+            alert("연도를 선택해주세요.");
+            form.m_year.focus();
+            return;
+         }
+      
+      if(form.m_month.value.trim() == ""){
+            alert("월을 선택해주세요.");
+            form.m_month.focus();
+            return;
+         }
+      
+      if(form.m_date.value.trim() == ""){
+            alert("일자를 선택해주세요.");
+            form.m_date.focus();
+            return;
+         }
+      
+      if(form.m_tongsinsa.value.trim() == ""){
+         alert("통신사를 선택해주세요.");
+         form.m_tongsinsa.focus();
+         return;
+      }
+      
+      if(form.m_phone1.value.trim() == ""){
+         alert("연락처를 입력해주세요.");
+         form.m_phone1.focus();
+         return;
+      }
+      
+      if(form.m_phone2.value.trim() == ""){
+         alert("연락처를 입력해주세요.");
+         form.m_phone2.focus();
+         return;
+      }
+      
+      if(form.m_phone3.value.trim() == ""){
+         alert("연락처를 입력해주세요.");
+         form.m_phone3.focus();
+         return;
+      }
+      
+      var phone = form.m_tongsinsa.value.trim() + form.m_phone1.value.trim() + form.m_phone2.value.trim() + form.m_phone3.value.trim();
+      if(phone.length < 10){
+         alert("연락처를 정확히 입력해주세요.");
+         return;
+      }
+      
+      
+      if(form.m_zipcode.value.trim() == ""){
+         alert("우편번호를 입력해주세요.");
+         form.m_zipcode.focus();
+         return;
+      }
+      
+      if(form.m_add1.value.trim() == ""){
+            alert("주소1 을 입력해주세요.");
+            form.m_add1.focus();
+            return;
+         }
+      
+      if(form.m_add2.value.trim() == ""){
+            alert("주소2 를 입력해주세요.");
+            form.m_add2.focus();
+            return;
+         }
+   
+   </script>
+  
+     <script type="text/javascript">
+     function onlyNumber(){
+         if((event.keyCode<48)||(event.keyCode>57))
+            event.returnValue=false;
+   }
+  </script>
+  	
+  	<script type="text/javascript">
+  	function press_eng_number(){
+  	if(event.keyCode==8 || event.keyCode==9 || event.keyCode==37 || event.keyCode==39 || event.keyCode==46)
+  		return;
+  	m_email.value = m_email.value.replace(/[\a-zㄱ-ㅎㅏ-ㅣ가-힣]/g, '');
+  	}
+  	
+  	</script>
+   
+   <script>
+   function checkPw(m_pass, m_pass2){
+	   if(join.m_pass.value==""){
+		alert("비밀번호를 입력하세요.");
+		join.m_pass.focus();
+		return;
 	   }
-	   
-	   if(form.m_phone1.value.trim() == ""){
-	      alert("연락처를 입력해주세요.");
-	      form.m_phone1.focus();
-	      return;
+	   if(join.m_pass2.value==""){
+		alert("비밀번호를 입력하세요.");
+		join.m_pass2.focus();
+		return;
 	   }
-	   
-	   if(form.m_phone2.value.trim() == ""){
-	      alert("연락처를 입력해주세요.");
-	      form.m_phone2.focus();
-	      return;
-	   }
-	   
-	   if(form.m_phone3.value.trim() == ""){
-	      alert("연락처를 입력해주세요.");
-	      form.m_phone3.focus();
-	      return;
-	   }
-	   
-	   var phone = form.m_tongsinsa.value.trim() + form.m_phone1.value.trim() + form.m_phone2.value.trim() + form.m_phone3.value.trim();
-	   if(phone.length < 10){
-	      alert("연락처를 정확히 입력해주세요.");
-	      return;
-	   }
-	   
-	   
-	   if(form.m_zipcode.value.trim() == ""){
-	      alert("우편번호를 입력해주세요.");
-	      form.m_zipcode.focus();
-	      return;
-	   }
-	   
-	   if(form.m_add1.value.trim() == ""){
-		      alert("주소1 을 입력해주세요.");
-		      form.m_add1.focus();
-		      return;
+	   if(join.m_pass.value != join.m_pass2.value)
+		   {
+		   alert("비밀번호가 일치하지 않습니다.");
+		   join.m_pass.value="";
+		   join.m_pass.focus();
+		   return;
 		   }
+	   }
 	   
-	   if(form.m_add2.value.trim() == ""){
-		      alert("주소2 를 입력해주세요.");
-		      form.m_add2.focus();
-		      return;
-		   }
-	
    </script>
    
    
 <script>
 //Id 중복 체크//
    function IdConfirm(join) {
-	   
-   	var M_id = document.join.m_id.value;
-	var url = "idCheck.do?m_id="+M_id;
-   	
-   	if(M_id ==""){
-      		alert("아이디를 입력해주세요!")
-      		document.join.m_id.focus();
-      		return;
-      		
-   	}else{
-   		open(url, "IdConfirm", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=400,height=600");
-   		
-   		}
+      
+      var M_id = document.join.m_id.value;
+   var url = "idCheck.do?m_id="+M_id;
+      
+      if(M_id ==""){
+            alert("아이디를 입력해주세요!")
+            document.join.m_id.focus();
+            return;
+            
+      }else{
+         open(url, "IdConfirm", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=400,height=600");
+         
+         }
 }
   
    </script>
@@ -209,9 +248,9 @@
                   <th class=" "><label for="id"><span class="color">*</span>아이디</label></th>
                   <td class=" ">
                       <input type="text" required="" class="common-text-box box-left " id="m_id" name="m_id" maxlength="8"> &nbsp;
-                  	  <input type="button" value="중복확인" style="background:#484647;cursor: pointer;border: none;color: #Fff;padding: 6px 7px;" onclick="javascript:IdConfirm(join)">	
+                       <input type="button" value="중복확인" style="background:#484647;cursor: pointer;border: none;color: #Fff;padding: 6px 7px;" onclick="javascript:IdConfirm(join)">   
                      <!--  <p class="exp">4~8자의 영문+숫자를 사용해 주세요.</p> -->
- 						<form:errors path="m_id"/>
+                   <form:errors path="m_id"/>
                    </td>
                </tr>
                <tr>
@@ -233,7 +272,7 @@
                <tr>
                  <th><label for="login_pw_chk"><span class="color">*</span>비밀번호확인</label></th>
                  <td>
-                   <input type="password"  required="" id="m_pass" name="m_pass2" maxlength="10" class="common-text-box box-left">
+                   <input type="password"  required="" id="m_pass" name="m_pass2" maxlength="10" class="common-text-box box-left" onblur=checkPw();>
               <!--      <p class="exp ">비밀번호 확인을 위해 다시 한번 입력바랍니다.</p>
                    <p class="errorpage errorpage2 mt-5" id="errUserRePw" style="display:none;">입력하신 비밀번호가 일치하지 않습니다.</p> -->
                  </td>
@@ -275,9 +314,9 @@
                      <option>KT</option>
                      <option>LG</option>
                   </select>
-   <input type="text" name="m_phone1"  required="" class="common-text-box4"id="m_phone1" value="010" size="4" maxlength="4" required=""  label="핸드폰"> -
-   <input type="text" name="m_phone2"  required="" class="common-text-box4"id="m_phone2"  size="4" maxlength="4" required=""  label="핸드폰"> -
-   <input type="text" name="m_phone3"  required="" class="common-text-box4" id="m_phone3"  size="4" maxlength="4" required=""  label="핸드폰">
+   <input type="text" name="m_phone1"  required="" class="common-text-box4"id="m_phone1" value="010" size="3" maxlength="3" required=""  label="핸드폰" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;"/> -
+   <input type="text" name="m_phone2"  required="" class="common-text-box4"id="m_phone2"  size="4" maxlength="4" required=""  label="핸드폰" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;"/> -
+   <input type="text" name="m_phone3"  required="" class="common-text-box4" id="m_phone3"  size="4" maxlength="4" required=""  label="핸드폰" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;"/>
 <!--    <span class="noline" style="padding-left:10px"><input type="checkbox" name="sms"><span style="font:8pt 돋움;color:#007FC8">광고성 정보,이벤트SMS수신</span></span>
    <div style="letter-spacing:-1;color:#FF6000">※ <span style="font-size:8pt;">주문 관련 정보 등 주요 안내 사항은 수신 동의 여부에 관계없이 자동 발송됩니다.</span></div> -->
    </td>
@@ -288,16 +327,15 @@
                   </th>
                   <td class="radio-txt-pt">
                      <p class="mt-5">
-                        <input type="text"  required="" id="m_email" name="m_email" class="common-text-box2 "/> 
+                        <input type="text"  required="" id="m_email" name="m_email" class="common-text-box2 " onkeydown="press_eng_num();" style="ime-mode:disabled;" /> 
                            
                      </p>
-                 <!--     <p class="mt-5"><span class="color">* </span> 이메일은 결제내역 받기, 비밀번호 찾기 등에 사용되므로 정확하게 입력해 주세요.</p>
-                     <p class="errorpage errorpage2 mt-5" id="errUserMail" style="display:none;">이미 사용중인 이메일 입니다.</p> -->
+                
                   </td>
                </tr>
                <tr>
                <th class="memberCols1" rowspan="2">
-               	 <label for="email"><span class="color">*</span>주소</label>
+                   <label for="email"><span class="color">*</span>주소</label>
                </th>
                
                  <td>

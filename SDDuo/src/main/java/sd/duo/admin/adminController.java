@@ -280,7 +280,7 @@ public class adminController{
 
 	}
 	@RequestMapping(value = "/adminConsultingReply.do")
-	public ModelAndView daminConsultingReply(@ModelAttribute("consulting") consultingModel consultingmodel,
+	public ModelAndView adminConsultingReply(@ModelAttribute("consulting") consultingModel consultingmodel,
 			HttpServletRequest request) {
 		/*if(request.getParameter("c_re_status").equals('2')){
 			mv.setViewName(viewName);
