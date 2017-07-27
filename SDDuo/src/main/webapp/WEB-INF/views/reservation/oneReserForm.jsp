@@ -166,7 +166,7 @@ $(document).ready(function () {
                      </select>
                                           일&nbsp;&nbsp;
                  	</div>
-                     <p style="font-size: 20px; text-align: center;margin-top: 30px;"><span id="year" style="color: red;"></span>년<span id="month" style="color: red;"></span>월<span id="day" style="color: red;">일</span>에 예약하시겠습니까?</p>
+                     <p style="font-size: 20px; text-align: center;margin-top: 30px;"><span id="year" style="color: red;"></span>년<span id="month" style="color: red;"></span>월<span id="day" style="color: red;"></span>일에 예약하시겠습니까?</p>
                      
                                   
                   </div>
