@@ -137,7 +137,7 @@ function pwChk()
 											<td class="memberCols1"><font color="FF6000">*</font> 이메일</td>
 											<td class="memberCols2">
 											<input type="text" name="m_email" value="${member.m_email }" size="30" required="" option="regEmail" label="이메일" style="background:#FFF">
-											<a href="javascript:void(0)" onclick="chkEmail()"><input type="button" style="    background: #484647;    cursor: pointer;    border: none;    color: #Fff;    padding: 3px 7px;" value="중복확인"></a>
+										<!-- 	<a href="javascript:void(0)" onclick="chkEmail()"><input type="button" style="    background: #484647;    cursor: pointer;    border: none;    color: #Fff;    padding: 3px 7px;" value="중복확인"></a> -->
 											
 											
 											

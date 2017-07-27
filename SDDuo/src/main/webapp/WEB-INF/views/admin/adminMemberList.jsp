@@ -15,7 +15,7 @@
             </div>
             <div class="row">
                 <div class="resev-box">
-					<p class="listnum">총 <span>3</span>건 1/1</p>
+				<p class="listnum">총 <span>${totalMember }</span>건 </p> 
 				</div>
 				
 				<table class="list-board01">

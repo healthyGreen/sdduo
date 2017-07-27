@@ -58,6 +58,20 @@ public class adminService implements adminDao{
 	}
 
 
+	@Override
+	public int totalMember() {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectOne("member.totalMember");
+	}
+
+
+	@Override
+	public int totalMemberSearch(String search) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectOne("member.totalMemberSearch","%"+search+"%" );
+	}
+
+
 
 
 }

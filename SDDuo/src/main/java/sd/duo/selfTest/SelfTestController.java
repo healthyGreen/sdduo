@@ -13,12 +13,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import sd.duo.member.MemberModel;
+import sd.duo.member.MemberService;
+
 @Controller
 @RequestMapping(value = "/self")
 public class SelfTestController {
 	
 	@Resource
 	private SelfTestService selfService;
+	@Resource
+	private MemberService memberService;
 
 	ModelAndView mav = new ModelAndView();
 	
@@ -76,6 +81,7 @@ public class SelfTestController {
 	public ModelAndView selfTestList(SelfTestModel selfTestModel, HttpServletRequest requeset,
 			HttpSession session)throws Exception{
 			
+			MemberModel m = new MemberModel();
 			String category = null;
 			SelfTestModel result = new SelfTestModel();
 			m_id=(String)session.getAttribute("session_member_id");
@@ -83,6 +89,7 @@ public class SelfTestController {
 			selfTestModel.setM_id(m_id);
 			selfTestModel.setT_category(t_category);
 			result = selfService.selfList(selfTestModel);
+			m=memberService.getMember(m_id);
 			if(result==null){
 				category=null;
 			}else{
@@ -96,6 +103,7 @@ public class SelfTestController {
 				category="분노조절";
 			}
 			}
+			mav.addObject("member", m);
 			mav.addObject("category", category);	
 			mav.addObject("result", result);
 			mav.setViewName("selfTestList");

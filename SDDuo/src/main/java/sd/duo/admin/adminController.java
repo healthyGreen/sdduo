@@ -50,7 +50,7 @@ public class adminController{
 	public ModelAndView memberList(HttpServletRequest request,HttpSession session) throws Exception{
 		
 		
-		
+		int totalMember = 0;
 		if(request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty() || request.getParameter("currentPage").equals("0")) {
             currentPage = 1;
         } else {
@@ -67,7 +67,7 @@ public class adminController{
 			if(searchNum==0)
 				memberList = adminService.memberSearch0(isSearch);
 		
-			
+			totalMember = adminService.totalMemberSearch(isSearch);
 			totalCount = memberList.size();
 			System.out.println("size"+memberList.size());
 			page = new Paging(currentPage, totalCount, blockCount, blockPage, "adminMemberList");
@@ -79,7 +79,7 @@ public class adminController{
 				lastCount = page.getEndCount() + 1;
 			
 			memberList = memberList.subList(page.getStartCount(), lastCount);
-		
+			mav.addObject("totalMember", totalMember);
 			mav.addObject("totalCount", totalCount);
 			mav.addObject("pagingHtml", pagingHtml);
 			mav.addObject("currentPage", currentPage);
@@ -89,7 +89,7 @@ public class adminController{
 		}
 		
 		memberList = adminService.memberList();
-		
+		totalMember = adminService.totalMember();
 		totalCount = memberList.size();
 		System.out.println("size"+memberList.size());
 		page = new Paging(currentPage, totalCount, blockCount, blockPage, "adminMemberList");
@@ -101,7 +101,8 @@ public class adminController{
 			lastCount = page.getEndCount() + 1;
 		
 		memberList = memberList.subList(page.getStartCount(), lastCount);
-	
+		
+		mav.addObject("totalMember", totalMember);
 		mav.addObject("totalCount", totalCount);
 		mav.addObject("pagingHtml", pagingHtml);
 		mav.addObject("currentPage", currentPage);
