@@ -9,7 +9,7 @@
 							<li onclick="location.href='/SDDuo/member/about.do'" style="cursor:pointer">회사소개</li>
 							<li onclick="window.open('/SDDuo/Reserve/agree2.do', width=600,height=800)" style="cursor:pointer">사이트이용약관</li>
 							<li onclick="window.open('/SDDuo/Reserve/agree1.do', width=600,height=800)" style="cursor:pointer">개인정보처리방침</li>
-							<li>임직원서비스</li>
+							<li onclick="location.href='/SDDuo/AdminReserve/OneReserList.do'" style="cursor:pointer">임직원서비스</li>
 						</ul>
 					</div>
 				</div>s
