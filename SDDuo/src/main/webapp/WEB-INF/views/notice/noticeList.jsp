@@ -20,7 +20,7 @@
                 <!-- /.col-lg-12 -->
             </div>
             <div class="row">
-                <div class="resev-box">
+                <div class="resev-box" style=" margin-top: 60px;">
 					<p class="listnum">총 <span>${ totalCount}</span>건 ${currentPage}/${totalPage }</p>
 					<form name="frmCommonList">
 					<p class="search-area">

@@ -23,14 +23,10 @@
       <dt><a href="<%=request.getContextPath() %>/member/myCoupon.do">쿠폰함(${member.m_r_coupon}개)</a></dt>
    </dl>
 </div>
-<div class="sub-content">
-   
-      <div class="sub-content-inbox">
-      <p class="onlinetit">
-			</p>
+	<div class="rightbox">
         	<div class="resev-box">
-				<p class="listnum">총 <span>${ totalCount }</span>건 ${currentPage }/${totalPage }&nbsp;&nbsp;&nbsp;&nbsp; <input type="button" onclick="location.href='myOneReserList.do'" value="개인 예약 현황"> 
-            &nbsp;&nbsp; <input type="button" onclick="location.href='myGroupReserList.do'" value="그룹 예약 현황"> </p>
+				<p class="">총 <span>${ totalCount }</span>건 ${currentPage }/${totalPage }&nbsp;&nbsp;&nbsp;&nbsp; <input type="button" style="    background: #484647;    cursor: pointer;    border: none;    color: #Fff;    padding: 3px 7px;" onclick="location.href='myOneReserList.do'" value="개인 예약 현황"> 
+            &nbsp;&nbsp; <input type="button" style="    background: #484647;    cursor: pointer;    border: none;    color: #Fff;    padding: 3px 7px;" onclick="location.href='myGroupReserList.do'" value="그룹 예약 현황"> </p>
 			</div>
 			<div class="onlinetb">
 				<table class="list-board01">
@@ -110,5 +106,6 @@
 				<center>등록된 게시물이 없습니다</center>
 				<br />
 			</c:if>
+		</div>
 </body>
 </html>

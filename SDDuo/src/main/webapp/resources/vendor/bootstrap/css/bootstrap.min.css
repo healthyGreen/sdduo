@@ -6853,7 +6853,7 @@ button.close {
 .list-board01 .subject .notice-icon{margin-right: 10px;}
 .list-board01 .subject .new-icon{margin-left: 10px;}
 .list-board01 .subject .lock{margin-right: 5px;}
-.list-board01 .finish{ margin-left: 37px;width: 82px; height: 24px;  border: 1px solid #d3d3d3; color: #444444; font-size: 13px;font-family: '¸¼Àº °íµñ'; border-radius: 3px; padding-top: 3px; box-sizing: border-box; text-align:center;}
+.list-board01 .finish{width: 82px; height: 24px;  border: 1px solid #d3d3d3; color: #444444; font-size: 13px;font-family: '¸¼Àº °íµñ'; border-radius: 3px; padding-top: 3px; box-sizing: border-box; text-align:center;}
 .list-board01 .ongo{  margin-left: 37px;width: 62px; height: 24px;  border: none; color: #fff; font-size: 13px;font-family: '¸¼Àº °íµñ'; border-radius: 3px; padding-top: 4px; box-sizing: border-box; text-align:center; background: #c5a160; }
 .write-board01{clear: both; width: 100%; border-top: 2px solid #4d535a;  }
 .write-board01 th{ height: 60px; width: 172px;border-bottom: 1px solid #dadada; color: #4f4f4f; font-size: 14px; padding-left: 27px; vertical-align:middle; font-weight: 600; background: #fbfbfb;   }

@@ -12,7 +12,7 @@
 							<li>임직원서비스</li>
 						</ul>
 					</div>
-				</div>s
+				</div>
 				<div class="footer-bottom">
 					<div class="footer-bottom-inbox">
 						<h2><img src="/SDDuo/resources/images/common/b_logo.jpg" width=90, height=50></h2>

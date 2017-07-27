@@ -60,7 +60,7 @@
 					</tbody>
 				</table>
 			
-			<div style="width: 240px; margin: 40px auto; ">
+			<div style=" margin: 40px auto; ">
 				<form class="viewForm" method="post">
 				<input type="hidden" name="${noticeModel.n_number }" />
 				<%-- <input type="hidden" name="seq" value="${item.seq }" /> --%>

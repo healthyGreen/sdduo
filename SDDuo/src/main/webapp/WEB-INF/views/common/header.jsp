@@ -37,24 +37,28 @@
 								</li>
 								<li class="has-sub g2"><a>상담예약</a>
 									<div class="dropdown dropdown1">
-										<ul>
-											<li><a href="<%=request.getContextPath() %>/Reserve/OneReserveForm.do">개인예약</a></li>
-			                                <li><a href="<%=request.getContextPath() %>/Reserve/GroupReserveForm.do">그룹예약</a></li>
-			                                <li><a href="<%=request.getContextPath() %>/Reserve/OneReserList.do">개인예약현황</a></li>
-			                                <li><a href="<%=request.getContextPath() %>/Reserve/GrReserList.do">그룹예약현황</a></li>
-										</ul>
+										<div class="clear" style=" width: 1100px; margin: 0 auto;">
+											<ul class="clear" style="    width: 355px;    margin-left: 177px;">
+												<li><a href="<%=request.getContextPath() %>/Reserve/OneReserveForm.do">개인예약</a></li>
+				                                <li><a href="<%=request.getContextPath() %>/Reserve/GroupReserveForm.do">그룹예약</a></li>
+				                                <li><a href="<%=request.getContextPath() %>/Reserve/OneReserList.do">개인예약현황</a></li>
+				                                <li><a href="<%=request.getContextPath() %>/Reserve/GrReserList.do">그룹예약현황</a></li>
+											</ul>
+										</div>
 									</div>
 								</li>
 								<li class="has-sub g3"><a href="<%=request.getContextPath() %>/consulting/consultingList.do">온라인상담</a>		
 								<li class="has-sub g4"><a href="<%=request.getContextPath() %>/self/selfWrite.do">심리검사</a></li>
 								<li class="has-sub g5"><a>커뮤니티</a>
 									<div class="dropdown dropdown2">
-										<ul>
+										<div class="clear"  style=" width: 1100px; margin: 0 auto;">
+											<ul class="clear" style="    width: 182px;    margin-left: 910px;">
 
-											<li><a href="<%=request.getContextPath() %>/notice/noticeList.do">공지사항</a></li>
-											<li><a href="<%=request.getContextPath() %>/notice/Faq.do">자주하는 질문</a></li>	
-							
-										</ul>
+												<li><a href="<%=request.getContextPath() %>/notice/noticeList.do">공지사항</a></li>
+												<li><a href="<%=request.getContextPath() %>/notice/Faq.do">자주하는 질문</a></li>	
+								
+											</ul>
+										</div>
 									</div>
 								</li>
 							</ul>
