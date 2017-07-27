@@ -10,9 +10,8 @@
 
 	<!--bjqs-->
 	<link rel="stylesheet" href="../resources/css/bjqs.css">
-	<script type="text/javascript" src="../resources/js/bjqs-1.3.min.js"></script>
-	
-		<link rel="stylesheet" href="../resources/css/style.css" />
+	<script type="text/javascript" src="../resources/js/bjqs-1.3.min.js"></script>	
+	<link rel="stylesheet" href="../resources/css/style.css" />
 	<link rel="stylesheet" href="../resources/css/default.css" />
 	<link rel="stylesheet" href="../resources/css/demo.css">
 	<script>
@@ -49,6 +48,10 @@
 		 
 		 $(document).ready(function() {
 			    document.getElementById('submit1').onclick = function() {
+			    	if(document.getElementById('t_score1').value==0){
+			    		alert("테스트를 해주셔야 결과를 보실 수 있습니다!");
+			    		return false;
+			    	}
 			        document.getElementById("form1").submit();
 			        return;
 			    }
@@ -58,6 +61,10 @@
 		 
 		 $(document).ready(function() {
 			    document.getElementById('submit2').onclick = function() {
+			    	if(document.getElementById('t_score3').value==0){
+			    		alert("테스트를 해주셔야 결과를 보실 수 있습니다!");
+			    		return false;
+			    	}
 			        document.getElementById("form2").submit();
 			        return;
 			    }
@@ -67,6 +74,10 @@
 		 
 		 $(document).ready(function() {
 			    document.getElementById('submit3').onclick = function() {
+			    	if(document.getElementById('t_score4').value==0){
+			    		alert("테스트를 해주셔야 결과를 보실 수 있습니다!");
+			    		return false;
+			    	}
 			        document.getElementById("form3").submit();
 			        return;
 			    }
@@ -76,6 +87,10 @@
 		 
 		 $(document).ready(function() {
 			    document.getElementById('submit4').onclick = function() {
+			    	if(document.getElementById('t_score5').value==0){
+			    		alert("테스트를 해주셔야 결과를 보실 수 있습니다!");
+			    		return false;
+			    	}
 			        document.getElementById("form4").submit();
 			        return;
 			    }

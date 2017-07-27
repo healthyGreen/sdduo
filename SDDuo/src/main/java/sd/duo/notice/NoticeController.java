@@ -47,7 +47,7 @@ public class NoticeController {
 		private static final String uploadPath = "C:\\Java\\FINAL\\SDDuo\\src\\main\\webapp\\resources\\upload";
 		
 		
-		//사용자공지사항리스트
+		//�궗�슜�옄怨듭��궗�빆由ъ뒪�듃
 		@RequestMapping(value="/noticeList.do", method=RequestMethod.GET)
 		public ModelAndView noticeList(HttpServletRequest request,HttpSession session) throws UnsupportedEncodingException{
 			
@@ -81,7 +81,7 @@ public class NoticeController {
 					noticeList = noticeService.noticeSearch1(isSearch);
 			
 				totalCount = noticeList.size();
-				page = new Paging(currentPage, totalCount, blockCount, blockPage, "NoticeList", searchNum, isSearch);
+				page = new Paging(currentPage, totalCount, blockCount, blockPage, "noticeList", searchNum, isSearch);
 				pagingHtml = page.getPagingHtml().toString();
 				totalPage = page.getTotalPage();
 			
@@ -113,7 +113,7 @@ public class NoticeController {
 			
 			totalCount = noticeList.size();
 			
-			page = new Paging(currentPage, totalCount, blockCount, blockPage, "NoticeList");
+			page = new Paging(currentPage, totalCount, blockCount, blockPage, "noticeList");
 			pagingHtml=page.getPagingHtml().toString();  
 			totalPage = page.getTotalPage();
 			

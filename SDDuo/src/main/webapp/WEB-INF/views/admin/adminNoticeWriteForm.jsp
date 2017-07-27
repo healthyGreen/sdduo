@@ -50,7 +50,7 @@
 						<tr><!-- 글내용 -->
 							<th>글내용</th>
 							<td colspan=3 height=600 style="padding: 0px !important;">
-							   <textarea  name="n_content" id="n_content" style=" padding:3px; margin: 1px; width: 100%; height: 98%;"></textarea>
+							   <textarea  name="n_content" id="n_content" onKeyUp="checkLength(this);" style=" padding:3px; margin: 1px; width: 100%; height: 98%;"></textarea>
 							<font color="red"><form:errors path="n_content" /></font>
 							
 							</td>
@@ -120,5 +120,16 @@ function checkIt() {
 		 return false;
 		 }
 }
+
+function checkLength(pr_reason) {
+    if (pr_reason.value.length > 3000 ) {
+    	pr_reason.blur();
+    	pr_reason.value = pr_reason.value.substring(0, 3000);
+        alert('3000자 이내로 입력해주세요.');
+        pr_reason.focus();
+        return false;
+    }
+}
+
 
 </script>

@@ -77,9 +77,12 @@ ${consultingmodel.c_content }
 						<c:if test="${session_admin.equals('0') }">
 						<c:if test="${isReply.equals('noReply') }"> 
 						<div class="area">
-							<p class="btn01"><input type="button" value="수정" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingModify.do?c_number=${consultingmodel.c_number }'"></p>
+							<input type="button" value="수정" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingModify.do?c_number=${consultingmodel.c_number }'" class="btn btn-outline btn-primary" style="margin-right: 10px; ">
 						<%-- 	<p class="btn02"><input type="button" value="삭제" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingDeletePro.do?c_number=${consultingmodel.c_number }'"></p> --%>
-							<p class="btn02"><input type="button" value="삭제" onclick="javascript:deletOk();"></p>
+							<input type="button" value="삭제" onclick="javascript:deletOk();" class="btn btn-outline btn-primary" style="margin-right: 10px; ">
+									<!-- <button type="button" onclick="onModify(${noticeModel.n_number })" class="btn btn-outline btn-primary" style="margin-right: 10px; ">수정</button>
+					<button type="button" onclick="noticeDelete(${noticeModel.n_number })" class="btn btn-outline btn-primary" style="margin-right: 10px; ">삭제</button>
+					<button type="button" onclick="onList()" class="btn btn-outline btn-default">목록</button> -->
 						</div>
 						 </c:if>
 						 </c:if> 

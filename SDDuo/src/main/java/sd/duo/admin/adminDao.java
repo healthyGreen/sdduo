@@ -8,6 +8,8 @@ import sd.duo.member.MemberModel;
 public interface adminDao {
 
 	List<MemberModel> memberList();
+	int totalMember();
+	int totalMemberSearch(String search);
 	List<consultingModel> noReplyList();
 	List<consultingModel> ReplyOkList();
 	int totalNoReply();

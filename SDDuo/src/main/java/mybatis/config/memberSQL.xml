@@ -100,6 +100,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from F_MEMBER order by m_number desc
 	</select>
 	
+	<select id="totalMember" resultType="int">
+		select count(*) from f_member
+	</select>
+	
 	<select id="MyTotCoupon" resultType="int" parameterType="string">
 		select count(m_r_coupon) from f_member where m_id=#{m_id}
 	</select>
@@ -118,6 +122,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from F_MEMBER
 			where m_name like #{search}
 			order by m_number desc
+	</select>
+	
+	<select id="totalMemberSearch" resultType="int" parameterType="string">
+		select count(*) from f_member where m_name like #{search}
 	</select>
 	
 
