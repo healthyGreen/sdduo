@@ -51,7 +51,7 @@
 								</div>
 							</td>
 						</tr>
-						<tr><th>상담 내용</th></tr>
+						
 						<tr>
 							<td class="dmc_content content">
 								

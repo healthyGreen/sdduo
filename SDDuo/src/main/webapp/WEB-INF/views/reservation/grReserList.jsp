@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<p class="onlinetit">온라인 실시간 예약현황
+<p class="centerH2">온라인 실시간 예약현황
 			</p>
 <div class="resev-box">
 				<p class="listnum">총  <span>${ totalCount}</span>건 ${currentPage}/${totalPage }</p>

@@ -62,7 +62,7 @@
 										<tr>
 											<th><%= number++%></th>
 											<th class="subject">
-												<a href="${passURL}"><!-- <img src="../../images/sub/lock.gif" alt="자물쇠" class="lock"> --><b>↘[♨비밀글]</b> ${list.c_title }</a>
+												<a href="${passURL}"><!-- <img src="../../images/sub/lock.gif" alt="자물쇠" class="lock"> --><b></b> ${list.c_title }</a>
 											</th>
 											<th>${list.m_id }</th>
 											<th><p class="finish">
