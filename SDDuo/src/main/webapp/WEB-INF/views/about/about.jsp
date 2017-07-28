@@ -4,5 +4,5 @@
 
 <body>
 	<h3 class="aboutTit">About 상담해듀오</h3>
-	<div class="myis"><img src="/SDDuo/resources/images/sub/myis.gif" alt="마이스토리 소개"></div>
+	<div class="myis" style="padding-top: 40px; "><img src="/SDDuo/resources/images/sub/myis.gif" alt="마이스토리 소개"></div>
 </body>
