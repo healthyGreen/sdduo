@@ -42,31 +42,31 @@
 									<table width="97%" cellpadding="5" cellspacing="0" border="0" class="jogin_infotbl">
 									<tbody>
 									<tr>
-										<td class="memberCols1"><font color="FF6000">*</font> 아이디</td>
+										<td class="memberCols1"><font color="FF6000">*</font>&nbsp; <b>아이디</b></td>
 										<td class="memberCols2">
-											<span class="eng"><b>${sessionScope.session_member_id}</b></span>
+											<span class="eng"><font color="DimGray" size="2">${sessionScope.session_member_id}</font></span>
 									
 										</td>
 									</tr>
 									
 									<tr>
-										<td class="memberCols1"><font color="FF6000">*</font> 이름</td>
+										<td class="memberCols1"><font color="FF6000">*</font> &nbsp;<b>이름</b></td>
 										<td class="memberCols2">
-											${sessionScope.session_member_name}
+											<font color="DimGray" size="2">${sessionScope.session_member_name}</font>
 										</td>
 									</tr>
 									
 									<tr>
-										<td class="memberCols1"><font color="FF6000">*</font> 성별</td>
+										<td class="memberCols1"><font color="FF6000">*</font> &nbsp;<b>성별</b></td>
 										<td class="memberCols2"><span class="noline">
-											${member.m_sex }
+											<font color="DimGray" size="2">${member.m_sex }</font>
 										</td>
 									</tr>
 									
 									<tr>
-										<td class="memberCols1"><font color="FF6000">*</font> 생년월일</td>
+										<td class="memberCols1"><font color="FF6000">*</font> &nbsp;<b>생년월일</b></td>
 										<td class="memberCols2">
-											${member.m_year}년 ${member.m_month }월 ${member.m_date }일 
+											<font color="DimGray" size="2">${member.m_year}년 ${member.m_month }월 ${member.m_date }일 </font>
 									
 										</td>
 									</tr>
@@ -75,22 +75,22 @@
 									
 									
 									<tr>
-										<td class="memberCols1"><font color="FF6000">*</font> 이메일</td>
+										<td class="memberCols1"><font color="FF6000">*</font>&nbsp;<b> 이메일</b></td>
 										<td class="memberCols2">
-											${member.m_email }
+											<font color="DimGray" size="2">${member.m_email }</font>
 										</td>
 									</tr>
 									
 									
 									<tr>
-										<td class="memberCols1"><font color="FF6000">*</font> 주소</td>
+										<td class="memberCols1"><font color="FF6000">*</font>&nbsp;<b> 주소</b></td>
 									<td class="memberCols2">
 
 									<table> 
 									<tbody> <tr>
 										<td>
-											${member.m_zipcode } <br>
-											${member.m_add1 } ${member.m_add2 }
+											<font color="DimGray" size="2">${member.m_zipcode }</font> <br>
+											<font color="DimGray" size="2">${member.m_add1 } ${member.m_add2 }</font>
 											</td>
 										</tr>
 										</tbody></table>
@@ -100,9 +100,9 @@
 									
 									
 									<tr>
-										<td class="memberCols1"><font color="FF6000">*</font> 핸드폰</td>
+										<td class="memberCols1"><font color="FF6000">*</font>&nbsp;<b> 핸드폰</b></td>
 										<td class="memberCols2">
-											${member.m_phone1 }-${member.m_phone2 }-${member.m_phone3 }
+											<font color="DimGray" size="2">${member.m_phone1 }-${member.m_phone2 }-${member.m_phone3 }</font>
 									</td>
 								</tr>
 
