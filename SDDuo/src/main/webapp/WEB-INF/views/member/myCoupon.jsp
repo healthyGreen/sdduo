@@ -6,10 +6,10 @@
 
 <html>
 <div class="sub-top">
-						<h2>쿠폰함</h2><br>
+						<h2>쿠폰함</h2>
 					</div>
 					<div class="sub-cont clear">
-						<div class="sub-cont-inbox">
+						<div class="">
 							<div class="leftbox">
 								<div class="tit"><span>MY</span> PAGE</div>
 									<dl class="mlist">
@@ -23,19 +23,37 @@
 							</div>
 							<div class="rightbox">
 								<div align="center">
-								-----------------------------------------------------------------------<br><br>
 									<c:if test="${member.m_r_coupon.equals('1')}">
-										<h2>★ 회원가입 기념 쿠폰 ★<br>오프라인 상담 예약 10% DC 이벤트 쿠폰</h2>
-										<br>사용은 결제 시 보여드리면 됩니다.
+										<table class="list-board01">
+											<tr>
+												<th>쿠폰이름</th>
+												<th>지급상품</th>
+											</tr>
+											<tr>
+												<td>회원가입 기념 쿠폰</td>
+												<td>오프라인 상담 예약 10% DC 이벤트 쿠폰</td>
+											</tr>
+										</table>
 									</c:if>
 										
 									<c:if test="${member.m_r_coupon.equals('2')}">
-										<h2><font color="red">★ 회원가입 기념 쿠폰 ★</font><br><br>오프라인 상담 예약 10% DC 이벤트 쿠폰</h2>
-										<br>사용은 결제 시 보여드리면 됩니다.<br><br>--------------------------------------<br><br>
-										<h2><font color="red">★ 온라인 예약 기념 쿠폰 ★</font><br><br>오프라인 상담 예약 5% DC 이벤트 쿠폰</h2>
-										<br>사용은 결제 시 보여드리면 됩니다.
+										<table class="list-board01">
+											<tr>
+												<th>쿠폰이름</th>
+												<th>지급상품</th>
+											</tr>
+											<tr>
+												<td>회원가입 기념 쿠폰</td>
+												<td>오프라인 상담 예약 10% DC 이벤트 쿠폰</td>
+											</tr>
+											<tr>
+												<td>온라인 예약 기념 쿠폰</td>
+												<td>오프라인 상담 예약 5% DC 이벤트 쿠폰</td>
+											</tr>
+										</table>
+										
 									</c:if>
-									<br><br>-----------------------------------------------------------------------
+						
 								</div>
 							</div>
 	</div>

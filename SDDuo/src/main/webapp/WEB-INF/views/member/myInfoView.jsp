@@ -14,10 +14,10 @@
 				<div class="sub-content-inbox">
 					
 					<div class="sub-top">
-						<h2>회원정보보기</h2><br>
+						<h2>회원정보보기</h2>
 					</div>
 					<div class="sub-cont clear">
-						<div class="sub-cont-inbox">
+						<div class="">
 							<div class="leftbox">
 								<div class="tit"><span>MY</span> PAGE</div>
 									<dl class="mlist">

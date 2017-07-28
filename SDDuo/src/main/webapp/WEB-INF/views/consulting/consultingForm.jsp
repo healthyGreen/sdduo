@@ -14,7 +14,13 @@
 			alert("내용을 입력해 주세요!!");
 			join.c_content.focus();
 			return false;
-		}if(join.c_pass.value==null || join.c_pass.value.trim().length==0){
+		}
+		if(join.c_content.value.trim().length>2000){
+	         alert("상담 내용은 2000자 이하로 써주시기 바랍니다.");
+	         join.c_content.focus();
+	         return false;
+	      }
+		if(join.c_pass.value==null || join.c_pass.value.trim().length==0){
 			alert("비밀번호를 입력해 주세요!!");
 			join.c_pass.focus();
 			return false;
@@ -42,9 +48,7 @@
 
 		<c:choose>
 			<c:when test="${state.equals('modify')}">
-				<caption>
-					<font color="red">상담문의 글 수정</font></b>
-				</caption>
+				
 				<spring:hasBindErrors name="consulting" />
 				<form:errors path="consulting" />
 				<form:form commandName="consultingmodel" action="consultingModifyPro.do" name="join" onsubmit="return joinCheck();" >
@@ -84,9 +88,7 @@
 			</c:when>
 
 			<c:otherwise>
-				<caption>
-					<font color="red">상담문의 글쓰기</font></b>
-				</caption>
+				
 			<spring:hasBindErrors name="consulting" />
 			<form:errors path="consulting" /> 
 				<form:form commandName="consulting" action="consultingPro.do" name="join" onsubmit="return joinCheck();"> 
@@ -99,7 +101,7 @@
 								 <input type="hidden" name="c_number" value="${consultingmodel.c_number }"> 
 									<c:if test="${state.equals('reply')}">
 										<input type="text" class="writetxt01" name="c_title" size="20"
-											value="[답변]${consultingmodel.c_title }">
+											value="${consultingmodel.c_title }">
 										<%-- <form:errors path="c_title" /> --%>
 									</c:if> 
 									<c:if test="${state.equals('noting')}">

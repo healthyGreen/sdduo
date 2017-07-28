@@ -19,7 +19,12 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
+            
             <div class="row">
+            <h3>상담해듀오 공지사항</h3>
+            <p class="sub02_txt">
+				상담해듀오의 새로운 소식을 확인 할 수 있습니다.
+			</p>
                 <div class="resev-box" style=" margin-top: 60px;">
 					<p class="listnum">총 <span>${ totalCount}</span>건 ${currentPage}/${totalPage }</p>
 					<form name="frmCommonList">
@@ -74,7 +79,7 @@
 						<td>${list.n_number}</td>
 						
 						<td style="text-align:left;">
-									<a href="${viewURL}">[공지사항]${list.n_title}</a>
+									<a href="${viewURL}">[공지사항]&nbsp;${list.n_title}</a>
 						</td>
 						
 						<td>${list.n_name}</td> 

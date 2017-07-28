@@ -29,11 +29,11 @@ public class adminController{
 	@Resource
 	public consultingService consultingService;
 	
-	//È¸¿ø¸ñ·Ï ³ëÃâ 
+	//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 	@Resource
 	private adminService adminService;
 	
-	//ÆäÀÌÂ¡
+	//ï¿½ï¿½ï¿½ï¿½Â¡
 	int currentPage = 0;
 	int totalCount; 
 	int blockCount = 10;
@@ -45,7 +45,7 @@ public class adminController{
 	
 	ModelAndView mav = new ModelAndView();
 	
-	//È¸¿ø¸ñ·ÏÄÚµå
+	//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½
 	@RequestMapping(value="/adminMemberList.do", method=RequestMethod.GET)
 	public ModelAndView memberList(HttpServletRequest request,HttpSession session) throws Exception{
 		
@@ -249,8 +249,8 @@ public class adminController{
 		// service.modConsulting(consultingmodel);
 		return mav;
 	}
-	@RequestMapping("adminConsultingModifyPo.do")
-	public ModelAndView adminConsultingModifyPo(@ModelAttribute("consulting") consultingModel consultingmodel,
+	@RequestMapping("adminConsultingModifyPro.do")
+	public ModelAndView adminConsultingModifyPro(@ModelAttribute("consulting") consultingModel consultingmodel,
 			BindingResult result) {
 
 		// new consultingModValidator().validate(consultingmodel, result);
@@ -259,7 +259,7 @@ public class adminController{
 		 * //int c_number = Integer.parseInt(request.getParameter("c_number"));
 		 * // int c_ref = Integer.parseInt(request.getParameter("c_ref"));
 		 * 
-		 * // if(c_ref == c_number) // °ü¸®ÀÚÀÇ ´ä±Û ¼öÁ¤ÀÎ °æ¿ì
+		 * // if(c_ref == c_number) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 		 */
 		int c_number = consultingmodel.getC_number();
 		// System.out.println(c_number);
@@ -272,9 +272,9 @@ public class adminController{
 		 */
 
 		consultingService.modConsulting(consultingmodel);
-		mav.setViewName("redirect:/admin/adminConsultingView.do?c_number=" + c_number); // ?‹¤?´? ‰?Š¸?•˜ê¸?
-																						// ì½˜ì„¤?Œ…?œ¼ë¡?(ë²ˆí˜¸
-																						// ?„˜ê²¨ì£¼ë©´ì„œ
+		mav.setViewName("redirect:/admin/adminConsultingView.do?c_number=" + c_number); // ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ï¿½?
+																						// ì½˜ì„¤?ï¿½ï¿½?ï¿½ï¿½ï¿½?(ë²ˆí˜¸
+																						// ?ï¿½ï¿½ê²¨ì£¼ë©´ì„œ
 																						// )
 		return mav;
 
@@ -291,7 +291,7 @@ public class adminController{
 		// mv.setViewName("redirect:/consulting/consultingReply.do?c_number="+c_number);
 		// int c_number = Integer.parseInt(request.getParameter("c_number"));
 		consultingmodel = consultingService.consultingView(c_number);
-		// consultingmodel.setC_title("[´äº¯] "+consultingmodel.getC_title());
+		// consultingmodel.setC_title("[ï¿½äº¯] "+consultingmodel.getC_title());
 		mav.addObject("state", state);
 		mav.addObject("consultingmodel", consultingmodel);
 		mav.setViewName("adminConsultingReForm");
@@ -301,7 +301,7 @@ public class adminController{
 	public ModelAndView consultingPro(@ModelAttribute("consulting") consultingModel consultingmodel,
 			BindingResult result, HttpServletRequest request) {
 		// consultingmodel.setM_id(id);
-		// consultingmodel.setC_re_status(1); // ´äº¯»óÅÂ ¾ÆÁ÷ ¾È´Ş¸° »óÅÂ
+		// consultingmodel.setC_re_status(1); // ï¿½äº¯ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½È´Ş¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 		//new consultingValidator22().validate(consultingmodel, result);
 		//String who = request.getParameter("who");
@@ -322,9 +322,9 @@ public class adminController{
 				// consultingmodel.setC_re_status(2);
 				// System.out.println(consultingmodel);
 				consultingmodel.setC_pass(c.getC_pass());
-				// consultingmodel.setC_title("[´äº¯]"+consultingmodel.getC_title());
+				// consultingmodel.setC_title("[ï¿½äº¯]"+consultingmodel.getC_title());
 				//consultingmodel.setC_ref(c_ref);
-				//consultingmodel.setM_id("admin"); // Â÷ÈÄ¿¡ ·Î±×ÀÎ µÇ¸é session°ªÀ¸·Î ¹Ù²Ü°íÀÓ
+				//consultingmodel.setM_id("admin"); // ï¿½ï¿½ï¿½Ä¿ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ sessionï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²Ü°ï¿½ï¿½ï¿½
 				/*
 				 * System.out.println(consultingmodel.getC_title());
 				 * System.out.println(consultingmodel.getC_pass());
@@ -343,7 +343,7 @@ public class adminController{
 					mv.setViewName("consultingForm");
 					return mv;
 				}
-				//consultingmodel.setM_id("Asd"); // Â÷ÈÄ¿¡ ·Î±×ÀÎ µÇ¸é session°ªÀ¸·Î ¹Ù²Ü°íÀÓ
+				//consultingmodel.setM_id("Asd"); // ï¿½ï¿½ï¿½Ä¿ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ sessionï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²Ü°ï¿½ï¿½ï¿½
 				service.insertConsulting(consultingmodel);
 			}*/
 			/*if(who != null){

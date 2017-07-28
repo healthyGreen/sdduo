@@ -11,11 +11,6 @@
 </head>
 <body>
 
-<div class="sub-content">
-		<!-- <div class="bg02area">
-			<p class="tit">예약/커뮤니티</p>
-		</div> -->
-		<div class="sub-content-inbox">
 			
 			<div class="top"><a href="#top"><img src="/SDDuo/resources/images/sub/top.gif" alt="탑버튼"></a></div>
 
@@ -123,8 +118,6 @@
 				</script>
 			</div>
 
-		</div>
-	</div>
 
 
 

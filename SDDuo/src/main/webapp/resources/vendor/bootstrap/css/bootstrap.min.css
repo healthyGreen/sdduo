@@ -6869,7 +6869,7 @@ button.close {
 .view-board01 th { text-align:left;font-weight:bold;color:#373737;height:42px;vertical-align:middle; font-size: 15px; background:#fbfbfb;border-bottom:1px solid #d8d8d8; }
 .view-board01 th .tit {margin-left:25px;}
 .view-board01 th  .mark{display: inline-block; width: 62px; height: 24px; color: #fff; background: #c5a160; text-align:center; padding-top: 5px; box-sizing: border-box;  border-radius: 3px; margin-left: 10px;  }
-.view-board01 td {position: relative;padding-left:25px;color:#373737;vertical-align:middle;border-bottom:1px solid #b1b1b1; height:42px; font-size: 13px; }
+.view-board01 td {position: relative;padding-left:25px;color:#373737;vertical-align:middle;border-bottom:1px solid #d8d8d8; height:42px; font-size: 13px; }
 .view-board01 td.content {text-align:left;padding:35px 15px;vertical-align:top;border-top:1px solid #b2b2b2;line-height:150%;}
 .view-board01 td.content .thum{ width: 437px; height: 323px; margin-bottom: 30px;}
 .view-board01 .notice-icon { vertical-align: middle;  margin-right: 5px; }
