@@ -13,10 +13,10 @@
 				<div class="sub-content-inbox">
 <div class="sub-top">
 	<h2>나의 상담 내역</h2>
-</div><br>
+</div>
 
 <div class="sub-cont clear">
-						<div class="sub-cont-inbox">
+						<div>
 							<div class="leftbox">
 								<div class="tit"><span>MY</span> PAGE</div>
 									<dl class="mlist">

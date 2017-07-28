@@ -1,3 +1,5 @@
+noticeList.jsp
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -10,22 +12,20 @@
 <body>
 
 
-    <div id="wrapper">
 
-        <div id="page-wrapper">
-            <div class="row">
+       
+       
                 <div class="col-lg-12">
                     <h1 class="page-header">공지사항 관리</h1>
                 </div>
                 <!-- /.col-lg-12 -->
-            </div>
-            
-            <div class="row">
-            <h3>상담해듀오 공지사항</h3>
-            <p class="sub02_txt">
-				상담해듀오의 새로운 소식을 확인 할 수 있습니다.
+        
+            <h3>공지사항</h3>
+			<p class="sub02_txt">
+				상담해듀오의 공지사항입니다.
 			</p>
-                <div class="resev-box" style=" margin-top: 60px;">
+          
+                <div class="resev-box" style=" margin-top:40px;">
 					<p class="listnum">총 <span>${ totalCount}</span>건 ${currentPage}/${totalPage }</p>
 					<form name="frmCommonList">
 					<p class="search-area">
@@ -79,7 +79,7 @@
 						<td>${list.n_number}</td>
 						
 						<td style="text-align:left;">
-									<a href="${viewURL}">[공지사항]&nbsp;${list.n_title}</a>
+									<a href="${viewURL}">[공지사항]${list.n_title}</a>
 						</td>
 						
 						<td>${list.n_name}</td> 
@@ -111,7 +111,7 @@
 			
 			</div>
 			 </form>  
-            </div>
+         
             <!-- /.row -->
             
             <c:if test="${fn:length(adminNoticeList) le 0}">
@@ -122,10 +122,10 @@
 
 		
             
-        </div>
+     
         <!-- /#page-wrapper -->
 
-    </div>
+
     <!-- /#wrapper -->
 
 
