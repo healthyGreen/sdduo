@@ -46,7 +46,7 @@
 								<th><%= number++%></th>
 								<td class="subject">
 								
-								 	<a href="${viewURL}">${list.c_title }</a>
+								 	<a href="${viewURL}"><img src="/SDDuo/resources/images/sub/lock.gif" alt="자물쇠" class="lock">${list.c_title }</a>
 								
 								
 								</td>
@@ -54,10 +54,10 @@
 								<th><fmt:formatDate value="${list.c_date }" pattern="yyyy.MM.dd"/></th> 
 								<th><p class="finish">
 								<c:if test="${list.c_re_status==1}">
-								답변 대기중
+								<font color="DarkSlateGray">답변 대기중</font>
 								</c:if>
 								<c:if test="${list.c_re_status==2 }">
-								★확인★
+								<font color="DarkBlue">확인</font>
 								</c:if>
 								<c:if test="${list.c_re_status==3 }">
 								<font color="red">답변글</font>

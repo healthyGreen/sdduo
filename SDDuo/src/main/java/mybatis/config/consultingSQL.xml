@@ -70,14 +70,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from f_consulting where c_re_status=2 or c_re_status=3
 	</select>
 	
-<!-- 	<select id="myConsultingList" parameterType="string" resultType="consultingModel">
-		select a.c_number, a.c_title, a.c_content, a.c_pass, a.m_id, a.c_date, a.c_re_status, a.c_ref from (
-	select client.c_number, client.c_title, client.c_content, client.c_pass, client.m_id, client.c_date, client.c_re_status, client.c_ref from f_consulting admin, f_consulting client where admin.c_ref=client.c_ref
-) a where a.m_id='admin' or a.m_id='jung';
-	</select> -->
-	<select id="myConsultingList" parameterType="string" resultType="consultingModel">
-		select * from f_consulting where m_id = #{m_id} order by c_ref desc, c_re_status asc
-	</select>
+ 	<select id="myConsultingList" parameterType="string" resultType="consultingModel">
+		select b.c_number, b.c_title, b.c_content, b.c_pass, b.m_id, b.c_date, b.c_re_status, b.c_ref from 
+		(select c_number, c_title, c_content, c_pass, m_id, c_date, c_re_status, c_ref from f_consulting where m_id='admin' or m_id=#{m_id}) a, 
+		(select c_number, c_title, c_content, c_pass, m_id, c_date, c_re_status, c_ref from f_consulting where m_id='admin' or m_id=#{m_id}) b 
+		where a.c_number=b.c_ref
+	</select> 
+	
 	
 	<select id="myTotalConsultingNum" parameterType="string" resultType="int">
 		select count(*) from f_consulting where m_id = #{m_id}
