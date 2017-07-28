@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <html>
 
 
@@ -10,30 +10,30 @@
     
 			</div>
 			<div class="step04-title">
-				<h4>»ó´ãÇØµà¿À <br><span>È¸¿ø°¡ÀÔÀÌ ¿Ï·á</span>µÇ¾ú½À´Ï´Ù.</h4>
-				<p>È¸¿ø´ÔÀÇ È¸¿ø°¡ÀÔÀ» ÃàÇÏÇÕ´Ï´Ù. <br>ÀÔ·ÂÇÏ½Å ¾ÆÀÌµð¿Í ºñ¹Ð¹øÈ£·Î ·Î±×ÀÎ ÇÏ½Ã¸é ´Ù¾çÇÑ ¼­ºñ½º¸¦ ¹Ù·Î ÀÌ¿ëÇÏ½Ç ¼ö ÀÖ½À´Ï´Ù.</p>
+				<h4>ìƒë‹´í•´ë“€ì˜¤ <br><span>íšŒì›ê°€ìž…ì´ ì™„ë£Œ</span>ë˜ì—ˆìŠµë‹ˆë‹¤.</h4>
+				<p>íšŒì›ë‹˜ì˜ íšŒì›ê°€ìž…ì„ ì¶•í•˜í•©ë‹ˆë‹¤. <br>ìž…ë ¥í•˜ì‹  ì•„ì´ë””ì™€ ë¹„ë°€ë²ˆí˜¸ë¡œ ë¡œê·¸ì¸ í•˜ì‹œë©´ ë‹¤ì–‘í•œ ì„œë¹„ìŠ¤ë¥¼ ë°”ë¡œ ì´ìš©í•˜ì‹¤ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.</p>
 				<div class="button mt-20">
-					<input type="button" value="SDDUO ¸ÞÀÎÀ¸·Î" class="main-go" >
-					<input type="button" value="SDDUO ·Î±×ÀÎÇÏ±â" class="login-go">
+					<input type="button" value="SDDUO ë©”ì¸ìœ¼ë¡œ" class="main-go" onclick="location.href='/SDDuo/main.do'">
+					<input type="button" value="SDDUO ë¡œê·¸ì¸í•˜ê¸°" class="login-go" onclick="location.href='/SDDuo/member/loginForm.do'">
 				 </div>
 			</div>
 			
 			
 		
  
-<!-- <h3>È¸¿ø°¡ÀÔ ¼º°ø</h3>
+<!-- <h3>íšŒì›ê°€ìž… ì„±ê³µ</h3>
                <p class="sub02_txt">
-                  ¸¶ÀÌ½ºÅä¸®¿¡ ³²°ÜÁÖ½Å ¼ÒÁßÇÑ °í°´´ÔÀÇ Á¤º¸´Â ³»´ãÀÚ º¸È£ ±ÔÁ¤¿¡ µû¶ó Ã¶ÀúÈ÷ º¸È£µÇ¾î Áý´Ï´Ù.
+                  ë§ˆì´ìŠ¤í† ë¦¬ì— ë‚¨ê²¨ì£¼ì‹  ì†Œì¤‘í•œ ê³ ê°ë‹˜ì˜ ì •ë³´ëŠ” ë‚´ë‹´ìž ë³´í˜¸ ê·œì •ì— ë”°ë¼ ì² ì €ížˆ ë³´í˜¸ë˜ì–´ ì§‘ë‹ˆë‹¤.
                   <br />
 </p>         
 <div align="center">
 -----------------------------------------------------------------------<br><br>
-<h4>È¸¿ø°¡ÀÔÀÌ ¿Ï·áµÇ¼Ì½À´Ï´Ù! <br>
-ÀúÈñ »çÀÌÆ®¿¡ °¡ÀÔÇØÁÖ¼Å¼­ °©»çÇÕ´Ï´Ù. <br>
-Ç×»ó ´õ ³ªÀº ¼­ºñ½º¸¦ À§ÇØ ³ë·ÂÇÏ°Ú½À´Ï´Ù¢½¢½</h4>
+<h4>íšŒì›ê°€ìž…ì´ ì™„ë£Œë˜ì…¨ìŠµë‹ˆë‹¤! <br>
+ì €í¬ ì‚¬ì´íŠ¸ì— ê°€ìž…í•´ì£¼ì…”ì„œ ê°‘ì‚¬í•©ë‹ˆë‹¤. <br>
+í•­ìƒ ë” ë‚˜ì€ ì„œë¹„ìŠ¤ë¥¼ ìœ„í•´ ë…¸ë ¥í•˜ê² ìŠµë‹ˆë‹¤â™¡â™¡</h4>
 <br><br>-----------------------------------------------------------------------
 
-<li><input type="button" onclick="location.href='http://localhost:8080/SDDuo/main.do'" value="¸ÞÀÎÀ¸·Î" ></li>
+<li><input type="button" onclick="location.href='http://localhost:8080/SDDuo/main.do'" value="ë©”ì¸ìœ¼ë¡œ" ></li>
    </div>
 
  -->
