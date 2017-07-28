@@ -62,7 +62,7 @@
 								
 								<c:if test="${list.c_ref != list.c_number }"> <!-- // 답변글일 경우 -->
 								  <c:if test="${session_admin!=1}"> 
-								 	<a href="${passURL}"><!-- <img src="../../images/sub/lock.gif" alt="자물쇠" class="lock"> --><b>↘</b>${list.c_title }</a>
+								 	<a href="${passURL}"><!-- <img src="/SDDuo/resources/images/sub/lock.gif" alt="자물쇠" class="lock"> --><b><font color="OrangeRed">&nbsp;&nbsp;[답변]&nbsp;</font></b>${list.c_title }</a>
 							 	 </c:if> 
 								 <c:if test="${session_admin==1}">
 								 	<a href="${viewURL}"><b>↘</b>${list.c_title }</a>
@@ -71,10 +71,10 @@
 								
 								<c:if test="${list.c_ref == list.c_number }"> <!-- // 답변글이 아닐경우 -->
 							 <c:if test="${session_admin!=1 }">
-								 	<a href="${passURL}"><!-- <img src="../../images/sub/lock.gif" alt="자물쇠" class="lock"> --><b>[비밀글]</b>${list.c_title }</a>
+								 	<a href="${passURL}"><img src="/SDDuo/resources/images/sub/lock.gif" alt="자물쇠" class="lock">${list.c_title }</a>
 								  </c:if> 
 								   <c:if test="${session_admin==1 }">
-								 	<a href="${viewURL}"><b>[비밀글]</b>${list.c_title }</a>
+								 	<a href="${viewURL}">${list.c_title }</a>
 								  </c:if> 
 								</c:if>
 								
@@ -84,10 +84,10 @@
 							
 								<th><p class="finish">
 								<c:if test="${list.c_re_status==1}">
-								답변 대기중
+								<font color="DarkSlateGray">답변 대기중</font>
 								</c:if>
 								<c:if test="${list.c_re_status==2 }">
-								★확인★
+								<font color="DarkBlue">확인</font>
 								</c:if>
 								<c:if test="${list.c_re_status==3 }">
 								<font color="red">답변글</font>
