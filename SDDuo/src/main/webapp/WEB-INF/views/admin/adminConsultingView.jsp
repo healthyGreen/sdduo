@@ -77,7 +77,7 @@ ${consultingmodel.c_content }
 						<%-- 	<p class="btn02"><input type="button" value="삭제" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingDeletePro.do?c_number=${consultingmodel.c_number }'"></p> --%>
 						</div>
 						 </c:if>
-							<p class="btn02"><input type="button" value="삭제" onclick="javascript:deletOk();"></p>
+							<input type="button" value="삭제" onclick="javascript:deletOk();" class="btn btn-outline btn-primary" style="margin-right: 10px; ">
 					</div>
 				</div>
 				</body>
