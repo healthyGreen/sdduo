@@ -33,7 +33,17 @@
 						<!-- gnb 시작 -->
 					    <div id="gnb" class="pc_gnb nav">
 							<ul id="nav">
-								<li class="has-sub g1"><a href="<%=request.getContextPath() %>/member/about.do"><img src="/SDDuo/resources/images/common/gnb01.jpg">상담해듀오소개</a>
+								<li class="has-sub g1"><a><img src="/SDDuo/resources/images/common/gnb01.jpg">상담해듀오소개</a>
+								
+								<div class="dropdown dropdown3">
+										<div class="clear"  style=" width: 1100px; margin: 0 auto;">
+											<ul class="clear" style="    width: 282px;    margin-left: 60px;">
+												<li><a href="<%=request.getContextPath() %>/member/about.do">사이트 소개</a></li>
+												<li><a href="<%=request.getContextPath() %>/Introduce.do">선생님 소개</a></li>	
+											</ul>
+										</div>
+									</div>
+								
 								</li>
 								<li class="has-sub g2"><a>상담예약</a>
 									<div class="dropdown dropdown1">

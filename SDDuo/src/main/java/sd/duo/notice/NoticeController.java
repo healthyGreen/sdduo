@@ -47,7 +47,6 @@ public class NoticeController {
 		private static final String uploadPath = "C:\\Java\\FINAL\\SDDuo\\src\\main\\webapp\\resources\\upload";
 		
 		
-		//�궗�슜�옄怨듭��궗�빆由ъ뒪�듃
 		@RequestMapping(value="/noticeList.do", method=RequestMethod.GET)
 		public ModelAndView noticeList(HttpServletRequest request,HttpSession session) throws UnsupportedEncodingException{
 			

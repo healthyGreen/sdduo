@@ -134,8 +134,11 @@
 	
 
             
-	<div class="sub-content">
-	
+
+	    <h3 style="padding-top: 30px !important">심리검사</h3>
+		<p class="sub02_txt" style="margin-bottom: 40px; ">
+			상담해듀오의 심리검사이며 결과는 마이페이지에 저장됩니다.
+		</p>
 		<div class="sub-content-inbox ">
 			<ul class="tabCon tabStyle">
 				<li class="current" data-tab="tab1"> <a href="#">우울증상</a></li>
@@ -1244,4 +1247,4 @@
 
 
 		</div>
-	</div>
+

@@ -59,7 +59,6 @@
 
 <body>
 
-	<div class="sub-content">
 	
 		<div class="sub-content-inbox ">
 			<div class="sub-top">
@@ -89,16 +88,16 @@
 				
 		
 		
-				<div id="tab1" class="tabcontent tab_content current" align="center">
+				<div id="tab1" class="tabcontent tab_content current myTab" align="center">
 					<c:choose>
 						<c:when test="${result==null}">
-							테스트하신 자기진단 내역이 없습니다.<br>
+							<p style="font-size: 20px; margin-top: 100px; color: #333;">테스트하신 자기진단 내역이 없습니다.</p>
 							
 						</c:when>
 						<c:otherwise>
-							 고객님의<b> ${category }</b> 유형 자가진단의 점수는<br>
-							<h4>${result.t_score }점 입니다.</h4>
-							등급 : ${result.t_grade } 
+							<p style="font-size: 20px; margin-top: 100px; color: #333;"> 고객님의 <b>${category }</b> 유형 자가진단의 점수는</p>
+							<p style="font-size: 20px; color: #333;"><span style="font-size: 25px; color: #337ab7;">${result.t_score }</span>점 입니다.</p>
+							<p style="font-size: 30px; color: #333; margin-top: 55px; ">등급 <span style="font-size:35px; color: #337ab7;"> ${result.t_grade }</span></p> 
 						</c:otherwise>
 					</c:choose> 
 			
@@ -107,6 +106,6 @@
 			</div>
 		
 			
-			</div>
+		
 		</div>
 </body>

@@ -354,7 +354,7 @@ public class AdminReserController {
             
            // 개인예약 삭제
             @RequestMapping("AdminOneReserDelete.do")
-        	public ModelAndView OnewReserDelete(HttpServletRequest request){
+        	public ModelAndView OneReserDelete(HttpServletRequest request){
         		
         		ModelAndView mav = new ModelAndView();
         		int pr_number = Integer.parseInt(request.getParameter("pr_number"));
