@@ -59,7 +59,7 @@
 		});
 		 
 		 
-		 $(document).ready(function() {
+		  $(document).ready(function() {
 			    document.getElementById('submit2').onclick = function() {
 			    	if(document.getElementById('t_score3').value==0){
 			    		alert("테스트를 해주셔야 결과를 보실 수 있습니다!");
@@ -95,30 +95,7 @@
 			        return;
 			    }
 		     
-		});
-
-
-		 
-		/*  window.onload = function() {
-			    document.getElementById('submit2').onclick = function() {
-			        document.getElementById("form2").submit();
-			        return;
-			    }
-			} 
-		 
-		 window.onload = function() {
-			    document.getElementById('submit3').onclick = function() {
-			        document.getElementById("form3").submit();
-			        return;
-			    }
-			} 
-		 
-		 window.onload = function() {
-			    document.getElementById('submit4').onclick = function() {
-			        document.getElementById("form4").submit();
-			        return;
-			    }
-			}  */
+		}); 
 
 
 		
@@ -128,12 +105,16 @@
 				$('input:radio[name=question_' + tnum + '_' + i + ']:checked').removeAttr("checked");
 			}
 			$('#result' + tnum).text("0");
+			document.getElementById('t_score' + tnum).value=0
 		}
 
 	</script>
 	
 
-            
+       <style>
+      .check{text-align: center;}
+      h5{    font-size: 22px;    margin-bottom: 10px;}
+   </style>     
 
 	    <h3 style="padding-top: 30px !important">심리검사</h3>
 		<p class="sub02_txt" style="margin-bottom: 40px; ">
@@ -152,7 +133,8 @@
 			<div id="tab1" class="tabcontent tab_content current">
 			<form:form commandName="selfModel" id="form1" action="selfWrite.do" enctype="multipart/form-data" method="post">
 		
-				
+
+   
 				<h4>1. 청소년 우울 자가진단</h4>
                <h5>문항</h5>
                <table class="tableData checkList table-hover" id="dataTables-example">
@@ -508,16 +490,7 @@
                   <td colspan="2" class="check"><input type="radio" name="question_1_19" value="3"></td>
                </tr>
                
-               <tr>
-                  <th scope="row">19-2</th>
-                  <td><em>0.</em> 나는 현재 음식조절로 체중을 줄이고 있는 중이다.</td>
-                  <td class="check">
-                     <input type="radio" name="question_1_20" value="0">YES
-                  </td>
-                  <td class="check">
-                     <input type="radio" name="question_1_20" value="1">NO
-                  </td>
-               </tr>
+            
                
                <tr>
                   <th scope="row" rowspan="4">20</th>
@@ -1207,7 +1180,7 @@
 					</tr>
 					<tr>
 						<td colspan="5" class="text-c">
-							<a href="#" onclick="getResult(5,21);return false;" class="btn color">결과보기</a>
+							<a href="#" onclick="getResult(5,21);" class="btn color">결과보기</a>
 							<a href="#" class="btn" onclick="resetResult(5,21);return false;">다시하기</a>
 							<a href="#" id="submit4" class="btn color">결과저장</a>
 							<div id="total_div" class="result">

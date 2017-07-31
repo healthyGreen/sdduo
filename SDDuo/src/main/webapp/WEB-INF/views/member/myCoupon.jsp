@@ -23,36 +23,36 @@
 							</div>
 							<div class="rightbox">
 								<div align="center">
-									<c:if test="${member.m_r_coupon.equals('1')}">
 										<table class="list-board01">
 											<tr>
 												<th>쿠폰이름</th>
 												<th>지급상품</th>
+												<th>바코드</th>
 											</tr>
+									<c:if test="${member.m_r_coupon.equals('1')}">
 											<tr>
-												<td>회원가입 기념 쿠폰</td>
+												<td><b>회원가입 기념 쿠폰</b></td>
 												<td>오프라인 상담 예약 10% DC 이벤트 쿠폰</td>
-											</tr>
-										</table>
+												<th><img src="/SDDuo/resources/images/sub/bacode1.jpg" width="200" height="100"></a></th>
+											</tr>  
+										
 									</c:if>
 										
 									<c:if test="${member.m_r_coupon.equals('2')}">
-										<table class="list-board01">
+										
 											<tr>
-												<th>쿠폰이름</th>
-												<th>지급상품</th>
-											</tr>
-											<tr>
-												<td>회원가입 기념 쿠폰</td>
+												<td><b>회원가입 기념 쿠폰</b></td>
 												<td>오프라인 상담 예약 10% DC 이벤트 쿠폰</td>
+												<th><img src="/SDDuo/resources/images/sub/bacode1.jpg" width="200" height="100"></a></th>
 											</tr>
 											<tr>
-												<td>온라인 예약 기념 쿠폰</td>
+												<td><b>온라인 예약 기념 쿠폰</b></td>
 												<td>오프라인 상담 예약 5% DC 이벤트 쿠폰</td>
+												<th><img src="/SDDuo/resources/images/sub/bacode2.jpg" width="200" height="100"></a></th>
 											</tr>
-										</table>
 										
 									</c:if>
+										</table>
 						
 								</div>
 							</div>
