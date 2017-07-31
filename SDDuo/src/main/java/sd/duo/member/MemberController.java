@@ -26,6 +26,7 @@ public class MemberController {
 
 	ModelAndView mav = new ModelAndView();
 	String aboutLogin = null;
+	String m_email;
 	
 	// about 상담해듀오 소개 페이지
 	@RequestMapping(value = "/about.do")
@@ -210,6 +211,17 @@ public class MemberController {
 		mav.setViewName("redirect:/main.do");
 		return mav;
 	}
+	//email 중복확인
+	@RequestMapping("/emailCheck.do")
+	public ModelAndView emailCheck(HttpServletRequest request){
+		m_email = (String)request.getParameter("m_email");
+		MemberModel memberModel = new MemberModel();
+		memberModel = memberService.emailCheck(m_email);
+		mav.addObject("m_email", m_email);
+		mav.addObject("member", memberModel);
+		mav.setViewName("member/emailCheck");
+		return mav;
+	}
 	
 	// id 중복 확인
 	@RequestMapping("/idCheck.do")
@@ -237,47 +249,41 @@ public class MemberController {
 	}
 
 	// id 찾기 처리
-	@RequestMapping(value="/findIdResult.do", method = RequestMethod.POST)
-	public ModelAndView findId(@ModelAttribute("member") MemberModel member, HttpServletRequest request) {
+		@RequestMapping(value="/findIdResult.do", method = RequestMethod.POST)
+		public ModelAndView findId(@ModelAttribute("member") MemberModel member, HttpServletRequest request) {
 
-		int findIdChk;
-		String name = request.getParameter("m_name");
-		String tongsinsa = request.getParameter("m_tongsinsa");
-		String phone1 = request.getParameter("m_phone1");
-		String phone2 = request.getParameter("m_phone2");
-		String phone3 = request.getParameter("m_phone3");
+			int findIdChk;
+			String name = request.getParameter("m_name");
+			String email = request.getParameter("m_email");
 
-		member.setM_name(name);
-		member.setM_tongsinsa(tongsinsa);
-		member.setM_phone1(phone1);
-		member.setM_phone2(phone2);
-		member.setM_phone3(phone3);
+			member.setM_name(name);
+			member.setM_tongsinsa(email);
 
-		member = memberService.idFind(member);
+			member = memberService.idFind(member);
 
-		if(member == null)
-		{
-			findIdChk = 0;	//findIdChk=0 : 등록되어있지 않은 이름 
-			mav.addObject("memberFindChk",findIdChk);
-			mav.setViewName("member/findError");
-			return mav;
-		}else
-		{
-			if(member.getM_name().equals(name) && member.getM_tongsinsa().equals(tongsinsa) && member.getM_phone1().equals(phone1) && member.getM_phone2().equals(phone2) && member.getM_phone3().equals(phone3))
+			if(member == null)
 			{
-				findIdChk = 1;	//findIdChk=1 : id 찾기 성공 
-				mav.addObject("member", member);
-				mav.addObject("memberFindChk", findIdChk);
-				mav.setViewName("findIdResult");
-				return mav;
-			}else {
-				findIdChk = -1; // findIdChk=-1 : 이름/핸드폰 번호 틀림
-				mav.addObject("memberFindChk", findIdChk);
+				findIdChk = 0;	//findIdChk=0 : 등록되어있지 않은 이름 
+				mav.addObject("memberFindChk",findIdChk);
 				mav.setViewName("member/findError");
 				return mav;
+			}else
+			{
+				if(member.getM_name().equals(name) && member.getM_email().equals(email))
+				{
+					findIdChk = 1;	//findIdChk=1 : id 찾기 성공 
+					mav.addObject("member", member);
+					mav.addObject("memberFindChk", findIdChk);
+					mav.setViewName("findIdResult");
+					return mav;
+				}else {
+					findIdChk = -1; // findIdChk=-1 : 이름/핸드폰 번호 틀림
+					mav.addObject("memberFindChk", findIdChk);
+					mav.setViewName("member/findError");
+					return mav;
+				}
 			}
 		}
-	}
 
 	// 비밀번호 찾기 폼 
 	@RequestMapping("/findPwForm.do")
