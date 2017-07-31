@@ -54,12 +54,12 @@
                                  	<tr>
                                  		<td>
 	                                 		<input type="hidden" name="pr_center" value="${pr_center }">
-	                                 			<select name="isSearch">
+	                                 			<select name="isSearch" style="height: 34px;">
 	                                 				<option value="0">예약일순</option>
 	                                 				<option value="1">최신순</option>
 	                                 				<option value="2">예약대기</option>
 	                                 			</select>
-	                                 			<input name="submit" type="submit" value="검색"/>
+	                                 			<input name="submit" type="submit" value="검색" class="btn btn-outline btn-primary"/>
 										</form>
 	                                 			
 	                                 			
@@ -70,8 +70,8 @@
 	                                 		<%-- <input type="hidden" name="pr_year" value="${pr_year }">
 	                                 		<input type="hidden" name="pr_month" value="${pr_month }">
 	                                 		<input type="hidden" name="pr_day" value="${pr_day }"> --%>
-	                                 		<select id="pr_year" name="pr_year">
-	                                          	<option value="">-선택하세요-</option>
+	                                 		<select id="pr_year" name="pr_year" style="height: 34px;">
+	                                          	<option value="">선택하세요</option>
 	                                             <%for(int i=2017; i<=2027; i++){ %>
 	                                             <%int from = 'i';
 	                                             String to = Integer.toString(from); %>
@@ -80,8 +80,8 @@
 	                                             <%} %>
 	                                             </select>년&nbsp;&nbsp;
 	                                             
-	                                             <select id="pr_month" name="pr_month">
-	                                          	<option value="">-선택하세요-</option>
+	                                             <select id="pr_month" name="pr_month" style="height: 34px;">
+	                                          	<option value="">선택하세요</option>
 	                                             <%for(int i=1; i<=12; i++){ %>
 	                                             <%
 	                                             String s = Integer.toString(i); 
@@ -93,8 +93,8 @@
 	                                             <%} %>
 	                                             </select>월&nbsp;&nbsp;
 	                                             
-	                                             <select id="pr_day" name="pr_day">
-	                                          	<option value="">-선택하세요-</option>
+	                                             <select id="pr_day" name="pr_day" style="height: 34px;">
+	                                          	<option value="">선택하세요</option>
 	                                             <%for(int i=1; i<= 31; i++){ %>
 	                                             <%
 	                                             String s = Integer.toString(i); 
@@ -105,7 +105,7 @@
 	                                             <option value="<%=s%>"><%=s %></option>
 	                                             <%} %>
 	                                         </select>일&nbsp;&nbsp;
-                                             <input name="submit" type="submit" value="검색"/>
+                                             <input name="submit" type="submit" value="검색"  class="btn btn-outline btn-primary"/>
                                  		</td>
                                  		
                                  	</tr>
@@ -232,21 +232,21 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../resources/vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../resources/vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+    <script src="../resources/vendor/metisMenu/metisMenu.min.js"></script>
 
     <!-- Morris Charts JavaScript -->
-    <script src="../vendor/raphael/raphael.min.js"></script>
-    <script src="../vendor/morrisjs/morris.min.js"></script>
-    <script src="../data/morris-data.js"></script>
+    <script src="../resources/vendor/raphael/raphael.min.js"></script>
+    <script src="../resources/vendor/morrisjs/morris.min.js"></script>
+    <script src="../resources/data/morris-data.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
+    <script src="../resources/dist/js/sb-admin-2.js"></script>
     
    
 </form>

@@ -48,7 +48,7 @@
 								</div>
 							</td>
 						</tr>
-						<tr><th>상담 내용</th></tr>
+						<tr><th><div class="tit">상담 내용</div></th></tr>
 						<tr>
 							<td class="dmc_content content">
 								
@@ -58,7 +58,7 @@ ${consultingmodel.c_content }
 						
 					</tbody>
 				</table>
-					<div class="viewbtn">
+					<div class="viewbtn" style="float:right">
 				<%-- 	<c:if test="${session_admin!=1}"> --%>
 							<c:url var="replyURL" value="adminConsultingReply.do">
 								<c:param name="c_ref" value="${consultingmodel.c_ref }"/>
@@ -66,7 +66,8 @@ ${consultingmodel.c_content }
 								<%-- <c:param name="c_re_status" value="${consultingmodel.c_re_status }"/> --%>
 							</c:url>
 						 <c:if test="${consultingmodel.c_re_status=='1' }"> 
-							<a href="${replyURL}" class="storywrite1">답변달기</a> 	
+						 	<button type="button" onclick="location.href='${replyURL}'" class="btn btn-outline btn-primary" style="margin-right: 10px; ">답변달기</button>
+							
 						</c:if>				
 
  			<%-- 	</c:if> --%>
@@ -80,5 +81,24 @@ ${consultingmodel.c_content }
 							<input type="button" value="삭제" onclick="javascript:deletOk();" class="btn btn-outline btn-primary" style="margin-right: 10px; ">
 					</div>
 				</div>
+				
+				
+    <!-- jQuery -->
+    <script src="../resources/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../resources/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../resources/vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="../resources/vendor/raphael/raphael.min.js"></script>
+    <script src="../resources/vendor/morrisjs/morris.min.js"></script>
+    <script src="../resources/data/morris-data.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../resources/dist/js/sb-admin-2.js"></script>
+    
 				</body>
 </html>

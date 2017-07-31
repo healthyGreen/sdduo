@@ -27,7 +27,7 @@
 						<tr class="danger" >
 							<th width="100">글제목</th>
 							<td colspan=3>
-								<input type="textarea" name="n_title" id="n_title" value="${noticeModel.n_title}"/>
+								<input type="textarea" name="n_title" id="n_title" value="${noticeModel.n_title}" style="    width: 98%;    height: 35px;    border: 1px solid #f6f6f6;    padding-left: 10px;    margin-left: 10px;"/>
 								<font color="red"><form:errors path="n_title" /></font>
 							</td>
 						</tr>
@@ -39,11 +39,11 @@
 							<th>사용자 ID</th>
 							
 							<td colspan=3>
-								<strong>
+								<strong style="padding-left: 10px; ">
 									${session_member_id}
 								</strong>
 								
-								<input type="hidden" name="n_name" value="${session_member_id}"/>
+								<input type="hidden" name="n_name" value="${session_member_id}" />
 								
 							</td> 
 							
@@ -53,7 +53,7 @@
 							<th>작성일</th>
 							
 							<td colspan=3>
-								<fmt:formatDate value="${noticeModel.n_date}" pattern="yyyy.MM.dd"/>
+								<span style="padding-left: 10px; "><fmt:formatDate value="${noticeModel.n_date}" pattern="yyyy.MM.dd" /></span>
 								
 							</td> 
 							
@@ -66,14 +66,14 @@
 							<th>글내용</th>
 							<td colspan=3 height=600 style="padding: 0px !important;">
 							   <textarea name="n_content" value="${noticeModel.n_content}"
-							   		style="margin: 3px; width: 100%; height: 100%;">${noticeModel.n_content}</textarea>
+							   		style="    width: 98%;    height: 98%;    border: 1px solid #f6f6f6;    padding-left: 10px;    margin-left: 10px;">${noticeModel.n_content}</textarea>
 							   	<font color="red"><form:errors path="n_content" /></font>
 							</td>
 						</tr>
 						
 						<tr>
 							<th width="100">현재 이미지 </th>
-							<td colspan=3>
+							<td colspan=3 style="padding: 10px 10px;">
 								<c:if test="${!empty noticeModel.n_sav_image}">
                             		<img src="../resources/upload/${noticeModel.n_sav_image}" width="100" height="100" alt=""  /><input type="hidden"  name="n_sav_image" value="${noticeModel.n_sav_image}">
                            		</c:if>
@@ -82,7 +82,7 @@
 							
 						<tr><!-- 파일 -->
 							<th>파일</th>
-							<td colspan=3>
+							<td colspan=3 style="padding: 10px 10px;">
 								<input type="file" name="file" value="${noticeModel.n_sav_image}"/>
 							</td>	
 						</tr>
@@ -90,7 +90,7 @@
 					</tbody>
 				</table>
 					<!-- 취소 작성완료 버튼 -->
-						<div class="menu-wrap">
+						<div class="menu-wrap" style="width: 150px; margin: 20px auto;">
 							<button type="submit" onclick="checkIt()" class="btn btn-outline btn-primary" style="margin-right: 10px; ">확인</button>
 							<button type="button" onclick="reviewList();" class="btn btn-primary">목록</button>
 						</div>
