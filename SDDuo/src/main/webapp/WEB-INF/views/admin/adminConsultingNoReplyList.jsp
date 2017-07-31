@@ -12,7 +12,7 @@
              <h3 class="">온라인 상담 답변 대기중 글들</h3>	
              </div>
 			
-				<p class="listnum">총 <span>${totalCount }</span>건</p>
+				<p class="listnum">총 <span>${totalCount }</span>건&nbsp; ${currentPage }/${totalPage }</p>
 					<table class="list-board01">
 						<colgroup>
 							<col width="110px">
@@ -82,5 +82,24 @@
 						${html}
 					</div>
 					</div></div>
+					
+					
+    <!-- jQuery -->
+    <script src="../resources/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../resources/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../resources/vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="../resources/vendor/raphael/raphael.min.js"></script>
+    <script src="../resources/vendor/morrisjs/morris.min.js"></script>
+    <script src="../resources/data/morris-data.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../resources/dist/js/sb-admin-2.js"></script>
+    
 </body>
 </html>
