@@ -112,10 +112,21 @@ $(document).ready(function () {
   </script>
   
   <script type="text/javascript">
-  function onlyNumber(){
-      if((event.keyCode<48)||(event.keyCode>57))
-         event.returnValue=false;
-	}
+  function fn_press(event, type) {
+      if(type == "numbers") {
+          if(event.keyCode < 48 || event.keyCode > 57) return false;
+          //onKeyDown일 경우 좌, 우, tab, backspace, delete키 허용 정의 필요
+      }
+  }
+  /* 한글입력 방지 */
+  function fn_press_han(obj)
+  {
+      //좌우 방향키, 백스페이스, 딜리트, 탭키에 대한 예외
+      if(event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 37 || event.keyCode == 39
+      || event.keyCode == 46 ) return;
+      obj.value = obj.value.replace(/[\a-zㄱ-ㅎㅏ-ㅣ가-힣]/g, '');
+      obj.value = obj.value.replace(/[\ㄱ-ㅎㅏ-ㅣ가-힣]/g, '');
+  }
   </script>
 
 
@@ -282,12 +293,12 @@ $(document).ready(function () {
 													<table width="100%" border="0" cellspacing="0" cellpadding="0" align="left">
 													  <tr>
 														<td width="63">
-															<input type="text" value="010" name="gr_phone1" maxlength="3" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;">
+															<input type="text" value="010" name="gr_phone1" maxlength="3" onkeypress="return fn_press(event, 'numbers');" onkeydown="fn_press_han(this);" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;">
 														</td>
 														<td align="center" width="13" style="vertical-align: middle;">-</td>
-														<td width="63"><input type="text" value="" name="gr_phone2" maxlength="4" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;"></td>
+														<td width="63"><input type="text" value="" name="gr_phone2" maxlength="4" onkeypress="return fn_press(event, 'numbers');" onkeydown="fn_press_han(this);" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;"></td>
 														<td align="center" width="13" style="vertical-align: middle;">-</td>
-														<td width="63"><input type="text" value="" name="gr_phone3" maxlength="4" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" style="width:65px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;"></td>
+														<td width="63"><input type="text" value="" name="gr_phone3" maxlength="4" onkeypress="return fn_press(event, 'numbers');" onkeydown="fn_press_han(this);" style="width:65px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;"></td>
 														<td>&nbsp;</td>
 													  </tr>
 													</table>
@@ -300,12 +311,12 @@ $(document).ready(function () {
 													<table width="100%" border="0" cellspacing="0" cellpadding="0" align="left">
 													  <tr>
 														<td width="63">
-															<input type="text" value="010" name="gr_rephone1" maxlength="3" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;">
+															<input type="text" value="010" name="gr_rephone1" maxlength="3" onkeypress="return fn_press(event, 'numbers');" onkeydown="fn_press_han(this);" style="width:65px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;">
 														</td>
 														<td align="center" width="13" style="vertical-align: middle;">-</td>
-														<td width="63"><input type="text" value="" name="gr_rephone2" maxlength="4" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" style="width:65px;  height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;"></td>
+														<td width="63"><input type="text" value="" name="gr_rephone2" maxlength="4" onkeypress="return fn_press(event, 'numbers');" onkeydown="fn_press_han(this);" style="width:65px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;"></td>
 														<td align="center" width="13" style="vertical-align: middle;">-</td>
-														<td width="63"><input type="text" value="" name="gr_rephone3" maxlength="4" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" style="width:65px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;"></td>
+														<td width="63"><input type="text" value="" name="gr_rephone3" maxlength="4" onkeypress="return fn_press(event, 'numbers');" onkeydown="fn_press_han(this);"style="width:65px; height:30px; border-top: 1px solid #bbbbbb; border-left: 1px solid #bbbbbb; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; font-family:맑은 고딕; font-size:13; color:#676767; box-sizing: border-box;"></td>
 														<td>&nbsp;</td>
 													  </tr>
 													</table>
@@ -344,7 +355,7 @@ $(document).ready(function () {
 									</div>
 					
 					 <div class="btn-area">
-		                  <input type="button" onclick="return checkForm()" value="확인"   class="submit" />
+		                  <input type="button" onclick="return checkForm()" value="예약하기"   class="submit" />
 		                  <input type="button" value="취소" class="cancel" class="cancel" onclick="javascript:history.back()"/>
 		               </div>
 			</form>
