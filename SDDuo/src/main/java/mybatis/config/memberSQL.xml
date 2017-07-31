@@ -62,7 +62,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 아이디찾기 -->
 	<select id="idFind" parameterType="memberModel" resultMap="memberRes" >
-		select * from F_MEMBER where m_name = #{m_name} and m_tongsinsa = #{m_tongsinsa} and m_phone1 = #{m_phone1} and m_phone2 = #{m_phone2} and m_phone3 = #{m_phone3} 
+		select * from F_MEMBER where m_name = #{m_name} and m_email = #{m_email} 
 	</select>
 
 	<!-- 비밀번호 찾기 -->
@@ -114,6 +114,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="idCheck" resultType="memberModel" parameterType="string">
 		select*from f_member where m_id=#{m_id}
+	</select>
+	
+	<select id="emailCheck" resultType="memberModel" parameterType="string">
+		select*from f_member where m_email=#{m_email}
 	</select>
 	
 	
