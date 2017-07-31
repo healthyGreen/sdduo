@@ -15,7 +15,7 @@
             </div>
             <div class="row">
                 <div class="resev-box">
-				<p class="listnum">총 <span>${totalMember }</span>건 </p> 
+				<p class="listnum">총 <span>${totalCount }</span>건&nbsp; ${currentPage }/${totalPage }</p>
 				</div>
 				
 				<table class="list-board01">
@@ -44,7 +44,7 @@
 								<td>${memberList.m_name}</td>
 								<td>${memberList.m_phone1}-${memberList.m_phone2}-${memberList.m_phone3}</td>
 								<td>${memberList.m_sex}</td>
-								<td>${memberList.m_add1}<br/>${memberList.m_add2} </td>
+								<td>${memberList.m_add1}${memberList.m_add2} </td>
 							</tr>
 							
 						</c:forEach>

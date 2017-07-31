@@ -226,8 +226,8 @@ public class ReserController {
 				else
 					currentPage = Integer.parseInt(request.getParameter("currentPage"));
 
-				int listOrder = (currentPage - 1) * blockCount;
-				Paging page = new Paging(currentPage, totalCount, blockCount, blockPage, "myReserList");
+				//int listOrder = (currentPage - 1) * blockCount;
+				Paging page = new Paging(currentPage, totalCount, blockCount, blockPage, "myOneReserList");
 				String pagingHtml = page.getPagingHtml().toString();
 				totalPage = page.getTotalPage();
 				List<OneReserModel> myOneReserlist = reserService.myOneReserList(m_id);
@@ -242,7 +242,7 @@ public class ReserController {
 				mv.addObject("list", myOneReserlist);
 				mv.addObject("currentPage", currentPage);
 				mv.addObject("blockPage", blockPage);
-				mv.addObject("listOrder", listOrder);
+			//	mv.addObject("listOrder", listOrder);
 				mv.addObject("html", pagingHtml);
 				mv.addObject("member", m); 
 				mv.setViewName("myOneReserList");

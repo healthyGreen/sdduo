@@ -32,7 +32,7 @@
 							<div class="rightbox">
 								<div class="resev-box">
 									<p class="listnum">총 <span>${totalCount }</span>건 ${currentPage}/${totalPage }</p>
-									<p class="reserv-btn">실시간예약 바로가기</p>
+									<p class="reserv-btn" onclick="location.href='<%=request.getContextPath()%>/Reserve/OneReserveForm.do'">실시간예약 바로가기</p>
 								</div>
 					
 								<table class="list-board01">
@@ -62,15 +62,20 @@
 										<tr>
 											<th><%= number++%></th>
 											<th class="subject">
-												<a href="${passURL}"><!-- <img src="../../images/sub/lock.gif" alt="자물쇠" class="lock"> --><b></b> ${list.c_title }</a>
+											<c:if test="${list.c_ref == list.c_number }">
+												<a href="${passURL}"><img src="/SDDuo/resources/images/sub/lock.gif" alt="자물쇠" class="lock"> ${list.c_title }</a>
+											</c:if>
+											<c:if test="${list.c_ref != list.c_number }">
+												<a href="${passURL}"><b><font color="OrangeRed">&nbsp;&nbsp;[답변]&nbsp;</font></b> ${list.c_title }</a>
+											</c:if>
 											</th>
 											<th>${list.m_id }</th>
 											<th><p class="finish">
 											<c:if test="${list.c_re_status==1}">
-											답변 대기중
+											<font color="DarkSlateGray">답변 대기중</font>
 											</c:if>
 											<c:if test="${list.c_re_status==2 }">
-											상담글 확인
+											<font color="DarkBlue">답변 확인</font>
 											</c:if>
 											<c:if test="${list.c_re_status==3 }">
 											<font color="red">답변글</font>

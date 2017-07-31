@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <body>
 	
 	<div class="content">
@@ -58,9 +58,16 @@
 												<tr>
 													<td width="50%">
 														<p class="txt">
+														<c:if test="${session_admin!=1 }">
 															<a
 																href="<%=request.getContextPath() %>/consulting/consultingPassForm.do?c_number=${list.c_number }">·
 																${list.c_title}</a>
+																</c:if>
+																<c:if  test="${session_admin==1 }">
+																<a
+																href="<%=request.getContextPath() %>/consulting/consultingView.do?c_number=${list.c_number }">·
+																${list.c_title}</a>
+																</c:if>
 														</p>
 													</td>
 													<td width="50%" class="date"><fmt:formatDate value="${list.c_date }" pattern="yyyy-MM-dd" /></td>
@@ -106,7 +113,7 @@
 											</c:url>
 											<tr>
 												<td width="50%"><p class="txt">
-														· <a href="${viewURL}">${list.n_title}</a>
+														· <a href="${viewURL}">${list.n_title}</a>&nbsp;
 													</p></td>
 												<td class="date" width="50%"><fmt:formatDate value="${list.n_date }" pattern="yyyy-MM-dd" /></td>
 											</tr>

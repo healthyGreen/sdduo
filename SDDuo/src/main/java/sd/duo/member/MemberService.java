@@ -76,5 +76,10 @@ public class MemberService implements MemberDao {
 		// TODO Auto-generated method stub
 		return sqlSessionTemplate.selectOne("member.idCheck", m_id);
 	}
-
+	
+	@Override
+	public MemberModel emailCheck(String m_email) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectOne("member.emailCheck", m_email);
+}
 }

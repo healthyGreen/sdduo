@@ -27,4 +27,6 @@ public interface MemberDao {
    public List<MemberModel> myCouponList(String m_id);
    
    public MemberModel idCheck(String m_id);
+
+ public MemberModel emailCheck(String m_email);
 }

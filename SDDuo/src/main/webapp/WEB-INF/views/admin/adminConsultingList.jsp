@@ -11,7 +11,7 @@
              <h3 class="">온라인 상담 전체글 목록</h3>	
              </div>
 			
-				<p class="listnum">총 <span>${totalCount }</span>건</p>
+				<p class="listnum">총 <span>${totalCount }</span>건&nbsp; ${currentPage }/${totalPage }</p>
 					<table class="list-board01">
 						<colgroup>
 							<col width="110px">
@@ -43,27 +43,32 @@
 							 	<c:param name="c_ref" value="${list.c_ref }"/>
 							</c:url>
 							<tr>
-								<th><%= number++%></th>
-								<td class="subject">
-								
-								 	<a href="${viewURL}"><img src="/SDDuo/resources/images/sub/lock.gif" alt="자물쇠" class="lock">${list.c_title }</a>
-								
-								
-								</td>
-								<th>${list.m_id }</th>
-								<th><fmt:formatDate value="${list.c_date }" pattern="yyyy.MM.dd"/></th> 
-								<th><p class="finish">
-								<c:if test="${list.c_re_status==1}">
-								<font color="DarkSlateGray">답변 대기중</font>
-								</c:if>
-								<c:if test="${list.c_re_status==2 }">
-								<font color="DarkBlue">확인</font>
-								</c:if>
-								<c:if test="${list.c_re_status==3 }">
-								<font color="red">답변글</font>
-								</c:if> 
-								</p></th>
-							</tr>
+		                        <th><%= number++%></th>
+		                        <td class="subject">
+		                        <c:if test="${list.c_ref == list.c_number }">
+		                           <a href="${viewURL}">${list.c_title }</a>
+		                        </c:if>
+		                        <c:if test="${list.c_ref != list.c_number }">
+		                           <b><font color="OrangeRed">&nbsp;&nbsp;[답변]&nbsp;</font></b><a href="${viewURL}">${list.c_title }</a>
+		                        </c:if>
+		                        
+		                        
+		                        
+		                        </td>
+		                        <th>${list.m_id }</th>
+		                        <th><fmt:formatDate value="${list.c_date }" pattern="yyyy.MM.dd"/></th> 
+		                        <th><p class="finish">
+		                        <c:if test="${list.c_re_status==1}">
+		                        <font color="DarkSlateGray">답변 대기중</font>
+		                        </c:if>
+		                        <c:if test="${list.c_re_status==2 }">
+		                        <font color="DarkBlue">답변 확인</font>
+		                        </c:if>
+		                        <c:if test="${list.c_re_status==3 }">
+		                        <font color="red">답변글</font>
+		                        </c:if> 
+		                        </p></th>
+		                     </tr>
 							</c:forEach>
 							</c:otherwise>
 							</c:choose>
@@ -79,5 +84,24 @@
 						${html}
 					</div>
 					</div></div>
+					
+					
+    <!-- jQuery -->
+    <script src="../resources/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../resources/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../resources/vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="../resources/vendor/raphael/raphael.min.js"></script>
+    <script src="../resources/vendor/morrisjs/morris.min.js"></script>
+    <script src="../resources/data/morris-data.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../resources/dist/js/sb-admin-2.js"></script>
+    
 </body>
 </html>
