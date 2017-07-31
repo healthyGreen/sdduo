@@ -15,13 +15,13 @@
 						답변 순서는 각 센터별 전문가 선생님들의 여건에 따라 달라질 수 있음을 양해해 주시기 바랍니다.</span><br />
 					</p>
 					<div class="resev-box">
-				<p class="listnum">총 <span>${totalCount }</span>건</p>
-				
+				<p class="listnum">총 <span>${totalCount }</span>건 &nbsp; ${currentPage }/${totalPage }</p>
+				</div>
 				<c:if test="${session_member_id !=null }">
 						<p class="reserv-btn" onclick="location.href='<%=request.getContextPath()%>/Reserve/OneReserveForm.do'">
 						<%-- <input type="button" onclick="location.href='<%=request.getContextPath()%>/Reserve/OneReserveForm.do'"> --%>실시간예약 바로가기</p>
 						</c:if>
-					</div>
+					
 					
 					<table class="list-board01">
 						<colgroup>
@@ -65,7 +65,7 @@
 								 	<a href="${passURL}"><!-- <img src="/SDDuo/resources/images/sub/lock.gif" alt="자물쇠" class="lock"> --><b><font color="OrangeRed">&nbsp;&nbsp;[답변]&nbsp;</font></b>${list.c_title }</a>
 							 	 </c:if> 
 								 <c:if test="${session_admin==1}">
-								 	<a href="${viewURL}"><b>↘</b>${list.c_title }</a>
+								 	<a href="${viewURL}"><b><font color="OrangeRed">&nbsp;&nbsp;[답변]&nbsp;</font></b>${list.c_title }</a>
 								 </c:if> 
 								</c:if>
 								
@@ -87,7 +87,7 @@
 								<font color="DarkSlateGray">답변 대기중</font>
 								</c:if>
 								<c:if test="${list.c_re_status==2 }">
-								<font color="DarkBlue">확인</font>
+								<font color="DarkBlue">답변 확인</font>
 								</c:if>
 								<c:if test="${list.c_re_status==3 }">
 								<font color="red">답변글</font>

@@ -30,7 +30,7 @@
 	</definition>
 	
 	<definition name="myOneReserList" extends="reser">
-		<put-attribute name="body" value="/WEB-INF/views/reservation/myReserList.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/reservation/myOneReserList.jsp" />
 	</definition>
 	
 	<definition name="myGroupReserList" extends="reser">

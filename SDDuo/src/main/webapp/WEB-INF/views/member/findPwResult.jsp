@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
     
-<div class="tac">
+<div class="tac" style="background: #FAF7F1 url(/SDDuo/resources/images/sub/searchid_tit.png) no-repeat center 110px; width: 100%; margin-top: 120px;   padding-top: 155px;    height: 400px;">
 	<h3><center>비번찾기</center></h3>
 
-	<p class="fz15"><center>${member.m_name}님의 비밀번호는 <strong>${member.m_pass}</strong>입니다.</center></p>
+	<p class="fz15"style="font-size: 20px;	text-align: center; ">${member.m_name}님의 비밀번호는 <span style="font-weight:600;"> ${member.m_pass}</span>입니다.</p>
 				
 	<div class="btn_type_04">
-	<center><a href="/SDDuo/member/loginForm.do"><input type="button" value="로그인하기"></a>
+	<center><a href="/SDDuo/member/loginForm.do"><input type="button" value="로그인하기" class="select01-btn"></a>
 					</center>
 	</div>
 </div>
