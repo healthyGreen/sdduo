@@ -67,14 +67,14 @@
 			                        </p></c:if>
 								</th>
 							</tr>
-							<div class="pageing" align="center">
-						${html}
-					</div>
 							</c:forEach>
 							</c:otherwise>
 							</c:choose>
 						</tbody>
 					</table>
+							<div class="pageing" align="center">
+						${html}
+					</div>
 					
 			
 					

@@ -139,12 +139,12 @@
 
 	   
 
-	  //텍스트 박스에 숫자와 영문만 입력할수있도록
+
 
 	  function nonHangulSpecialKey() {
 		  var key = event.keyCode;
 	    if(check_key(key) != 1 && check_key(key) != 2 && check_key(key) != 4) {
-		    if(event.keyCode==8 ||event.keyCode==21 ||event.keyCode==13 || event.keyCode==37 || event.keyCode==39 || event.keyCode==46){
+		    if(event.keyCode==8 ||event.keyCode==21 || event.keyCode==13 ||event.keyCode==14 ||event.keyCode==15 || event.keyCode==37 || event.keyCode==39 || event.keyCode==46){
  				return false;
  				}  
 	    alert("올바르지 않은 이메일 주소입니다.");
