@@ -20,94 +20,94 @@ import sd.duo.member.MemberService;
 @Controller
 @RequestMapping(value = "/self")
 public class SelfTestController {
-	
-	@Resource
-	private SelfTestService selfService;
-	@Resource
-	private MemberService memberService;
+   
+   @Resource
+   private SelfTestService selfService;
+   @Resource
+   private MemberService memberService;
 
-	ModelAndView mav = new ModelAndView();
-	
-	String m_id;
-	String t_category;
-	int t_score; 
-	//Æû
-	@RequestMapping(value="/selfWrite.do", method=RequestMethod.GET)
-	public ModelAndView selfTestForm(HttpServletRequest request) {
-		
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("selfModel", new SelfTestModel());
-		mav.setViewName("self");
-		return mav;
-	}
-	
-	// ÀÚ°¡Áø´Ü Á¡¼ö ÀÔ·Â
-	@RequestMapping(value="/selfWrite.do", method=RequestMethod.POST)
-	public ModelAndView selfTest(SelfTestModel selfModel, HttpServletRequest requeset,
-			HttpSession session)throws Exception{
-		
-		SelfTestModel check = new SelfTestModel();
-		t_category = selfModel.getT_category();
-		t_score = selfModel.getT_score();
-		m_id = (String)session.getAttribute("session_member_id");
-		String id = (String)session.getAttribute("session_member_id");
-		if(id==null){
-			mav.setViewName("loginForm");
-			return mav;
-		}
-		selfModel.setM_id(m_id);
-		check=selfService.selfList(selfModel);
-		
-		if(t_score>=0 && t_score<10){
-			selfModel.setT_grade("ºñ¿ì¿ï");
-		}else if(t_score>=10 && t_score<16){
-			selfModel.setT_grade("°æÇÑ ¿ì¿ïÁõ");
-		}else if(t_score>=16 && t_score<24){
-			selfModel.setT_grade("ÁßÁõµµ ¿ì¿ïÁõ");
-		}else{
-			selfModel.setT_grade("ÁßÁõ ¿ì¿ïÁõ");
-		}
-		
-		if(check!=null){
-			selfService.selfModify(selfModel);
-		}else{
-			selfService.selfWrite(selfModel);
-			}
-		mav.setViewName("redirect:/self/selfTestList.do?t_category=" + t_category);
-		return mav;
-	}	
+   ModelAndView mav = new ModelAndView();
+   
+   String m_id;
+   String t_category;
+   int t_score; 
+   //í¼
+   @RequestMapping(value="/selfWrite.do", method=RequestMethod.GET)
+   public ModelAndView selfTestForm(HttpServletRequest request) {
+      
+      ModelAndView mav = new ModelAndView();
+      mav.addObject("selfModel", new SelfTestModel());
+      mav.setViewName("self");
+      return mav;
+   }
+   
+   // ìžê°€ì§„ë‹¨ ì ìˆ˜ ìž…ë ¥
+   @RequestMapping(value="/selfWrite.do", method=RequestMethod.POST)
+   public ModelAndView selfTest(SelfTestModel selfModel, HttpServletRequest requeset,
+         HttpSession session)throws Exception{
+      
+      SelfTestModel check = new SelfTestModel();
+      t_category = selfModel.getT_category();
+      t_score = selfModel.getT_score();
+      m_id = (String)session.getAttribute("session_member_id");
+      String id = (String)session.getAttribute("session_member_id");
+      if(id==null){
+         mav.setViewName("loginForm");
+         return mav;
+      }
+      selfModel.setM_id(m_id);
+      check=selfService.selfList(selfModel);
+      
+      if(t_score>=0 && t_score<10){
+         selfModel.setT_grade("ë¹„ìš°ìš¸");
+      }else if(t_score>=10 && t_score<16){
+         selfModel.setT_grade("ê²½í•œ ìš°ìš¸ì¦");
+      }else if(t_score>=16 && t_score<24){
+         selfModel.setT_grade("ì¤‘ì¦ë„ ìš°ìš¸ì¦");
+      }else{
+         selfModel.setT_grade("ì¤‘ì¦ ìš°ìš¸ì¦");
+      }
+      
+      if(check!=null){
+         selfService.selfModify(selfModel);
+      }else{
+         selfService.selfWrite(selfModel);
+         }
+      mav.setViewName("redirect:/self/selfTestList.do?t_category=" + t_category);
+      return mav;
+   }   
 
 
-	@RequestMapping(value="/selfTestList.do")
-	public ModelAndView selfTestList(SelfTestModel selfTestModel, HttpServletRequest requeset,
-			HttpSession session)throws Exception{
-			
-			MemberModel m = new MemberModel();
-			String category = null;
-			SelfTestModel result = new SelfTestModel();
-			m_id=(String)session.getAttribute("session_member_id");
-			t_category = requeset.getParameter("t_category");
-			selfTestModel.setM_id(m_id);
-			selfTestModel.setT_category(t_category);
-			result = selfService.selfList(selfTestModel);
-			m=memberService.getMember(m_id);
-			if(result==null){
-				category=null;
-			}else{
-			if(result.getT_category().equals("1")){
-				category="¿ì¿ïÁõ»ó";
-			}else if(result.getT_category().equals("2")){
-				category="ºÒ¾ÈÁõ»ó";
-			}else if(result.getT_category().equals("3")){
-				category="½ºÆ®·¹½º";
-			}else{
-				category="ºÐ³ëÁ¶Àý";
-			}
-			}
-			mav.addObject("member", m);
-			mav.addObject("category", category);	
-			mav.addObject("result", result);
-			mav.setViewName("selfTestList");
-			return mav;
-		}	
-	}
+   @RequestMapping(value="/selfTestList.do")
+   public ModelAndView selfTestList(SelfTestModel selfTestModel, HttpServletRequest requeset,
+         HttpSession session)throws Exception{
+         
+         MemberModel m = new MemberModel();
+         String category = null;
+         SelfTestModel result = new SelfTestModel();
+         m_id=(String)session.getAttribute("session_member_id");
+         t_category = requeset.getParameter("t_category");
+         selfTestModel.setM_id(m_id);
+         selfTestModel.setT_category(t_category);
+         result = selfService.selfList(selfTestModel);
+         m=memberService.getMember(m_id);
+         if(result==null){
+            category=null;
+         }else{
+         if(result.getT_category().equals("1")){
+            category="ìš°ìš¸ì¦ìƒ";
+         }else if(result.getT_category().equals("2")){
+            category="ë¶ˆì•ˆì¦ìƒ";
+         }else if(result.getT_category().equals("3")){
+            category="ìŠ¤íŠ¸ë ˆìŠ¤";
+         }else{
+            category="ë¶„ë…¸ì¡°ì ˆ";
+         }
+         }
+         mav.addObject("member", m);
+         mav.addObject("category", category);   
+         mav.addObject("result", result);
+         mav.setViewName("selfTestList");
+         return mav;
+      }   
+   }
