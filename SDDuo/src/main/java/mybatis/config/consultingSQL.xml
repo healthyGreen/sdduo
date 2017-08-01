@@ -5,91 +5,91 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="consulting">
 
-	<resultMap type="consultingModel" id="consultingRes">
-		<result property="c_number" column="c_number"/>
-		<result property="c_title" column="c_title"/>
-		<result property="c_content" column="c_content"/>
-		<result property="c_pass" column="c_pass"/>
-		<result property="m_id" column="m_id"/>
-		<result property="c_date" column="c_date"/>
-		<result property="c_re_status" column="c_re_status"/>
-		<result property="c_ref" column="c_ref"/>
-	</resultMap>
-		
-	<!-- 글목록  -->
-	
-	<insert id="insertConsulting" parameterType="consultingModel">
-		insert into f_consulting(c_number, c_title, c_content, c_pass, m_id, c_date, c_re_status, c_ref) 
-		values(seq_f_c_number.nextval, #{c_title}, #{c_content}, #{c_pass}, #{m_id}, sysdate, 1, seq_f_c_number.CURRVAL)
-	</insert>
+   <resultMap type="consultingModel" id="consultingRes">
+      <result property="c_number" column="c_number"/>
+      <result property="c_title" column="c_title"/>
+      <result property="c_content" column="c_content"/>
+      <result property="c_pass" column="c_pass"/>
+      <result property="m_id" column="m_id"/>
+      <result property="c_date" column="c_date"/>
+      <result property="c_re_status" column="c_re_status"/>
+      <result property="c_ref" column="c_ref"/>
+   </resultMap>
+      
+   <!-- 글목록  -->
+   
+   <insert id="insertConsulting" parameterType="consultingModel">
+      insert into f_consulting(c_number, c_title, c_content, c_pass, m_id, c_date, c_re_status, c_ref) 
+      values(seq_f_c_number.nextval, #{c_title}, #{c_content}, #{c_pass}, #{m_id}, sysdate, 1, seq_f_c_number.CURRVAL)
+   </insert>
 
-	<insert id="insertConsultingReply" parameterType="consultingModel">
-		insert into f_consulting(c_number, c_title, c_content, c_pass, m_id, c_date, c_re_status, c_ref) 
-		values(seq_f_c_number.nextval, #{c_title}, #{c_content}, #{c_pass}, #{m_id}, sysdate, 3, #{c_ref})
-	</insert>
-	
-	<insert id="updateConsultingState" parameterType="int">
-		update f_consulting set c_re_status=2 where c_number=#{c_number}
-	</insert>
-	
-	<update id="modConsulting" parameterType="consultingModel">
-		update f_consulting set c_title=#{c_title}, c_content=#{c_content} where c_number=#{c_number}
-	</update>
-	
-	<update id="changeState" parameterType="int">
-		update f_consulting set c_re_status=1 where c_ref=#{c_ref}
-	</update>
-	
-	<select id="consultingList" resultType="consultingModel">
-		select * from f_consulting order by c_ref desc, c_re_status asc
-	</select>
-	
-	<select id="ReplyOkList" resultType="consultingModel">
-		select * from f_consulting where c_re_status=2 or c_re_status=3 order by c_ref desc, c_re_status asc
-	</select>
-	
-	<select id="noReplyList" resultType="consultingModel">
-		select * from f_consulting where c_re_status=1 order by c_ref desc
-	</select>
-	
-	<select id="consultingPass" resultType="consultingModel" parameterType="consultingModel">
-		select * from f_consulting where c_number=#{c_number} and c_pass=#{c_pass} 
-	</select>
-	
-	<select id="consultingView" parameterType="int" resultType="consultingModel">
-		select * from f_consulting where c_number = #{c_number}
-	</select>
-	
-	<select id="totalConsultingNum" resultType="int">
-		select count(*) from f_consulting
-	</select>
-	<select id="totalNoReply" resultType="int">
-		select count(*) from f_consulting where c_re_status=1
-	</select>
-	<select id="totalReplyOk" resultType="int">
-		select count(*) from f_consulting where c_re_status=2 or c_re_status=3
-	</select>
-	
- 	<select id="myConsultingList" parameterType="string" resultType="consultingModel">
-		select b.c_number, b.c_title, b.c_content, b.c_pass, b.m_id, b.c_date, b.c_re_status, b.c_ref from 
-		(select c_number, c_title, c_content, c_pass, m_id, c_date, c_re_status, c_ref from f_consulting where m_id='admin' or m_id=#{m_id}) a, 
-		(select c_number, c_title, c_content, c_pass, m_id, c_date, c_re_status, c_ref from f_consulting where m_id='admin' or m_id=#{m_id}) b 
-		where a.c_number=b.c_ref order by c_ref desc, c_re_status asc
-	</select> 
-	
-	<select id="myTotalConsultingNum2" parameterType="string" resultType="int">
-	select count('b') from 
-		(select c_number, c_title, c_content, c_pass, m_id, c_date, c_re_status, c_ref from f_consulting where m_id='admin' or m_id=#{m_id}) a, 
-		(select c_number, c_title, c_content, c_pass, m_id, c_date, c_re_status, c_ref from f_consulting where m_id='admin' or m_id=#{m_id}) b 
-		where a.c_number=b.c_ref	
-	</select>
-	
-	<select id="myTotalConsultingNum" parameterType="string" resultType="int">
-		select count(*) from f_consulting where m_id = #{m_id}
-	</select>
-	
-	<delete id="deleteConsulting" parameterType="int">
-		delete f_consulting where c_number = #{c_number}
-	</delete>
-	
+   <insert id="insertConsultingReply" parameterType="consultingModel">
+      insert into f_consulting(c_number, c_title, c_content, c_pass, m_id, c_date, c_re_status, c_ref) 
+      values(seq_f_c_number.nextval, #{c_title}, #{c_content}, #{c_pass}, #{m_id}, sysdate, 3, #{c_ref})
+   </insert>
+   
+   <insert id="updateConsultingState" parameterType="int">
+      update f_consulting set c_re_status=2 where c_number=#{c_number}
+   </insert>
+   
+   <update id="modConsulting" parameterType="consultingModel">
+      update f_consulting set c_title=#{c_title}, c_content=#{c_content} where c_number=#{c_number}
+   </update>
+   
+   <update id="changeState" parameterType="int">
+      update f_consulting set c_re_status=1 where c_ref=#{c_ref}
+   </update>
+   
+   <select id="consultingList" resultType="consultingModel">
+      select * from f_consulting order by c_ref desc, c_re_status asc
+   </select>
+   
+   <select id="ReplyOkList" resultType="consultingModel">
+      select * from f_consulting where c_re_status=2 or c_re_status=3 order by c_ref desc, c_re_status asc
+   </select>
+   
+   <select id="noReplyList" resultType="consultingModel">
+      select * from f_consulting where c_re_status=1 order by c_ref desc
+   </select>
+   
+   <select id="consultingPass" resultType="consultingModel" parameterType="consultingModel">
+      select * from f_consulting where c_number=#{c_number} and c_pass=#{c_pass} 
+   </select>
+   
+   <select id="consultingView" parameterType="int" resultType="consultingModel">
+      select * from f_consulting where c_number = #{c_number}
+   </select>
+   
+   <select id="totalConsultingNum" resultType="int">
+      select count(*) from f_consulting
+   </select>
+   <select id="totalNoReply" resultType="int">
+      select count(*) from f_consulting where c_re_status=1
+   </select>
+   <select id="totalReplyOk" resultType="int">
+      select count(*) from f_consulting where c_re_status=2 or c_re_status=3
+   </select>
+   
+    <select id="myConsultingList" parameterType="string" resultType="consultingModel">
+      select b.c_number, b.c_title, b.c_content, b.c_pass, b.m_id, b.c_date, b.c_re_status, b.c_ref from 
+      (select c_number, c_title, c_content, c_pass, m_id, c_date, c_re_status, c_ref from f_consulting where m_id='admin' or m_id=#{m_id}) a, 
+      (select c_number, c_title, c_content, c_pass, m_id, c_date, c_re_status, c_ref from f_consulting where m_id='admin' or m_id=#{m_id}) b 
+      where a.c_number=b.c_ref
+   </select> 
+   
+   <select id="myTotalConsultingNum2" parameterType="string" resultType="int">
+   select count('b') from 
+      (select c_number, c_title, c_content, c_pass, m_id, c_date, c_re_status, c_ref from f_consulting where m_id='admin' or m_id=#{m_id}) a, 
+      (select c_number, c_title, c_content, c_pass, m_id, c_date, c_re_status, c_ref from f_consulting where m_id='admin' or m_id=#{m_id}) b 
+      where a.c_number=b.c_ref   
+   </select>
+   
+   <select id="myTotalConsultingNum" parameterType="string" resultType="int">
+      select count(*) from f_consulting where m_id = #{m_id}
+   </select>
+   
+   <delete id="deleteConsulting" parameterType="int">
+      delete f_consulting where c_ref = #{c_ref}
+   </delete>
+   
 </mapper>
