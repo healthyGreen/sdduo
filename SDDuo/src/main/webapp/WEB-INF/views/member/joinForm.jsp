@@ -33,6 +33,16 @@
            return false;
        }
    }
+   
+   function ic(name){
+	      document.getElementById('ic').value = name;
+	}
+
+
+	function ec(email){
+	      document.getElementById('ec').value = email;
+
+	}
 
    function joinValidator(join){
 	   var frm = document.join;

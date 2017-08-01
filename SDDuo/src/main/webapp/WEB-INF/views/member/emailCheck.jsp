@@ -3,9 +3,15 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script type="text/javascript">
+
   function setEmail(m_email) {
+	  
     opener.document.join.m_email.value = "${m_email}";
+    
+    opener.document.getElementById("ec").value="Y"; 
+    
    opener.ec(m_email);
+   
     self.close();
  }  
  function emailCheck() {
