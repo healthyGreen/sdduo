@@ -37,7 +37,6 @@ public class AdminNoticeController {
 	private AdminNoticeService noticeService;
 	private int searchNum;
 	private String isSearch;
-	//페이징을 위한 변수 설정
 		private int currentPage = 1;	 
 		private int totalCount; 
 		private int totalPage;
@@ -52,7 +51,6 @@ public class AdminNoticeController {
 
 	
 	
-	//관리자 리스트 처리(검색)
 		@RequestMapping(value="/adminNoticeList.do", method=RequestMethod.GET)
 		public ModelAndView adminNoticeList(HttpServletRequest request,HttpSession session) throws UnsupportedEncodingException{
 			
@@ -137,7 +135,6 @@ public class AdminNoticeController {
 			return mav;
 		}
 	
-	//관리자 공지사항 상세보기
 	@RequestMapping("/adminNoticeView.do")
 	public ModelAndView adminNoticeView(HttpServletRequest request, HttpSession session){
 		   
@@ -159,7 +156,6 @@ public class AdminNoticeController {
 		return mav;
 	}
 	
-	//관리자 공지사항 글쓰기 폼
 	@RequestMapping(value="/adminNoticeWrite.do", method=RequestMethod.GET)
 	public ModelAndView adminNoticeWriteForm(HttpServletRequest request) {
 		
@@ -169,7 +165,6 @@ public class AdminNoticeController {
 		return mav;
 	}
 	
-	//관리자 공지사항 글쓰기
 	@RequestMapping(value="/adminNoticeWrite.do", method=RequestMethod.POST)
 	public ModelAndView adminNoticeWrite(@ModelAttribute("noticeModel") AdminNoticeModel noticeModel, BindingResult result, 
 			HttpServletRequest request, HttpSession session,MultipartHttpServletRequest multipartHttpServletRequest)throws Exception{
@@ -182,14 +177,12 @@ public class AdminNoticeController {
 			mav.setViewName("adminNoticeForm");
 			return mav;
 		}
-		/*줄바꿈*/
 		
 		String n_content = noticeModel.getN_content().replaceAll("\r\n", "<br />");
 		noticeModel.setN_content(n_content);
 		
 		
 		
-		//업로드
 		MultipartFile multipartFile = multipartHttpServletRequest.getFile("file");
 		String filename = multipartFile.getOriginalFilename();
 		if (filename != ""){ 
@@ -214,7 +207,6 @@ public class AdminNoticeController {
 	
 		
 	
-	//관리자 공지사항 삭제
 	@RequestMapping("/adminNoticeDelete.do")
 	public ModelAndView adminNoticeDelete(HttpServletRequest request){
 		
@@ -226,7 +218,6 @@ public class AdminNoticeController {
 		return mav;	
 	}
 	
-	//관리자 공지사항 수정폼
 	@RequestMapping("/adminNoticeModify.do")
 	public ModelAndView adminNoticeModifyForm(@ModelAttribute("noticeModel") AdminNoticeModel noticeModel, BindingResult result, HttpServletRequest request)throws Exception{
 		
@@ -242,7 +233,6 @@ public class AdminNoticeController {
 		return mav;	
 	}
 	
-	//관리자 공지사항 수정
 	@RequestMapping("/adminNoticeModifySuccess.do")
 	public ModelAndView adminNoticeModify(@ModelAttribute("noticeModel") AdminNoticeModel noticeModel, BindingResult result, MultipartHttpServletRequest multipartHttpServletRequest){
 		
@@ -255,12 +245,10 @@ public class AdminNoticeController {
 			return mav;
 		}
         
-        /*줄바꿈*/
 		String n_content = noticeModel.getN_content().replaceAll("\r\n", "<br />");
 		noticeModel.setN_content(n_content);
 	    
         if (multipartHttpServletRequest.getFile("file") != null){
- 		//메인 상품이미지
         	MultipartFile multipartFile = multipartHttpServletRequest.getFile("file");
         	String filename = multipartFile.getOriginalFilename();
 	        	if (filename != ""){ 
@@ -291,7 +279,6 @@ public class AdminNoticeController {
 	}
 	
 	
-	//선택삭제
 	@RequestMapping("/adminNoticeDeleteAll.do")
 	public ModelAndView adminNoticeDeleteAll(HttpServletRequest request) throws Exception {
 	
