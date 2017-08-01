@@ -80,7 +80,7 @@
 								<p><a href="#"><input type="submit" class="login-btn" value="로그인" name="" style="border: none;"></a>
 								</p><c:if test="${aboutLogin.equals('loginError') }">
 								<div class="login-title" align="center">
-								입력한 아이디가 존재하지 않습니다. <br><br>아이디를 다시 한번 입력해 주세요.
+								입력한 아이디/비밀번호가 올바르지 않습니다. <br><br>아이디/비밀번호를 다시 한번 입력해 주세요.
 								</div>
 					</c:if>
 								<div class="save-check save-check2">
