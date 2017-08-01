@@ -29,10 +29,10 @@
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <!-- Nav tabs -->
-                            <ul class="nav nav-tabs">
-                                <li><a href="http://localhost:8080/SDDuo/AdminReserve/OneReserList.do?pr_center=${gr_center }" data-toggle="tab">개인예약</a>
+                            <ul class="nav tabMenu">
+                                <li><a href="http://localhost:8080/SDDuo/AdminReserve/OneReserList.do?pr_center=${gr_center }" >개인예약</a>
                                 </li>
-                                <li class="active"><a href="http://localhost:8080/SDDuo/AdminReserve/GrReserList.do?gr_center=${gr_center }" data-toggle="tab">그룹예약</a>
+                                <li class="active"><a href="http://localhost:8080/SDDuo/AdminReserve/GrReserList.do?gr_center=${gr_center }" >그룹예약</a>
                                 </li>
                             </ul>
 
@@ -55,12 +55,12 @@
                                  <tr>
                                  		<td>
                                  		<input type="hidden" name="gr_center" value="${gr_center }">
-                                 			<select name="isSearch">
+                                 			<select name="isSearch"  style="height: 34px;">
                                  				<option value="0">예약일순</option>
                                  				<option value="1">최신순</option>
                                  				<option value="2">예약대기</option>
                                  			</select>
-                                 			<input name="submit" type="submit" value="검색"/>
+                                 			<input name="submit" type="submit" value="검색" class="btn btn-outline btn-primary"/>
                                  			</form>             			
                                  		</td>
                                  		
@@ -68,7 +68,7 @@
                                  		<td  colspan="5">
                                  		<input type="hidden" name="gr_center" value="${gr_center }">
                                  		
-                                 			<select id="gr_year" name="gr_year">
+                                 			<select id="gr_year" name="gr_year"  style="height: 34px;">
                                           	<option value="">-선택하세요-</option>
                                              <%for(int i=2017; i<=2027; i++){ %>
                                              <%int from = 'i';
@@ -78,7 +78,7 @@
                                              <%} %>
                                              </select>년&nbsp;&nbsp;
                                              
-                                             <select id="gr_month" name="gr_month">
+                                             <select id="gr_month" name="gr_month"  style="height: 34px;">
                                           	<option value="">-선택하세요-</option>
                                              <%for(int i=1; i<=12; i++){ %>
                                              <%
@@ -91,7 +91,7 @@
                                              <%} %>
                                              </select>월&nbsp;&nbsp;
                                              
-                                             <select id="gr_day" name="gr_day">
+                                             <select id="gr_day" name="gr_day"  style="height: 34px;">
                                           	<option value="">-선택하세요-</option>
                                              <%for(int i=1; i<= 31; i++){ %>
                                              <%
@@ -103,7 +103,7 @@
                                              <option value="<%=s%>"><%=s %></option>
                                              <%} %>
                                              </select>일&nbsp;&nbsp;
-                                             <input name="submit" type="submit" value="검색"/>
+                                             <input name="submit" type="submit" value="검색" class="btn btn-outline btn-primary"/>
                                  		</td>
                                  	</tr>
                                  

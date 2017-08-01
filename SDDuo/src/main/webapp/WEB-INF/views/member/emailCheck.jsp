@@ -28,7 +28,7 @@
 <html>
 <div align="center">
 	<c:if test="${member !=null}">
-			<font color="red">${member.m_id}</font>는 이미 사용중인 이메일 주소 입니다.<br>
+			<font color="red">${member.m_email}</font>는 이미 사용중인 이메일 주소 입니다.<br>
 			다른 이메일 주소를 이용해 주시기 바랍니다.	
 			 <br>
 			<form onsubmit="return emailCheck();" name="emailCheck">
