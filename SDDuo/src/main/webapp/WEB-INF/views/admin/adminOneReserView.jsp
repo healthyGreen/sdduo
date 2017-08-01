@@ -29,8 +29,8 @@
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <!-- Nav tabs -->
-                            <ul class="nav nav-tabs">
-                                <li class="active"><data-toggle="tab">개인예약
+                            <ul class="nav ">
+                                <li class="active" style="font-size: 20px; padding-left: 14px; ">개인예약
                                 </li>
                             </ul>
 
