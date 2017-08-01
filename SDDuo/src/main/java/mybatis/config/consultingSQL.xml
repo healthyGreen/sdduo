@@ -74,7 +74,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
       select b.c_number, b.c_title, b.c_content, b.c_pass, b.m_id, b.c_date, b.c_re_status, b.c_ref from 
       (select c_number, c_title, c_content, c_pass, m_id, c_date, c_re_status, c_ref from f_consulting where m_id='admin' or m_id=#{m_id}) a, 
       (select c_number, c_title, c_content, c_pass, m_id, c_date, c_re_status, c_ref from f_consulting where m_id='admin' or m_id=#{m_id}) b 
-      where a.c_number=b.c_ref
+      where a.c_number=b.c_ref order by c_ref desc, c_re_status asc
    </select> 
    
    <select id="myTotalConsultingNum2" parameterType="string" resultType="int">
