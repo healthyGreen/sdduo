@@ -7,7 +7,7 @@
 <script type="text/javascript">
 	function deletOk() {
 		if(confirm("삭제하시겠습니까?")){
-			window.location.href='consultingDeletePro.do?c_number=${consultingmodel.c_number}&c_ref=${consultingmodel.c_ref}';
+			window.location.href='consultingDeletePro.do?c_number=${consultingmodel.c_number}&c_ref=${consultingmodel.c_ref}'';
 		}else{
 			alert("취소되었습니다.");
 		}
@@ -24,7 +24,7 @@
 					</p>
 					<div class="resev-box">
 					<!-- 	<p class="listnum">총 <span>88</span>건 1/9</p> -->
-						<p class="reserv-btn">실시간예약 바로가기</p>
+						<p class="reserv-btn" onclick="location.href='<%=request.getContextPath()%>/Reserve/OneReserveForm.do'">실시간예약 바로가기</p>
 					</div>
 					<table width="100%" class="view-board01">
 						<colgroup>

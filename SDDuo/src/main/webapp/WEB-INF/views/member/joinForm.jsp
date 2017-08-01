@@ -5,29 +5,35 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<!DOCTYPE html PUBliC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
    <script>
-   function openC(join) {
-	      
-       if (document.join.ic.value == "a") {
+   $(document).ready(function () {
+       $("#m_id").keydown(function (e) {
+           $("#ic").val('N');
+       });
+   });
+   
+   $(document).ready(function () {
+       $("#m_email").keydown(function (e) {
+           $("#ec").val('N');
+       });
+   });
+   
+   
+   function openC() {
+       
+      if (document.join.ic.value == "N") {
            alert("아이디 중복확인을 해주세요");
            return false;
        }
-       if (document.join.ec.value == "b") {
+       
+       
+       if (document.join.ec.value == "N") {
            alert("이메일 중복확인을 해주세요");
            return false;
        }
    }
-   
-   function ic(name){
-      document.getElementById('ic').value = name;
-   }
-   
-   function ec(email){
-	      document.getElementById('ec').value = email;
 
-   }m
    function joinValidator(join){
 	   var frm = document.join;
 	   
@@ -35,106 +41,45 @@
          alert("Id를 입력해주세요.");
          document.join.m_id.focus();
          return false;
-      }  
-      
-      if(frm.m_name.value.trim() == ""){
+         
+      } if(frm.m_id.value.length <4 || frm.m_id.value.length>8){
+    	  alert("Id의 길이를 준수하여 주세요");
+          document.join.m_id.focus();
+          return;
+      }
+    	 if(frm.m_name.value.trim() == ""){
          alert("이름을 입력해주세요.");
          join.m_name.focus();
          return false;
-      }
-      
-      if(frm.m_pass.value.trim() == ""){
+         
+      } if(frm.m_pass.value.trim() == ""){
          alert("비밀번호를 입력해주세요.");
          join.m_pass.focus();
-         return false;
+         return false;   
          
-      }
-      if(frm.m_pass2.value.trim() == ""){
+      }if(frm.m_pass2.value.trim() == ""){
          alert("비밀번호 확인을 입력해주세요.");
-         join.m_pass2.focus();
-        
+         join.m_pass2.focus();    
          return;
-      }
-      
-      if(frm.m_pass.value != frm.m_pass2.value){
+         
+      } if(frm.m_pass.value != frm.m_pass2.value){
      	 alert("비밀번호가 일치하지 않습니다");
   	    frm.m_pass.value="";
   	    frm.m_pass2.value="";
   	    return false;
-      }
-      
-      if(frm.m_sex.value.trim() == ""){
+  	    
+      }/* else if(frm.m_sex.value.trim() == ""){
          alert("성별을 선택해주세요.")
          join.m_sex.focus();
-         return;
-      }
-      
-      if(frm.m_year.value.trim() == ""){
+         return false;
+         
+      } else if(frm.m_year.value.trim() == ""){
             alert("연도를 선택해주세요.");
             join.m_year.focus();
-            return;
+            return false;
+         } */else{
+        	 
          }
-     /*  
-      if(frm.m_month.value.trim() == ""){
-            alert("월을 선택해주세요.");
-            join.m_month.focus();
-            return;
-         }
-      
-      if(frm.m_date.value.trim() == ""){
-            alert("일자를 선택해주세요.");
-            join.m_date.focus();
-            return;
-         }
-      
-      if(frm.m_tongsinsa.value.trim() == ""){
-         alert("통신사를 선택해주세요.");
-         join.m_tongsinsa.focus();
-         return;
-      }
-      
-      if(frm.m_phone1.value.trim() == ""){
-         alert("연락처를 입력해주세요.");
-         join.m_phone1.focus();
-         return;
-      }
-      
-      if(frm.m_phone2.value.trim() == ""){
-         alert("연락처를 입력해주세요.");
-         join.m_phone2.focus();
-         return;
-      }
-      
-      if(frm.m_phone3.value.trim() == ""){
-         alert("연락처를 입력해주세요.");
-         join.m_phone3.focus();
-         return;
-      } */
-      
-     /*  var phone = frm.m_tongsinsa.value.trim() + frm.m_phone1.value.trim() + frm.m_phone2.value.trim() + frm.m_phone3.value.trim();
-      if(phone.length < 10){
-         alert("연락처를 정확히 입력해주세요.");
-         return;
-      }
-      
-      
-      if(frm.m_zipcode.value.trim() == ""){
-         alert("우편번호를 입력해주세요.");
-         join.m_zipcode.focus();
-         return;
-      }
-      
-      if(frm.m_add1.value.trim() == ""){
-            alert("주소1 을 입력해주세요.");
-            join.m_add1.focus();
-            return;
-         }
-      
-      if(frm.m_add2.value.trim() == ""){
-            alert("주소2 를 입력해주세요.");
-            join.m_add2.focus();
-            return;
-         } */
    }
    
 // 비밀번호 체크
@@ -163,8 +108,8 @@
   	}
   }
    
-   function check_key() {
-	   var char_ASCII = event.keyCode;
+   function check_key(e) {
+	   var char_ASCII = e;
 	                  
 	    //숫자
 	   if (char_ASCII >= 48 && char_ASCII <= 57 )
@@ -182,18 +127,31 @@
 	   else 
 	      return 0;
 	  }
+   
+   function name_check() {
+	   var key = event.keyCode;
+	if(check_key(key) == 4 || check_key(key)==1){
+		alert("이름은 한글과 영문으로만 입력해주시기 바랍니다.");
+		document.join.m_id.focus();
+		return false;
+	}
+}
 
 	   
 
 	  //텍스트 박스에 숫자와 영문만 입력할수있도록
 
 	  function nonHangulSpecialKey() {
-
-	   if(check_key() != 1 && check_key() != 2 && check_key() != 4) {
-	    event.returnValue = false;   
+		  var key = event.keyCode;
+	    if(check_key(key) != 1 && check_key(key) != 2 && check_key(key) != 4) {
+		    if(event.keyCode==8 ||event.keyCode==21 ||event.keyCode==13 || event.keyCode==37 || event.keyCode==39 || event.keyCode==46){
+ 				return false;
+ 				}  
 	    alert("올바르지 않은 이메일 주소입니다.");
+	    event.returnValue = false;   
 	    return;
-	   }
+	   } 
+		  
 	  }
 
 	   
@@ -221,12 +179,52 @@
   </script>
   	
   	<script type="text/javascript">
-  	function eng_number(){
-  	if(event.keyCode==8 || event.keyCode==9 || event.keyCode==37 || event.keyCode==39 || event.keyCode==46)
-  		event.returnValue=false;
-  	m_email.value = m_email.value.replace(/[\a-zㄱ-ㅎㅏ-ㅣ가-힣]/g, '');
-  	}
+   	function eng_number(){
+   		//var event = window.event || e;
+  		var join = document.join;
+  		var e = event.keyCode;
+  		
+  		
+  			//event.returnValue=false;
+  			if(check_key(e)!=1 && check_key(e)!=2){
+  			 if(event.keyCode==8 ||event.keyCode==21 ||event.keyCode==13 || event.keyCode==37 || event.keyCode==39 || event.keyCode==46){
+  				return false;} 
+  				alert("아이디는 영어와 숫자로만 해주시기 바랍니다!");
+  				//join.m_id.value = join.m_id.value.replace(/[\ㄱ-ㅎㅏ-ㅣ가-힣]/g, ' ');
+  				join.m_id.value = "";
+  				event.returnValue = "";
+  				return false;
+
+
+  				//join.m_id.focus();
+  				
+  			}	
+  			
+  	} 
   	
+   	
+   	function name_check(){
+   		//var event = window.event || e;
+  		var join = document.join;
+  		var e = event.keyCode;
+
+  			//event.returnValue=false;
+  			if(check_key(e)!=2 && check_key(e)!=3){
+  			if(event.keyCode==8 || event.keyCode==21 || event.keyCode==9 || event.keyCode==37 || event.keyCode==39 || event.keyCode==46){
+  				return false;}
+  				alert("이름은는 영어혹은 한글로만 해주시기 바랍니다!");
+  				//join.m_id.value = join.m_id.value.replace(/[\ㄱ-ㅎㅏ-ㅣ가-힣]/g, '');
+  				//event.returnValue = false;
+  				join.m_name.value = "";
+  				event.returnValue = "";
+  				return false;
+
+
+  				//join.m_id.focus();
+  				
+  			}	
+  			
+  	} 
   	</script> 
    
 
@@ -245,7 +243,7 @@
             
       }else{
          open(url, "IdConfirm", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=400,height=600");
-         join.m_id.readOnly = true;
+        // join.m_id.readOnly = true;
 
          }
 }
@@ -347,8 +345,8 @@
                <tr>
                   <th class=" "><label for="id"><span class="color">*</span>아이디</label></th>
                   <td class=" ">
-                      <input type="text" required="" class="common-text-box box-left " id="m_id" name="m_id" maxlength="8"/> &nbsp;
-                      	 <input type="hidden" id="ic" name="ic" value="a">
+                      <input type="text" onkeydown="eng_number();" class="common-text-box box-left " id="m_id" name="m_id" maxlength="8"/> &nbsp;
+                      	<input type="hidden" id="ic" name="ic" value="N">
                        <input type="button" value="중복확인" style="background:#484647;cursor: pointer;border: none;color: #Fff;padding: 6px 7px;" onclick="javascript:IdConfirm(join)"/>   
                      <p class="exp">4~8자의 영문+숫자를 사용해 주세요.</p> 
                    <form:errors path="m_id"/>
@@ -357,7 +355,7 @@
                <tr>
                  <th class=" "><label for="id"><span class="color">*</span>이름</label></th>
                  <td class=" ">
-                   <input type="text"  required="" class="common-text-box box-left " id="m_name" name="m_name" maxlength="8" onkeydown="fn_press_han(this);" style="ime-mode:disabled;"/>
+                   <input type="text"  onkeydown="name_check();" class="common-text-box box-left " id="m_name" name="m_name" maxlength="8" style="ime-mode:disabled;"/>
                   
                  </td>
                </tr>
@@ -413,9 +411,9 @@
                      <option>KT</option>
                      <option>LG</option>
                   </select>
-   <input type="text" name="m_phone1"  required="" class="common-text-box4"id="m_phone1" value="010" size="3" maxlength="3" required=""  label="핸드폰" onkeypress="return fn_press(event,'numbers');" onkeydown="fn_press(this);" style='IME-MODE:disabled'/> -
-   <input type="text" name="m_phone2"  required="" class="common-text-box4"id="m_phone2"  size="4" maxlength="4" required=""  label="핸드폰" onKeyDown="javascript:onlyNumberInput()" style='IME-MODE:disabled'/> -
-   <input type="text" name="m_phone3"  required="" class="common-text-box4" id="m_phone3"  size="4" maxlength="4" required=""  label="핸드폰" onKeyDown="javascript:onlyNumberInput()" style='IME-MODE:disabled'/>
+  <input type="text" name="m_phone1"  required="" class="common-text-box4"id="m_phone1" value="010" size="3" maxlength="3" required=""  label="핸드폰" onkeypress="return fn_press(event,'numbers');" onkeydown="fn_press(this);" style='IME-MODE:disabled'/> -
+   <input type="text" name="m_phone2"  required="" class="common-text-box4"id="m_phone2"  size="4" maxlength="4" required=""  label="핸드폰" onkeypress="return fn_press(event,'numbers');" onkeydown="fn_press(this);" style='IME-MODE:disabled'/> -
+   <input type="text" name="m_phone3"  required="" class="common-text-box4" id="m_phone3"  size="4" maxlength="4" required=""  label="핸드폰" onkeypress="return fn_press(event,'numbers');" onkeydown="fn_press(this);" style='IME-MODE:disabled'/>
 
    </td>
                </tr>
@@ -423,11 +421,11 @@
                   <th>
                      <label for="email"><span class="color">*</span>E-MAIL</label>
                   </th>
-                   <input type="hidden" id="ec" name="ec" value="b">
+                  <input type="hidden" id="ec" name="ec" value="N">
                   <input type="button" value="중복확인" style="background:#484647;cursor: pointer;border: none;color: #Fff;padding: 6px 7px;" onclick="javascript:EmailConfirm(join)"/> 
                   <td class="radio-txt-pt">
                      <p class="mt-5">
-                        <input type="text"  required="" id="m_email" name="m_email" class="common-text-box2 " onkeydown="fn_press_han(this);" style="ime-mode:disabled;" /> 
+                        <input type="text" id="m_email" name="m_email" class="common-text-box2 " onkeydown="nonHangulSpecialKey();" style="ime-mode:disabled;" /> 
                            
                      </p>
                 

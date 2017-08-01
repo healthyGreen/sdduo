@@ -48,7 +48,6 @@
 								</div>
 							</td>
 						</tr>
-						<tr><th><div class="tit">상담 내용</div></th></tr>
 						<tr>
 							<td class="dmc_content content">
 								
@@ -72,13 +71,13 @@ ${consultingmodel.c_content }
 
  			<%-- 	</c:if> --%>
 						<%-- <p ><input type="button" value="목록" onclick="location.href='<%=request.getContextPath() %>/admin/adminConsultingList.do'" class="btn01 list"></p> --%>
-						 <c:if test="${consultingmodel.m_id=='admin' }">
+						 
 						<div class="area">
-							<p class="btn01"><input type="button" value="수정" onclick="location.href='<%=request.getContextPath() %>/admin/adminConsultingModify.do?c_number=${consultingmodel.c_number }'"></p>
+							<input type="button" value="수정" onclick="location.href='<%=request.getContextPath() %>/admin/adminConsultingModify.do?c_number=${consultingmodel.c_number }'" class="btn btn-outline btn-primary" style="margin-right: 10px; ">
+							<input type="button" value="삭제" onclick="javascript:deletOk();" class="btn btn-outline btn-primary" style="margin-right: 10px; ">
 						<%-- 	<p class="btn02"><input type="button" value="삭제" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingDeletePro.do?c_number=${consultingmodel.c_number }'"></p> --%>
 						</div>
-						 </c:if>
-							<input type="button" value="삭제" onclick="javascript:deletOk();" class="btn btn-outline btn-primary" style="margin-right: 10px; ">
+						
 					</div>
 				</div>
 				

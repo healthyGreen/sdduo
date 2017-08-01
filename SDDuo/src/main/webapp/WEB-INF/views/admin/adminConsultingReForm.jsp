@@ -6,9 +6,9 @@
 <html>
 <body>
 <div id="page-wrapper">
-				<div class="col-lg-12">
+				<!-- <div class="col-lg-12">
              <h1 class="">온라인 상담 글쓰기</h1>	
-             </div>
+             </div> -->
 				<c:choose>
 			<c:when test="${state.equals('modify')}">
 				<div class="col-lg-12">
@@ -16,7 +16,7 @@
              </div>
 				<spring:hasBindErrors name="consulting" />
 				<form:errors path="consulting" /> 
-				<form:form commandName="consulting" action="adminConsultingModifyPo.do">
+				<form:form commandName="consulting" action="adminConsultingModifyPro.do">
 					<table class="write-board01">
 						<tbody>
 							<tr>
@@ -53,13 +53,16 @@
 							type="button" value="취소" class="cancel">
 					</div> -->
 					<div class="menu-wrap" style="width: 150px; margin: 20px auto;">
-							<button type="submit" class="btn btn-outline btn-primary" style="margin-right: 10px; ">확인</button>
-							<button type="button" class="btn btn-primary">취소</button>
+							<button type="submit" class="btn btn-outline btn-primary" style="margin-right: 10px; " >확인</button>
+							<button type="button" class="btn btn-primary" onclick="javascript:history.back();">취소</button>
 						</div>
 					
 				</form:form>
 			</c:when>
 			<c:otherwise>
+			<div class="col-lg-12">
+             <h1 class="">온라인 상담 글쓰기</h1>	
+             </div>
 			<spring:hasBindErrors name="consulting" />
 			<form:errors path="consulting" /> 
 				<form:form commandName="consulting" action="adminConsultingRePro.do">
@@ -86,7 +89,7 @@
 					</table>
 					<div class="menu-wrap" style="width: 150px; margin: 20px auto;">
 							<button type="submit" class="btn btn-outline btn-primary" style="margin-right: 10px; ">확인</button>
-							<button type="button" class="btn btn-primary">취소</button>
+							<button type="button" class="btn btn-primary" onclick="javascript:history.back();">취소</button>
 						</div>
 					
 					

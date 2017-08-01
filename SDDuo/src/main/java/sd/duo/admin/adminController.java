@@ -239,7 +239,7 @@ public class adminController{
 	public ModelAndView adminConsultingDeletePro(HttpServletRequest request, consultingModel consultingmodel) {
 		int c_number = Integer.parseInt(request.getParameter("c_number"));
 		int c_ref = Integer.parseInt(request.getParameter("c_ref"));
-		consultingService.deleteConsulting(c_number);
+		consultingService.deleteConsulting(c_ref);
 		consultingService.changeState(c_ref);
 		mav.setViewName("redirect:/admin/adminConsultingList.do");
 		return mav;

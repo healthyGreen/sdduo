@@ -5,24 +5,27 @@
 <script type="text/javascript">
   function setId(m_id) {
     opener.document.join.m_id.value = "${m_id}";
-   	
+      
     opener.ic(m_id);
+    opener.document.getElementById("ic").value="Y";
+    opener.document.getElementById("ec").value="Y"; 
+
     self.close();
  }  
  function idCheck() {
-	      var m_id = document.idCk.m_id.value;
-	     
-	      if(m_id == ""){
-	         alert("체크할 아이디를 입력해 주세요");
-	         document.idCk.m_id.focus();
-	         return false;        
-	      }else{
-	    	
-	    	 form.action = "idCheck.do?m_id="+m_id;
-				form.submit();
-	        
-	      }
-	   }
+         var m_id = document.idCk.m_id.value;
+        
+         if(m_id == ""){
+            alert("체크할 아이디를 입력해 주세요");
+            document.idCk.m_id.focus();
+            return false;        
+         }else{
+          
+           form.action = "idCheck.do?m_id="+m_id;
+            form.submit();
+           
+         }
+      }
  
  
 </script>

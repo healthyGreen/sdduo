@@ -22,7 +22,9 @@
 						<tbody>
 						<c:choose>
 							<c:when test="${fn:length(consultinglist) le 0}">
-								등록된 게시물이 없습니다.
+							<tr><td>
+								답변이 확인된 글이 없습니다.
+								</td></tr>
 							</c:when>
 							<c:otherwise>
 							<tr>
@@ -56,29 +58,26 @@
 								</td>
 								<th>${list.m_id }</th>
 								<th><fmt:formatDate value="${list.c_date }" pattern="yyyy.MM.dd"/></th> 
-								<th>
+								<th><p class="finish">
 									<c:if test="${list.c_re_status==2 }">
 			                        <font color="DarkBlue">답변 확인</font>
 			                        </c:if>
 			                        <c:if test="${list.c_re_status==3 }">
 			                        <font color="red">답변글</font>
-			                        </c:if>
+			                        </p></c:if>
 								</th>
 							</tr>
+							<div class="pageing" align="center">
+						${html}
+					</div>
 							</c:forEach>
 							</c:otherwise>
 							</c:choose>
 						</tbody>
 					</table>
 					
-				<!-- 언니 위에 요거 button으로 하고싶은데 버튼으로하면 jstl이 안머거영 ㅠㅠ -->
-				<%-- 	<input type="button" onclick="${replyURL}" value="관리자 답변달기" class="storywrite"> --%> 
-				<c:if test="${session_admin!=1 }">
-					<p class="btn01"><input type="button" value="이야기 쓰기" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingForm.do'"  class="storywrite"></p>
-				</c:if>
-					<div class="pageing" align="center">
-						${html}
-					</div>
+			
+					
 					</div></div>
 					
     <!-- jQuery -->
