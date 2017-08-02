@@ -599,10 +599,10 @@
 					<tr>
 						<th scope="col">번호</th>
 						<th scope="col">문항</th>
-						<th scope="col">전혀 방해 받지 않았다</br>(0점)</th>
-						<th scope="col">며칠 동안 방해 받았다</br>(1점)</th>
-						<th scope="col">2주 중 절반이상 방해 받았다</br>(2점)</th>
-						<th scope="col">거의 매일 방해 받았다</br>(3점)</th>
+						<th scope="col">전혀 방해 </br>받지 않았다</br>(0점)</th>
+						<th scope="col">며칠 동안 </br>방해 받았다</br>(1점)</th>
+						<th scope="col">2주 중 절반이상 </br>방해 받았다</br>(2점)</th>
+						<th scope="col">거의 매일 </br>방해 받았다</br>(3점)</th>
 					</tr>
 					</thead>
 					<tbody>

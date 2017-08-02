@@ -51,7 +51,7 @@
 						
 					
 						<c:if test="${noticeModel.n_sav_image != 'NULL'}">
-							<img src="../resources/upload/${noticeModel.n_sav_image}" style="width: 100%; height: auto;"/><br>
+							<img src="../resources/upload/${noticeModel.n_sav_image}" style="width: 20%; height: auto;"/><br>
 						</c:if>				
 						
 						${noticeModel.n_content }
