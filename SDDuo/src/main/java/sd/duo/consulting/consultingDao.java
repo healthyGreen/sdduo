@@ -10,7 +10,8 @@ public interface consultingDao {
 	int insertConsulting(consultingModel consultingmodel);
 	int insertConsultingReply(consultingModel consultingmodel);
 	int modConsulting(consultingModel consultingmodel);
-	int deleteConsulting(int c_number);
+	int deleteConsulting(int num);
+	int deleteConsultingOnlyRep(int c_number);
 	int totalConsultingNum();
 	List<consultingModel> myConsultingList(String m_id);
 	int myTotalConsultingNum(String m_id);
