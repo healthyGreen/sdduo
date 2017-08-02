@@ -585,7 +585,7 @@
 			
 			<div id="tab2" class="tabcontent tab_content">
 			<form:form commandName="selfModel" id="form2" action="selfWrite.do" enctype="multipart/form-data" method="post">
-				<h4>성인불안</h4>
+				<h4>2. 성인불안</h4>
 					<h5>척도</h5>
 					<div class="lineBox">
 						<p class="tit">지난 2주 동안 당신은 다음의 문제들로 인해서 얼마나 자주 방해를 받았습니까? <br />
@@ -714,7 +714,7 @@
 			
 			<div id="tab3" class="tabcontent tab_content">
 			<form:form commandName="selfModel" id="form3" action="selfWrite.do" enctype="multipart/form-data" method="post">
-				<h4>스트레스 자가 진단</h4>
+				<h4>3. 스트레스 자가 진단</h4>
 					<h5>척도</h5>
 					<div class="lineBox">
 						<p class="tit mb-10">아래 문항을 자세히 읽어 보신 후,<br />
@@ -1007,7 +1007,7 @@
 
 			<div id="tab4" class="tabcontent tab_content">
 			<form:form commandName="selfModel" id="form4" action="selfWrite.do" enctype="multipart/form-data" method="post">
-				<h4 class=" mt-40">분노조절 자가진단</h4>
+				<h4>4. 분노조절 자가진단</h4>
 					<h5>척도</h5>
 					<div class="lineBox">
 						<p class="tit mb-10">아래 문항을 자세히 읽어 보신 후,<br />
