@@ -71,12 +71,12 @@
 							</c:otherwise>
 							</c:choose>
 						</tbody>
+						
 					</table>
-							<div class="pageing" align="center">
+							
+			<div class="pageing" align="center">
 						${html}
 					</div>
-					
-			
 					
 					</div></div>
 					

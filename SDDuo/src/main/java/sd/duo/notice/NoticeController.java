@@ -305,7 +305,7 @@ public class NoticeController {
 		
 		
 		@RequestMapping(value="Faq.do", method = RequestMethod.GET)
-		public String oneReserForm() {
+		public String faq() {
 			
 			return "Faq";
 		}

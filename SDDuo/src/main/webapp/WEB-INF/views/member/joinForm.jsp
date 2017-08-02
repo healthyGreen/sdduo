@@ -431,11 +431,13 @@
                   <th>
                      <label for="email"><span class="color">*</span>E-MAIL</label>
                   </th>
+                  <td>
+                  <input type="text" id="m_email" name="m_email" class="common-text-box2 " onkeydown="nonHangulSpecialKey();" style="ime-mode:disabled;" /> 
                   <input type="hidden" id="ec" name="ec" value="N">
-                  <input type="button" value="중복확인" style="background:#484647;cursor: pointer;border: none;color: #Fff;padding: 6px 7px;" onclick="javascript:EmailConfirm(join)"/> 
-                  <td class="radio-txt-pt">
+                  &nbsp;&nbsp;&nbsp;<input type="button" value="중복확인" style="background:#484647;cursor: pointer;border: none;color: #Fff;padding: 6px 7px;" onclick="javascript:EmailConfirm(join)"/> 
+                 
                      <p class="mt-5">
-                        <input type="text" id="m_email" name="m_email" class="common-text-box2 " onkeydown="nonHangulSpecialKey();" style="ime-mode:disabled;" /> 
+                        
                            
                      </p>
                 

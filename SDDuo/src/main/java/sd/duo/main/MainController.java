@@ -57,7 +57,7 @@ public class MainController {
 	}
 	
 	@RequestMapping(value="/Introduce.do", method = RequestMethod.GET)
-	public String oneReserForm() {
+	public String introduce() {
 		
 		return "introduce";
 	}
