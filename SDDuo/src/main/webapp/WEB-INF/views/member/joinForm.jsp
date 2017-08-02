@@ -19,6 +19,31 @@
        });
    });
    
+    $(document).ready(function () {
+   $("#m_email").keydown(function(e) { 
+	   var text = $("#m_email").val();
+       var regexp = /[0-9a-zA-Z.;\-@]/; // 숫자,영문,특수문자
+       // var regexp = /[0-9]/; // 숫자만
+       // var regexp = /[a-zA-Z]/; // 영문만
+       for( var i=0; i<text.length; i++){
+           if(text.charAt(i) != " " && regexp.test(text.charAt(i)) == false ){
+            document.getElementById('m_email').value = "";
+            return;
+           }
+       }       
+
+   });
+   }); 
+   
+ /*   $( 'input' ).live("blur keyup", function() {
+
+	   $(this).val( $(this).val().replace( /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g, '' ) );
+
+	 });
+ */
+
+
+   
    
    function openC() {
        
@@ -150,7 +175,7 @@
 	   
 
 
-
+/* 
 	  function nonHangulSpecialKey() {
 		  var key = event.keyCode;
 	    if(check_key(key) != 1 && check_key(key) != 2 && check_key(key) != 4) {
@@ -164,6 +189,8 @@
 		  
 	  }
 
+	    */
+	    
 	   
 
 	  //텍스트 박스에 숫자만 입력할수 있도록
