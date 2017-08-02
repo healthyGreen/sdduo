@@ -4,6 +4,11 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
+<style>
+	td{text-align: center; }
+	th{text-align: center; }
+	.subject{text-align:left;}
+</style>
 <body>
 <form action="OneReserList.do">
         <div id="page-wrapper">
@@ -41,31 +46,22 @@
                                 <div class="tab-pane fade in active" id="home">
                                     <div class="panel-body">
                               <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                              	<colgroup>
-                              		<col width="10%">
-                              		<col width="10%">
-                              		<col width="">
-                              		<col width="15%">
-                              		<col width="10%">
-                              		
-                              	</colgroup>
+                              	
                                  <thead>
                                
                                  	<tr>
-                                 		<td>
-	                                 		<input type="hidden" name="pr_center" value="${pr_center }">
+                                 	
+	                                 		<form action="OneReserListDay.do">
+                                 		<td colspan="5">
+                                 			<input type="hidden" name="pr_center" value="${pr_center }">
 	                                 			<select name="isSearch" style="height: 34px;">
 	                                 				<option value="0">예약일순</option>
 	                                 				<option value="1">최신순</option>
 	                                 				<option value="2">예약대기</option>
 	                                 			</select>
-	                                 			<input name="submit" type="submit" value="검색" class="btn btn-outline btn-primary"/>
+	                                 			<input name="submit" type="submit" value="검색" class="btn btn-outline btn-primary" style="margin-right: 20px;"/>
 										</form>
 	                                 			
-	                                 			
-	                                 	</td>
-	                                 		<form action="OneReserListDay.do">
-                                 		<td colspan="4">
 	                                 		<input type="hidden" name="pr_center" value="${pr_center }">
 	                                 		<%-- <input type="hidden" name="pr_year" value="${pr_year }">
 	                                 		<input type="hidden" name="pr_month" value="${pr_month }">
@@ -126,7 +122,7 @@
                                        <tr>
                                           <td>${oneReserList.pr_number}</td>
                                           <td>${ oneReserList.pr_name }</td>
-                                          <td><a href="${viewURL}" style="    text-overflow: ellipsis;    display: inline-block; white-space: nowrap;    word-wrap: normal;    width: 750px;    overflow: hidden;">${oneReserList.pr_reason}</a></td> 
+                                          <td class="subject"><a href="${viewURL}" style="    text-overflow: ellipsis;    display: inline-block; white-space: nowrap;    word-wrap: normal;    width:500px;    overflow: hidden;">${oneReserList.pr_reason}</a></td> 
                                              <td>${ oneReserList.pr_year }.${ oneReserList.pr_month }.${ oneReserList.pr_day }&nbsp;&nbsp;${ oneReserList.pr_hour }:${ oneReserList.pr_minute }</td>
 
                                             <td>

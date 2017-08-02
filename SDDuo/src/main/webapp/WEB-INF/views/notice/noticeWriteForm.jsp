@@ -20,14 +20,14 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-            <div class="row">
+            <div class="row" style="margin-top: 60px; ">
 			<table class="write-board01">
 				
 				<thead>
 						<tr class="danger" >
 							<th width="100">글제목</th>
 							<td colspan=3>
-								<input type="textarea" name="n_title" id="n_title" value="${noticeModel.n_title}"/>
+								<input type="textarea" name="n_title" id="n_title" value="${noticeModel.n_title}"  style="    width: 98%;    height: 35px;    border: 1px solid #f6f6f6;    padding-left: 10px;    margin-left: 10px;"/>
 								<font color="red"><form:errors path="n_title" /></font>
 							</td>
 						</tr>
@@ -38,7 +38,7 @@
 						<tr><!-- 사용자 -->
 							<th>사용자 ID</th>
 							
-							<td colspan=3>
+							<td colspan=3 style="padding: 10px 10px;">
 								<strong>
 									${session_member_id}
 								</strong>
@@ -50,14 +50,14 @@
 						<tr><!-- 글내용 -->
 							<th>글내용</th>
 							<td colspan=3 height=600 style="padding: 0px !important;">
-							   <textarea  name="n_content" id="n_content" onKeyUp="checkLength(this);" style=" padding:3px; margin: 1px; width: 100%; height: 98%;"></textarea>
+							   <textarea  name="n_content" id="n_content" onKeyUp="checkLength(this);"  style="    width: 98%;    height: 98%;    border: 1px solid #f6f6f6;    padding-left: 10px;    margin-left: 10px;"></textarea>
 								<font color="red"><form:errors path="n_content" /></font>
 							</td>
 						</tr>
 							
 						<tr><!-- 파일 -->
 							<th>파일</th>
-							<td colspan=3>
+							<td colspan=3 style="padding: 10px 10px;">
 								<input type="file" name="file" value="${noticeModel.n_sav_image}"/>
 							</td>	
 						</tr>

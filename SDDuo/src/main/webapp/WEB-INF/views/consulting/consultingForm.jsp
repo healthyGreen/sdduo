@@ -35,7 +35,7 @@
 
 		<h3>온라인 상담</h3>
 		<p class="sub02_txt">
-			마이스토리에 남겨주신 소중한 이야기는 내담자 보호 규정에 따라 철저히 비밀 보장 되며 병원과 달리 절대 기록이 남지
+			상담해듀오에 남겨주신 소중한 이야기는 내담자 보호 규정에 따라 철저히 비밀 보장 되며 병원과 달리 절대 기록이 남지
 			않습니다.<br /> <span>답변은 질문 내용에 따라 분류되어 해당 분야 전문선생님에 의해 성실이
 				이루어집니다. <br /> 답변 순서는 각 센터별 전문가 선생님들의 여건에 따라 달라질 수 있음을 양해해 주시기
 				바랍니다.
@@ -80,7 +80,7 @@
 						</tbody>
 					</table>
 
-					<div class="btn-area">
+					<div class="btn-area" style="margin: 20px 0px 10px;">
 						<input type="submit" value="확인" class="submit"> <input
 							type="button" value="취소" class="cancel" onclick="javascript:history.back();">
 					</div>
@@ -127,7 +127,7 @@
 						</tbody>
 					</table>
 
-					<div class="btn-area">
+					<div class="btn-area" style="margin: 20px auto 10px;">
 						<input type="submit" value="확인" class="submit"> <input
 							type="button" value="취소" class="cancel" onclick="javascript:history.back();">
 					</div>

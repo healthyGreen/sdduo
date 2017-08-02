@@ -4,7 +4,11 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
+<style>
+	td{text-align: center; }
+	th{text-align: center; }
+	.subject{text-align:left;}
+</style>
 <body>
 <form action="GrReserList.do">
         <div id="page-wrapper">
@@ -41,19 +45,14 @@
                                 <div class="tab-pane fade in active" id="home">
                                     <div class="panel-body">
                               <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                              	<colgroup>
-                              		<col width="10%">
-                              		<col width="10%">
-                              		<col width="">
-                              		<col width="15%">
-                              		<col width="10%">
-                              		<col width="10%">
-                              		
-                              	</colgroup>
+                              
                                  <thead>
                                  
                                  <tr>
-                                 		<td>
+                                 		
+                                 		
+                                 		<form action="GrReserListDay.do">
+                                 		<td  colspan="6">
                                  		<input type="hidden" name="gr_center" value="${gr_center }">
                                  			<select name="isSearch"  style="height: 34px;">
                                  				<option value="0">예약일순</option>
@@ -61,11 +60,7 @@
                                  				<option value="2">예약대기</option>
                                  			</select>
                                  			<input name="submit" type="submit" value="검색" class="btn btn-outline btn-primary"/>
-                                 			</form>             			
-                                 		</td>
-                                 		
-                                 		<form action="GrReserListDay.do">
-                                 		<td  colspan="5">
+                                 			</form>  
                                  		<input type="hidden" name="gr_center" value="${gr_center }">
                                  		
                                  			<select id="gr_year" name="gr_year"  style="height: 34px;">
@@ -124,7 +119,7 @@
                                        <tr>
                                           <td>${groupReserList.gr_number}</td>
                                           <td>${ groupReserList.gr_group}</td>
-                                          <td><a href="${viewURL}" style="    text-overflow: ellipsis;    display: inline-block; white-space: nowrap;    word-wrap: normal;    width: 650px;    overflow: hidden;">${groupReserList.gr_reason}</a></td> 
+                                          <td class="subject"><a href="${viewURL}" style="    text-overflow: ellipsis;    display: inline-block; white-space: nowrap;    word-wrap: normal;    width: 400px;    overflow: hidden;">${groupReserList.gr_reason}</a></td> 
                                           <td>${ groupReserList.gr_year }.${ groupReserList.gr_month }.${ groupReserList.gr_day }&nbsp;&nbsp;${ groupReserList.gr_hour }:${ groupReserList.gr_minute }</td>
                                           <td>${groupReserList.gr_p_number}</td> 
 
