@@ -7,7 +7,7 @@
 <script type="text/javascript">
 	function deletOk() {
 		if(confirm("삭제하시겠습니까?")){
-			window.location.href='adminConsultingDeletePro.do?c_number=${consultingmodel.c_number}&c_ref=${consultingmodel.c_ref}';
+			window.location.href='adminConsultingDeletePro.do?c_number=${consultingmodel.c_number}&c_ref=${consultingmodel.c_ref}&c_re_status=${consultingmodel.c_re_status}';
 		}else{
 			alert("취소되었습니다.");
 		}

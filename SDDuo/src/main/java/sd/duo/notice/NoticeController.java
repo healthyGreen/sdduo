@@ -44,7 +44,7 @@ public class NoticeController {
 		private String pagingHtml;  
 		private Paging page;
 	
-		private static final String uploadPath = "C:\\Java\\FINAL\\SDDuo\\src\\main\\webapp\\resources\\upload";
+		private static final String uploadPath = "C:\\Users\\user\\Desktop\\javaproject\\App\\DUO2\\SDDuo\\src\\main\\webapp\\resources\\upload";
 		
 		
 		@RequestMapping(value="/noticeList.do", method=RequestMethod.GET)

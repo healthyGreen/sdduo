@@ -183,12 +183,15 @@ public class consultingController {
 	public ModelAndView consultingDeletePro(HttpServletRequest request, consultingModel consultingmodel) {
 		int c_number = Integer.parseInt(request.getParameter("c_number"));
 		int c_ref = Integer.parseInt(request.getParameter("c_ref"));
-		/*int c_re_status = Integer.parseInt(request.getParameter("c_re_status"));
-		if(c_re_status==2){
-			
-		}*/
-		service.deleteConsulting(c_ref);
-		service.changeState(c_ref);
+		int c_re_status = Integer.parseInt(request.getParameter("c_re_status"));
+		/*System.out.println(c_re_status);
+		System.out.println("!");*/
+		if(c_re_status == 3){	
+			service.deleteConsultingOnlyRep(c_number);
+		}else if(c_re_status==2 || c_re_status==1){	
+			service.deleteConsulting(c_ref);
+		}
+			service.changeState(c_ref);
 		mv.setViewName("redirect:/consulting/consultingList.do");
 		return mv;
 	}

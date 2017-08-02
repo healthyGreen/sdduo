@@ -7,7 +7,7 @@
 <script type="text/javascript">
 	function deletOk() {
 		if(confirm("삭제하시겠습니까?")){
-			window.location.href='consultingDeletePro.do?c_number=${consultingmodel.c_number}&c_ref=${consultingmodel.c_ref}'';
+			window.location.href='consultingDeletePro.do?c_number=${consultingmodel.c_number}&c_ref=${consultingmodel.c_ref}&c_re_status=${consultingmodel.c_re_status}';
 		}else{
 			alert("취소되었습니다.");
 		}
@@ -86,6 +86,17 @@ ${consultingmodel.c_content }
 						</div>
 						 </c:if>
 						 </c:if> 
+						 
+						 <c:if test="${session_admin.equals('1') }">
+						 <div class="area">
+							<input type="button" value="수정" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingModify.do?c_number=${consultingmodel.c_number }'" class="btn btn-outline btn-primary" style="margin-right: 10px; ">
+						<%-- 	<p class="btn02"><input type="button" value="삭제" onclick="location.href='<%=request.getContextPath() %>/consulting/consultingDeletePro.do?c_number=${consultingmodel.c_number }'"></p> --%>
+							<input type="button" value="삭제" onclick="javascript:deletOk();" class="btn btn-outline btn-primary" style="margin-right: 10px; ">
+									<!-- <button type="button" onclick="onModify(${noticeModel.n_number })" class="btn btn-outline btn-primary" style="margin-right: 10px; ">수정</button>
+					<button type="button" onclick="noticeDelete(${noticeModel.n_number })" class="btn btn-outline btn-primary" style="margin-right: 10px; ">삭제</button>
+					<button type="button" onclick="onList()" class="btn btn-outline btn-default">목록</button> -->
+						</div>
+						 </c:if>
 					</div>
 				</div>
 			

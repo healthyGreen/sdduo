@@ -92,4 +92,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
       delete f_consulting where c_ref = #{c_ref}
    </delete>
    
+  <delete id="deleteConsultingOnlyRep" parameterType="int">
+      delete f_consulting where c_number = #{c_number}
+   </delete>
+   
 </mapper>
