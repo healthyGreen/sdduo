@@ -19,7 +19,7 @@
        });
    });
    
-    $(document).ready(function () {
+ /*    $(document).ready(function () {
    $("#m_email").keydown(function(e) { 
 	   var text = $("#m_email").val();
        var regexp = /[0-9a-zA-Z.;\-@]/; // 숫자,영문,특수문자
@@ -27,13 +27,15 @@
        // var regexp = /[a-zA-Z]/; // 영문만
        for( var i=0; i<text.length; i++){
            if(text.charAt(i) != " " && regexp.test(text.charAt(i)) == false ){
+        	  // if(event.keyCode==8 || event.keyCode==9 || event.keyCode==37 || event.keyCode==39 || event.keyCode==46) return;
+        	 alert("올바른 형식의 이메일을 입력해 주시기 바랍니다.");
             document.getElementById('m_email').value = "";
             return;
            }
        }       
 
    });
-   }); 
+   });  */
    
  /*   $( 'input' ).live("blur keyup", function() {
 
@@ -175,23 +177,18 @@
 	   
 
 
-/* 
+
 	  function nonHangulSpecialKey() {
 		  var key = event.keyCode;
 	    if(check_key(key) != 1 && check_key(key) != 2 && check_key(key) != 4) {
-		    if(event.keyCode==8 ||event.keyCode==21 || event.keyCode==13 ||event.keyCode==14 ||event.keyCode==15 || event.keyCode==37 || event.keyCode==39 || event.keyCode==46){
+		    if(event.keyCode==8 || event.keyCode==21 || event.keyCode==13 ||event.keyCode==14 ||event.keyCode==16 ||event.keyCode==15 || event.keyCode==37 || event.keyCode==39 || event.keyCode==46){
  				return false;
  				}  
 	    alert("올바르지 않은 이메일 주소입니다.");
 	    event.returnValue = false;   
 	    return;
-	   } 
-		  
+	   }   
 	  }
-
-	    */
-	    
-	   
 
 	  //텍스트 박스에 숫자만 입력할수 있도록
 
